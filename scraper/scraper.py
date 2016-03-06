@@ -12,6 +12,7 @@ allteamurls = []
 
 for year in range(1971, 2016):
 #for year in range(2015, 2016):
+    print "Doing year " + str(year)
     url = "http://www.basketball-reference.com/leagues/NBA_" + str(year) + ".html"
     r = urllib.urlopen(url).read()
 
@@ -43,7 +44,7 @@ for year in range(1971, 2016):
     for line in lines:
         tds = line.find_all("td")
         name = tds[0].find("a").get_text()
-        allteamurls.append(tds[0].find("a")['href'])
+        allteamurls.append([name.replace(" ", "_"), tds[0].find("a")['href']])
         leaguerank = lrre.search(tds[0].find("span").get_text()).group(0)
         srs = tds[7].get_text()
         newValue = {'team': name, 'leaguerank': int(leaguerank), 'srs': float(srs)}
@@ -58,4 +59,4 @@ with open('data.json', 'w') as jsonfile:
 
 f = open('teamurls', 'w')
 for teamurl in allteamurls:
-    f.write("http://www.basketball-reference.com" + teamurl + "\n")
+    f.write(teamurl[0] + " http://www.basketball-reference.com" + teamurl[1] + "\n")
