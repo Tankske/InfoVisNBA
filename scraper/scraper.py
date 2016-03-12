@@ -20,8 +20,8 @@ for year in range(1971, 2016):
 
     es = soup.find("table", id="E_standings")
     ws = soup.find("table", id="W_standings")
-    lines = es.find_all("tr", class_="full_table")
-    lines.extend(ws.find_all("tr", class_="full_table"))
+    easts = es.find_all("tr", class_="full_table")
+    wests = ws.find_all("tr", class_="full_table")
 
     po = soup.find("div", id="all_playoffs").find("table")
     pos = po.find_all("tr", class_="mobile_text")
@@ -41,13 +41,24 @@ for year in range(1971, 2016):
             playoffrank[winner] = 5
         thisYear['playoffs'].append({'game': game, 'winner': winner, 'loser': loser, 'score': score})
 
-    for line in lines:
+    for line in easts:
         tds = line.find_all("td")
         name = tds[0].find("a").get_text()
         allteamurls.append([name.replace(" ", "_"), tds[0].find("a")['href']])
         leaguerank = lrre.search(tds[0].find("span").get_text()).group(0)
         srs = tds[7].get_text()
-        newValue = {'team': name, 'leaguerank': int(leaguerank), 'srs': float(srs)}
+        newValue = {'team': name, 'leaguerank': int(leaguerank), 'srs': float(srs), 'region': "east"}
+        if name in playoffrank:
+            newValue['playoffrank'] = playoffrank[name]
+        thisYear['teams'].append(newValue)
+
+    for line in wests:
+        tds = line.find_all("td")
+        name = tds[0].find("a").get_text()
+        allteamurls.append([name.replace(" ", "_"), tds[0].find("a")['href']])
+        leaguerank = lrre.search(tds[0].find("span").get_text()).group(0)
+        srs = tds[7].get_text()
+        newValue = {'team': name, 'leaguerank': int(leaguerank), 'srs': float(srs), 'region': "west"}
         if name in playoffrank:
             newValue['playoffrank'] = playoffrank[name]
         thisYear['teams'].append(newValue)
