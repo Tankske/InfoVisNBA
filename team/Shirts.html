@@ -125,53 +125,71 @@
         }
 
         
-        function teamData(team, year) {
+        function teamData(teamWanted, yearWanted) {
             var incomingPlayers = [],
                     outgoingPlayers = [],
                     stayedPlayers = [];
-            d3.csv("teams_" + team + "_" + year + "_advanced.csv", function(currPlayers) {
-                d3.csv("teams_" + team + "_" + (year-1) + "_advanced.csv", function(prevPlayers) {
+            var previousPlayers = [],
+                currentPlayers = [];
+            //d3.csv("teams_" + team + "_" + year + "_advanced.csv", function(currPlayers) {
+                //d3.csv("teams_" + team + "_" + (year-1) + "_advanced.csv", function(prevPlayers) {
 //                    console.log("players: ", currPlayers, currPlayers.length);
 //                    console.log("players: ", prevPlayers, prevPlayers.length);
 //                    console.log(currPlayers[0]);
+            d3.json("combined.json", function (data) {
+                    data.forEach(function (yearData) {
+                        if (yearData.year == yearWanted - 1) {
 
-                    for (var i = 0; i < currPlayers.length; i++) {
-                        var currPlayer = currPlayers[i];
-                        var isNew = true;
-                            for (var j = 0; j < prevPlayers.length; j++) {
-                                var prevPlayer = prevPlayers[j];
-                                if (currPlayer.Player == prevPlayer.Player) {
-                                    isNew = false;
+                            yearData.teams.forEach(function (teamData) {
+                                if (teamData.team == teamWanted) {
+                                    previousPlayers = teamData.players; 
                                 }
+                            });
+                        }
+
+                        if (yearData.year == yearWanted) {
+                            yearData.teams.forEach(function (teamData) {
+                                if (teamData.team == teamWanted) {
+                                    currentPlayers = teamData.players; 
+                                }
+                            });
+                        }
+                    });
+
+                    console.log(previousPlayers);
+
+                    currentPlayers.forEach(function (currPlayer) {
+                        var isNew = true;
+                        previousPlayers.forEach(function (prevPlayer) {
+                            if (currPlayer.Player == prevPlayer.Player) {
+                                isNew = false;
                             }
+                        });
                         if (!isNew) {
                             stayedPlayers.push(currPlayer);
                         }
                         else {
                             incomingPlayers.push(currPlayer);
                         }
-                    }
-                    for (var i = 0; i < prevPlayers.length; i++) {
-                        var prevPlayer = prevPlayers[i];
+                    });
+                    previousPlayers.forEach(function (prevPlayer) {
                         var isGone = true;
-                        for (var j = 0; j < currPlayers.length; j++) {
-                            var currPlayer = currPlayers[j];
+                        currentPlayers.forEach(function (currPlayer) {
                             if (currPlayer.Player == prevPlayer.Player) {
                                 isGone = false;
                             }
-                        }
+                        });
                         if (isGone) {
                             outgoingPlayers.push(prevPlayer);
                         }
-                    }
+                    });
                     console.log(incomingPlayers, totalPER(incomingPlayers));
                     console.log(stayedPlayers, totalPER(stayedPlayers));
                     console.log(outgoingPlayers, totalPER(outgoingPlayers));
                     console.log(bestTwoPlayers(outgoingPlayers));
-                });
-                draw(currPlayers, "PER");
             });
-        }
+            draw(currentPlayers, "PER");
+        }   
 
         function totalPER(players) {
             var total = 0;
@@ -210,7 +228,7 @@
 <body>
 
 <p>
-    <button onclick="teamData('ATL', 1972)">Atlanta Hawks 1972</button>
+    <button onclick="teamData('Atlanta Hawks', 1972)">Atlanta Hawks 1972</button>
     <!--<button onclick="newPlayers('ATL', 1972)">Atlanta Hawks 1972</button>-->
 </p>
 
