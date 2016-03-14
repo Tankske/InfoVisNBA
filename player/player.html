@@ -1,0 +1,194 @@
+<html>
+    <style>
+        body {
+          font: 10px sans-serif;
+        }
+
+        .bar {
+          fill: #bbb;
+          shape-rendering: crispEdges;
+        }
+
+        .line {
+          fill: none;
+          stroke: #000;
+          stroke-width: 1.5px;
+        }
+
+        .axis path,
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+
+        .y.axis path {
+          display: none;
+        }
+
+        .area {
+            fill: lightsteelblue;
+        }
+
+        .marker {
+            fill: crimson;
+        }
+
+    </style>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <body>
+        <script>
+
+        function drawPer(yearWanted, teamWanted, playerWanted) {
+
+            var margin = {top: 20, right: 30, bottom: 30, left: 40},
+                width = (960 - margin.left - margin.right) / 4,
+                height = 500 - margin.top - margin.bottom;
+
+            var x = d3.scale.linear()
+                .domain([0, 40])
+                .range([0, width]);
+
+            var y = d3.scale.linear()
+                .domain([0, .1])
+                .range([height, 0]);
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickFormat(d3.format("%"));
+
+            var area = d3.svg.area()
+                .x(function(d) { return x(d[0]); })
+                .y0(height)
+                .y1(function(d) { return y(d[1]); });
+
+            var svg1 = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg1.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+
+            var svg2 = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg2.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+
+            var svg3 = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg3.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+
+            var svg4 = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg4.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+
+
+            d3.json("combined.json", function(data) {
+                data.forEach(function(year) {
+                    if (year.year == yearWanted) {
+                        yearPer = [].concat.apply([], year.teams.map(function(team) { return team.players.map(function (player) { return parseFloat(player.PER); }); }));
+                        year.teams.forEach(function(team) {
+                            if (team.team == teamWanted) {
+                                teamPer = team.players.map(function(player) { return parseFloat(player.PER); });
+                                kde = kernelDensityEstimator(epanechnikovKernel(7), x.ticks(100));
+                                svg1.append("path")
+                                    .datum(kde(yearPer))
+                                    .attr("class", "area")
+                                    .attr("d", area);
+
+                                svg2.append("path")
+                                    .datum(kde(teamPer))
+                                    .attr("class", "area")
+                                    .attr("d", area);
+
+                                team.players.forEach(function(player) {
+                                    if (player.Player == playerWanted) {
+                                        wantedPosition = player.Pos;
+                                        wantedPer = parseFloat(player.PER);
+                                    }
+                                });
+                                yearPosPer = [].concat.apply([], year.teams.map(function(team) { return team.players.filter(function(player) { return player.Pos == wantedPosition; }).map(function (player) { return parseFloat(player.PER); }); }));
+                                teamPosPer = team.players.filter(function(player) { return player.Pos == wantedPosition; }).map(function(player) { return parseFloat(player.PER); });
+
+                                console.log(team.players);
+                                console.log(team.players.filter(function(player) { return player.Pos == wantedPosition; }));
+
+
+                                svg3.append("path")
+                                    .datum(kde(yearPosPer))
+                                    .attr("class", "area")
+                                    .attr("d", area);
+
+                                svg4.append("path")
+                                    .datum(kde(teamPosPer))
+                                    .attr("class", "area")
+                                    .attr("d", area);
+                                
+                                allSvgs = [svg1,svg2,svg3,svg4];
+
+                                allSvgs.forEach(function(svg) {
+                                    svg.selectAll(".bar")
+                                        .data([wantedPer])
+                                      .enter().append("rect")
+                                        .attr("class", "marker")
+                                        .attr("x", function(d) { return x(d) - 5; })
+                                        .attr("width", 10)
+                                        .attr("y", height * 0.25)
+                                        .attr("height", height * 0.75);
+                                });
+
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        drawPer(2014, "Golden State Warriors", "Stephen Curry");
+
+            function kernelDensityEstimator(kernel, x) {
+                return function(sample) {
+                    return x.map(function(x) {
+                        return [x, d3.mean(sample, function(v) { return kernel(x - v); })];
+                    });
+                };
+            }
+
+            function epanechnikovKernel(scale) {
+                return function(u) {
+                    return Math.abs(u /= scale) <= 1 ? .75 * (1 - u * u) / scale : 0;
+                };
+            }
+
+        </script>
+    </body>
+</html>
