@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+
+        function draw (dataInput, arrowVariable) {
+
+
+            var dataArrow = [{ id: 0, name: 'arrow', path: 'M -1,-2 L 1,0 L -1,2 Z', viewbox: '-5 -5 10 10' }]
+
+            var colors = d3.scale.category10(),
+                    colorPlus = colors.range()[2],
+                    colorMin = colors.range()[3],
+                    margin = {top: 50, right: 30, bottom: 50, left: 30},
+                    width = 900 - margin.left - margin.right,
+                    height = 500 - margin.top - margin.bottom;
+
+            var arrowWidth = d3.sum(dataInput, function(data) {return parseInt(data[arrowVariable]);})/5;
+
+            var chart = d3.select(".visualization")
+                    .append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
+                    .attr("class","chart")
+                    .attr('width', width + margin.left + margin.right)
+                    .attr('height', height + margin.top + margin.bottom);
+
+            var defs = chart.append('defs')
+                    .selectAll('marker')
+                    .data(dataArrow)
+                    .enter()
+                    .append('marker')
+                    .attr('id', function(d){ return 'marker_' + d.name})
+                    .attr('markerHeight', 5)
+                    .attr('markerWidth', 5)
+                    .attr('markerUnits', 'strokeWidth')
+                    .attr('orient', 'auto')
+                    .attr('refX', 0)
+                    .attr('refY', 0)
+                    .attr('viewBox', function(d){ return d.viewbox });
+            defs.append('path')
+                    .attr('id', "arrowHead")
+                    .attr('d', function(d){ return d.path })
+//                    .attr('fill', colorPlus);
+
+
+            var arrowIncoming = chart.append('g')
+                    .attr('id', 'incoming')
+
+            chart.append('g')
+                    .attr('id', 'team')
+                    .append("circle")
+                    .attr("cx", width/2 + arrowWidth/4) //arrow heigth is half of the width
+                    .attr("cy", height/2)
+                    .attr("r", radius(20) )
+                    .attr("stroke","black")
+                    .attr("fill", "white")
+
+            var arrowStayed = chart.append('g')
+                    .attr('id', 'stayed')
+
+            var arrowOutgoing = chart.append('g')
+                    .attr('id', 'outgoing')
+
+
+            arrowIncoming.selectAll('pathIn')
+                    .data(dataArrow)
+                    .enter()
+                    .append('path')
+                    .attr('d', function(d){ return 'M ' + margin.left + ', ' + height/2 + ' L ' + (width/2 - radius(20) - margin.right) + ',' + height/2 + '' })
+                    .attr('stroke-width', arrowWidth)
+                    .attr('stroke-linecap', 'butt')
+                    .attr('marker-end', function(d){ return 'url(#marker_' + d.name  + ')' })
+                    .attr('stroke', colorPlus);
+
+            arrowIncoming.append('text')
+                    .attr("x", (width/2-radius(20))/2)
+                    .attr("y", height/2)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "middle")
+                    .text("Incoming PER");
+
+
+            arrowOutgoing.selectAll('pathOut')
+                    .data(dataArrow)
+                    .enter()
+                    .append('path')
+                    .attr('d', function(d){ return 'M ' + (width/2 + radius(20) + margin.left) + ', ' + height/2 + ' L ' + (width - margin.right) + ',' + height/2 + '' })
+                    .attr('stroke-width', arrowWidth)
+                    .attr('stroke-linecap', 'butt')
+                    .attr('marker-end', function(d){ return 'url(#marker_' + d.name  + ')' })
+                    .attr('stroke', colorMin);
+
+            arrowOutgoing.append('text')
+                    .attr("x", (width-(width/2-radius(20))/2))
+                    .attr("y", height/2)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "middle")
+                    .text("Outgoing PER");
+
+            arrowStayed.selectAll('pathStayed')
+                    .data(dataArrow)
+                    .enter()
+                    .append('path')
+                    .attr('d', function(d){ return 'M ' + (width/2 - (1/4*radius(20))) + ', ' + (height/2 + 3/4*radius(20)) + ' L ' + (width/2 - (1/4*radius(20))) + ',' + (height/2 - 3/4*radius(20)) + '' })
+                    .attr('stroke-width', arrowWidth)
+                    .attr('stroke-linecap', 'butt')
+                    .attr('marker-end', function(d){ return 'url(#marker_' + d.name  + ')' })
+                    .attr('stroke', colorPlus);
+
+            arrowStayed.append('text')
+                    .attr("x", (width/2 - (1/4*radius(20))))
+                    .attr("y", height/2)
+                    .attr("dx", arrowWidth)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "middle")
+                    .text("Changed PER");
+
+
+            function radius(radiusVariable) {
+                return (11 + radiusVariable)*3 ;
+            }
+
+        }
+
+        
+        function teamData(team, year) {
+            var incomingPlayers = [],
+                    outgoingPlayers = [],
+                    stayedPlayers = [];
+            d3.csv("teams_" + team + "_" + year + "_advanced.csv", function(currPlayers) {
+                d3.csv("teams_" + team + "_" + (year-1) + "_advanced.csv", function(prevPlayers) {
+//                    console.log("players: ", currPlayers, currPlayers.length);
+//                    console.log("players: ", prevPlayers, prevPlayers.length);
+//                    console.log(currPlayers[0]);
+
+                    for (var i = 0; i < currPlayers.length; i++) {
+                        var currPlayer = currPlayers[i];
+                        var isNew = true;
+                            for (var j = 0; j < prevPlayers.length; j++) {
+                                var prevPlayer = prevPlayers[j];
+                                if (currPlayer.Player == prevPlayer.Player) {
+                                    isNew = false;
+                                }
+                            }
+                        if (!isNew) {
+                            stayedPlayers.push(currPlayer);
+                        }
+                        else {
+                            incomingPlayers.push(currPlayer);
+                        }
+                    }
+                    for (var i = 0; i < prevPlayers.length; i++) {
+                        var prevPlayer = prevPlayers[i];
+                        var isGone = true;
+                        for (var j = 0; j < currPlayers.length; j++) {
+                            var currPlayer = currPlayers[j];
+                            if (currPlayer.Player == prevPlayer.Player) {
+                                isGone = false;
+                            }
+                        }
+                        if (isGone) {
+                            outgoingPlayers.push(prevPlayer);
+                        }
+                    }
+                    console.log(incomingPlayers, totalPER(incomingPlayers));
+                    console.log(stayedPlayers, totalPER(stayedPlayers));
+                    console.log(outgoingPlayers, totalPER(outgoingPlayers));
+                    console.log(bestTwoPlayers(outgoingPlayers));
+                });
+                draw(currPlayers, "PER");
+            });
+        }
+
+        function totalPER(players) {
+            var total = 0;
+            for (var i = 0; i<players.length; i++) {
+                total += parseFloat(players[i].PER);
+            }
+            return total;
+        }
+
+        function bestTwoPlayers(players) {
+            var result =[{PER:0}, {PER:0}];
+            for (var i = 0; i<players.length; i++) {
+//                console.log("before", players[i].PER);
+//                console.log("before", result[0].PER);
+//                console.log("before", result[1].PER);
+                if (parseFloat(players[i].PER) > parseFloat(result[0].PER)) {
+
+                    result[1] = result[0];
+                    result[0] = players[i];
+                }
+                else if (parseFloat(players[i].PER) > parseFloat(result[1].PER)) {
+                    result[1] = players[i];
+                }
+//                console.log("after", players[i].PER);
+//                console.log("after", result[0].PER);
+//                console.log("after", result[1].PER);
+            }
+            return result;
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+<p>
+    <button onclick="teamData('ATL', 1972)">Atlanta Hawks 1972</button>
+    <!--<button onclick="newPlayers('ATL', 1972)">Atlanta Hawks 1972</button>-->
+</p>
+
+<!--<svg id="shirt" height="70" width="50" overflow="hidden">-->
+        <!--<g>-->
+            <!--<rect style="fill:#0000ff;" height="70" width="50" y="0" x="0"></rect>-->
+            <!--<ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="20" rx="8" cy="5" cx="0"></ellipse>-->
+            <!--<ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="20" rx="8" cy="5" cx="50"></ellipse>-->
+            <!--<ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="8" rx="8" cy="0" cx="25"></ellipse>-->
+            <!--<text id ="namePlayer" x="9" y="25" textLength="32" lengthAdjust="spacingAndGlyphs" style="fill: #ffffff; stroke: none; font-size: 15px;">Curry</text>-->
+            <!--<text id="numberPlayer" x="12" y="55" textLength="26" lengthAdjust="spacing"-->
+              <!--style="fill: #ffffff; stroke: none; font-family: Helvetica; font-weight: bold; font-size: 25px;">30</text>-->
+        <!--</g>-->
+<!--</svg>-->
+
+
+<div class="visualization"></div>
+
+
+
+
+
+</body>
+</html>
