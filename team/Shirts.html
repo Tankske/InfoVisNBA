@@ -1,253 +1,539 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        .circleTeam {
+            stroke: #000;
+            fill: #fff;
+            /*shape-rendering: crispEdges;*/
+        }
+
+        .arrowIn {
+            stroke-linecap: butt;
+            stroke: green;
+            fill: green;
+            shape-rendering: crispEdges;
+        }
+
+        .arrowOut {
+            stroke-linecap: butt;
+            stroke: red;
+            fill: red;
+            shape-rendering: crispEdges;
+        }
+
+        .arrowStayed {
+            stroke-linecap: butt;
+            stroke: green;
+            fill: green;
+        }
+
+
+    </style>
 
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-    <script type="text/javascript">
 
-        function draw (dataInput, arrowVariable) {
-
-
-            var dataArrow = [{ id: 0, name: 'arrow', path: 'M -1,-2 L 1,0 L -1,2 Z', viewbox: '-5 -5 10 10' }]
-
-            var colors = d3.scale.category10(),
-                    colorPlus = colors.range()[2],
-                    colorMin = colors.range()[3],
-                    margin = {top: 50, right: 30, bottom: 50, left: 30},
-                    width = 900 - margin.left - margin.right,
-                    height = 500 - margin.top - margin.bottom;
-
-            var arrowWidth = d3.sum(dataInput, function(data) {return parseInt(data[arrowVariable]);})/5;
-
-            var chart = d3.select(".visualization")
-                    .append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
-                    .attr("class","chart")
-                    .attr('width', width + margin.left + margin.right)
-                    .attr('height', height + margin.top + margin.bottom);
-
-            var defs = chart.append('defs')
-                    .selectAll('marker')
-                    .data(dataArrow)
-                    .enter()
-                    .append('marker')
-                    .attr('id', function(d){ return 'marker_' + d.name})
-                    .attr('markerHeight', 5)
-                    .attr('markerWidth', 5)
-                    .attr('markerUnits', 'strokeWidth')
-                    .attr('orient', 'auto')
-                    .attr('refX', 0)
-                    .attr('refY', 0)
-                    .attr('viewBox', function(d){ return d.viewbox });
-            defs.append('path')
-                    .attr('id', "arrowHead")
-                    .attr('d', function(d){ return d.path })
-//                    .attr('fill', colorPlus);
-
-
-            var arrowIncoming = chart.append('g')
-                    .attr('id', 'incoming')
-
-            chart.append('g')
-                    .attr('id', 'team')
-                    .append("circle")
-                    .attr("cx", width/2 + arrowWidth/4) //arrow heigth is half of the width
-                    .attr("cy", height/2)
-                    .attr("r", radius(20) )
-                    .attr("stroke","black")
-                    .attr("fill", "white")
-
-            var arrowStayed = chart.append('g')
-                    .attr('id', 'stayed')
-
-            var arrowOutgoing = chart.append('g')
-                    .attr('id', 'outgoing')
-
-
-            arrowIncoming.selectAll('pathIn')
-                    .data(dataArrow)
-                    .enter()
-                    .append('path')
-                    .attr('d', function(d){ return 'M ' + margin.left + ', ' + height/2 + ' L ' + (width/2 - radius(20) - margin.right) + ',' + height/2 + '' })
-                    .attr('stroke-width', arrowWidth)
-                    .attr('stroke-linecap', 'butt')
-                    .attr('marker-end', function(d){ return 'url(#marker_' + d.name  + ')' })
-                    .attr('stroke', colorPlus);
-
-            arrowIncoming.append('text')
-                    .attr("x", (width/2-radius(20))/2)
-                    .attr("y", height/2)
-                    .attr("dy", ".35em")
-                    .attr("text-anchor", "middle")
-                    .text("Incoming PER");
-
-
-            arrowOutgoing.selectAll('pathOut')
-                    .data(dataArrow)
-                    .enter()
-                    .append('path')
-                    .attr('d', function(d){ return 'M ' + (width/2 + radius(20) + margin.left) + ', ' + height/2 + ' L ' + (width - margin.right) + ',' + height/2 + '' })
-                    .attr('stroke-width', arrowWidth)
-                    .attr('stroke-linecap', 'butt')
-                    .attr('marker-end', function(d){ return 'url(#marker_' + d.name  + ')' })
-                    .attr('stroke', colorMin);
-
-            arrowOutgoing.append('text')
-                    .attr("x", (width-(width/2-radius(20))/2))
-                    .attr("y", height/2)
-                    .attr("dy", ".35em")
-                    .attr("text-anchor", "middle")
-                    .text("Outgoing PER");
-
-            arrowStayed.selectAll('pathStayed')
-                    .data(dataArrow)
-                    .enter()
-                    .append('path')
-                    .attr('d', function(d){ return 'M ' + (width/2 - (1/4*radius(20))) + ', ' + (height/2 + 3/4*radius(20)) + ' L ' + (width/2 - (1/4*radius(20))) + ',' + (height/2 - 3/4*radius(20)) + '' })
-                    .attr('stroke-width', arrowWidth)
-                    .attr('stroke-linecap', 'butt')
-                    .attr('marker-end', function(d){ return 'url(#marker_' + d.name  + ')' })
-                    .attr('stroke', colorPlus);
-
-            arrowStayed.append('text')
-                    .attr("x", (width/2 - (1/4*radius(20))))
-                    .attr("y", height/2)
-                    .attr("dx", arrowWidth)
-                    .attr("dy", ".35em")
-                    .attr("text-anchor", "middle")
-                    .text("Changed PER");
-
-
-            function radius(radiusVariable) {
-                return (11 + radiusVariable)*3 ;
-            }
-
-        }
-
-        
-        function teamData(teamWanted, yearWanted) {
-            var incomingPlayers = [],
-                    outgoingPlayers = [],
-                    stayedPlayers = [];
-            var previousPlayers = [],
-                currentPlayers = [];
-            //d3.csv("teams_" + team + "_" + year + "_advanced.csv", function(currPlayers) {
-                //d3.csv("teams_" + team + "_" + (year-1) + "_advanced.csv", function(prevPlayers) {
-//                    console.log("players: ", currPlayers, currPlayers.length);
-//                    console.log("players: ", prevPlayers, prevPlayers.length);
-//                    console.log(currPlayers[0]);
-            d3.json("combined.json", function (data) {
-                    data.forEach(function (yearData) {
-                        if (yearData.year == yearWanted - 1) {
-
-                            yearData.teams.forEach(function (teamData) {
-                                if (teamData.team == teamWanted) {
-                                    previousPlayers = teamData.players; 
-                                }
-                            });
-                        }
-
-                        if (yearData.year == yearWanted) {
-                            yearData.teams.forEach(function (teamData) {
-                                if (teamData.team == teamWanted) {
-                                    currentPlayers = teamData.players; 
-                                }
-                            });
-                        }
-                    });
-
-                    console.log(previousPlayers);
-
-                    currentPlayers.forEach(function (currPlayer) {
-                        var isNew = true;
-                        previousPlayers.forEach(function (prevPlayer) {
-                            if (currPlayer.Player == prevPlayer.Player) {
-                                isNew = false;
-                            }
-                        });
-                        if (!isNew) {
-                            stayedPlayers.push(currPlayer);
-                        }
-                        else {
-                            incomingPlayers.push(currPlayer);
-                        }
-                    });
-                    previousPlayers.forEach(function (prevPlayer) {
-                        var isGone = true;
-                        currentPlayers.forEach(function (currPlayer) {
-                            if (currPlayer.Player == prevPlayer.Player) {
-                                isGone = false;
-                            }
-                        });
-                        if (isGone) {
-                            outgoingPlayers.push(prevPlayer);
-                        }
-                    });
-                    console.log(incomingPlayers, totalPER(incomingPlayers));
-                    console.log(stayedPlayers, totalPER(stayedPlayers));
-                    console.log(outgoingPlayers, totalPER(outgoingPlayers));
-                    console.log(bestTwoPlayers(outgoingPlayers));
-            });
-            draw(currentPlayers, "PER");
-        }   
-
-        function totalPER(players) {
-            var total = 0;
-            for (var i = 0; i<players.length; i++) {
-                total += parseFloat(players[i].PER);
-            }
-            return total;
-        }
-
-        function bestTwoPlayers(players) {
-            var result =[{PER:0}, {PER:0}];
-            for (var i = 0; i<players.length; i++) {
-//                console.log("before", players[i].PER);
-//                console.log("before", result[0].PER);
-//                console.log("before", result[1].PER);
-                if (parseFloat(players[i].PER) > parseFloat(result[0].PER)) {
-
-                    result[1] = result[0];
-                    result[0] = players[i];
-                }
-                else if (parseFloat(players[i].PER) > parseFloat(result[1].PER)) {
-                    result[1] = players[i];
-                }
-//                console.log("after", players[i].PER);
-//                console.log("after", result[0].PER);
-//                console.log("after", result[1].PER);
-            }
-            return result;
-        }
-
-
-    </script>
 
 </head>
 
 <body>
 
 <p>
-    <button onclick="teamData('Atlanta Hawks', 1972)">Atlanta Hawks 1972</button>
-    <!--<button onclick="newPlayers('ATL', 1972)">Atlanta Hawks 1972</button>-->
+    <form>
+        <input type="text" name="Team" id="Team" value="Golden State Warriors"/>
+        <input type="number" name="Season" id="Season" value=2015 min="1971" max="2015"/>
+        <input type="button" value="PER" onclick="drawTransfers(document.getElementById('Team').value, document.getElementById('Season').value, 'PER')"/>
+    </form>
+
 </p>
-
-<!--<svg id="shirt" height="70" width="50" overflow="hidden">-->
-        <!--<g>-->
-            <!--<rect style="fill:#0000ff;" height="70" width="50" y="0" x="0"></rect>-->
-            <!--<ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="20" rx="8" cy="5" cx="0"></ellipse>-->
-            <!--<ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="20" rx="8" cy="5" cx="50"></ellipse>-->
-            <!--<ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="8" rx="8" cy="0" cx="25"></ellipse>-->
-            <!--<text id ="namePlayer" x="9" y="25" textLength="32" lengthAdjust="spacingAndGlyphs" style="fill: #ffffff; stroke: none; font-size: 15px;">Curry</text>-->
-            <!--<text id="numberPlayer" x="12" y="55" textLength="26" lengthAdjust="spacing"-->
-              <!--style="fill: #ffffff; stroke: none; font-family: Helvetica; font-weight: bold; font-size: 25px;">30</text>-->
-        <!--</g>-->
-<!--</svg>-->
-
 
 <div class="visualization"></div>
 
+<script type="text/javascript">
 
+    function drawTransfers(teamWanted, yearWanted, arrowVariable) {
+        console.log(teamWanted, yearWanted, arrowVariable);
+
+        var previousPlayers = [],
+                currentPlayers = [],
+                arrayPlayers = [],
+                teamSRS = 0;
+//                minMax = [];
+
+
+        d3.json("combined.json", function (data) {
+            data.forEach(function (yearData) {
+                if (yearData.year == yearWanted - 1) {
+
+                    //TODO What if team gets other name?
+                    yearData.teams.forEach(function (teamData) {
+                        if (teamData.team == teamWanted) {
+                            previousPlayers = teamData.players;
+                        }
+                    });
+                }
+
+                if (yearData.year == yearWanted) {
+                    yearData.teams.forEach(function (teamData) {
+                        if (teamData.team == teamWanted) {
+                            teamSRS = teamData.srs;
+                            currentPlayers = teamData.players;
+                        }
+                    });
+                }
+            });
+
+            arrayPlayers = separatePlayers(previousPlayers, currentPlayers);
+//            minMax = minMaxPerSeason(data,yearWanted);
+
+
+        var margin = {top: 50, right: 30, bottom: 50, left: 30},
+                width = 900 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
+
+        d3.select(".chart").remove();
+        var chart = d3.select(".visualization")
+                .append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
+                .attr("class","chart")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom);
+
+        var defs = chart.append("defs");
+
+        defs.append("marker")
+                .attr("id", "markerPlus")
+                .attr("markerHeight", 2)
+                .attr("markerWidth", 2)
+//                .attr('markerUnits', 'strokeWidth')
+                .attr("orient", "auto")
+                .attr("refX", -1)
+                .attr("refY", 0)
+                .attr("viewBox", "-5 -5 10 10")
+                .append("path")
+                .attr("d", "M -1,-2 L 1,0 L -1,2 Z")
+                .attr("class", "arrowIn");
+
+        defs.append("marker")
+                .attr("id", "markerMin")
+                .attr("markerHeight", 20)
+                .attr("markerWidth", 2)
+                //                .attr('markerUnits', 'strokeWidth')
+                .attr("orient", "auto")
+                .attr("refX", -1)
+                .attr("refY", 0)
+                .attr("viewBox", "-5 -5 10 10")
+                .append("path")
+                .attr("d", "M -1,-2 L 1,0 L -1,2 Z")
+                .attr("class", "arrowOut");
+
+        defs.append("path")
+                .attr("d", "M 0,0 h 100 v -10 l 15,20 h -115 z")
+                .attr("id", "transferArrowIn")
+                .attr("class", "arrowIn");
+
+        defs.append("path")
+                .attr("d", "M 0,0 l 15,20 v -10 h 100 v -10 z")
+                .attr("id", "transferArrowOut")
+                .attr("class", "arrowOut");
+
+
+            var shirt = defs.append("pattern")
+                    .attr("id", "shirt")
+                    .attr("overflow", "hidden")
+                    .attr("width", 1)
+                    .attr("height", 1);;
+//                    .attr("width", (width/2-margin.right-margin.left)/3)
+//                    .attr("height", (width/2-margin.right-margin.left)*7/15);
+
+            shirt.append("rect")
+//                    .attr("shape-rendering", "crispEdges")
+                    .attr("x", 0)
+                    .attr("y", 0)
+                    .attr("width", 50)
+                    .attr("height", 70)
+                    .attr("fill", "#0000ff");
+
+
+
+            shirt.append("ellipse")
+//                    .attr("shape-rendering", "crispEdges")
+                    .attr("fill", "white")
+                    .attr("rx", 8)
+                    .attr("ry", 20)
+                    .attr("cy", 5)
+                    .attr("cx", 0)
+                    .attr("stroke-width", 2)
+                    .attr("stroke", "#ffd700");
+
+            shirt.append("ellipse")
+//                    .attr("shape-rendering", "crispEdges")
+                    .attr("fill", "white")
+                    .attr("rx", 8)
+                    .attr("ry", 20)
+                    .attr("cy", 5)
+                    .attr("cx", 50)
+                    .attr("stroke-width", 2)
+                    .attr("stroke", "#ffd700");
+
+            shirt.append("ellipse")
+//                    .attr("shape-rendering", "crispEdges")
+                    .attr("fill", "white")
+                    .attr("rx", 8)
+                    .attr("ry", 8)
+                    .attr("cy", 0)
+                    .attr("cx", 25)
+                    .attr("stroke-width", 2)
+                    .attr("stroke", "#ffd700");
+
+
+            function drawShirt(xPos, yPos, name, number, team) {
+                var playerShirt = chart.append("g")
+
+                playerShirt.append("rect")
+                        .attr("x", xPos)
+                        .attr("y", yPos)
+                        .attr("height", 70)
+                        .attr("width", 50)
+                        .attr("fill", "url(#shirt)");
+                playerShirt.append("text")
+                        .attr("id", (name.split(" ")).pop())
+                        .attr("x", (xPos + 10))
+                        .attr("y", (yPos + 25))
+                        .attr("textLength", 30)
+                        .attr("lengthAdjust", "spacingAndGlyphs")
+                        .attr("fill", "#ffffff")
+                        .text((name.split(" ")).pop());
+
+                playerShirt.append("text")
+                        .attr("id", (name.split(" ")).pop() + "number")
+                        .attr("x", (xPos + 25))
+                        .attr("y", (yPos + 55))
+                        .attr("text-anchor", "middle")
+                        .attr("textLength", 25)
+                        .attr("lengthAdjust", "spacing")
+                        .attr("fill", "#ffffff")
+                        .attr("font-family", "Helvetica")
+                        .attr("font-weight", "bold")
+                        .attr("font-size", "25px")
+                        .text(number);
+            }
+
+
+
+        var arrowIncoming = chart.append('g')
+                .attr('id', 'incoming');
+
+        var rad = radius(teamSRS);
+
+        chart.append('g')
+                .attr('class', 'circleTeam')
+                .append("circle")
+                .attr("cx", (width/2 + rad)) //arrow heigth is half of the width
+                .attr("cy", height/2)
+                .attr("r", rad )
+
+
+
+
+        var arrowStayed = chart.append('g')
+                .attr('id', 'stayed')
+
+        var arrowOutgoing = chart.append('g')
+                .attr('id', 'outgoing')
+
+
+
+
+
+
+
+            var scaleIn = scaleFactor(arrayPlayers, margin.left, (width/2-margin.right));
+            var widthVariable = 5;
+
+            arrowIncoming.append("use")
+                    .attr("xlink:href","#transferArrowIn")
+                    .attr('transform', function(d) {
+                        return "translate(" + margin.left + ", " +  (height / 2 - height/50 - 20*widthVariable/2) + ") scale(" + (scaleIn[0]/115) + ", " + widthVariable + ")";
+                    });
+
+            arrowIncoming.append('text')
+                .attr("x", scaleIn[0]/2 + margin.left)
+                .attr("y", (height / 2 - 10 - 20*widthVariable/4))
+                .attr("dy", ".35em")
+                .attr("text-anchor", "middle")
+                .text("" + totalPER(arrayPlayers[0]).toFixed(1));
+
+
+
+
+            arrowOutgoing.append("use")
+                    .attr("xlink:href","#transferArrowOut")
+                    .attr('transform', function(d) {
+                        return "translate(" + margin.left + ", " +  (height / 2 + height/50) + ") scale(" + (scaleIn[1]/115) + ", " + widthVariable + ")";
+                    });
+
+            arrowOutgoing.append('text')
+                    .attr("x", scaleIn[1]/2 + margin.left)
+                    .attr("y", (height / 2 + height/50 + 20*widthVariable/4))
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "middle")
+                    .text("" + totalPER(arrayPlayers[3]).toFixed(1));
+
+
+
+            chart.append("path")
+                    .attr("d", "M 0,"  + height/2 + " h 1000")
+                    .attr("stroke", "black")
+                    .attr("stroke-width", 1);
+
+
+//TODO Team en players doorgeven is niet zo goed.
+            function incomingShirts(players, team) {
+                var bestPlayers = bestTwoPlayers(players);
+                if (bestPlayers.length >= 1) {
+                    drawShirt(10, 10, bestPlayers[0].Player, bestPlayers[0]["No."], team);
+                    if (bestPlayers.length >= 2) {
+                        drawShirt(100, 10, bestPlayers[1].Player, bestPlayers[1]["No."], team);
+                    }
+                }
+//                console.log( bestPlayers[0].Player, bestPlayers[0]["No."],bestPlayers[1].Player, bestPlayers[1]["No."])
+            }
+
+            function outgoingShirts(players, team) {
+                var bestPlayers = bestTwoPlayers(players);
+                if (bestPlayers.length >= 1) {
+                    drawShirt(10, 300, bestPlayers[0].Player, bestPlayers[0]["No."], team);
+                    if (bestPlayers.length >= 2) {
+                        drawShirt(100, 300, bestPlayers[1].Player, bestPlayers[1]["No."], team);
+                    }
+                }
+//                console.log( bestPlayers[0].Player, bestPlayers[0]["No."],bestPlayers[1].Player, bestPlayers[1]["No."])
+            }
+
+
+            incomingShirts(arrayPlayers[0], "Golden State Warriors");
+            outgoingShirts(arrayPlayers[3], "Golden State Warriors");
+
+
+
+
+
+
+
+
+            //        arrowIncoming.append('path')
+//                .attr("class", "arrowIn")
+////                .attr('d', function(d){ return 'M ' + margin.left + ', ' + height/2 + ' L ' + (width/2 - radius(20) - margin.right) + ',' + height/2 + ' L ' + (width/2 - radius(20) - margin.right) + ',' + (height/2-totalPER(arrayPlayers[0])/20) + ' L ' + (width/2 - radius(20) - margin.right + totalPER(arrayPlayers[0])/20) + ',' + height/2 + ' z'})
+//                .attr('d', function(d){ return 'M ' + margin.left + ', ' + height/2 + ' L ' + (width/2 - radius(20) - margin.right) + ',' + height/2 + '' })
+//                .attr('stroke-width', totalPER(arrayPlayers[0]))
+//                .attr('marker-end',"url(#markerPlus)");
+//
+//        arrowIncoming.append('text')
+//                .attr("x", (width/2-radius(20))/2)
+//                .attr("y", height/2)
+//                .attr("dy", ".35em")
+//                .attr("text-anchor", "middle")
+//                .text("" + totalPER(arrayPlayers[0]).toFixed(1));
+//        arrowOutgoing.append('path')
+//                .attr("class", "arrowOut")
+////                .attr('d', function(d){ return 'M ' + (width/2 + radius(20) + margin.left) + ', ' + height/2 + ' L ' + (width - margin.right) + ',' + height/2 + ' L ' + (width - margin.right) + ',' + (height/2+totalPER(arrayPlayers[3])/20) + ' L ' + (width - margin.right + totalPER(arrayPlayers[3])/20) + ',' + height/2 + ' z'})
+//                .attr('d', function(d){ return 'M ' + (width/2 + radius(20) + margin.left) + ', ' + height/2 + ' L ' + (width - margin.right) + ',' + height/2 + '' })
+//                .attr('stroke-width', totalPER(arrayPlayers[3]))
+//                .attr('marker-end', "url(#markerMin)");
+//
+//        arrowOutgoing.append('text')
+//                .attr("x", (width-(width/2-radius(20))/2))
+//                .attr("y", height/2)
+//                .attr("dy", ".35em")
+//                .attr("text-anchor", "middle")
+//                .text("" + totalPER(arrayPlayers[2]).toFixed(1));
+//        arrowStayed.append('path')
+//                .attr("class", "arrowStayed")
+////                .attr('d', function(d){ return 'M ' + (width/2 - (1/4*radius(20))) + ', ' + (height/2 + 3/4*radius(20)) + ' L ' + (width/2 - (1/4*radius(20))) + ',' + (height/2 - 3/4*radius(20)) + '' })
+//                .attr('d', function(d){ return 'M ' + (width/2 - (1/4*radius(20))) + ', ' + (height/2 + 3/4*radius(20)) + ' L ' + (width/2 - (1/4*radius(20))) + ',' + (height/2 - 3/4*radius(20)) + '' })
+//                .attr('stroke-width', totalPER(arrayPlayers[2])- totalPER(arrayPlayers[1]))
+//                .attr('marker-end', "url(#markerPlus)");
+
+
+//        arrowStayed.append('text')
+//                .attr("x", (width/2 - (1/4*radius(20))))
+//                .attr("y", height/2)
+//                .attr("dx", 20)
+//                .attr("dy", ".35em")
+//                .attr("text-anchor", "middle")
+//                .text((totalPER(arrayPlayers[2])- totalPER(arrayPlayers[1])).toFixed(1));
+        });
+
+    }
+
+    function radius(radiusVariable) {
+        return (11 + radiusVariable)*7 ;
+    }
+
+
+    function scaleFactor(inOutStayedPlayers, start, end) {
+        var inOut = [],
+                perIn = totalPER(inOutStayedPlayers[0]),
+                perOut = totalPER(inOutStayedPlayers[3]);
+        if ((perIn == 0) && (perOut == 0)) {
+            inOut = [0, 0];
+        }
+        else if (perIn == 0) {
+            inOut = [0, end-start];
+        }
+        else if (perOut == 0) {
+            inOut = [end-start, 0];
+        }
+        else if (perIn > perOut) {
+            inOut = [end-start, start+(perOut/perIn)*(end-start)];
+        }
+        else if (perIn <= perOut) {
+            inOut = [start+(perIn/perOut)*(end-start), end-start];
+        }
+        return inOut;
+    }
+
+    function separatePlayers(previousPlayers, currentPlayers) {
+
+        var incomingPlayers = [],
+                outgoingPlayers = [],
+                stayedPlayersOld = [],
+                stayedPlayersNew = [];
+
+        currentPlayers.forEach(function (currPlayer) {
+            var isNew = true;
+            previousPlayers.forEach(function (prevPlayer) {
+                if (currPlayer.Player == prevPlayer.Player) {
+                    isNew = false;
+                }
+            });
+            if (!isNew) {
+                stayedPlayersNew.push(currPlayer);
+            }
+            else {
+                incomingPlayers.push(currPlayer);
+            }
+        });
+        previousPlayers.forEach(function (prevPlayer) {
+            var isGone = true;
+            currentPlayers.forEach(function (currPlayer) {
+                if (currPlayer.Player == prevPlayer.Player) {
+                    isGone = false;
+                }
+            });
+            if (isGone) {
+                outgoingPlayers.push(prevPlayer);
+            }
+            else {
+                stayedPlayersOld.push(prevPlayer);
+            }
+        });
+
+        return [incomingPlayers, stayedPlayersOld, stayedPlayersNew, outgoingPlayers];
+    }
+
+    function totalPER(players) {
+        var total = 0;
+        for (var i = 0; i<players.length; i++) {
+            total += parseFloat(players[i].PER);
+        }
+        return total;
+    }
+
+    function minMaxPerSeason(data, yearWanted) {
+        var previousPlayersArray = [],
+                currentPlayersArray = [],
+                playersArray = [],
+                minMaxInOutStay = [2000, 0, 2000, 0, 2000, 0];
+
+        data.forEach(function (yearData) {
+            if (yearData.year == yearWanted - 1) {
+
+                //TODO What if team gets other name?
+                yearData.teams.forEach(function (teamData) {
+                    previousPlayersArray.push(teamData.players);
+
+                });
+            }
+
+            if (yearData.year == yearWanted) {
+                yearData.teams.forEach(function (teamData) {
+                    currentPlayersArray.push(teamData.players);
+
+                });
+            }
+        });
+        for(var i=0; i<currentPlayersArray.length; i++) {
+            playersArray.push(separatePlayers(previousPlayersArray[i], currentPlayersArray[i]));
+        }
+        for(var i=0; i< playersArray.length; i++) {
+            for(var j = 0; j<3; j++){
+                if(j==0) {
+                    if (parseFloat(totalPER(playersArray[i][j])) < minMaxInOutStay[j*2]) {
+                        minMaxInOutStay[j*2] = totalPER(playersArray[i][j]).toFixed(1);
+                    }
+                    if (parseFloat(totalPER(playersArray[i][j])) > minMaxInOutStay[j*2+1]) {
+                        minMaxInOutStay[j*2+1] = totalPER(playersArray[i][j]).toFixed(1);
+                    }
+                }
+                if(j==1) {
+                    if (parseFloat(totalPER(playersArray[i][j+1])-totalPER(playersArray[i][j])) < minMaxInOutStay[j*2]) {
+                        minMaxInOutStay[j*2] = (totalPER(playersArray[i][j+1])-totalPER(playersArray[i][j])).toFixed(1);
+                    }
+                    if (parseFloat(totalPER(playersArray[i][j+1])-totalPER(playersArray[i][j])) > minMaxInOutStay[j*2+1]) {
+                        minMaxInOutStay[j*2+1] = (totalPER(playersArray[i][j+1])-totalPER(playersArray[i][j])).toFixed(1);
+                    }
+                }
+                if (j==2) {
+                    if (parseFloat(totalPER(playersArray[i][j+1])) < minMaxInOutStay[j*2]) {
+                        minMaxInOutStay[j*2] = totalPER(playersArray[i][j+1]).toFixed(1);
+                    }
+                    if (parseFloat(totalPER(playersArray[i][j+1])) > minMaxInOutStay[j*2+1]) {
+                        minMaxInOutStay[j*2+1] = totalPER(playersArray[i][j+1]).toFixed(1);
+                    }
+                }
+            }
+        }
+        return minMaxInOutStay;
+    }
+
+    function bestTwoPlayers(players) {
+        var result = [],
+                max1 = 0,
+                max2 = 0;
+        for (var i = 0; i<players.length; i++) {
+            if (parseFloat(players[i].PER) > parseFloat(max1)) {
+
+                max2 = max1;
+                max1 = players[i].PER;
+                result[1] = result[0];
+                result[0] = players[i];
+            }
+            else if (parseFloat(players[i].PER) > parseFloat(max2)) {
+                max2 = players[i].PER;
+                result[1] = players[i];
+            }
+        }
+        return result;
+    }
+
+
+
+//    <svg id="shirt" height="70" width="50" overflow="hidden">
+//            <g>
+//            <rect style="fill:#0000ff;" height="70" width="50" y="0" x="0"></rect>
+//            <ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="20" rx="8" cy="5" cx="0"></ellipse>
+//            <ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="20" rx="8" cy="5" cx="50"></ellipse>
+//            <ellipse fill="white" stroke-width="2" stroke="#ffd700" ry="8" rx="8" cy="0" cx="25"></ellipse>
+//            <text id ="namePlayer" x="9" y="25" textLength="32" lengthAdjust="spacingAndGlyphs" style="fill: #ffffff; stroke: none; font-size: 15px;">Curry</text>
+//            <text id="numberPlayer" x="12" y="55" textLength="26" lengthAdjust="spacing"
+//    style="fill: #ffffff; stroke: none; font-family: Helvetica; font-weight: bold; font-size: 25px;">30</text>
+//            </g>
+//            </svg>
+
+
+</script>
 
 
 
