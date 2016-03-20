@@ -257,7 +257,7 @@
 							</p>
 
 							<script type="text/javascript">
-								d3.json("scraper/data.json", function(data) {
+								d3.json("/scraper/data.json", function(data) {
 											drawCircles(data.filter(function(d) {return d.year == document.getElementById("year").value}), "srs", "leaguerank", "playoffrank", "team");
 											});
 
@@ -265,7 +265,7 @@
 								d3.select("#year").on("input", function() {
 									var year = +this.value
 									document.getElementById("yearSlider").innerHTML= year;
-									d3.json("scraper/data.json", function(data) {
+									d3.json("/scraper/data.json", function(data) {
 											drawCircles(data.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team");
 											}); 
 									});
