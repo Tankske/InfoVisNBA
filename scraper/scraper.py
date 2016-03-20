@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import urllib
 import json
 import re
+import math
 
 data = []
 
@@ -30,6 +31,8 @@ for year in range(1971, 2016):
     
     playoffrank = {}
 
+    maxplayoffrank = int(math.log(len(pos) + 1, 2)) + 1
+
     for playoff in pos:
         game = playoff.find("span").get_text()
         score = scorere.search(playoff.find("td").get_text()).group(0)
@@ -38,7 +41,9 @@ for year in range(1971, 2016):
         if winner in playoffrank:
             playoffrank[winner] -= 1
         else:
-            playoffrank[winner] = 5
+            playoffrank[winner] = maxplayoffrank - 1
+        if not (loser in playoffrank):
+            playoffrank[loser] = maxplayoffrank
         thisYear['playoffs'].append({'game': game, 'winner': winner, 'loser': loser, 'score': score})
 
     for line in easts:

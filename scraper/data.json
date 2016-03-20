@@ -5,13 +5,14 @@
                 "srs": 5.05, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.81, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -30,13 +31,14 @@
                 "srs": 0.91, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Baltimore Bullets"
             }, 
             {
                 "srs": -1.3, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -55,13 +57,14 @@
                 "srs": 11.92, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 5.47, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -80,13 +83,14 @@
                 "srs": 3.27, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": -0.83, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "San Francisco Warriors"
             }, 
             {
@@ -160,14 +164,14 @@
                 "srs": 4.38, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.28, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "New York Knicks"
             }, 
             {
@@ -186,12 +190,14 @@
                 "srs": -1.26, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Baltimore Bullets"
             }, 
             {
                 "srs": -1.94, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -210,13 +216,14 @@
                 "srs": 10.7, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 7.91, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -235,13 +242,14 @@
                 "srs": 11.65, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 0.92, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Golden State Warriors"
             }, 
             {
@@ -315,14 +323,14 @@
                 "srs": 7.35, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 6.07, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "New York Knicks"
             }, 
             {
@@ -341,12 +349,14 @@
                 "srs": 2.85, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Baltimore Bullets"
             }, 
             {
                 "srs": -0.15, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -365,12 +375,14 @@
                 "srs": 7.84, 
                 "region": "west", 
                 "leaguerank": 1, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 3.43, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -389,14 +401,14 @@
                 "srs": 8.16, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.12, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Golden State Warriors"
             }, 
             {
@@ -470,20 +482,21 @@
                 "srs": 3.42, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.42, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": -0.19, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Buffalo Braves"
             }, 
             {
@@ -496,6 +509,7 @@
                 "srs": 1.19, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Capital Bullets"
             }, 
             {
@@ -520,20 +534,21 @@
                 "srs": 7.61, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 3.2, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 4.02, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Detroit Pistons"
             }, 
             {
@@ -546,6 +561,7 @@
                 "srs": 0.85, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -625,19 +641,21 @@
                 "srs": 5.4, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.16, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Buffalo Braves"
             }, 
             {
                 "srs": -0.92, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
@@ -650,14 +668,14 @@
                 "srs": 6.53, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": 0.84, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -682,19 +700,21 @@
                 "srs": 2.88, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -0.16, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Kansas City-Omaha Kings"
             }, 
             {
                 "srs": -1.19, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "Detroit Pistons"
             }, 
             {
@@ -707,14 +727,14 @@
                 "srs": 2.86, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": -1.19, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Seattle SuperSonics"
             }, 
             {
@@ -800,20 +820,21 @@
                 "srs": 2.25, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 0.33, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 0.85, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Buffalo Braves"
             }, 
             {
@@ -826,13 +847,14 @@
                 "srs": 2.34, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 2.2, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Washington Bullets"
             }, 
             {
@@ -857,13 +879,14 @@
                 "srs": -1.55, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": -1.18, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
@@ -882,20 +905,21 @@
                 "srs": 6.23, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": -0.15, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 0.59, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -975,14 +999,14 @@
                 "srs": 3.78, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -1.9, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
@@ -1007,26 +1031,28 @@
                 "srs": 1.44, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 0.9, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": 0.53, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 1.08, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
@@ -1045,18 +1071,21 @@
                 "srs": 4.95, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": -1.0, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 0.92, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -1081,21 +1110,21 @@
                 "srs": 2.64, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 5.39, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 2, 
+                "playoffrank": 0, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 3.1, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Golden State Warriors"
             }, 
             {
@@ -1187,14 +1216,14 @@
                 "srs": 4.87, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -0.53, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "New York Knicks"
             }, 
             {
@@ -1219,25 +1248,28 @@
                 "srs": 3.2, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 0.82, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 2, 
+                "playoffrank": 0, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": 0.44, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": -0.13, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -1256,14 +1288,14 @@
                 "srs": 0.8, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": -0.59, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -1294,25 +1326,28 @@
                 "srs": 5.92, 
                 "region": "west", 
                 "leaguerank": 1, 
+                "playoffrank": 4, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 3.5, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 1.48, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 2.59, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -1398,20 +1433,21 @@
                 "srs": 4.75, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": 1.74, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -4.0, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -1430,20 +1466,21 @@
                 "srs": 4.97, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 0.92, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 1.92, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -1468,12 +1505,14 @@
                 "srs": 2.73, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Kansas City Kings"
             }, 
             {
                 "srs": 1.24, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -1498,27 +1537,28 @@
                 "srs": 2.69, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 3.55, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 2.95, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 1.12, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -1610,20 +1650,21 @@
                 "srs": 7.37, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 4.04, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -2.27, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Washington Bullets"
             }, 
             {
@@ -1642,19 +1683,21 @@
                 "srs": 2.83, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 0.27, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": -0.24, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
@@ -1679,12 +1722,14 @@
                 "srs": 3.57, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 2.82, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 4, 
                 "team": "Kansas City Kings"
             }, 
             {
@@ -1709,27 +1754,28 @@
                 "srs": 5.4, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 4.24, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 3.25, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": -0.87, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -1821,20 +1867,21 @@
                 "srs": 6.05, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 7.76, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 2.0, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
@@ -1853,19 +1900,21 @@
                 "srs": 7.14, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 2.34, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 1.72, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -1890,20 +1939,21 @@
                 "srs": 2.18, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": -0.49, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Kansas City Kings"
             }, 
             {
                 "srs": -0.2, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -1928,18 +1978,21 @@
                 "srs": 4.83, 
                 "region": "west", 
                 "leaguerank": 1, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 3.27, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 0.52, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -2037,27 +2090,28 @@
                 "srs": 6.35, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 5.74, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 0.87, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": 1.06, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Washington Bullets"
             }, 
             {
@@ -2070,12 +2124,14 @@
                 "srs": 5.38, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 0.81, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -2106,19 +2162,21 @@
                 "srs": 1.79, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 0.13, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": -0.39, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -2143,21 +2201,21 @@
                 "srs": 4.37, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.69, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 3.05, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -2255,27 +2313,28 @@
                 "srs": 7.53, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 1, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 5.34, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.77, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": 2.58, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "New York Knicks"
             }, 
             {
@@ -2288,13 +2347,14 @@
                 "srs": 4.32, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": -0.72, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -2325,14 +2385,14 @@
                 "srs": 3.1, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 0.27, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -2363,26 +2423,28 @@
                 "srs": 5.06, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 4.61, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 2.88, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 1.88, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 3, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -2474,52 +2536,56 @@
                 "srs": 6.42, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.39, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 3.79, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.27, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": -2.36, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": 4.04, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 3.52, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": -1.08, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -2544,26 +2610,28 @@
                 "srs": 0.81, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 0.15, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": -1.27, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": -1.62, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Kansas City Kings"
             }, 
             {
@@ -2582,26 +2650,28 @@
                 "srs": 3.32, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.13, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": -0.34, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 0.65, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -2717,26 +2787,28 @@
                 "srs": 6.47, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 4.17, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 0.64, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": 0.15, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Washington Bullets"
             }, 
             {
@@ -2749,26 +2821,28 @@
                 "srs": 6.69, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 2.73, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": -0.5, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -2.27, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
@@ -2787,32 +2861,35 @@
                 "srs": 2.05, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 1.38, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 1.8, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": -0.33, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 0.63, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
@@ -2825,20 +2902,21 @@
                 "srs": 6.48, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 2.8, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": -2.34, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -2960,26 +3038,28 @@
                 "srs": 9.06, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.46, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -1.28, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": -1.39, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -2992,26 +3072,28 @@
                 "srs": 8.69, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 2.59, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 1.44, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": -3.12, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -3030,52 +3112,56 @@
                 "srs": 2.1, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 0.89, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 0.7, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": -0.67, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": -3.19, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Sacramento Kings"
             }, 
             {
                 "srs": -2.06, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 6.84, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 0.61, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -3203,19 +3289,21 @@
                 "srs": 6.57, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 0.11, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -1.02, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Washington Bullets"
             }, 
             {
@@ -3234,33 +3322,35 @@
                 "srs": 7.18, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 3.51, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 4.04, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": -0.17, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 1.26, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -3273,25 +3363,28 @@
                 "srs": 5.54, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 0.04, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 0.6, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": -1.14, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -3310,27 +3403,28 @@
                 "srs": 8.32, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 2.57, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": -2.54, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 0.08, 
                 "region": "west", 
                 "leaguerank": 7, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Seattle SuperSonics"
             }, 
             {
@@ -3446,19 +3540,21 @@
                 "srs": 6.15, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": -0.16, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Washington Bullets"
             }, 
             {
                 "srs": 0.14, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "New York Knicks"
             }, 
             {
@@ -3477,33 +3573,35 @@
                 "srs": 5.46, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 3.76, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 4.02, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 1.21, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 1.28, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
@@ -3516,33 +3614,35 @@
                 "srs": 3.32, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 3.59, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 2.96, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 0.82, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": -5.02, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
@@ -3555,19 +3655,21 @@
                 "srs": 4.81, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.59, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 1.29, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
@@ -3689,19 +3791,21 @@
                 "srs": 3.62, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.68, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 1.26, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
@@ -3726,33 +3830,35 @@
                 "srs": 6.24, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 7.95, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 5.26, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 4.11, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 2.13, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -3765,18 +3871,21 @@
                 "srs": 4.01, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 0.22, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 0.91, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -3801,34 +3910,35 @@
                 "srs": 6.38, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 6.84, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 2.44, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": -0.59, 
                 "region": "west", 
                 "leaguerank": 7, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 0.92, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -3944,20 +4054,21 @@
                 "srs": 4.23, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 3.23, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 0.78, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
@@ -3982,32 +4093,35 @@
                 "srs": 5.41, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 2.74, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -1.06, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": -0.62, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": -0.18, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -4026,31 +4140,35 @@
                 "srs": 3.58, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.82, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 0.42, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 1.56, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 1.71, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -4069,21 +4187,21 @@
                 "srs": 6.74, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 6.48, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 7.09, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -4211,20 +4329,21 @@
                 "srs": 5.22, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": -0.39, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -0.43, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "New York Knicks"
             }, 
             {
@@ -4249,32 +4368,35 @@
                 "srs": 8.57, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 3.08, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 2.33, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 0.72, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": -0.37, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -4293,19 +4415,21 @@
                 "srs": 4.3, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 3.18, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 3.27, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -4336,33 +4460,35 @@
                 "srs": 8.47, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 6.73, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 6.49, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 1.72, 
                 "region": "west", 
                 "leaguerank": 7, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 1.31, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
@@ -4478,26 +4604,28 @@
                 "srs": 3.41, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 3.67, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": -1.54, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": -3.94, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
@@ -4522,26 +4650,28 @@
                 "srs": 10.07, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 5.34, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 2.06, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 1.85, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -4566,13 +4696,14 @@
                 "srs": 5.7, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 2.81, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
@@ -4603,39 +4734,42 @@
                 "srs": 6.94, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 3.77, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 5.68, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 1.86, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 1.1, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Clippers"
             }, 
             {
                 "srs": -0.95, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -4745,19 +4879,21 @@
                 "srs": 5.87, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 0.93, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 1.2, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -4788,33 +4924,35 @@
                 "srs": 6.19, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 6.3, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": -0.02, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Charlotte Hornets"
             }, 
             {
                 "srs": -0.67, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 1.77, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -4833,20 +4971,21 @@
                 "srs": 3.57, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 2.21, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 1.74, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
@@ -4871,32 +5010,35 @@
                 "srs": 6.27, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 6.66, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 2.92, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 0.33, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Clippers"
             }, 
             {
                 "srs": -1.2, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -5012,25 +5154,28 @@
                 "srs": 6.48, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 3.68, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 2.11, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": 2.4, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
@@ -5055,27 +5200,28 @@
                 "srs": 4.94, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 2.87, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 3.26, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 3.64, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
@@ -5100,27 +5246,28 @@
                 "srs": 4.19, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 5.05, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.1, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 1.54, 
                 "region": "west", 
                 "leaguerank": 8, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -5139,25 +5286,28 @@
                 "srs": 8.68, 
                 "region": "west", 
                 "leaguerank": 1, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 4.68, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 1.76, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 2.6, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -5279,20 +5429,21 @@
                 "srs": 6.44, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 2.78, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": -1.92, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
@@ -5323,32 +5474,35 @@
                 "srs": 3.35, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 2.87, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Charlotte Hornets"
             }, 
             {
                 "srs": 4.32, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 0.55, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 1.06, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -5367,26 +5521,28 @@
                 "srs": 5.9, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 7.76, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 2.32, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 0.96, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -5405,26 +5561,28 @@
                 "srs": 3.86, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 7.91, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": -0.01, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.8, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -5546,20 +5704,21 @@
                 "srs": 5.4, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 2.24, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.46, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
@@ -5590,32 +5749,35 @@
                 "srs": 11.8, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 3.11, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 2.49, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 1.29, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 2.45, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
@@ -5640,21 +5802,21 @@
                 "srs": 5.98, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 6.25, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 1.63, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -5685,31 +5847,35 @@
                 "srs": 7.4, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 4.21, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 2.21, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 0.28, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": -2.62, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Sacramento Kings"
             }, 
             {
@@ -5825,26 +5991,28 @@
                 "srs": 5.56, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 3.31, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": -0.07, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 1.77, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Washington Bullets"
             }, 
             {
@@ -5869,26 +6037,28 @@
                 "srs": 10.7, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 5.52, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 5.45, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 2.13, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Charlotte Hornets"
             }, 
             {
@@ -5919,20 +6089,21 @@
                 "srs": 7.97, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 3.85, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": -1.82, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
@@ -5963,32 +6134,35 @@
                 "srs": 6.91, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 3.66, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.56, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 0.21, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": -2.66, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Clippers"
             }, 
             {
@@ -6104,19 +6278,21 @@
                 "srs": 5.09, 
                 "region": "east", 
                 "leaguerank": 2, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 2.74, 
                 "region": "east", 
                 "leaguerank": 7, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.88, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -6147,33 +6323,35 @@
                 "srs": 7.24, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 6.25, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 2.45, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Charlotte Hornets"
             }, 
             {
                 "srs": 3.85, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 3.06, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
@@ -6198,26 +6376,28 @@
                 "srs": 5.73, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 3.3, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 0.17, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
                 "srs": -1.23, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -6242,26 +6422,28 @@
                 "srs": 6.33, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 6.88, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 4.44, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 0.83, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -6383,26 +6565,28 @@
                 "srs": 5.11, 
                 "region": "east", 
                 "leaguerank": 1, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 3.11, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 2.56, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 1.45, 
                 "region": "east", 
                 "leaguerank": 8, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "New York Knicks"
             }, 
             {
@@ -6427,26 +6611,28 @@
                 "srs": 3.86, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 2.82, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 3.97, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 1.66, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -6477,26 +6663,28 @@
                 "srs": 7.12, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 5.54, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 1.39, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": -0.17, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
@@ -6521,26 +6709,28 @@
                 "srs": 5.67, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 2.68, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 2.15, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": -0.89, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Sacramento Kings"
             }, 
             {
@@ -6662,21 +6852,21 @@
                 "srs": 2.75, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 1.3, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.02, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -6707,31 +6897,35 @@
                 "srs": 4.15, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 2.33, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Charlotte Hornets"
             }, 
             {
                 "srs": -0.46, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": 1.13, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": -0.06, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -6756,19 +6950,21 @@
                 "srs": 4.52, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 5.92, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 2.67, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
@@ -6799,33 +6995,35 @@
                 "srs": 8.41, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 6.36, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 5.24, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 1.17, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 3.04, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Sacramento Kings"
             }, 
             {
@@ -6941,25 +7139,28 @@
                 "srs": 3.64, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": 1.73, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 1.98, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 0.39, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
@@ -6984,27 +7185,28 @@
                 "srs": 3.14, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 1.69, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": 1.45, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Charlotte Hornets"
             }, 
             {
                 "srs": -0.77, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -7035,26 +7237,28 @@
                 "srs": 7.92, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 5.0, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 4.61, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 1.81, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
@@ -7079,26 +7283,28 @@
                 "srs": 3.74, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 6.07, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Sacramento Kings"
             }, 
             {
                 "srs": 2.63, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 4.52, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -7220,26 +7426,28 @@
                 "srs": 3.67, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": 1.75, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 1.25, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 1.27, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -7264,26 +7472,28 @@
                 "srs": 1.69, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 0.57, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Charlotte Hornets"
             }, 
             {
                 "srs": -0.71, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": -0.07, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -7314,26 +7524,28 @@
                 "srs": 6.28, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.41, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 3.58, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
                 "srs": 1.21, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
@@ -7358,26 +7570,28 @@
                 "srs": 7.61, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Sacramento Kings"
             }, 
             {
                 "srs": 7.15, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 3.21, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 3.24, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Seattle SuperSonics"
             }, 
             {
@@ -7499,27 +7713,28 @@
                 "srs": 4.42, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": 1.76, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -0.75, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": -0.39, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
@@ -7544,25 +7759,28 @@
                 "srs": 2.97, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 2.79, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 1.52, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "New Orleans Hornets"
             }, 
             {
                 "srs": -0.24, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -7593,26 +7811,28 @@
                 "srs": 5.65, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 7.9, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 2.46, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
                 "srs": 2.76, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
@@ -7637,26 +7857,28 @@
                 "srs": 6.68, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Sacramento Kings"
             }, 
             {
                 "srs": 2.71, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 2.97, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 1.57, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -7778,26 +8000,28 @@
                 "srs": 1.88, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
                 "srs": -0.13, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": -1.97, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": -1.99, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
@@ -7822,26 +8046,28 @@
                 "srs": 4.93, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 5.04, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": -0.72, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "New Orleans Hornets"
             }, 
             {
                 "srs": 0.42, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -7872,38 +8098,42 @@
                 "srs": 5.86, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Minnesota Timberwolves"
             }, 
             {
                 "srs": 7.51, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.86, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 2.95, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Memphis Grizzlies"
             }, 
             {
                 "srs": 2.28, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 1.65, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -7916,14 +8146,14 @@
                 "srs": 4.35, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 5.41, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Sacramento Kings"
             }, 
             {
@@ -8057,18 +8287,21 @@
                 "srs": 0.35, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": -1.07, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
                 "srs": -1.82, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -8087,20 +8320,21 @@
                 "srs": 3.31, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 0.65, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 0.49, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -8119,14 +8353,14 @@
                 "srs": 5.77, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": -0.71, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Washington Wizards"
             }, 
             {
@@ -8151,13 +8385,14 @@
                 "srs": 2.59, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Seattle SuperSonics"
             }, 
             {
                 "srs": 2.23, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -8182,13 +8417,14 @@
                 "srs": 7.08, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 2.56, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Sacramento Kings"
             }, 
             {
@@ -8213,26 +8449,28 @@
                 "srs": 7.84, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 5.86, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 4.27, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 2.64, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Memphis Grizzlies"
             }, 
             {
@@ -8342,7 +8580,7 @@
                 "srs": 1.11, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -8373,45 +8611,49 @@
                 "srs": 6.24, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 2.17, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 1.62, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 0.51, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -1.07, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": 3.59, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 1.57, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Washington Wizards"
             }, 
             {
@@ -8436,6 +8678,7 @@
                 "srs": 0.36, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -8466,26 +8709,28 @@
                 "srs": 5.48, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 1.75, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Clippers"
             }, 
             {
                 "srs": 2.53, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 1.61, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Sacramento Kings"
             }, 
             {
@@ -8498,20 +8743,21 @@
                 "srs": 6.69, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 5.96, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 3.74, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Memphis Grizzlies"
             }, 
             {
@@ -8627,13 +8873,14 @@
                 "srs": 0.61, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": -1.0, 
                 "region": "east", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New Jersey Nets"
             }, 
             {
@@ -8658,21 +8905,21 @@
                 "srs": 3.69, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": 3.33, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 4.52, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -8691,18 +8938,21 @@
                 "srs": -1.21, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": -0.8, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Washington Wizards"
             }, 
             {
                 "srs": 0.35, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
@@ -8721,13 +8971,14 @@
                 "srs": 3.06, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 1.69, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -8752,20 +9003,21 @@
                 "srs": 7.28, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Phoenix Suns"
             }, 
             {
                 "srs": 0.24, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 0.0, 
                 "region": "west", 
                 "leaguerank": 8, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Golden State Warriors"
             }, 
             {
@@ -8784,19 +9036,21 @@
                 "srs": 7.28, 
                 "region": "west", 
                 "leaguerank": 1, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 8.35, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 5.04, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -8912,19 +9166,21 @@
                 "srs": 9.3, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.47, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": 0.19, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -8943,14 +9199,14 @@
                 "srs": 6.67, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Detroit Pistons"
             }, 
             {
                 "srs": -0.53, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
@@ -8975,19 +9231,21 @@
                 "srs": 4.79, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": -0.61, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Washington Wizards"
             }, 
             {
                 "srs": -2.23, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -9006,13 +9264,14 @@
                 "srs": 6.86, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 3.74, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -9037,13 +9296,14 @@
                 "srs": 7.34, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 5.14, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -9068,26 +9328,28 @@
                 "srs": 5.46, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New Orleans Hornets"
             }, 
             {
                 "srs": 5.1, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.83, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 4.7, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
@@ -9197,13 +9459,14 @@
                 "srs": 7.44, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 0.16, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -9228,19 +9491,21 @@
                 "srs": 8.68, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": -0.16, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -0.36, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Detroit Pistons"
             }, 
             {
@@ -9259,20 +9524,21 @@
                 "srs": 6.48, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 1.7, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 0.49, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
@@ -9291,19 +9557,21 @@
                 "srs": 3.13, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 5.0, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 2.31, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
@@ -9322,7 +9590,7 @@
                 "srs": 7.11, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -9353,26 +9621,28 @@
                 "srs": 3.36, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 3.73, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 1.68, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 1.41, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "New Orleans Hornets"
             }, 
             {
@@ -9482,7 +9752,7 @@
                 "srs": 3.37, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Boston Celtics"
             }, 
             {
@@ -9513,19 +9783,21 @@
                 "srs": 6.17, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 1.37, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
                 "srs": -1.64, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -9544,26 +9816,28 @@
                 "srs": 7.12, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": 4.44, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 1.99, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 1.3, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Charlotte Bobcats"
             }, 
             {
@@ -9576,25 +9850,28 @@
                 "srs": 4.15, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 5.33, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Utah Jazz"
             }, 
             {
                 "srs": 3.18, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
                 "srs": 3.55, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Oklahoma City Thunder"
             }, 
             {
@@ -9607,14 +9884,14 @@
                 "srs": 4.78, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 4.67, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Phoenix Suns"
             }, 
             {
@@ -9639,13 +9916,14 @@
                 "srs": 2.66, 
                 "region": "west", 
                 "leaguerank": 2, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 5.07, 
                 "region": "west", 
                 "leaguerank": 7, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "San Antonio Spurs"
             }, 
             {
@@ -9767,19 +10045,21 @@
                 "srs": 4.83, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 0.48, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.01, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -9798,13 +10078,14 @@
                 "srs": 6.53, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -1.38, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -9829,20 +10110,21 @@
                 "srs": 6.76, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 4.92, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
                 "srs": -1.1, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -9861,19 +10143,21 @@
                 "srs": 3.81, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Oklahoma City Thunder"
             }, 
             {
                 "srs": 4.81, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 1.85, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -9892,7 +10176,7 @@
                 "srs": 6.01, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -9923,26 +10207,28 @@
                 "srs": 5.86, 
                 "region": "west", 
                 "leaguerank": 1, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.41, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 1.28, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "New Orleans Hornets"
             }, 
             {
                 "srs": 2.55, 
                 "region": "west", 
                 "leaguerank": 8, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Memphis Grizzlies"
             }, 
             {
@@ -10052,20 +10338,21 @@
                 "srs": 2.26, 
                 "region": "east", 
                 "leaguerank": 4, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": 2.39, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 3.59, 
                 "region": "east", 
                 "leaguerank": 8, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Philadelphia 76ers"
             }, 
             {
@@ -10084,13 +10371,14 @@
                 "srs": 7.43, 
                 "region": "east", 
                 "leaguerank": 1, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": 2.6, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Indiana Pacers"
             }, 
             {
@@ -10115,19 +10403,21 @@
                 "srs": 5.72, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 2.67, 
                 "region": "east", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 0.46, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Orlando Magic"
             }, 
             {
@@ -10146,19 +10436,21 @@
                 "srs": 6.44, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Oklahoma City Thunder"
             }, 
             {
                 "srs": 3.16, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
                 "srs": 0.92, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Utah Jazz"
             }, 
             {
@@ -10177,14 +10469,14 @@
                 "srs": 1.96, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Lakers"
             }, 
             {
                 "srs": 2.82, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Clippers"
             }, 
             {
@@ -10209,19 +10501,21 @@
                 "srs": 7.28, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 2.43, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Memphis Grizzlies"
             }, 
             {
                 "srs": 1.78, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
@@ -10337,19 +10631,21 @@
                 "srs": 3.73, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "New York Knicks"
             }, 
             {
                 "srs": 1.25, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Brooklyn Nets"
             }, 
             {
                 "srs": -0.62, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
@@ -10368,20 +10664,21 @@
                 "srs": 3.34, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": -0.02, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -1.83, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -10400,13 +10697,14 @@
                 "srs": 7.03, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": -0.08, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -10431,13 +10729,14 @@
                 "srs": 9.15, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Oklahoma City Thunder"
             }, 
             {
                 "srs": 5.37, 
                 "region": "west", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Denver Nuggets"
             }, 
             {
@@ -10462,19 +10761,21 @@
                 "srs": 6.43, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Clippers"
             }, 
             {
                 "srs": 1.32, 
                 "region": "west", 
                 "leaguerank": 6, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 1.48, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Los Angeles Lakers"
             }, 
             {
@@ -10493,20 +10794,21 @@
                 "srs": 6.67, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 4.32, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Memphis Grizzlies"
             }, 
             {
                 "srs": 3.69, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
@@ -10622,13 +10924,14 @@
                 "srs": 2.55, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": -1.58, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Brooklyn Nets"
             }, 
             {
@@ -10653,13 +10956,14 @@
                 "srs": 3.63, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Indiana Pacers"
             }, 
             {
                 "srs": 1.2, 
                 "region": "east", 
                 "leaguerank": 3, 
+                "playoffrank": 5, 
                 "team": "Chicago Bulls"
             }, 
             {
@@ -10684,26 +10988,28 @@
                 "srs": 4.15, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Miami Heat"
             }, 
             {
                 "srs": 0.48, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Washington Wizards"
             }, 
             {
                 "srs": -0.89, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Charlotte Bobcats"
             }, 
             {
                 "srs": -0.88, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Atlanta Hawks"
             }, 
             {
@@ -10716,14 +11022,14 @@
                 "srs": 6.66, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Oklahoma City Thunder"
             }, 
             {
                 "srs": 4.44, 
                 "region": "west", 
                 "leaguerank": 4, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -10748,13 +11054,14 @@
                 "srs": 7.27, 
                 "region": "west", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Clippers"
             }, 
             {
                 "srs": 5.15, 
                 "region": "west", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Golden State Warriors"
             }, 
             {
@@ -10779,25 +11086,28 @@
                 "srs": 8.0, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 5.06, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 2.18, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Memphis Grizzlies"
             }, 
             {
                 "srs": 2.91, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
@@ -10907,18 +11217,21 @@
                 "srs": 2.45, 
                 "region": "east", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Toronto Raptors"
             }, 
             {
                 "srs": -0.4, 
                 "region": "east", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Boston Celtics"
             }, 
             {
                 "srs": -3.13, 
                 "region": "east", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "Brooklyn Nets"
             }, 
             {
@@ -10937,20 +11250,21 @@
                 "srs": 4.08, 
                 "region": "east", 
                 "leaguerank": 2, 
-                "playoffrank": 3, 
+                "playoffrank": 2, 
                 "team": "Cleveland Cavaliers"
             }, 
             {
                 "srs": 2.54, 
                 "region": "east", 
                 "leaguerank": 3, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Chicago Bulls"
             }, 
             {
                 "srs": -0.09, 
                 "region": "east", 
                 "leaguerank": 6, 
+                "playoffrank": 5, 
                 "team": "Milwaukee Bucks"
             }, 
             {
@@ -10969,14 +11283,14 @@
                 "srs": 4.75, 
                 "region": "east", 
                 "leaguerank": 1, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Atlanta Hawks"
             }, 
             {
                 "srs": 0.17, 
                 "region": "east", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Washington Wizards"
             }, 
             {
@@ -11001,6 +11315,7 @@
                 "srs": 4.41, 
                 "region": "west", 
                 "leaguerank": 4, 
+                "playoffrank": 5, 
                 "team": "Portland Trail Blazers"
             }, 
             {
@@ -11031,14 +11346,14 @@
                 "srs": 10.01, 
                 "region": "west", 
                 "leaguerank": 1, 
-                "playoffrank": 2, 
+                "playoffrank": 1, 
                 "team": "Golden State Warriors"
             }, 
             {
                 "srs": 6.8, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Los Angeles Clippers"
             }, 
             {
@@ -11063,32 +11378,35 @@
                 "srs": 3.82, 
                 "region": "west", 
                 "leaguerank": 2, 
-                "playoffrank": 4, 
+                "playoffrank": 3, 
                 "team": "Houston Rockets"
             }, 
             {
                 "srs": 6.34, 
                 "region": "west", 
                 "leaguerank": 5, 
+                "playoffrank": 5, 
                 "team": "San Antonio Spurs"
             }, 
             {
                 "srs": 3.62, 
                 "region": "west", 
                 "leaguerank": 5, 
-                "playoffrank": 5, 
+                "playoffrank": 4, 
                 "team": "Memphis Grizzlies"
             }, 
             {
                 "srs": 3.36, 
                 "region": "west", 
                 "leaguerank": 7, 
+                "playoffrank": 5, 
                 "team": "Dallas Mavericks"
             }, 
             {
                 "srs": 1.13, 
                 "region": "west", 
                 "leaguerank": 8, 
+                "playoffrank": 5, 
                 "team": "New Orleans Pelicans"
             }
         ], 
