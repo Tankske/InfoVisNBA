@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+	
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script> 
+	
+	<script>
+
+	function drawData(range){
+
+		d3.tsv("Standings.tsv", function(data) {
+								data["SRS"] = +data["SRS"];
+								data["League standings"] = +data["League standings"];
+								data["PlayOffStandings"] = +data["PlayOffStandings"];
+								drawCircles(data.filter(function(d) {return d.Season == range}), "SRS", "League standings", "PlayOffStandings");
+							}); 
+	}
+
+	function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable){
+		
+		console.log(dataInput)
+
+		var height = 600,
+			width = 600;
+		var yMaxData = d3.max(dataInput, function(data) {return parseInt(data[outlineVariable]);});
+		var positionArray = [];
+
+		for (var i = 0; i < yMaxData; i++){
+			positionArray[i] = [0, dataInput.filter(function(data) {return data[outlineVariable] == i+1 }).length]
+		}
+
+		positionArray[yMaxData] = [0, dataInput.filter(function(data) {return data[outlineVariable] == "NA" }).length]
+
+		function rgbcolor(strokeVariable, region) {
+			if (region == 'Western')
+			    return (d3.rgb(colorScale(strokeVariable),colorScale(strokeVariable), 255)); 
+			if (region == 'Eastern')
+				return (d3.rgb(255,colorScale(strokeVariable),colorScale(strokeVariable))); 
+			};
+
+		function colorScale(index) {
+				return (200/15*(index));					// veranderen obv D3.scale
+			};
+
+		function yPosition(outlineVariable) {
+			if (outlineVariable == "NA")
+				return (height-40)
+			else	
+				return (20+(parseInt(outlineVariable))*(height/(yMaxData+2)))
+		}
+
+		function xPosition(outlineVariable) {
+			if (outlineVariable != "NA") {
+				positionArray[outlineVariable-1][0]++;
+				return width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][0];
+			}
+			else {
+				positionArray[positionArray.length-1][0]++;
+				return width/(positionArray[positionArray.length-1][1]+1)*positionArray[positionArray.length-1][0];
+			}
+		}
+
+		function radius(radiusVariable) {
+			return (11 + radiusVariable)*1.5 ;				// veranderen obv D3.scale
+		}
+
+		function strokeColor(strokeVariable, groupVariable){
+			if (strokeVariable == 1)
+				return "gold"; 
+			else if (strokeVariable == 2)
+				return "silver";
+			else if (strokeVariable == 3)
+				return "#D3782F";
+			else if (groupVariable == "Western")
+				return "steelblue"
+			else if (groupVariable == "Eastern")
+				return "red"
+			else
+				return "black";
+		}
+
+   		var tip = d3.tip()
+  					.attr('class', 'd3-tip')
+  					.offset([-10, 0])
+  					.html(function(d) {
+    					return  "<p><span style='color:orange'>" + d["Team name"] + "</span> <\p>" +
+    						"SRS: <span style='color:red'>" + d["SRS"] + "</span> </br>" + 
+    						"League standings: <span style='color:red'>" + d["League standings"] + "</span> </br>" + 
+    						"Play off result: <span style='color:red'>" + d["PlayOffStandings"] + "</span>";
+  						})
+
+  		d3.select(".chart").remove();
+  		d3.select(".d3-tip").remove();
+
+		var chart = d3.select(".visualization")
+								.append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
+								.attr("class","chart")
+								.attr("height", height)
+								.attr("width", width)
+
+		chart.call(tip);
+
+		// Create fill texture
+		chart.append('defs')
+		  .append('pattern')
+		    .attr('id', 'diagonalHatch')
+		    .attr('patternUnits', 'userSpaceOnUse')
+		    .attr('width', 4)
+		    .attr('height', 4)
+		  .append('path')
+		    .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+		    .attr('stroke', '#000000')
+		    .attr('stroke-width', 1);
+
+       	var arc = d3.svg.arc()
+					.outerRadius(function(data)
+						{return (11 + parseFloat(data["SRS"]))*1.5})
+				.startAngle(0)
+				.endAngle(1.5*Math.PI);
+
+      	var pie = d3.layout.pie()
+      						.value(function(data) { 
+      							return data["W/L%"]; })
+      						.sort(null);
+
+		var circlesEast = chart.append("g")
+								.attr("id","circlesEast");
+
+		var circlesWest = chart.append("g")
+								.attr("id","circlesWest");
+
+		var circleEast = circlesEast.selectAll("g") 						//Select all div's within the created div (= empty)
+							.attr("class","circles")
+			    			.data(dataInput.filter(function(data) {return data.Region == "Eastern"}))					//Bind the input data with it
+			  				.enter()							//Returns placeholders for input data for which there are nog 'div' elements. In this case, there are none, so for each entry a placholder is created
+			  				.append("g");						//For each placeholder we'll append a div with below specifications of the div.
+
+		var circleWest = circlesWest.selectAll("g") 						//Select all div's within the created div (= empty)
+							.attr("class","circles")
+			    			.data(dataInput.filter(function(data) {return data.Region == "Western"}))					//Bind the input data with it
+			  				.enter()							//Returns placeholders for input data for which there are nog 'div' elements. In this case, there are none, so for each entry a placholder is created
+			  				.append("g");						//For each placeholder we'll append a div with below specifications of the div.
+
+		console.log(d3.selectAll(".circles"))
+
+		d3.selectAll(".circles").append("circle")
+							.attr("class","circle")
+			    			.attr("r",function(data){
+									return radius(parseFloat(data[radiusVariable])) })
+			    			.attr("cy", function(data){					// Distribute position over height
+			    				return yPosition(data[outlineVariable]);
+			    					})
+			    			.attr("cx", function(data,i){					// Separate position per region. Create more dynamic!
+			    				return xPosition(data[outlineVariable]);
+			    					})
+			    			.style("fill", function(data){
+			    					return rgbcolor(data[strokeVariable], data["Region"]);
+			    					})	//Separate fill color per region. Create more dynamic!
+			    			.style("stroke-width", 5)
+			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
+			    				return strokeColor(data[strokeVariable], data.Region)})
+   							.on('mouseover', function(data) {
+   									d3.select(this).style('fill','orange');
+   									tip.show(data);
+								})
+      						.on('mouseout', function(data) {
+      								d3.select(this)
+										.style('fill',rgbcolor(data[strokeVariable], data["Region"]));
+      								tip.hide(data);
+      							});
+
+		circleWest.append("circle")
+							.attr("class","circle")
+			    			.attr("r",function(data)
+								{return (11 + parseFloat(data["SRS"]))*1.5; })
+			    			.attr("cy", function(data, i){					// Distribute position over height
+								return yPosition(data[outlineVariable])
+			    					})
+			    			.attr("cx", function(data,i){					// Separate position per region. Create more dynamic!
+								return xPosition(data[outlineVariable]);
+			    					})
+			    			.style("fill", function(data) { 
+			    					return rgbcolor(data[strokeVariable], data["Region"]);
+			    					})	//Separate fill color per region. Create more dynamic!			    			
+			    			.style("stroke-width", 5)
+			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
+			    				return strokeColor(data[strokeVariable], data.Region)
+			    					})
+   							.on('mouseover', function(data) {
+   									d3.select(this).style('fill','orange');
+   									tip.show(data);
+								})
+      						.on('mouseout', function(data) {
+      								d3.select(this)
+										.style('fill',rgbcolor(data[strokeVariable], data["Region"]));
+      								tip.hide(data);
+      							});      	
+
+		circleEast.append("circle")
+							.attr("class","circle")
+			    			.attr("r",function(data)
+								{return (11 + parseFloat(data["SRS"]))*1.5; })
+			    			.attr("cy", function(data, i){					// Distribute position over height
+								return yPosition(data[outlineVariable])
+			    					})
+			    			.attr("cx", function(data,i){					// Separate position per region. Create more dynamic!
+								return xPosition(data[outlineVariable]);
+			    					})
+			    			.style("fill", function(data) { 
+			    					return rgbcolor(data[strokeVariable], data["Region"]);
+			    					})	//Separate fill color per region. Create more dynamic!			    			
+			    			.style("stroke-width", 5)
+			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
+			    				return strokeColor(data[strokeVariable], data.Region)
+			    					})
+   							.on('mouseover', function(data) {
+   									d3.select(this).style('fill','orange');
+   									tip.show(data);
+								})
+      						.on('mouseout', function(data) {
+      								d3.select(this)
+										.style('fill',rgbcolor(data[strokeVariable], data["Region"]));
+      								tip.hide(data);
+      							});
+	}	
+	
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+			<header>
+					<div class="header">
+							<h1>The Tufters</h1>
+					</div>
+			</header>
+		
+			<main>
+					<div id="InfoVis">
+							
+							<h2>Circles of multiple teams</h2>
+							<div class="visualization"></div>
+
+							<p>
+								<button onclick="drawData('2014-15')">2014-15</button>
+								<button onclick="drawData('2013-14')">2013-14</button>
+							</p>
+
+							<script type="text/javascript"> 
+							d3.tsv("Standings.tsv", function(data) {
+								data["SRS"] = +data["SRS"];
+								data["League standings"] = +data["League standings"];
+								data["PlayOffStandings"] = +data["PlayOffStandings"];
+								drawCircles(data.filter(function(d) {return d.Season == "2013-14"}), "SRS", "League standings", "PlayOffStandings");
+							}); 
+							</script>
+					</div>							
+			</main>
+		
+			<footer>
+				<p>Yves Langeraert - <a href = "https://thetuftersblog.wordpress.com/">The Tufters</a> - InfoVis1516</p>
+			</footer>
+	</div>
+</body>
+</html>

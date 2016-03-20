@@ -1,0 +1,102 @@
+.flipped {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+        margin-left: 210px;
+}
+
+body {
+	margin: 	auto;
+	height: 	100%;
+	width: 		50%;
+}
+
+header {
+	position: relative;
+	height: 100px;
+}
+
+.header {
+		display: -webkit-flex;
+    display: flex;
+		vertical-align: middle;
+}
+
+footer {
+		position:absolute;
+		width: 50%;
+		bottom:0;
+		text-align: center;
+}
+
+h1 {
+	text-align: center;
+	font-size: 250%;
+	position: absolute;
+	bottom: 0;
+}
+
+svg {
+	visisbility: visible;
+}
+
+div.chart {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color:white;
+}
+
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+	fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.axis text {
+	fill: black;
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+.circle:hover {
+  fill: orange;
+}
