@@ -11,7 +11,7 @@
 body {
 	margin: 	auto;
 	height: 	100%;
-	width: 		50%;
+	width: 		1000px;
 }
 
 header {
@@ -26,7 +26,7 @@ header {
 }
 
 footer {
-		width: 50%;
+		width: 100%;
 		bottom:0;
 		text-align: center;
 }
@@ -96,6 +96,10 @@ div.chart {
   text-align: center;
 }
 
-.circle:hover {
+.teambubble:hover {
   fill: orange;
+}
+
+.timeline {
+    width: 100%;
 }
