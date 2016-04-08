@@ -4,12 +4,98 @@
 	<link rel="stylesheet" href="styles.css">
 	
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script> 
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 	
-	<script>
+    <script src="bubbleview.js"></script>
+    <script src="zoomview.js"></script>
+
+    <script>
+        var miniw = 400,
+            minih = 320;
+        var maxiw = 800,
+            maxih = 640;
 
 
-	</script>
+        var team="";
+
+        function draw() {
+
+            d3.selectAll(".chart").remove();
+            console.log("Drawing " + view + " year " + year + " svg " + svg);
+
+            if (view == "bubble") {
+                drawBubbles(svg, 0, 0, width, height, year, false);
+            }
+
+            if (view == "zoom") {
+                drawZoom(svg, 0, height - maxih, maxiw, maxih, year, team);
+                drawBubbles(svg, width - miniw, 0, miniw, minih, year, true);
+            }
+
+            if (view == "field") {
+                drawField(svg, 0, height - maxih, maxiw, maxih, year, team);
+                drawBubbles(svg, width - miniw, 0, miniw, minih, year, true);
+            }
+        }
+
+        function drawBubbles(svg, x, y, w, h, year, back) {
+            d3.select(".backbubble").remove();
+            if (back) {
+                svg.append("rect")
+                    .attr("class", "backbubble")
+                    .attr("fill", "white")
+                    //.attr("opacity", "0")
+                    .attr("x", x)
+                    .attr("y", y)
+                    .attr("width", w)
+                    .attr("height", h);
+            }
+    
+            d3.json("combined.json", function(data) {
+                    drawCircles(data.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
+
+                    d3.selectAll(".teambubble")
+                        .on("click", function(d) {
+                            view = "zoom";
+                            team = d.team;
+                            draw();
+                        });
+
+                    d3.select(".backbubble")
+                        .on("click", function(d) {
+                            if (!(view === "bubble")) {
+                                view = "bubble";
+                                draw();
+                            }
+                        });
+
+            }); 
+        }
+
+        function drawZoom(svg, x, y, w, h, year, team) {
+            d3.json("combined.json", function(data) {
+                    drawTransfers(data, team, year, "PER", svg, x, y, w, h);
+
+                    d3.select(".teambubblezoom")
+                        .on("click", function(d) {
+                            view = "field";
+                            draw();
+                        });
+            }); 
+        }
+
+        function drawField(svg, x, y, w, h, year, team) {
+            console.log("drawing field");
+            svg.append("g")
+                .attr("class", "chart fieldchart")
+                .append("image")
+                .attr("xlink:href", "team/fieldview.png")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("width", w)
+                .attr("height", h);
+        }
+    </script>
 </head>
 
 <body>
@@ -21,14 +107,42 @@
 			</header>
 		
 			<main>
-                <p><a href="Template_NBACircles.html">Bubble View</a></p>
-                <p><a href="team/Shirts.html">Team View</a></p>
-                <p><a href="team/fieldview.html">Field View</a></p>
-                <p><a href="player/player.html">Player Stat View</a></p>
+					<div id="InfoVis">
+							<div class="visualization"></div>
+
+							<p>
+								<input class="timeline" type="range" min="1971" max="2015" id="year" value=2015>
+								<p id="yearSlider"></p>
+							</p>
+
+							<script type="text/javascript">
+
+                                var width = 1000,
+                                    height = 800;
+
+                                var svg = d3.select(".visualization")
+                                    .append("svg")
+                                    .attr("width", width)
+                                    .attr("height", height)
+
+                                var view = "bubble";
+
+                                var year = 2015;
+
+                                draw();
+
+								d3.select("#year").on("input", function() {
+									year = +this.value
+									document.getElementById("yearSlider").innerHTML= year;
+
+                                    draw();
+                                });
+							</script>
+					</div>							
 			</main>
 		
 			<footer>
-				<p>Y. Langeraert, Y. Boesmans, Y. Laevaert - <a href = "https://thetuftersblog.wordpress.com/">The Tufters</a> - InfoVis1516</p>
+				<p>Yves Langeraert - <a href = "https://thetuftersblog.wordpress.com/">The Tufters</a> - InfoVis1516</p>
 			</footer>
 	</div>
 </body>
