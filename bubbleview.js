@@ -1,8 +1,13 @@
-function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xpos, ypos, width, height){
+function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id){
+		console.log(dataInput);
+		
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
 		var east = dataInput.filter(function(data) { return data.region == "east"});
 		var west = dataInput.filter(function(data) { return data.region == "west"});
+		
+		var height = 600,
+			width = document.body.clientWidth*0.8;
 		
 		var yMaxData = d3.max(dataInput, function(data) {return parseInt(data[outlineVariable]);});
 		
@@ -12,7 +17,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			positionArray[i] = [0, dataInput.filter(function(data) {return data[outlineVariable] == i+1 }).length]
 		}
 		positionArray[yMaxData] = [0, dataInput.filter(function(data) {return data[outlineVariable] == null }).length]
-		
+
 		function rgbcolor(strokeVariable, region) {
 			if (region == 'west')
 			    return (d3.rgb(colorScale(strokeVariable),colorScale(strokeVariable), 255)); 
@@ -28,24 +33,70 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		
 		function yPosition(outlineVariable) {
 			if (outlineVariable === undefined){
-				return (ypos + height-40)}
+				return (height-40)}
 			else	
-				return (ypos + 20+(parseInt(outlineVariable))*(height/(yMaxData+2)))
+				return (20+(parseInt(outlineVariable)*2-1)*(height/(yMaxData*2+2)))
 		}
 		
-		function xPosition(outlineVariable) {
+		function xPosition(outlineVariable, team) {
+			var lastMatch = playOffs.filter(function(data) {return data.loser == team});
+			try {
+				var winner = dataInput.filter(function(data) { return data.team == lastMatch[0].winner});
+				var lastMatchWinner = playOffs.filter(function(data) {return data.loser == winner[0].team});
+				var winnerofwinner = dataInput.filter(function(data) { return data.team == lastMatchWinner[0].winner})
+				var loser = dataInput.filter(function(data) { return data.team == lastMatch[0].loser});}
+				catch(err){
+					var winnerofwinner = null;
+					//var loser = dataInput.filter(function(data) { return data.team == lastMatch[0].loser});
+				}
 			if (outlineVariable != null) {
-				positionArray[outlineVariable-1][0]++;
-				return xpos + width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][0];
-			}
+				if (winner != null){
+					if ((winner[0].playoffrank == 1 || winner[0].playoffrank == 2) && winner[0].region == "west")
+						return width/(positionArray[outlineVariable-1][1]+1)*1;
+					else if ((winner[0].playoffrank == 1 || winner[0].playoffrank == 2) && winner[0].region == "east")
+						return width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][1];
+					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 4 ) && winner[0].region == "west")
+						return width/(positionArray[outlineVariable-1][1]+1)*2;										// Hard coded
+					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 4 ) && winner[0].region == "east")
+						return width/(positionArray[outlineVariable-1][1]+1)*3;										// Hard coded
+					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 5 ) && winner[0].region == "west")
+						return width/(positionArray[outlineVariable-1][1]+1)*3;										// Hard coded
+					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 5 ) && winner[0].region == "east")
+						return width/(positionArray[outlineVariable-1][1]+1)*6;										// Hard coded
+					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5 && winnerofwinner[0].playoffrank == 3 ) && winner[0].region == "west")
+						return width/(positionArray[outlineVariable-1][1]+1)*4;										// Hard coded
+					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5) && winner[0].region == "west")
+						return width/(positionArray[outlineVariable-1][1]+1)*2;										// Hard coded
+					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5 && winnerofwinner[0].playoffrank == 3 ) && winner[0].region == "east")
+						return width/(positionArray[outlineVariable-1][1]+1)*5;										// Hard coded
+					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5 ) && winner[0].region == "east")
+						return width/(positionArray[outlineVariable-1][1]+1)*7;										// Hard coded
+					}
+				else {											// Nodig voor Champion
+					positionArray[outlineVariable-1][0]++;
+					return width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][0];
+				}
+				}
 			else {
-				positionArray[positionArray.length-1][0]++;
-				return xpos + width/(positionArray[positionArray.length-1][1]+1)*positionArray[positionArray.length-1][0];
+				positionArray[positionArray.length-1][0]++; // Ga naar laaste positie van de array
+				return width/(positionArray[positionArray.length-1][1]+1)*positionArray[positionArray.length-1][0];
 			}
+
+		}
+
+		// Returns an event handler for fading a given chord group.
+		function fade(opacity) {
+		  return function(g, i) {
+		  	console.log(svg.selectAll(".circles"));
+		    svg.selectAll(".circles")
+		        //.filter(function(d) { return d.source.index != i && d.target.index != i; })
+		      .transition()
+		        .style("opacity", opacity);
+		  };
 		}
 		
 		function radius(radiusVariable) {
-            return (11 + radiusVariable)*1.8 * (width / 1000) ;				// veranderen obv D3.scale
+			return (11 + radiusVariable)*1.8 ;				// veranderen obv D3.scale
 		}
 		
 		function strokeColor(strokeVariable, groupVariable){
@@ -72,46 +123,35 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
     						"League standings: <span style='color:red'>" + d["leaguerank"] + "</span> </br>" + 
     						"Play off result: <span style='color:red'>" + d["playoffrank"] + "</span>";
   						})
+  		d3.select(".chart").remove();
+  		
   		d3.select(".d3-tip").remove();
 		
-        var chart = svg.append("g")
-                        .attr("class","chart bubblechart")
-                        .attr("height", height)
-                        .attr("width", width)
+		var chart = d3.select(".visualization")
+								.append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
+								.attr("class","chart")
+								.attr("height", height)
+								.attr("width", width)
 		
 		chart.call(tip);
-		
-		// Create fill texture
-		chart.append('defs')
-		  .append('pattern')
-		    .attr('id', 'diagonalHatch')
-		    .attr('patternUnits', 'userSpaceOnUse')
-		    .attr('width', 4)
-		    .attr('height', 4)
-		  .append('path')
-		    .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
-		    .attr('stroke', '#000000')
-		    .attr('stroke-width', 1);
        	
        	var arc = d3.svg.arc()
 					.outerRadius(function(data)
 						{return (11 + parseFloat(data["srs"]))*1.5})
 				.startAngle(0)
 				.endAngle(1.5*Math.PI);
-      	
-      	var pie = d3.layout.pie()
-      						.value(function(data) { 
-      							return data["W/L%"]; })
-      						.sort(null);
 		
 		var circlesEast = chart.append("g")
-								.attr("id","circlesEast");
+								.attr("id","circlesEast")
+								.attr("class", "svg");
 		
 		var circlesWest = chart.append("g")
-								.attr("id","circlesWest");
+								.attr("id","circlesWest")
+								.attr("class", "svg");
 
 		var lines = chart.append("g")
-								.attr("id", "arcs");
+								.attr("id", "arcs")
+								.attr("class", "svg");
 		
 		var circleEast = circlesEast.selectAll("g") 			//Select all div's within the created div (= empty)
 							.attr("class","circles")
@@ -131,17 +171,19 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 							.enter()
 							.append("g");
 
+		
+
 		circleWest.append("circle")
-							.attr("class","circle teambubble")
+							.attr("class","circle")
 							.attr("id", function(data){
-									return data[id] })
+									return data[id].split(" ").join("_") })
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
 			    			.attr("cy", function(data){					// Distribute position over height
 								return yPosition(data[outlineVariable])
 			    					})
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
-								return xPosition(data[outlineVariable]);
+								return xPosition(data[outlineVariable], data[id]);
 			    					})
 			    			.style("fill", function(data) { 
 			    					return rgbcolor(data[strokeVariable], data["region"]);
@@ -153,24 +195,44 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
    									tip.show(data);
+   									if (visibleBoolean){
+   										d3.selectAll(".arc").style("visibility", "hidden");
+   										var name = data.team.split(" ").join(".");
+   										d3.selectAll("."+name).style("visibility", "visible");	
+   									}
 								})
       						.on('mouseout', function(data) {
+      								tip.hide(data);
       								d3.select(this)
 										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
-      								tip.hide(data);
-      							});
+      								if (visibleBoolean){
+      									d3.selectAll(".arc").style("visibility", "visible");
+      									console.log("#"+visibleClass.split(".").join("_"))
+      									console.log(d3.select("#"+visibleClass.split(".").join("_")));
+      									d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
+									}
+
+      							})
+      						.on('click', function(data){
+      								d3.selectAll(".arc").style("visibility", "hidden");
+   									var name = data.team.split(" ").join(".");
+   									d3.selectAll("."+name).style("visibility", "visible");
+   									visibleClass = name;
+   									visibleBoolean = !visibleBoolean;
+   									d3.select(this).style('fill','orange');
+      						});
 
 		circleEast.append("circle")
-							.attr("class","circle teambubble")
+							.attr("class","circle")
 							.attr("id", function(data){
-									return data[id] })
+									return data[id].split(" ").join("_") })
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
 			    			.attr("cy", function(data){					// Distribute position over height
 								return yPosition(data[outlineVariable])
 			    					})
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
-								return xPosition(data[outlineVariable]);
+								return xPosition(data[outlineVariable], data[id]);
 			    					})
 			    			.style("fill", function(data) { 
 			    					return rgbcolor(data[strokeVariable], data["region"]);
@@ -182,35 +244,85 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
    									tip.show(data);
+   									if (visibleBoolean){
+   										d3.selectAll(".arc").style("visibility", "hidden");
+   										var name = data.team.split(" ").join(".");
+   										d3.selectAll("."+name).style("visibility", "visible");
+
+   									}
 								})
       						.on('mouseout', function(data) {
+      								tip.hide(data);
       								d3.select(this)
 										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
-      								tip.hide(data);
-      							});
+      								if (visibleBoolean){
+      									d3.selectAll(".arc").style("visibility", "visible");
+      									console.log("."+visibleClass+"circles");
+      									
+									}
+									else d3.select("#"+visibleClass).style('fill','orange');
+      							})
+      						.on('click', function(data){
+      								d3.selectAll(".arc").style("visibility", "hidden");
+   									var name = data.team.split(" ").join(".");
+   									d3.selectAll("."+name).style("visibility", "visible");
+   									visibleClass = name;
+   									visibleBoolean = !visibleBoolean;
+   									d3.select(this).style('fill','orange');
+      						});
 
-      arcs.append("line")
-      				.attr("class", "arc")
-      				.attr("id", function(data){
-									return data["game"] })
-      				.attr("stroke-width", 2)
+      var links = [];
+
+      playOffs.forEach(function(data) {
+      	var d = {}
+      	var c = {}
+       	if (data.game = "Finals") {	
+       		d.x = document.getElementById(data.winner.split(" ").join("_")).cx.animVal.value;
+       		d.y = document.getElementById(data.winner.split(" ").join("_")).cy.animVal.value;
+       		var winner = data.winner;
+       		winner = dataInput.filter(function(data) { return data.team == winner});
+       		c.x = 0;
+       		c.y = 0;
+       		links.push({source: d, target: c});
+      	}
+      	else {
+      		d.x = 0;
+       		d.y = 0;
+       		c.x = 0;
+       		d.y = 0;
+       		links.push({source: d, target: c});	
+      	}
+
+       });
+
+      console.log(visibleClass);
+
+      var diagonal = d3.svg.diagonal()
+								.source( function(data) { return {	"x":document.getElementById(data.winner.split(" ").join("_")).cx.animVal.value, 
+                     												"y":document.getElementById(data.winner.split(" ").join("_")).cy.animVal.value}; })
+                     			.target( function(data) { return {	"x":document.getElementById(data.loser.split(" ").join("_")).cx.animVal.value,
+                     												"y":document.getElementById(data.loser.split(" ").join("_")).cy.animVal.value}; })
+                     			//.projection(function(data) { return [data.x, data.y]; });
+
+      arcs.append("path")
+      				.attr("class", function(data){
+									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"]})
       				.attr("stroke", "green")
-      				.attr("x1", function(data){
-      					console.log(data);
-      					console.log(data.winner);
-      					console.log(document.getElementById(data.winner));
-      					return document.getElementById(data.winner).cx.animVal.value;
-      				})
-      				.attr("x2", function(data){
-      					console.log(data.loser);
-      					console.log(document.getElementById(data.loser));
-      					return document.getElementById(data.loser).cx.animVal.value;
-      				})
-      				.attr("y1", function(data){
-      					return document.getElementById(data.winner).cy.animVal.value;
-      				})
-      				.attr("y2", function(data){
-      					return document.getElementById(data.loser).cy.animVal.value;
-      				});
-	}	
-	
+      				.attr("d", diagonal)
+      				.style("fill", "none")
+      				.style("visibility", visibleBoolean ? "visible" : "hidden");
+
+      d3.select("."+visibleClass).style("visibility", "visible");
+      d3.select("."+visibleClass+"circles").style('fill','orange');
+
+      d3.selection.prototype.moveToFront = function() {
+ 					return this.each(function(){
+    					this.parentNode.appendChild(this);
+  					});
+		};
+
+      d3.selectAll("#circlesEast").moveToFront();
+      d3.selectAll("#circlesWest").moveToFront();
+      
+
+	}
