@@ -234,10 +234,15 @@ input[type=range]:focus::-ms-fill-upper {
     shape-rendering: crispEdges;
 }
 
-.arrowStayed {
+.arrowStayedUp {
     stroke-linecap: butt;
     stroke: green;
     fill: green;
+}
+.arrowStayedDown {
+    stroke-linecap: butt;
+    stroke: red;
+    fill: red;
 }
 
 
