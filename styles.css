@@ -14,6 +14,9 @@ body {
 	width: 		1000px;
 }
 
+.wrapper {
+}
+
 header {
 	position: relative;
 	height: 100px;
@@ -32,10 +35,7 @@ footer {
 }
 
 h1 {
-	text-align: center;
 	font-size: 250%;
-	position: absolute;
-	bottom: 0;
 }
 
 svg {
@@ -103,6 +103,39 @@ div.bubblechart {
 #yearSlider {
     text-align: center;
   vertical-align: middle;
+}
+
+.scrollable {
+    overflow-y: scroll;
+    overflow: hidden;
+    height: 100%;
+    padding-bottom: 80px;
+}
+
+#bubbleheader {
+    /* position: relative; */
+    width: 760px;
+    top: 0;
+    float: left;
+    background: white;
+}
+
+#bubbleheader.stick {
+    position:fixed;
+}
+
+.headerblocker {
+    height: 200px;
+    background: white;
+    /* z-index: 10; */
+}
+
+#timelinefooter {
+    position: fixed;
+    height: 80px;
+    width: 1000px;
+    bottom: 0;
+    background: white;
 }
 
 /* Styling the slider */
@@ -246,3 +279,28 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
+
+#minibubbles {
+    margin: 0 0 0 0px;
+    width: 240px;
+    height: 200px;
+    overflow: hidden;
+    float: right;
+    top: 0;
+}
+
+#minibubbles.stick {
+    position:fixed;
+    top: 0px;
+    right: 0px;
+}
+
+.smallmultiple .line {
+    fill: none;
+    stroke: red;
+}
+
+.curYearLine {
+    fill: none;
+    stroke: blue;
+}

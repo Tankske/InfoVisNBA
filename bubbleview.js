@@ -1,4 +1,4 @@
-function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id){
+function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
 		console.log(dataInput);
 		
 		var playOffs = dataInput[0].playoffs;
@@ -6,12 +6,14 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		var east = dataInput.filter(function(data) { return data.region == "east"});
 		var west = dataInput.filter(function(data) { return data.region == "west"});
 		
-		var height = 600,
-			width = document.body.clientWidth*0.8;
+		//var height = 600,
+			//width = document.body.clientWidth*0.8;
 		
 		var yMaxData = d3.max(dataInput, function(data) {return parseInt(data[outlineVariable]);});
 		
 		var positionArray = [];
+
+        var visibleClass = "nothing";
 		
 		for (var i = 0; i < yMaxData; i++){
 			positionArray[i] = [0, dataInput.filter(function(data) {return data[outlineVariable] == i+1 }).length]
@@ -33,9 +35,9 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		
 		function yPosition(outlineVariable) {
 			if (outlineVariable === undefined){
-				return (height-40)}
+				return (yPos + height-40)}
 			else	
-				return (20+(parseInt(outlineVariable)*2-1)*(height/(yMaxData*2+2)))
+				return (yPos + 20+(parseInt(outlineVariable)*2-1)*(height/(yMaxData*2+2)))
 		}
 		
 		function xPosition(outlineVariable, team) {
@@ -52,34 +54,34 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			if (outlineVariable != null) {
 				if (winner != null){
 					if ((winner[0].playoffrank == 1 || winner[0].playoffrank == 2) && winner[0].region == "west")
-						return width/(positionArray[outlineVariable-1][1]+1)*1;
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*1;
 					else if ((winner[0].playoffrank == 1 || winner[0].playoffrank == 2) && winner[0].region == "east")
-						return width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][1];
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][1];
 					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 4 ) && winner[0].region == "west")
-						return width/(positionArray[outlineVariable-1][1]+1)*2;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*2;										// Hard coded
 					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 4 ) && winner[0].region == "east")
-						return width/(positionArray[outlineVariable-1][1]+1)*3;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*3;										// Hard coded
 					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 5 ) && winner[0].region == "west")
-						return width/(positionArray[outlineVariable-1][1]+1)*3;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*3;										// Hard coded
 					else if ((winner[0].playoffrank == 3 && loser[0].playoffrank == 5 ) && winner[0].region == "east")
-						return width/(positionArray[outlineVariable-1][1]+1)*6;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*6;										// Hard coded
 					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5 && winnerofwinner[0].playoffrank == 3 ) && winner[0].region == "west")
-						return width/(positionArray[outlineVariable-1][1]+1)*4;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*4;										// Hard coded
 					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5) && winner[0].region == "west")
-						return width/(positionArray[outlineVariable-1][1]+1)*2;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*2;										// Hard coded
 					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5 && winnerofwinner[0].playoffrank == 3 ) && winner[0].region == "east")
-						return width/(positionArray[outlineVariable-1][1]+1)*5;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*5;										// Hard coded
 					else if ((winner[0].playoffrank == 4 && loser[0].playoffrank == 5 ) && winner[0].region == "east")
-						return width/(positionArray[outlineVariable-1][1]+1)*7;										// Hard coded
+						return xPos + width/(positionArray[outlineVariable-1][1]+1)*7;										// Hard coded
 					}
 				else {											// Nodig voor Champion
 					positionArray[outlineVariable-1][0]++;
-					return width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][0];
+					return xPos + width/(positionArray[outlineVariable-1][1]+1)*positionArray[outlineVariable-1][0];
 				}
 				}
 			else {
 				positionArray[positionArray.length-1][0]++; // Ga naar laaste positie van de array
-				return width/(positionArray[positionArray.length-1][1]+1)*positionArray[positionArray.length-1][0];
+				return xPos + width/(positionArray[positionArray.length-1][1]+1)*positionArray[positionArray.length-1][0];
 			}
 
 		}
@@ -96,7 +98,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		}
 		
 		function radius(radiusVariable) {
-			return (11 + radiusVariable)*1.8 ;				// veranderen obv D3.scale
+			return (11 + radiusVariable)*1.8 * width/1000;				// veranderen obv D3.scale
 		}
 		
 		function strokeColor(strokeVariable, groupVariable){
@@ -123,15 +125,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
     						"League standings: <span style='color:red'>" + d["leaguerank"] + "</span> </br>" + 
     						"Play off result: <span style='color:red'>" + d["playoffrank"] + "</span>";
   						})
-  		d3.select(".chart").remove();
   		
-  		d3.select(".d3-tip").remove();
 		
-		var chart = d3.select(".visualization")
-								.append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
-								.attr("class","chart")
-								.attr("height", height)
-								.attr("width", width)
+        var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
+                        .attr("class","chart bubblechart")
+                        .attr("height", height)
+                        .attr("width", width)
 		
 		chart.call(tip);
        	
@@ -174,8 +173,9 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		
 
 		circleWest.append("circle")
-							.attr("class","circle")
+							.attr("class","circle teambubble")
 							.attr("id", function(data){
+                                    visibleBoolean = true;
 									return data[id].split(" ").join("_") })
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
@@ -192,6 +192,14 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
 			    					})
+      						.on('click', function(data){
+      								d3.selectAll(".arc").style("visibility", "hidden");
+   									var name = data.team.split(" ").join(".");
+   									d3.selectAll("."+name).style("visibility", "visible");
+   									visibleClass = name;
+   									visibleBoolean = !visibleBoolean;
+   									d3.select(this).style('fill','orange');
+      						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
    									tip.show(data);
@@ -212,19 +220,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       									d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
 									}
 
-      							})
-      						.on('click', function(data){
-      								d3.selectAll(".arc").style("visibility", "hidden");
-   									var name = data.team.split(" ").join(".");
-   									d3.selectAll("."+name).style("visibility", "visible");
-   									visibleClass = name;
-   									visibleBoolean = !visibleBoolean;
-   									d3.select(this).style('fill','orange');
-      						});
+                            });
 
 		circleEast.append("circle")
-							.attr("class","circle")
+							.attr("class","circle teambubble")
 							.attr("id", function(data){
+                                    visibleBoolean = true;
 									return data[id].split(" ").join("_") })
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
@@ -241,6 +242,14 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
 			    					})
+      						.on('click', function(data){
+      								d3.selectAll(".arc").style("visibility", "hidden");
+   									var name = data.team.split(" ").join(".");
+   									d3.selectAll("."+name).style("visibility", "visible");
+   									visibleClass = name;
+   									visibleBoolean = !visibleBoolean;
+   									d3.select(this).style('fill','orange');
+      						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
    									tip.show(data);
@@ -261,15 +270,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       									
 									}
 									else d3.select("#"+visibleClass).style('fill','orange');
-      							})
-      						.on('click', function(data){
-      								d3.selectAll(".arc").style("visibility", "hidden");
-   									var name = data.team.split(" ").join(".");
-   									d3.selectAll("."+name).style("visibility", "visible");
-   									visibleClass = name;
-   									visibleBoolean = !visibleBoolean;
-   									d3.select(this).style('fill','orange');
-      						});
+                            });
 
       var links = [];
 
@@ -295,7 +296,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
        });
 
-      console.log(visibleClass);
+      //console.log(visibleClass);
 
       var diagonal = d3.svg.diagonal()
 								.source( function(data) { return {	"x":document.getElementById(data.winner.split(" ").join("_")).cx.animVal.value, 

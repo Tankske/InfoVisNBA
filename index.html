@@ -5,38 +5,31 @@
 	
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="jquery-2.2.3.min.js"></script>
 	
     <script src="bubbleview.js"></script>
     <script src="zoomview.js"></script>
+    <script src="teamstats.js"></script>
 
     <script>
-        var miniw = 400,
-            minih = 320;
-        var maxiw = 800,
-            maxih = 640;
+        var team="Golden State Warriors";
 
+        function drawAll() {
 
-        var team="";
-
-        function draw() {
-
-            d3.selectAll(".chart").remove();
-            console.log("Drawing " + view + " year " + year + " svg " + svg);
-
-            if (view == "bubble") {
-                drawBubbles(svg, 0, 0, width, height, year, false);
-            }
-
-            if (view == "zoom") {
-                drawZoom(svg, 0, height - maxih, maxiw, maxih, year, team);
-                drawBubbles(svg, width - miniw, 0, miniw, minih, year, true);
-            }
-
-            if (view == "field") {
-                drawField(svg, 0, height - maxih, maxiw, maxih, year, team);
-                drawBubbles(svg, width - miniw, 0, miniw, minih, year, true);
-            }
+            //d3.selectAll(".chart").remove();
+            d3.select(".bubblechart").remove();
+            d3.select(".d3-tip").remove();
+            drawBubbles(bubbleSvg, 0, 0, width, height, year, false);
+            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
+            drawTeamChange();
         }
+
+        function drawTeamChange() {
+            drawZoom(zoomSvg, 0, 0, width, height - 280, year, team);
+            drawTeamStats(teamSvg, 0, 0, width, 200, year, team);
+            drawField(fieldSvg, 0, 0, width, height - 80, year, team);
+        }
+
 
         function drawBubbles(svg, x, y, w, h, year, back) {
             d3.select(".backbubble").remove();
@@ -51,41 +44,35 @@
                     .attr("height", h);
             }
     
-            d3.json("combined.json", function(data) {
-                    drawCircles(data.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
+            drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
 
-                    d3.selectAll(".teambubble")
-                        .on("click", function(d) {
-                            view = "zoom";
-                            team = d.team;
-                            draw();
-                        });
+            d3.selectAll(".teambubble")
+                .on("click", function(d) {
+                    team = d.team;
+                    $("#bubbleheader h1").text(team);
+                    if (view === "bubble") {
+                        scrollMe("zoom");
+                    }
+                    drawTeamChange();
+                });
 
-                    d3.select(".backbubble")
-                        .on("click", function(d) {
-                            if (!(view === "bubble")) {
-                                view = "bubble";
-                                draw();
-                            }
-                        });
-
-            }); 
+            d3.select(".backbubble")
+                .on("click", function(d) {
+                    if (!(view === "bubble")) {
+                        scrollMe("bubble");
+                    }
+                });
         }
 
         function drawZoom(svg, x, y, w, h, year, team) {
-            d3.json("combined.json", function(data) {
-                    drawTransfers(data, team, year, "PER", svg, x, y, w, h);
+            drawTransfers(theData, team, year, "PER", svg, x, y, w, h);
+        }
 
-                    d3.select(".teambubblezoom")
-                        .on("click", function(d) {
-                            view = "field";
-                            draw();
-                        });
-            }); 
+        function drawTeamStats(svg, x, y, w, h, year, team) {
+            drawTs(theData, team, year, svg, x, y, w, h);
         }
 
         function drawField(svg, x, y, w, h, year, team) {
-            console.log("drawing field");
             svg.append("g")
                 .attr("class", "chart fieldchart")
                 .append("image")
@@ -99,51 +86,142 @@
 </head>
 
 <body>
-	<div class="wrapper">
-			<header>
-					<div class="header">
-							<h1>The Tufters</h1>
-					</div>
-			</header>
-		
+    <div class="wrapper" id="wrapper">
 			<main>
 					<div id="InfoVis">
-							<div class="visualization"></div>
-
-							<p>
-								<input class="timeline" type="range" min="1971" max="2015" id="year" value=2015>
-								<p id="yearSlider"></p>
-							</p>
+                            <div class="allviss">
+                                <div class="scrollable">
+                                    <div class="visualization" id="bubblevis"></div>
+                                    <div class="headerblocker" id="zoomblocker">
+                                        <div class="visualization" id="bubbleheader">
+                                            <h1>Golden State Warriors</h1>
+                                            <h2>2015</h2>
+                                        </div>
+                                        <div class="visualization" id="minibubbles"></div>
+                                    </div>
+                                    <div class="visualization" id="zoomvis"></div>
+                                    <div class="visualization" id="teamvis"></div>
+                                    <div class="headerblocker" id="fieldblocker"></div>
+                                    <div class="visualization" id="fieldvis"></div>
+                                </div>
+                                <div class="visualization" id="timelinefooter">
+                                    <p>
+                                        <input class="timeline" type="range" min="1971" max="2015" id="year" value=2015>
+                                        <p id="yearSlider">2015</p>
+                                    </p>
+                                </div>
+                            </div>
 
 							<script type="text/javascript">
 
-                                var width = 1000,
-                                    height = 800;
+                                var view = "bubble";
 
-                                var svg = d3.select(".visualization")
+
+                                $(window).scroll(movescroll);
+                                movescroll();
+
+                                $('#bubbleheader').css("width", "" + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
+
+                                function scrollMe(where) {
+                                    if (where === "bubble") {
+                                        $("html, body").animate({ scrollTop: $('#bubblevis').offset().top }, 600);
+                                        $('#bubbleheader').removeClass('stick');
+                                        $('#minibubbles').removeClass('stick');
+                                        $('#minibubbles').css("left", "");
+                                        view = "scrollingbubble";
+                                    } else if (where === "zoom") {
+                                        $("html, body").animate({ scrollTop: $('#zoomblocker').offset().top }, 600);
+                                        view = "scrollingzoom";
+                                    } else if (where === "field") {
+                                        $("html, body").animate({ scrollTop: $('#fieldblocker').offset().top }, 600);
+                                        view = "scrollingfield";
+                                    }
+                                }
+
+                                function movescroll() {
+                                    var window_top = $(window).scrollTop();
+
+                                    if (view === "scrollingbubble" && window_top == $('#bubblevis').offset().top) {
+                                        view = "bubble";
+                                    } else if (view === "scrollingzoom" && window_top == $('#zoomblocker').offset().top) {
+                                        $('#bubbleheader').addClass('stick');
+                                        $('#minibubbles').addClass('stick');
+                                        $('#minibubbles').css("left", $('#zoomblocker').offset().left + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
+                                        view = "zoom";
+                                    } else if (view === "scrollingfield" && window_top == $('#fieldblocker').offset().top) {
+                                        view = "field";
+                                    } else if (view === "bubble" && window_top > $('#bubblevis').offset().top) {
+                                        scrollMe("zoom");
+                                    } else if (view === "zoom") {
+                                        if (window_top < $('#zoomblocker').offset().top) {
+                                            scrollMe("bubble");
+                                        } else if (window_top > $('#zoomblocker').offset().top) {
+                                            scrollMe("field");
+                                        }
+                                    } else if (view === "field") {
+                                        if (window_top < $('#fieldblocker').offset().top) {
+                                            scrollMe("zoom");
+                                        }
+                                    }
+                                }
+                                $(window).scrollTop(0);
+
+                                var width = 1000,
+                                    height = window.innerHeight - $('#timelinefooter').height() ;
+
+                                var miniw = $('#minibubbles').width(),
+                                    minih = $('#minibubbles').height();
+
+
+                                var bubbleSvg = d3.select("#bubblevis")
                                     .append("svg")
                                     .attr("width", width)
                                     .attr("height", height)
 
-                                var view = "bubble";
+                                var miniBubbleSvg = d3.select("#minibubbles")
+                                    .append("svg")
+                                    .attr("width", miniw)
+                                    .attr("height", minih)
+
+                                var zoomSvg = d3.select("#zoomvis")
+                                    .append("svg")
+                                    .attr("width", width)
+                                    .attr("height", height - $('#zoomblocker').height() - 200)
+
+                                var teamSvg = d3.select("#teamvis");
+
+                                var fieldSvg = d3.select("#fieldvis")
+                                    .append("svg")
+                                    .attr("width", width)
+
+                                    .attr("height", height - $('#zoomblocker').height())
+
+                                //var view = "bubble";
 
                                 var year = 2015;
 
-                                draw();
 
 								d3.select("#year").on("input", function() {
 									year = +this.value
 									document.getElementById("yearSlider").innerHTML= year;
+                                    $("#bubbleheader h2").text(year);
 
-                                    draw();
+                                    drawAll();
+                                });
+
+                                var theData;
+
+                                d3.json("combined.json", function(data) {
+                                    theData = data;
+                                    drawAll();
                                 });
 							</script>
 					</div>							
 			</main>
 		
-			<footer>
-				<p>Yves Langeraert - <a href = "https://thetuftersblog.wordpress.com/">The Tufters</a> - InfoVis1516</p>
-			</footer>
+			<!--<footer>-->
+				<!--<p>Yves Langeraert - <a href = "https://thetuftersblog.wordpress.com/">The Tufters</a> - InfoVis1516</p>-->
+			<!--</footer>-->
 	</div>
 </body>
 </html>
