@@ -48,6 +48,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     }
 
     console.log(teamWanted, yearWanted, arrowVariable);
+    d3.select(".zoomchart").remove();
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0};
 
