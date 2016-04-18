@@ -50,13 +50,15 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     console.log(teamWanted, yearWanted, arrowVariable);
     d3.select(".zoomchart").remove();
 
-    var margin = {top: 0, right: 0, bottom: 0, left: 0};
+    var margin = {top: 20, right: 20, bottom: 20, left: 20};
 
     var previousPlayers = [],
             currentPlayers = [],
             arrayPlayers = [],
             teamSRS = 0;
 //                minMax = [];
+    var minMaxPER = [-30, 200, -20, 40];
+    var minMaxSRSAllYears = minMaxSRS(inData);
 
 
         inData.forEach(function (yearData) {
@@ -93,105 +95,26 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     var defs = chart.append("defs");
 
     defs.append("path")
-        .attr("d", "M 0,0 h 100 v -10 l 15,20 h -115 z")
-        .attr("id", "transferArrowIn")
-        .attr("class", "arrowIn");
+        .attr("d", "M 0,-5 v 10 h 50 v -10 z")
+        .attr("id", "transferRectHorizontal");
 
     defs.append("path")
-        .attr("d", "M 0,0 l 15,20 v -10 h 100 v -10 z")
-        .attr("id", "transferArrowOut")
-        .attr("class", "arrowOut");
+        .attr("d", "M 0,-10 v 20 l 10,-10 z")
+        .attr("id", "arrowRight");
 
     defs.append("path")
-        .attr("d", "M -5,0 v -35 h -10 l 15,-20 l 15,20 h -10 v 85 h -10 z")
-        .attr("id", "transferArrowStayedUp")
-        .attr("class", "arrowStayedUp");
+        .attr("d", "M -5,0 v 50 h 10 v -50 z")
+        .attr("id", "transferRectVertical");
+
     defs.append("path")
-        .attr("d", "M -5,0 v 35 h -10 l 15,20 l 15,-20 h -10 v -85 h -10 z")
-        .attr("id", "transferArrowStayedDown")
-        .attr("class", "arrowStayedDown");
+        .attr("d", "M 0,0 l -10,10 h 20 z")
+        .attr("id", "arrowUp");
+
+    defs.append("path")
+        .attr("d", "M -10,0 h 20 l -10,10 z")
+        .attr("id", "arrowDown");
 
 
-//        var shirt = defs.append("pattern")
-//                .attr("id", "shirt")
-//                .attr("overflow", "hidden")
-//                .attr("width", 1)
-//                .attr("height", 1);;
-////                    .attr("width", (width/2-margin.right-margin.left)/3)
-////                    .attr("height", (width/2-margin.right-margin.left)*7/15);
-//
-//        shirt.append("rect")
-////                    .attr("shape-rendering", "crispEdges")
-//                .attr("x", 0)
-//                .attr("y", 0)
-//                .attr("width", 50)
-//                .attr("height", 70)
-//                .attr("fill", "#0000ff");
-//
-//
-//
-//        shirt.append("ellipse")
-////                    .attr("shape-rendering", "crispEdges")
-//                .attr("fill", "white")
-//                .attr("rx", 8)
-//                .attr("ry", 20)
-//                .attr("cy", 5)
-//                .attr("cx", 0)
-//                .attr("stroke-width", 2)
-//                .attr("stroke", "#ffd700");
-//
-//        shirt.append("ellipse")
-////                    .attr("shape-rendering", "crispEdges")
-//                .attr("fill", "white")
-//                .attr("rx", 8)
-//                .attr("ry", 20)
-//                .attr("cy", 5)
-//                .attr("cx", 50)
-//                .attr("stroke-width", 2)
-//                .attr("stroke", "#ffd700");
-//
-//        shirt.append("ellipse")
-////                    .attr("shape-rendering", "crispEdges")
-//                .attr("fill", "white")
-//                .attr("rx", 8)
-//                .attr("ry", 8)
-//                .attr("cy", 0)
-//                .attr("cx", 25)
-//                .attr("stroke-width", 2)
-//                .attr("stroke", "#ffd700");
-//
-//
-//        function drawShirt(xPos, yPos, name, number, team) {
-//            var playerShirt = chart.append("g");
-//
-//            playerShirt.append("rect")
-//                    .attr("x", xPos)
-//                    .attr("y", yPos)
-//                    .attr("height", 70)
-//                    .attr("width", 50)
-//                    .attr("fill", "url(#shirt)");
-//            playerShirt.append("text")
-//                    .attr("id", (name.split(" ")).pop())
-//                    .attr("x", (xPos + 10))
-//                    .attr("y", (yPos + 25))
-//                    .attr("textLength", 30)
-//                    .attr("lengthAdjust", "spacingAndGlyphs")
-//                    .attr("fill", "#ffffff")
-//                    .text((name.split(" ")).pop());
-//
-//            playerShirt.append("text")
-//                    .attr("id", (name.split(" ")).pop() + "number")
-//                    .attr("x", (xPos + 25))
-//                    .attr("y", (yPos + 55))
-//                    .attr("text-anchor", "middle")
-//                    .attr("textLength", 25)
-//                    .attr("lengthAdjust", "spacing")
-//                    .attr("fill", "#ffffff")
-//                    .attr("font-family", "Helvetica")
-//                    .attr("font-weight", "bold")
-//                    .attr("font-size", "25px")
-//                    .text(number);
-//        }
 
     function drawShirt(xPos, yPos, name, number, team) {
         team = team.replace(/\s+/g, '');
@@ -278,21 +201,21 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     }
 
 
-    var arrowIncoming = chart.append('g')
-            .attr('id', 'incoming');
-
-    var rad = radius(teamSRS);
-
+    var rad = scaleCircle(teamSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var maxRad = scaleCircle(minMaxSRSAllYears[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var minRad = scaleCircle(minMaxSRSAllYears[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    console.log(minRad);
     chart.append('g')
-            .attr('class', 'circleTeam')
-            .append("circle")
-            .attr("class", "teambubblezoom")
-            .attr("cx", (width/2 + rad)) //arrow heigth is half of the width
-            .attr("cy", height/2)
-            .attr("r", rad )
+        .attr('class', 'circleTeam')
+        .append("circle")
+        .attr("class", "teambubblezoom")
+        .attr("cx", (w/2)) //arrow heigth is half of the width
+        .attr("cy", rad + margin.top)
+        .attr("r", rad);
 
 
-
+    var arrowIncoming = chart.append('g')
+        .attr('id', 'incoming');
 
     var arrowStayed = chart.append('g')
             .attr('id', 'stayed')
@@ -302,65 +225,218 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
 
 
 
+    var incomingPer = totalPER(arrayPlayers[0]).toFixed(1),
+        outgoingPer = totalPER(arrayPlayers[3]).toFixed(1),
+        stayedPer = (totalPER(arrayPlayers[2]) - totalPER(arrayPlayers[1])).toFixed(1);
+
+    var scaleValueXIn = scaleArrowHorizontal(incomingPer, w, h, minMaxPER[0], minMaxPER[1]);
+    //console.log("In " + scaleValueXIn);
+    //console.log("In " + incomingPer);
+    //console.log("In " + minMaxPER[0]);
+    //console.log("In " + minMaxPER[1]);
+    //console.log("In " +  scaleValueXIn/50);
+
+
+    arrowIncoming.append("use")
+        .attr("xlink:href","#transferRectHorizontal")
+        .attr("class", "arrowIn")
+        .attr('transform', function(d) {
+            return "translate(" + (w/2 - maxRad - margin.left - 30 - scaleValueXIn) + ", " +  (minRad + margin.top) + "), scale(" + (scaleValueXIn/50) + ", " + (10/minRad) +")";
+            //TODO 50 is lengte rect
+            //TODO 30 is lengte pijl maal scale y richting pijl
+            //TODO 10 is hoogte balk
+        });
+
+    arrowIncoming.append("use")
+        .attr("xlink:href","#arrowRight")
+        .attr("class", "arrowIn")
+        .attr('transform', function(d) {
+            return "translate(" + (w/2 - maxRad - margin.left - 30) + ", " +  (minRad + margin.top) + "), scale(" + (15/minRad) + ", " + (15/minRad) +")";
+        });
+
+    arrowIncoming.append('text')
+        .attr("x", w/2 - maxRad - margin.left - 30 - scaleValueXIn/2)
+        .attr("y", (minRad + margin.top - (15/minRad)*10))
+        //TODO 40 is hoogte pijleinde/2 (helft) maal scale y richting
+        .attr("text-anchor", "middle")
+        .text("" + incomingPer);
+
+
+    drawBestTwoShirts(arrayPlayers[0], teamWanted, (w/2 - maxRad - margin.left - 30 - scaleValueXIn), (minRad + margin.top + (15/minRad)*10),
+        (w/2 - maxRad - margin.left - 30 - scaleValueXIn + 50 + margin.left), (minRad + margin.top + (15/minRad)*10));
 
 
 
 
-        var scaleIn = scaleFactor(arrayPlayers, margin.left, (width/2-margin.right));
-        var widthVariable = 5;
+    var scaleValueXOut = scaleArrowHorizontal(outgoingPer, w, h, minMaxPER[0], minMaxPER[1]);
+    //console.log("Out " + scaleValueXOut);
+    //console.log("Out " + outgoingPer);
+    //console.log("Out " + minMaxPER[0]);
+    //console.log("Out " + minMaxPER[1]);
+    //console.log("Out " +  scaleValueXOut/50);
+    arrowOutgoing.append("use")
+        .attr("xlink:href","#transferRectHorizontal")
+        .attr("class", "arrowOut")
+        .attr('transform', function(d) {
+            return "translate(" + (w/2 + maxRad + margin.left) + ", " +  (minRad + margin.top) + "), scale(" + (scaleValueXOut/50) + ", " + (10/minRad) +")";
+            //TODO 50 is lengte rect
+        });
 
-        arrowIncoming.append("use")
-                .attr("xlink:href","#transferArrowIn")
-                .attr('transform', function(d) {
-                    return "translate(" + margin.left + ", " +  (height / 2 - height/50 - 20*widthVariable/2) + ") scale(" + (scaleIn[0]/115) + ", " + widthVariable + ")";
-                });
+    arrowOutgoing.append("use")
+        .attr("xlink:href","#arrowRight")
+        .attr("class", "arrowOut")
+        .attr('transform', function(d) {
+            return "translate(" + (w/2 + maxRad + margin.left + scaleValueXOut) + ", " +  (minRad + margin.top) + "), scale(" + (15/minRad) + ", " + (15/minRad) +")";
+        });
 
-        arrowIncoming.append('text')
-            .attr("x", scaleIn[0]/2 + margin.left)
-            .attr("y", (height / 2 - 10 - 20*widthVariable/4))
-            .attr("dy", ".35em")
-            .attr("text-anchor", "middle")
-            .text("" + totalPER(arrayPlayers[0]).toFixed(1));
+    arrowOutgoing.append('text')
+        .attr("x", (w/2 + maxRad + margin.left + scaleValueXOut/2))
+        .attr("y", (minRad + margin.top - (15/minRad)*10))
+        //TODO 40 is hoogte pijleinde/2 (helft) maal scale y richting
+        .attr("text-anchor", "middle")
+        .text("" + outgoingPer);
+
+    drawBestTwoShirts(arrayPlayers[3], teamWanted, (w/2 + maxRad + margin.left + scaleValueXOut - 50 + (15/minRad)*10), (minRad + margin.top + (15/minRad)*10),
+        (w/2 + maxRad + margin.left + scaleValueXOut - 100 + (15/minRad)*10 - margin.left), (minRad + margin.top + (15/minRad)*10));
 
 
 
+    var scaleValueYStayedPositive = scaleArrowVertical(stayedPer, w, h, 0, minMaxPER[3]);
+    var scaleValueYStayedNegative = scaleArrowVertical(Math.abs(stayedPer), w, h, 0, Math.abs(minMaxPER[2]));
 
-        arrowOutgoing.append("use")
-                .attr("xlink:href","#transferArrowOut")
-                .attr('transform', function(d) {
-                    return "translate(" + margin.left + ", " +  (height / 2 + height/50) + ") scale(" + (scaleIn[1]/115) + ", " + widthVariable + ")";
-                });
+//                var stayedPer = parseFloat(totalPER(arrayPlayers[2])) - parseFloat(totalPER(arrayPlayers[1]))
 
-        arrowOutgoing.append('text')
-                .attr("x", scaleIn[1]/2 + margin.left)
-                .attr("y", (height / 2 + height/50 + 20*widthVariable/4))
-                .attr("dy", ".35em")
-                .attr("text-anchor", "middle")
-                .text("" + totalPER(arrayPlayers[3]).toFixed(1));
+    //console.log("Stayed " + scaleValueYStayedPositive);
+    //console.log("Stayed " + stayedPer);
+    //console.log("Stayed " + minMaxPER[2]);
+    //console.log("Stayed " + minMaxPER[3]);
+    //console.log("Stayed " +  scaleValueYStayedPositive/50);
+    if (parseFloat(stayedPer) >= 0) {
 
-        var stayedPer = parseFloat(totalPER(arrayPlayers[2])) - parseFloat(totalPER(arrayPlayers[1]))
-        if (parseFloat(stayedPer) >= 0) {
-            arrowStayed.append("use")
-                .attr("xlink:href","#transferArrowStayedUp")
-                .attr('transform', function(d) {
-                    return "translate(" + (width/2 + margin.left) + ", " +  (height/2) + ") scale(" + (scaleIn[1]/115) + ", " + (scaleIn[1]/115) + ")";
-                });
-        }
-        else if(parseFloat(stayedPer) < 0) {
-            arrowStayed.append("use")
-                .attr("xlink:href","#transferArrowStayedDown")
-                .attr('transform', function(d) {
-                    return "translate(" + (width/2 + margin.left) + ", " +  (height/2) + ") scale(" + (scaleIn[1]/115) + ", " + (scaleIn[1]/115) + ")";
-                });
-        }
+        arrowStayed.append("use")
+            .attr("xlink:href","#transferRectVertical")
+            .attr("class", "arrowStayedUp")
+            .attr('transform', function(d) {
+                return "translate(" + (w/2 - maxRad/4) + ", " +  (2*maxRad + 2*margin.top + (15/minRad)*10) + "), scale(" + (10/minRad) + ", " + (scaleValueYStayedPositive/50) +")";
+                //TODO 50 is lengte rect
+                //TODO 30 is lengte pijl maal scale y richting pijl
+            });
+
+        arrowStayed.append("use")
+            .attr("xlink:href","#arrowUp")
+            .attr("class", "arrowStayedUp")
+            .attr('transform', function(d) {
+                return "translate(" + (w/2 - maxRad/4) + ", " +  (2*maxRad + 2*margin.top) + "), scale(" + (15/minRad) + ", " + (15/minRad) +")";
+            });
 
         arrowStayed.append('text')
-            .attr("x", (width/2 + margin.left))
-            .attr("y", height/2)
-            .attr("dx", 20)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "middle")
-            .text(stayedPer.toFixed(1));
+            .attr("x", (w/2 - maxRad/4 + 40))
+            //TODO 40 is breedte pijleinde/2 (helft) maal scale x richting
+            .attr("y", (2*maxRad + 2*margin.top))
+            //TODO 30 is lengte pijl maal scale y richting pijl
+            .attr("dy", ".71em")
+            .text("" + stayedPer);
+
+        var playersStayed = playerPERDifference(arrayPlayers[1], arrayPlayers[2]);
+        drawBestTwoShirts(playersStayed, teamWanted, (w/2 - maxRad/4 + (15/minRad)*10), (maxRad + 2* margin.top + scaleValueYStayedPositive + (15/minRad)*10),
+            (w/2 - maxRad/4 + (15/minRad)*10 + margin.left + 50), (maxRad + 2* margin.top + scaleValueYStayedPositive + (15/minRad)*10));
+
+
+    }
+    else if(parseFloat(stayedPer) < 0) {
+
+        arrowStayed.append("use")
+            .attr("xlink:href","#transferRectVertical")
+            .attr("class", "arrowStayedDown")
+            .attr('transform', function(d) {
+                return "translate(" + (w/2 - maxRad/4) + ", " +  (2*maxRad + 2*margin.top) + "), scale(" + (15/minRad) + ", " + (scaleValueYStayedNegative/50) +")";
+                //TODO 50 is lengte rect
+                //TODO 30 is lengte pijl maal scale y richting pijl
+            });
+
+        arrowStayed.append("use")
+            .attr("xlink:href","#arrowDown")
+            .attr("class", "arrowStayedDown")
+            .attr('transform', function(d) {
+                return "translate(" + (w/2 - maxRad/4) + ", " +  (2*maxRad + 2*margin.top + scaleValueYStayedNegative) + "), scale(" + (15/minRad) + ", " + (15/minRad) +")";
+            });
+
+        arrowStayed.append('text')
+            .attr("x", (w/2 - maxRad/4 + 40))
+            //TODO 40 is breedte pijleinde/2 (helft) maal scale x richting
+            .attr("y", (2*maxRad + 2*margin.top))
+            .attr("dy", ".71em")
+            .text("" + stayedPer);
+
+        var playersStayed = playerPERDifference(arrayPlayers[1], arrayPlayers[2]);
+        drawBestTwoShirts(playersStayed, teamWanted, (w/2 - maxRad/4 + (15/minRad)*10), (maxRad + 2* margin.top + scaleValueYStayedNegative + (15/minRad)*10),
+            (w/2 - maxRad/4 + (15/minRad)*10 + margin.left + 50), (maxRad + 2* margin.top + scaleValueYStayedNegative + (15/minRad)*10));
+    }
+
+
+    function stayedShirts(playersOld, playersNew) {
+        var players = playerPERDifference(playersOld, playersNew);
+        var bestPlayers = bestTwoPlayers(players);
+        var height = (2*maxRad + 2*margin.top + 30);
+        var w1 = (w/2 - maxRad/4 + 40);
+        if (bestPlayers.length >= 1) {
+            drawShirt(w1, height, bestPlayers[0].Player, bestPlayers[0]["No."], teamWanted);
+            if (bestPlayers.length >= 2) {
+                drawShirt(w1 + 50 + margin.left, height, bestPlayers[1].Player, bestPlayers[1]["No."], teamWanted);
+            }
+        }
+    }
+
+    function drawBestTwoShirts(players, team, x1, y1, x2, y2) {
+        var bestPlayers = bestTwoPlayers(players);
+        if (bestPlayers.length >= 1) {
+            drawShirt(x1, y1, bestPlayers[0].Player, bestPlayers[0]["No."], team);
+            if (bestPlayers.length >= 2) {
+                drawShirt(x2, y2, bestPlayers[1].Player, bestPlayers[1]["No."], team);
+            }
+        }
+    }
+
+    function scaleArrowHorizontal(arrowVariable, width, height, min, max) {
+        var maxSpace;
+        var minSpace;
+        if (width/8 > height/6) {
+            //max radius circle is height/6 en min radius circle is height/24
+            maxSpace = width/2 - height/6 - 2*margin.left;
+            minSpace = height/24;
+        }
+        else if (width/8 <= height/6) {
+            //max radius circle is width/8 en min radius circle is width/32
+            maxSpace = width/2 - width/8 - 2*margin.left;
+            minSpace = width/32;
+        }
+
+        var unity = (maxSpace-minSpace)/(max-min);
+//                    console.log(maxSpace);
+//                    console.log( minSpace + (arrowVariable-min)*unity);
+        return minSpace + (arrowVariable-min)*unity;
+    }
+
+    function scaleArrowVertical(arrowVariable, width, height, min, max) {
+        var maxSpace;
+        var minSpace;
+        if (width/8 > height/6) {
+            //max radius circle is height/6 en min radius circle is height/24
+            maxSpace = margin.top + height/6 + margin.bottom;
+            minSpace = height/24;
+        }
+        else if (width/8 <= height/6) {
+            //max radius circle is width/8 en min radius circle is width/32
+            maxSpace = margin.top + width/8 + margin.bottom;
+            minSpace = width/32;
+        }
+
+        var unity = (maxSpace-minSpace)/(max-min);
+//                    console.log(maxSpace);
+//                    console.log( minSpace + (arrowVariable-min)*unity);
+        return minSpace + (arrowVariable-min)*unity;
+    }
+
 
 //                var court = chart.append("svg")
 //                        .attr("viewbox", "0, 0, 20, 20")
@@ -385,53 +461,12 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
 //                        .text("SG");
 
 
-//TODO Team en players doorgeven is niet zo goed. Twee keer zelfde methode op positie na.
-    function incomingShirts(players) {
-        var bestPlayers = bestTwoPlayers(players);
-        var h = (height / 2 - height/50 - widthVariable*20 - 35)
-        if (bestPlayers.length >= 1) {
-            drawShirt(10, h, bestPlayers[0].Player, bestPlayers[0]["No."], teamWanted);
-            if (bestPlayers.length >= 2) {
-                drawShirt(100, h, bestPlayers[1].Player, bestPlayers[1]["No."], teamWanted);
-            }
-        }
-//                console.log( bestPlayers[0].Player, bestPlayers[0]["No."],bestPlayers[1].Player, bestPlayers[1]["No."])
-    }
 
-    function outgoingShirts(players) {
-        var bestPlayers = bestTwoPlayers(players);
-        var h = (height / 2 + height/50 + widthVariable*20 - 35);
-        if (bestPlayers.length >= 1) {
-            drawShirt(10, h, bestPlayers[0].Player, bestPlayers[0]["No."], teamWanted);
-            if (bestPlayers.length >= 2) {
-                drawShirt(100, h, bestPlayers[1].Player, bestPlayers[1]["No."], teamWanted);
-            }
-        }
-//                console.log( bestPlayers[0].Player, bestPlayers[0]["No."],bestPlayers[1].Player, bestPlayers[1]["No."])
-    }
-
-    function stayedShirts(playersOld, playersNew) {
-        var players = playerPERDifference(playersOld, playersNew);
-        var bestPlayers = bestTwoPlayers(players);
-        if (bestPlayers.length >= 1) {
-            drawShirt((width/2 + rad), height/2, bestPlayers[0].Player, bestPlayers[0]["No."], teamWanted);
-            if (bestPlayers.length >= 2) {
-                drawShirt((width/2 + rad + 80), height/2, bestPlayers[1].Player, bestPlayers[1]["No."], teamWanted);
-            }
-        }
-    }
-
-
-    incomingShirts(arrayPlayers[0]);
-    console.log(incomingShirts(arrayPlayers[0]));
-    outgoingShirts(arrayPlayers[3]);
-    stayedShirts(arrayPlayers[1], arrayPlayers[2]);
-
-    PERChangesPosition(previousPlayers,currentPlayers, "pg");
-    PERChangesPosition(previousPlayers,currentPlayers, "pf");
-    PERChangesPosition(previousPlayers,currentPlayers, "sg");
-    PERChangesPosition(previousPlayers,currentPlayers, "sf");
-    PERChangesPosition(previousPlayers,currentPlayers, "c");
+    //PERChangesPosition(previousPlayers,currentPlayers, "pg");
+    //PERChangesPosition(previousPlayers,currentPlayers, "pf");
+    //PERChangesPosition(previousPlayers,currentPlayers, "sg");
+    //PERChangesPosition(previousPlayers,currentPlayers, "sf");
+    //PERChangesPosition(previousPlayers,currentPlayers, "c");
 
 
 
@@ -439,11 +474,6 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
 }
 
 
-
-
-function radius(radiusVariable) {
-    return (11 + radiusVariable)*7 * (width / 1000) ;
-}
 
 
 function scaleFactor(inOutStayedPlayers, start, end) {
@@ -517,6 +547,8 @@ function totalPER(players) {
     return total;
 }
 
+
+
 function minMaxPerSeason(data, yearWanted) {
     var previousPlayersArray = [],
         currentPlayersArray = [],
@@ -574,6 +606,38 @@ function minMaxPerSeason(data, yearWanted) {
     return minMaxInOutStay;
 }
 
+
+function scaleCircle(radiusVariable, width, height, min, max) {
+    var maxSpace;
+    var minSpace;
+    if (width/8 > height/6) {
+        maxSpace = height/6;
+        minSpace = height/24;
+    }
+    else if (width/8 <= height/6) {
+        maxSpace = width/8;
+        minSpace = width/32;
+    }
+
+
+//    var result = 1.0083 * Math.pow(((radiusVariable - min +1)/(min - min+1)),0.5716) * minSpace;
+//    result =  Math.sqrt(result/Math.PI);
+
+
+    var unity = (maxSpace-minSpace)/(max-min);
+//    return minSpace + result*unity;
+    return minSpace + (radiusVariable-min)*unity;
+
+    /*Flannery Appearance Compensation case:
+     Pj = 1.0083 * (Valj/ValMin)^0.5716 * Pmin
+     Where:
+     Pj = point size of the j'th feature
+     Valj = value of the j'th feature
+     ValMin = minimum value
+     Pmin = minimum point size
+     ^0.5 is to the power of 0.5 (square root)
+     ^0.5716 is to the power of 0.5716 */
+}
 
 
 
