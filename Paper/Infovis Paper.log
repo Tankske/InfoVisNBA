@@ -1,4 +1,4 @@
-This is LuaTeX, Version beta-0.80.0 (TeX Live 2015/Debian) (rev 5238)  (format=lualatex 2016.4.7)  8 APR 2016 16:17
+This is LuaTeX, Version beta-0.80.0 (TeX Live 2015/Debian) (rev 5238)  (format=lualatex 2016.4.7)  19 APR 2016 18:06
  restricted \write18 enabled.
 **"Infovis Paper.tex"
 ("./Infovis Paper.tex"
@@ -1125,27 +1125,36 @@ LaTeX Warning: Reference `sec:goal' on page \thepage  undefined on input line 16
 
 
 LaTeX Warning: Reference `sec:data' on page \thepage  undefined on input line 17
-6.
+8.
 
 
 LaTeX Warning: Citation `basketball-reference' on page \thepage  undefined on in
-put line 178.
+put line 180.
 
 
 LaTeX Warning: Reference `sec:literature' on page \thepage  undefined on input l
-ine 184.
+ine 194.
 
 
 LaTeX Warning: Reference `sec:visualization' on page \thepage  undefined on inpu
-t line 185.
+t line 196.
+
+
+LaTeX Warning: Citation `d3' on page \thepage  undefined on input line 198.
+
+
+LaTeX Warning: Citation `html5' on page \thepage  undefined on input line 199.
+
+
+LaTeX Warning: Citation `jquery' on page \thepage  undefined on input line 199.
 
 
 LaTeX Warning: Reference `sec:discussion' on page \thepage  undefined on input l
-ine 186.
+ine 206.
 
 
 LaTeX Warning: Reference `sec:conclusion' on page \thepage  undefined on input l
-ine 187.
+ine 207.
 
 No file "Infovis Paper".bbl.
 
@@ -1158,41 +1167,41 @@ Package balance Warning: You have called \balance in second column
 Non-PDF special ignored!
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 236.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 236.
  ("./Infovis Paper.aux")
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 236.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 236.
 Package rerunfilecheck Info: File `"Infovis Paper".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 236.
 )
 
 Here is how much of LuaTeX's memory you used:
- 20196 strings out of 494867
+ 20201 strings out of 494867
  100000,460012 words of node,token memory allocated
- 328 words of node memory still in use:
+ 330 words of node memory still in use:
    5 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 42 glue_spec, 1 write nodes
-   avail lists: 2:22,3:172,4:1236,5:207,6:4191,7:248,8:21,9:215,10:467
- 22793 multiletter control sequences out of 65536+600000
+   avail lists: 2:22,3:175,4:1329,5:211,6:4339,7:248,8:23,9:226,10:483
+ 22796 multiletter control sequences out of 65536+600000
  178 fonts using 6999067 bytes
  62i,10n,56p,424b,291s stack positions out of 5000i,500n,10000p,200000b,100000s
-LuaTeX warning (dest): name{section.3} has been referenced but does not exist, r
-eplaced by a fixed one
+LuaTeX warning (dest): name{section.15} has been referenced but does not exist, 
+replaced by a fixed one
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<</usr/share/texlive/
 texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb><</usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvb8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb>
-Output written on Infovis Paper.pdf (1 page, 45731 bytes).
+Output written on Infovis Paper.pdf (1 page, 47019 bytes).
 
-PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 131072)
+PDF statistics: 77 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 131072)
  72 words of extra memory for PDF output out of 10000 (max. 10000000)
 
