@@ -211,8 +211,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								})
       						.on('mouseout', function(data) {
       								tip.hide(data);
-      								d3.select(this)
-										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
+                                    d3.select(this)
+                                        .style('fill',rgbcolor(data[strokeVariable], data["region"]));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
       									console.log("#"+visibleClass.split(".").join("_"))

@@ -2,10 +2,10 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     d3.select(".smallmultiple").remove();
 
-    var nPlots = 5;
+    var bases = ['srs', 'srs', 'srs'];
 
     var x = d3.scale.linear()
-        .range([0, width/nPlots])
+    .range([0, width/bases.length])
         .domain([1971,2015]);
 
     var srsScale = d3.scale.linear()
@@ -26,34 +26,36 @@ function drawTs(data, team, year, div, x, y, width, height) {
         }
     });
 
+    var svg = div.selectAll("svg")
+                    .data(bases)
+                    .enter().append("svg")
+                        .attr("width", width/bases.length)
+                        .attr("height", height)
+                        .attr("class", "smallmultiple");
 
-    var srs = div.append("svg")
-                 .attr("class", "smallmultiple")
-                 .attr("width", width/nPlots)
-                 .attr("height", height);
+    console.log(svg);
 
-    srs.append("path")
+    svg.append("path")
         .datum(srsData)
         .attr("class", "line")
         .attr("d", srsline);
 
-    srs.append("text")
-        .attr("x", (width / (2 * nPlots)))
+    svg.append("text")
+        .attr("x", (width / (2 * bases.length)))
         .attr("y", 20)
         .attr("text-anchor", "middle")
         .text("SRS");
 
-
     var highlightYear = year;
 
-    srs.on("mouseout", function() {
+    div.on("mouseout", function() {
         highlightYear = year;
         fixcyline();
         drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, highlightYear, true);
         drawZoom(zoomSvg, 0, 0, width, height - 280, highlightYear, team);
     });
 
-    srs.on("mousemove", function() {
+    svg.on("mousemove", function() {
         highlightYear = Math.round(x.invert(d3.mouse(this)[0]));
         fixcyline();
         drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, highlightYear, true);
@@ -79,15 +81,14 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     }
 
-    
-    srs.append("line")
+    svg.selectAll("svg").append("line")
         .attr("class", "curYearLine");
 
-    srs.append("text")
+    svg.append("text")
         .attr("class", "curYearVal")
         .attr("text-anchor", "middle");
 
-    srs.append("text")
+    svg.append("text")
         .attr("class", "curYearName")
         .attr("text-anchor", "middle");
         
