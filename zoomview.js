@@ -47,7 +47,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         CharlotteBobcats : {shirt: "000080", edge: "add8e6"}
     }
 
-    console.log(teamWanted, yearWanted, arrowVariable);
+    //console.log(teamWanted, yearWanted, arrowVariable);
     d3.select(".zoomchart").remove();
 
     var margin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -204,7 +204,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     var rad = scaleCircle(teamSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var maxRad = scaleCircle(minMaxSRSAllYears[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var minRad = scaleCircle(minMaxSRSAllYears[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
-    console.log(minRad);
+    //console.log(minRad);
     chart.append('g')
         .attr('class', 'circleTeam')
         .append("circle")
@@ -721,6 +721,6 @@ function PERChangesPosition(players1, players2, position) {
     currTemp = parseFloat(currTemp) / currentPlayers.length;
     result = parseFloat(currTemp) - parseFloat(prevTemp);
 
-    console.log(result)
+    //console.log(result)
     return result;
 }

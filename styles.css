@@ -304,3 +304,7 @@ input[type=range]:focus::-ms-fill-upper {
     fill: none;
     stroke: blue;
 }
+
+.smallm_g {
+    pointer-events: all;
+}

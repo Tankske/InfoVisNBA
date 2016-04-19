@@ -3,9 +3,9 @@
 <head>
 	<link rel="stylesheet" href="styles.css">
 	
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <script src="jquery-2.2.3.min.js"></script>
+	<script src="lib/d3.min.js" charset="utf-8"></script>
+	<script src="lib/d3-tip.min.js"></script>
+    <script src="lib/jquery-2.2.3.min.js"></script>
 	
     <script src="bubbleview.js"></script>
     <script src="zoomview.js"></script>
@@ -20,14 +20,19 @@
             d3.select(".bubblechart").remove();
             d3.select(".d3-tip").remove();
             drawBubbles(bubbleSvg, 0, 0, width, height, year, false);
-            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
-            drawTeamChange();
+            drawFullTeamChange(year);
         }
 
-        function drawTeamChange() {
-            drawZoom(zoomSvg, 0, 0, width, height - 480, year, team);
+        function drawFullTeamChange(year) {
+            drawTeamChange(year);
             drawTeamStats(teamSvg, 0, 0, width, 200, year, team);
+        }
+
+
+        function drawTeamChange(year) {
+            drawZoom(zoomSvg, 0, 0, width, height - 480, year, team);
             drawField(fieldSvg, 0, 0, width, height - 280, year, team);
+            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
 
@@ -53,7 +58,7 @@
                     if (view === "bubble") {
                         scrollMe("zoom");
                     }
-                    drawTeamChange();
+                    drawFullTeamChange(window.year);
                 });
 
             d3.select(".backbubble")
@@ -106,7 +111,7 @@
                                 </div>
                                 <div class="visualization" id="timelinefooter">
                                     <p>
-                                        <input class="timeline" type="range" min="1971" max="2015" id="year" value=2015>
+                                        <input class="timeline" type="range" min="1984" max="2015" id="year" value=2015>
                                         <p id="yearSlider">2015</p>
                                     </p>
                                 </div>
@@ -198,7 +203,7 @@
 
                                 //var view = "bubble";
 
-                                var year = 2015;
+                                window.year = 2015;
 
 
 								d3.select("#year").on("input", function() {
