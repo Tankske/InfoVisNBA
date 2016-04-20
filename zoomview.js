@@ -685,13 +685,9 @@ function playerPERDifference(players1, players2) {
     var result = [];
     for (var i = 0; i<players1.length && i<players2.length; i++) {
         var diff = parseFloat(players2[i].advanced.PER) - parseFloat(players1[i].advanced.PER)
-        result.push({
-            "Player": players2[i].Player,
-            "No.": players2[i]["No."],
-            "Pos": players2[i].Pos,
-            "PER": diff.toFixed(1)
-        });
-
+        var newPlayer = players2[i];
+        newPlayer.advanced.PER = diff.toFixed(1);
+        result.push(newPlayer);
     }
 
     return result;

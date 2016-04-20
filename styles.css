@@ -297,6 +297,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 #teamvis {
     background: white;
+    width: 1000px;
 }
 
 #teamvis.stick {
