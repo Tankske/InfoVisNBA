@@ -1,4 +1,3 @@
-function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos, ypos, w, h) {
     var ShirtColors = {
         TorontoRaptors : {shirt: "#ff0000", edge:  "#000000"},
         BostonCeltics : {shirt: "#008000", edge: "#ffffff"},
@@ -46,8 +45,9 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         NewOrleansHornets : {shirt: "009acd", edge: "551a8b"},
         CharlotteBobcats : {shirt: "000080", edge: "add8e6"}
     }
+function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos, ypos, w, h) {
 
-    console.log(teamWanted, yearWanted, arrowVariable);
+    //console.log(teamWanted, yearWanted, arrowVariable);
     d3.select(".zoomchart").remove();
 
     var margin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -204,7 +204,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     var rad = scaleCircle(teamSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var maxRad = scaleCircle(minMaxSRSAllYears[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var minRad = scaleCircle(minMaxSRSAllYears[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
-    console.log(minRad);
+    //console.log(minRad);
     chart.append('g')
         .attr('class', 'circleTeam')
         .append("circle")
@@ -540,8 +540,8 @@ function separatePlayers(previousPlayers, currentPlayers) {
 function totalPER(players) {
     var total = 0;
     for (var i = 0; i<players.length; i++) {
-        if (!(players[i].PER == "")) {
-            total += parseFloat(players[i].PER);
+        if (!(players[i].advanced == undefined)) {
+            total += parseFloat(players[i].advanced.PER);
         }
     }
     return total;
@@ -663,17 +663,17 @@ function bestTwoPlayers(players) {
         max1 = - Number.MAX_VALUE,
         max2 = - Number.MAX_VALUE;
     for (var i = 0; i<players.length; i++) {
-        if (! (players[i].PER == "")) {
-            if (parseFloat(players[i].PER) > parseFloat(max1)) {
-                max1 = players[i].PER;
+        if (! (players[i].advanced == undefined)) {
+            if (parseFloat(players[i].advanced.PER) > parseFloat(max1)) {
+                max1 = players[i].advanced.PER;
                 if (result.length > 0) {
                     max2 = max1;
                     result[1] = result[0];
                 }
                 result[0] = players[i];
             }
-            else if (parseFloat(players[i].PER) > parseFloat(max2)) {
-                max2 = players[i].PER;
+            else if (parseFloat(players[i].advanced.PER) > parseFloat(max2)) {
+                max2 = players[i].advanced.PER;
                 result[1] = players[i];
             }
         }
@@ -684,7 +684,7 @@ function bestTwoPlayers(players) {
 function playerPERDifference(players1, players2) {
     var result = [];
     for (var i = 0; i<players1.length && i<players2.length; i++) {
-        var diff = parseFloat(players2[i].PER) - parseFloat(players1[i].PER)
+        var diff = parseFloat(players2[i].advanced.PER) - parseFloat(players1[i].advanced.PER)
         result.push({
             "Player": players2[i].Player,
             "No.": players2[i]["No."],
@@ -711,16 +711,16 @@ function PERChangesPosition(players1, players2, position) {
     var currTemp = 0;
     console.log(result);
     for (var j = 0; j < previousPlayers.length; j++) {
-        prevTemp += parseFloat(previousPlayers[j].PER)
+        prevTemp += parseFloat(previousPlayers[j].advanced.PER)
     }
     prevTemp = parseFloat(prevTemp) / previousPlayers.length;
 
     for (var j = 0; j < currentPlayers.length; j++) {
-        currTemp += parseFloat(currentPlayers[j].PER)
+        currTemp += parseFloat(currentPlayers[j].advanced.PER)
     }
     currTemp = parseFloat(currTemp) / currentPlayers.length;
     result = parseFloat(currTemp) - parseFloat(prevTemp);
 
-    console.log(result)
+    //console.log(result)
     return result;
 }

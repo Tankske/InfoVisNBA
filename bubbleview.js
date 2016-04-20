@@ -1,5 +1,5 @@
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
-		console.log(dataInput);
+		//console.log(dataInput);
 		
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
@@ -89,7 +89,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		// Returns an event handler for fading a given chord group.
 		function fade(opacity) {
 		  return function(g, i) {
-		  	console.log(svg.selectAll(".circles"));
+		  	//console.log(svg.selectAll(".circles"));
 		    svg.selectAll(".circles")
 		        //.filter(function(d) { return d.source.index != i && d.target.index != i; })
 		      .transition()
@@ -211,12 +211,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								})
       						.on('mouseout', function(data) {
       								tip.hide(data);
-      								d3.select(this)
-										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
+                                    d3.select(this)
+                                        .style('fill',rgbcolor(data[strokeVariable], data["region"]));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
-      									console.log("#"+visibleClass.split(".").join("_"))
-      									console.log(d3.select("#"+visibleClass.split(".").join("_")));
+      									//console.log("#"+visibleClass.split(".").join("_"))
+      									//console.log(d3.select("#"+visibleClass.split(".").join("_")));
       									d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
 									}
 
@@ -266,7 +266,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
-      									console.log("."+visibleClass+"circles");
+      									//console.log("."+visibleClass+"circles");
       									
 									}
 									else d3.select("#"+visibleClass).style('fill','orange');

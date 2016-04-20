@@ -163,7 +163,6 @@ during the development process. Section~\ref{sec:discussion} discusses potential
 improvements of the final visualization and lessons learned from the project. We
 conclude in section~\ref{sec:conclusion} by giving a short overview.
 
-
 \section{Goal and Target Audience}\ref{sec:goal}
 The visualization's goal is allowing exploration of NBA data by lay persons.
 More specifically, the visualization does not try to offer premade explanations
@@ -171,18 +170,39 @@ for phenomenons visible in the NBA data. By providing easy and intuitive access
 to the data, users can draw their own conclusions. 
 Secondly, the visualization's target audience are lay persons. This means people
 not professionally active in the field of basketball. Specifically, fans of NBA
-are the core of our target audience. 
+are the core of our target audience. This means the visualization assumes most
+common basketball terms are known to the audience and as such does not provide
+additional information about them.
 
 \section{Data}\ref{sec:data}
 The data visualized is a subset of the data available on basketball statistics
 site basketball-reference\cite{basketball-reference}. A wide range of data is
-available on this site. In our visualization we only use data from 1971 onwards.
+available on this site. In our visualization we only use data from 1984 onwards.
 The data we use includes league standings and playoff rankings for each team,
 the team's roster and individual player statistics for each year, including the
-PER~(Player Efficiency Rating).
+PER~(Player Efficiency Rating). 
+
+The data was gathered by scraping the basketball-reference site, mostly using
+the provided download capabilities. Most of the data was downloaded in csv
+format, while some tables had to be manually scraped. The data was then combined
+in a preprocessing step. In this step, each team's playoff rankings were
+calculated based on the matches played during the playoffs, and the rest of the
+data was combined into json format. The final preprocessing step combines all
+data into one json file.
 
 \section{Related Work}\ref{sec:literature}
+
 \section{Visualization}\ref{sec:visualization}
+
+\subsection{Technology}
+To create the visualization, the d3 javascript framework~\cite{d3} was used in
+combination with html5~\cite{html5} and jquery~\cite{jquery}. This allows easy
+access to the visualization as most modern browsers are capable of handling
+these technologies.
+The choice not to use the d3 framework for the entire visualization was made to
+ease the layout configuration of the visualization. Instead, html was used to do
+the global layout of the visualization.
+
 \section{Discussion}\ref{sec:discussion}
 \section{Conclusion}\ref{sec:conclusion}
 
