@@ -167,20 +167,30 @@ conclude in section~\ref{sec:conclusion} by giving a short overview.
 The visualization's goal is allowing exploration of NBA data by lay persons.
 More specifically, the visualization does not try to offer premade explanations
 for phenomenons visible in the NBA data. By providing easy and intuitive access
-to the data, users can draw their own conclusions. 
-Secondly, the visualization's target audience are lay persons. This means people
-not professionally active in the field of basketball. Specifically, fans of NBA
-are the core of our target audience. This means the visualization assumes most
-common basketball terms are known to the audience and as such does not provide
-additional information about them.
+to the data, users can draw their own conclusions. It thus enables users of all 
+sorts to explore the data for patterns.
+Secondly, the visualization's target audience are lay persons. This means it 
+satifies needs of people regardless if they are professionally active in the 
+field of basketball or not. Specifically, fans of NBA are the core of our target
+audience. This means the visualization assumes most common basketball terms are
+known to the audience and as such does not provide additional information about 
+them.
+The visualization should enable people to look for changes in team statistics 
+and evaluate the impact on the team. The visualization gives also a short insight
+in what caused the change in statistics. Eg. a user could notice a spike/drop in 
+the SRS score () of a team. The user will then be able to see how the spike was 
+caused (team performance, players that joined the team, players that left the 
+team). Next to that, the user will can also explore the impact of the change on
+the team. She/he will be able to scroll through time and notice how the results of
+the team change over time since the spike/drop.
 
 \section{Data}\ref{sec:data}
 The data visualized is a subset of the data available on basketball statistics
 site basketball-reference\cite{basketball-reference}. A wide range of data is
 available on this site. In our visualization we only use data from 1984 onwards.
 The data we use includes league standings and playoff rankings for each team,
-the team's roster and individual player statistics for each year, including the
-PER~(Player Efficiency Rating). 
+team overall statistics, the team's roster and individual player statistics 
+for each year, including the PER~(Player Efficiency Rating). 
 
 The data was gathered by scraping the basketball-reference site, mostly using
 the provided download capabilities. Most of the data was downloaded in csv
@@ -193,6 +203,73 @@ data into one json file.
 \section{Related Work}\ref{sec:literature}
 
 \section{Visualization}\ref{sec:visualization}
+The visualization consists of three parts:
+- The bubble view: a compact view on the play-offs per season
+- The statistics (zoom) view: a more detailed view on a statistic of a selected 
+team
+- The team view: a detailed view on how good or bad a team scores on a specific 
+field position
+All three of them are discussed in more detail with the rationale behind them.
+
+\subsection{The bubble view}
+This view supposes to inform the user of the results of the NBA play-offs per 
+season. A circle is used to represent a team, the size its SRS score using a ''
+distribution, a stroke to illustrate it's region or medal and curved lines to
+inform the user which teams played against each other. The user has a timeline
+at its disposal to scroll through time.
+<picture of the bubble view compared with double elimination bracket>
+A more popular visualization of a play-off is the team double elimination bracket.
+Although this is a more common representation, we wanted to create a more compact
+version by eliminating the recurring representation of a team.
+Our initial bubble view was too compact. It connected teams that played against
+each other directly. When searching for alternatives to reflect on our choice we
+discovered a similar visualization in a totally different context. 
+<https://source.opennews.org/en-US/articles/nyts-512-paths-white-house/>
+<comparison of original buble view with white house paths>
+This visualization gives a cleaner view of the competitors for a specific team
+compared to our original sketch. Hence we decided to adapt our visualization. We
+added an intermediate step between two teams to clearer indicate how teams competed
+to become NBA champion.
+Next to the static view, the user can interact with the visualization. When he 
+hoovers over a circle of a team, only the games played are shown by highliting the 
+competitors (their circles) and the curved lines that connect them. This view gets 
+fixated when the users clicks on a team.
+He/she then automatically gets forwarded to the statistics view where the bubble 
+view is still represented in the right upper corner to make sure the user keeps
+an overview. This view will be explained in more detail in the next section.
+
+\subsection{The statistics view}
+The statistics view gives a user a clear overview of how a statistic has been 
+influenced compared to the year before. The change is represented by three arrows:
+- arrow on the left pointing towards the middle: indicating the influence of players
+who joined the team
+- arrow in the middle: indicating how the team inherent changed
+- arrow on the right pointing towards the middle: indicating the influence of players
+who left the team
+<figure of the statistics view>
+The box on the right enables the user to change between statistics. Next to that it 
+informs the user of which statistic has been choosen. Below the arrows small multiples
+are shown of some statistics. The line charts show how a specific team scored over
+time. This enables a user to identify peaks or drops that possibly influenced the 
+outcome of a team is this season/following seasons or previous seasons.
+When the user hits the circle representing the teams SRS scrore, he is guided to 
+the team view. This view will be explained in more detail in the next section.
+
+
+
+\subsection{The team view}
+
+This view as well as the statistics view should give the user the ability to search
+for explanations why a team is is performing better or worse over seasons. On the 
+other hand, a user can see what impact a change in team characteristics has on its
+overall performance.
+Initially we designed this view more elaborate. When the user would click on a shirt,
+specific player information would be shown. Next to some general text information, 
+we would have visualised a number of player statistics as small multiples. A histogram
+should have informed how a player scores compared to his team, other players in the 
+league on this position or all other players in the league.
+<Sketch of the small multiples>
+
 
 \subsection{Technology}
 To create the visualization, the d3 javascript framework~\cite{d3} was used in
