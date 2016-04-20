@@ -1,4 +1,3 @@
-function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos, ypos, w, h) {
     var ShirtColors = {
         TorontoRaptors : {shirt: "#ff0000", edge:  "#000000"},
         BostonCeltics : {shirt: "#008000", edge: "#ffffff"},
@@ -46,6 +45,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         NewOrleansHornets : {shirt: "009acd", edge: "551a8b"},
         CharlotteBobcats : {shirt: "000080", edge: "add8e6"}
     }
+function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos, ypos, w, h) {
 
     //console.log(teamWanted, yearWanted, arrowVariable);
     d3.select(".zoomchart").remove();
