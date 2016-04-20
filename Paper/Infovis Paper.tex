@@ -202,6 +202,7 @@ data into one json file.
 
 \section{Related Work}\ref{sec:literature}
 
+
 \section{Visualization}\ref{sec:visualization}
 The visualization consists of three parts:
 - The bubble view: a compact view on the play-offs per season
@@ -210,17 +211,35 @@ team
 - The team view: a detailed view on how good or bad a team scores on a specific 
 field position
 All three of them are discussed in more detail with the rationale behind them.
+The webpage is built in such a way that it gives a hint to the user at the bottom
+or the top of a page when another view is available. By showing a different 
+background color and an arrow, we invite the visitor to explore other views. The 
+user is also at liberty to scroll through these views. However, a fixed scroll is
+implemeted so users will only end in complete views when moving around. Note that 
+the user also will be guided through all 3 views when performing actions described 
+in the section below.
 
 \subsection{The bubble view}
 This view supposes to inform the user of the results of the NBA play-offs per 
-season. A circle is used to represent a team, the size its SRS score using a ''
-distribution, a stroke to illustrate it's region or medal and curved lines to
-inform the user which teams played against each other. The user has a timeline
-at its disposal to scroll through time.
+season. A circle is used to represent a team, the size its SRS score using a '?'
+distribution, a stroke to illustrate it's region or medal won during regional 
+competition and curved lines to inform the user which teams played against each 
+other. The user has a timeline at its disposal to scroll through time. Note that
+the team can be recognized by the logo inside the circle. Our initial desing filled
+the circle with the red or blue depending on the region where the teams compete. 
+However, the shade of colour was darker if their final ranking was higher in their
+region. We've replaced this with the logo's of the teams as we thought this is more
+user friendly and the extra information of the ranking doesn't outweight.
 <picture of the bubble view compared with double elimination bracket>
 A more popular visualization of a play-off is the team double elimination bracket.
 Although this is a more common representation, we wanted to create a more compact
-version by eliminating the recurring representation of a team.
+version by eliminating the recurring representation of a team. We also considered 
+enclosed circles and a sunburst.
+<figure of 2 alternatives https://thetuftersblog.wordpress.com/2016/03/07/team-ranking-play-off-infovis/>
+Although the enclosed circles is a compact representation as well, we have continued 
+with our own design as we believe this view is more original and innovative. We 
+didn't encouter a similar view when searching for alternatives to visualize a 
+play-off or championship. 
 Our initial bubble view was too compact. It connected teams that played against
 each other directly. When searching for alternatives to reflect on our choice we
 discovered a similar visualization in a totally different context. 
@@ -240,34 +259,69 @@ an overview. This view will be explained in more detail in the next section.
 
 \subsection{The statistics view}
 The statistics view gives a user a clear overview of how a statistic has been 
-influenced compared to the year before. The change is represented by three arrows:
+influenced compared to the year before. The view consists of 3 parts:
+- Context section: the top part should inform the user of his/her context.
+- An arrow section illustrating why a statistic changed
+- Small multiples of team statistics and how they evolve over time
+\subsubsection{Context section}
+The context section should inform the user at all times of the current selections 
+that have been made. The statistics view will always be based on a specific team
+and season that have been selected or that are initated. This should be clear based
+on the textual information in the top left. Next to that, in the top right a small 
+bubble view is shown. It indicates the team selected and how well it performed in 
+the play-offs during that season. When changing teams and/or season, this view gets 
+updated as well as the textual information.
+
+\subsubsection{Arrow section of selected statistic}
+This section illustrates a change for a choosen statistic compared with the season
+the year before. This should give a visitor more insight into why a statistic changed
+over time. The change is represented by three arrows:
 - arrow on the left pointing towards the middle: indicating the influence of players
 who joined the team
 - arrow in the middle: indicating how the team inherent changed
 - arrow on the right pointing towards the middle: indicating the influence of players
 who left the team
 <figure of the statistics view>
-The box on the right enables the user to change between statistics. Next to that it 
-informs the user of which statistic has been choosen. Below the arrows small multiples
-are shown of some statistics. The line charts show how a specific team scored over
-time. This enables a user to identify peaks or drops that possibly influenced the 
-outcome of a team is this season/following seasons or previous seasons.
-When the user hits the circle representing the teams SRS scrore, he is guided to 
-the team view. This view will be explained in more detail in the next section.
+The shirts next to the arrows are the shirts of players that had the biggest 
+contribution to that arrow. Note that these shirts don't change in size. The box on 
+the right enables the user to change between 
+statistics. Next to that it informs the user of which statistic has been choosen. When 
+the user hits the circle in the middle representing the teams SRS scrore, he is guided 
+to the team view. This view will be explained in more detail in the next section.
 
-
+\subsubsection{Small multiples of different statistics}
+Below the arrow section small multiples are shown of multiple statistics over time. 
+The line charts enables a user to identify peaks or drops that possibly influenced the 
+outcome of a team is this season/following seasons or previous seasons. A user interact
+with the visualization by shifting the bar indicating the current year displayed. By doing
+this the view gets updated and the user can see the impact on the team in the context 
+section and why the statistic changes in the arrow section. An alternative to scroll
+through time is to use the timeline at the bottom of the page.
 
 \subsection{The team view}
-
 This view as well as the statistics view should give the user the ability to search
 for explanations why a team is is performing better or worse over seasons. On the 
 other hand, a user can see what impact a change in team characteristics has on its
 overall performance.
+This view shows each player of the team on its field postions. Shirts aligned next to 
+each other will thus share the same position. The size of a shirt would illustrate a
+players performance on this spot. The PES score () is initiated. This view should give
+a user insight on how strong or weak a particular team is for a specific field position.
+A user can then scroll through time, see how field positions evolve and what the influence
+is over time.
 Initially we designed this view more elaborate. When the user would click on a shirt,
 specific player information would be shown. Next to some general text information, 
-we would have visualised a number of player statistics as small multiples. A histogram
+we would have visualised a number of player statistics as small multiples. A bell curve
 should have informed how a player scores compared to his team, other players in the 
-league on this position or all other players in the league.
+league on this position or all other players in the league. We considered other charts for
+the small multiples as well. A box plot or bullet was less clear for us to indicate where
+a player stands compared to the group he was compared with. Alternatives for the small 
+multiples were evaluated as well. One good alternative was the shooting signature.
+<http://peterbeshai.com/buckets/app/#/playerView/201935_2015>
+However, creating such a visualization is again a project on itself and due to time 
+constraints we left it aside. Other possibilities such as a heatmap or spider web didn't
+fulfill our need to give the visitor a clear overview of how a player performed compared
+to its peergroup.
 <Sketch of the small multiples>
 
 
@@ -278,9 +332,65 @@ access to the visualization as most modern browsers are capable of handling
 these technologies.
 The choice not to use the d3 framework for the entire visualization was made to
 ease the layout configuration of the visualization. Instead, html was used to do
-the global layout of the visualization.
+the global layout of the visualization. We opted to structure the site with multiple
+divs as containers. To each container we allocate a svg with a specific visualization.
+Eg. The statistic view is build out of x divs filled with different svg's created
+with the D3 framework.
+<sketch of how the page is structured>
+When working with D3js we encountered some obstacles:
+- A synchrounous call need to be combined with synchronous calls. More specific, when a
+visitor uses the timeline to scroll through time, the whiping of previous visualizations 
+was not synced with the creation of the visualisation. The resulted in whiping sections 
+when a visualization was not created yet. Hence the view resulted in multiple figures 
+overlapping.
 
-\section{Discussion}\ref{sec:discussion}
+
+\section{Lessons learned}\ref{sec:discussion}
+We've learned a couple of lessons during the creation of this visualization:
+- Find a use case as soon as possible to built your visualization around
+- Each separate component should be a sufficient informative visualization on itself
+- Creating a custom visualization costs time and opportunities
+In what follows we will discuss our experience in more detail.
+
+\subsection{A good use case}
+At the beginning of this project we were able to design the 3 separate views 
+quite quickly. Our main problem was the integrate these views as a whole. When we created drafts
+of two views being the bubble view and the statitics view, we suddenly noted patterns. The golden
+globe warriors became NBA champion a couple of years after a great uplift in SRS score. This 
+due to a increase inside the team and because of new player joining the team in 2009. In 
+the years following, the team kept on attracting talented players and increased the inherent
+team score (with ups and downs) to become NBA champion in 2015. With the team view one can even
+notice that the team gets stronger in centre team positions during this period.
+The visualization however is missing at the moment if this reinforcement of the field positions
+is due to the attraction of talented people or utilizing available talent within the team.
+
+\subsection{Each component should be informative}
+In order to have a good visualization as a whole, each component should be a clear and 
+informative visualization on itself. This is a lesson learned from our work, but also when
+evaluating the work of peers. We started noticing that most components in a visualization 
+lack references and hence are not informative enough. Eg. each small multiple of a statisctic
+in the statistics view on itself gives sufficient information to stand on itselfs. The bar in
+the small multiple indicates the score in the selected season and enables the user to evaluate
+that score over time. Have there been better scores, or worse scores. Is this score part of 
+an upward movement during years? 
+For this reason we can argue that the circle representing the teams SRS score in the statisctics
+view is not the best choice. We could have chosen a bar chart with an indication of the best and
+worst score for that specific team over time or for the best & worst team in that season.
+
+\subsection{Custom visualizations]
+Before exploring what is out there in the D3js world, we made our own sketches. This is how
+we came up with the 3 custom views that makes our visualization. When comparing our design 
+with alternatives we could not find something that satisfied our needs. Nonetheless, they gave
+us inspiration to fine tune our designs. Although we are happy very happy with our result and
+we are convinced it was the right choice reach our goal, it had some draw backs.
+We noted that other teams had more freedom in exploring multiple different visualizations which
+enabled them to evaluate different options with trial and error. A luxury we did not have. We 
+could have prepared our data in a format that was more compatible with out of the box examples,
+but this would have had too much of an impact on our result.
+Next to that, although we've tried to write our code as general as possible, we're not convinced
+this could be shared in such a way that other information visualizer could easily re-use our work
+to vizualise other sports.
+
 \section{Conclusion}\ref{sec:conclusion}
 
 
