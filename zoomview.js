@@ -92,6 +92,18 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
                 .attr("width", w)
                 .attr("height", h);
 
+    var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function(d) {
+                    console.log(d);
+                    return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
+                        "PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
+                        "Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
+                        "Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
+                        "Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
+                });
+    chart.call(tip);
     var defs = chart.append("defs");
 
     defs.append("path")
@@ -380,9 +392,23 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         var height = (2*maxRad + 2*margin.top + 30);
         var w1 = (w/2 - maxRad/4 + 40);
         if (bestPlayers.length >= 1) {
-            drawShirt(w1, height, bestPlayers[0].Player, bestPlayers[0]["No."], teamWanted);
+            //drawShirt(w1, height, bestPlayers[0].Player, bestPlayers[0]["No."], teamWanted);
+            var wh = drawScaledShirt(w1,
+                            height, 
+                            bestPlayers[0], 
+                            teamWanted, 
+                            chart, 
+                            exagerratedPerScale(bestPlayers[0].advanced.PER),
+                            tip);
             if (bestPlayers.length >= 2) {
-                drawShirt(w1 + 50 + margin.left, height, bestPlayers[1].Player, bestPlayers[1]["No."], teamWanted);
+                //drawShirt(w1 + 50 + margin.left, height, bestPlayers[1].Player, bestPlayers[1]["No."], teamWanted);
+                drawScaledShirt(w1 + wh.width + margin.left,
+                                height, 
+                                bestPlayers[1], 
+                                teamWanted, 
+                                chart, 
+                                exagerratedPerScale(bestPlayers[1].advanced.PER),
+                                tip);
             }
         }
     }
@@ -390,9 +416,23 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     function drawBestTwoShirts(players, team, x1, y1, x2, y2) {
         var bestPlayers = bestTwoPlayers(players);
         if (bestPlayers.length >= 1) {
-            drawShirt(x1, y1, bestPlayers[0].Player, bestPlayers[0]["No."], team);
+            //drawShirt(x1, y1, bestPlayers[0].Player, bestPlayers[0]["No."], team);
+            var wh = drawScaledShirt(x1,
+                            y1, 
+                            bestPlayers[0], 
+                            teamWanted, 
+                            chart, 
+                            exagerratedPerScale(bestPlayers[0].advanced.PER),
+                            tip);
             if (bestPlayers.length >= 2) {
-                drawShirt(x2, y2, bestPlayers[1].Player, bestPlayers[1]["No."], team);
+                //drawShirt(x2, y2, bestPlayers[1].Player, bestPlayers[1]["No."], team);
+                drawScaledShirt(x2,
+                                y2, 
+                                bestPlayers[1], 
+                                teamWanted, 
+                                chart, 
+                                exagerratedPerScale(bestPlayers[1].advanced.PER),
+                                tip);
             }
         }
     }
@@ -685,7 +725,7 @@ function playerPERDifference(players1, players2) {
     var result = [];
     for (var i = 0; i<players1.length && i<players2.length; i++) {
         var diff = parseFloat(players2[i].advanced.PER) - parseFloat(players1[i].advanced.PER)
-        var newPlayer = players2[i];
+        var newPlayer = jQuery.extend(true, {}, players2[i]);
         newPlayer.advanced.PER = diff.toFixed(1);
         result.push(newPlayer);
     }

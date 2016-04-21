@@ -1,0 +1,21 @@
+[0] Config.pm:340> INFO - This is Biber 2.4
+[0] Config.pm:343> INFO - Logfile is 'paper.blg'
+[61] biber:287> INFO - === Thu Apr 21, 2016, 09:28:52
+[79] Biber.pm:348> INFO - Reading 'paper.bcf'
+[174] Utils.pm:147> WARN - Warning: Found biblatex control file version 2.9, expected version 3.0
+[177] Biber.pm:742> INFO - Found 5 citekeys in bib section 0
+[183] Biber.pm:3151> INFO - Processing section 0
+[216] Biber.pm:3308> INFO - Looking for bibtex format file 'paper.bib' for section 0
+[217] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
+[217] bibtex.pm:974> INFO - Found BibTeX data source 'paper.bib'
+[314] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[314] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[315] Biber.pm:3028> INFO - Sorting list 'debug' of type 'entry' with scheme 'debug' and locale 'en-US'
+[315] Biber.pm:3032> INFO - No sort tailoring available for locale 'en-US'
+[364] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[364] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[364] Biber.pm:3028> INFO - Sorting list 'debug/global' of type 'entry' with scheme 'debug' and locale 'en-US'
+[364] Biber.pm:3032> INFO - No sort tailoring available for locale 'en-US'
+[369] bbl.pm:519> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
+[370] bbl.pm:615> INFO - Output to paper.bbl
+[370] Biber.pm:109> INFO - WARNINGS: 1

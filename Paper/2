@@ -1,0 +1,20 @@
+INFO - This is Biber 2.4
+INFO - Logfile is 'paper.blg'
+INFO - Reading 'paper.bcf'
+WARN - Warning: Found biblatex control file version 2.9, expected version 3.0
+INFO - Found 5 citekeys in bib section 0
+INFO - Processing section 0
+INFO - Looking for bibtex format file 'paper.bib' for section 0
+INFO - Decoding LaTeX character macros into UTF-8
+INFO - Found BibTeX data source 'paper.bib'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Sorting list 'debug' of type 'entry' with scheme 'debug' and locale 'en-US'
+INFO - No sort tailoring available for locale 'en-US'
+INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Sorting list 'debug/global' of type 'entry' with scheme 'debug' and locale 'en-US'
+INFO - No sort tailoring available for locale 'en-US'
+INFO - Writing 'paper.bbl' with encoding 'UTF-8'
+INFO - Output to paper.bbl
+INFO - WARNINGS: 1

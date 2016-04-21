@@ -1,3 +1,13 @@
+var perScale = d3.scale.linear()
+                    .range([0.3, 3])
+                    .domain([0, 1600]);
+
+function exagerratedPerScale(per) {
+    var exagerratedPer = Math.pow(per, 2);
+    if (per < 0) { exagerratedPer = 0; }
+    return perScale(exagerratedPer);
+}
+
 function drawF(data, team, year, svg, x, y, width, height) {
     players = data.find(function(d) {return d.year === year;})
                 .teams.find(function(d) {return d.team === team;})
@@ -32,21 +42,32 @@ function drawF(data, team, year, svg, x, y, width, height) {
                 .attr("width", width)
                 .attr("height", height);
 
+    var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function(d) {
+                    console.log(d);
+                    return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
+                        "PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
+                        "Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
+                        "Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
+                        "Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
+                });
+    chart.call(tip);
+
+
+
     var backs = chart.append("g")
         .attr("class", "backs")
         .attr("width", width)
         .attr("height", height);
     
-    perScale = d3.scale.linear()
-                    .range([0.3, 3])
-                    .domain([0, 1600]);
 
-    var alreadyOn = {SG: {before: 0, xpos: 0.4 * width, ypos: 0.2 * height}
-                    ,PF: {before: 0, xpos: 0.05 * width, ypos: 0.9 * height - 100}
-                    ,C: {before: 0, xpos: 0.7 * width, ypos: 0.5 * height - 50}
-                    ,PG: {before: 0, xpos: 0.4 * width, ypos: 0.8 * height - 100}
-                    ,SF: {before: 0, xpos: 0.05 * width, ypos: 0.05 * height}
-                    ,'S-G': {before: 0, xpos: 10000, ypos: 600}};
+    var alreadyOn = {SG: {before: 0, xpos: 0.4 * width, ypos: 0.2 * height, fullname: "Shooting Guard"}
+                    ,PF: {before: 0, xpos: 0.05 * width, ypos: 0.9 * height - 100, fullname: "Power Forward"}
+                    ,C: {before: 0, xpos: 0.7 * width, ypos: 0.5 * height - 50, fullname: "Center"}
+                    ,PG: {before: 0, xpos: 0.4 * width, ypos: 0.8 * height - 100, fullname: "Point Guard"}
+                    ,SF: {before: 0, xpos: 0.05 * width, ypos: 0.05 * height, fullname: "Small Forward"}};
 
     for (var posName in alreadyOn) {
         backs.append("rect")
@@ -68,15 +89,13 @@ function drawF(data, team, year, svg, x, y, width, height) {
 
     for (i = 0; i < players.length; i++) {
         var pos = players[i].Pos;
-        var exagerratedPer = Math.pow(players[i].advanced.PER, 2);
-        if (players[i].advanced.PER < 0) { exagerratedPer = 0; }
         var wh = drawScaledShirt(alreadyOn[pos].xpos + alreadyOn[pos].before,
                         alreadyOn[pos].ypos, 
-                        players[i].Player, 
-                        players[i]['No.'], 
+                        players[i], 
                         team, 
                         chart, 
-                        perScale(exagerratedPer));
+                        exagerratedPerScale(players[i].advanced.PER),
+                        tip);
         alreadyOn[pos].before += wh.width + 10;
         var rectWidth = Number(d3.select("#posrect" + pos).attr("width"));
         var rectHeight = Number(d3.select("#posrect" + pos).attr("height"));
@@ -98,7 +117,7 @@ function drawF(data, team, year, svg, x, y, width, height) {
     }
 }
 
-function drawScaledShirt(xPos, yPos, name, number, team, chart, scale) {
+function drawScaledShirt(xPos, yPos, player, team, chart, scale, tip) {
     team = team.replace(/\s+/g, '');
     var shirtColor = ShirtColors[team].shirt;
     var shirtEdge = ShirtColors[team].edge;
@@ -158,17 +177,17 @@ function drawScaledShirt(xPos, yPos, name, number, team, chart, scale) {
         .attr("stroke", shirtEdge);
 
     playerShirt.append("text")
-        .attr("id", (name.split(" ")).pop())
+        .attr("id", (player.Player.split(" ")).pop())
         .attr("x", 10 * scale)
         .attr("y", 25 * scale)
         .attr("textLength", 30 * scale)
         .attr("lengthAdjust", "spacingAndGlyphs")
         .attr("fill", "#ffffff")
         .attr("font-size", 10 * scale + "px")
-        .text((name.split(" ")).pop());
+        .text((player.Player.split(" ")).pop());
 
     playerShirt.append("text")
-        .attr("id", (name.split(" ")).pop() + "number")
+        .attr("id", (player.Player.split(" ")).pop() + "number")
         .attr("x", 25 * scale)
         .attr("y", 55 * scale)
         .attr("text-anchor", "middle")
@@ -178,7 +197,14 @@ function drawScaledShirt(xPos, yPos, name, number, team, chart, scale) {
         .attr("font-family", "Helvetica")
         .attr("font-weight", "bold")
         .attr("font-size", 25 * scale + "px")
-        .text(number);
+        .text(player['No.']);
+
+        playerShirt.on('mouseover', function() {
+            tip.show(player);
+        });
+        playerShirt.on('mouseout', function() {
+            tip.hide(player);
+        });
 
     return { width: 50 * scale, height: 70 * scale };
     //return playerShirt;

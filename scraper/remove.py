@@ -15,13 +15,18 @@ for yeardata in data:
         print "Doing team " + teamname
         team['info'] = { "PTS/G": team['info']['PTS/G'], "FG%": team['info']['FG%']}
         team['opponent'] = { "PTS/G": team['info']['PTS/G']}
-        team['misc'] = {"Attendance": team['misc']['Attendance']}
+        team['misc'] = {"Attendance": team['misc']['Attendance'], "Age": team['misc']['Age']}
+        newplayers = []
         for player in team['players']:
-            del player['pergame']
-            del player['perminute']
-            del player['perposs']
-            del player['totals']
-            player['advanced'] = { "PER": player['advanced']['PER'] }
+            if player['advanced']['G'] > 5:
+                del player['pergame']
+                del player['perminute']
+                del player['perposs']
+                del player['totals']
+                player['advanced'] = { "PER": player['advanced']['PER'] }
+                newplayers.append(player)
+
+        team['players'] = newplayers
 
 with open('removed.json', 'w') as outjsonfile:
     json.dump(data, outjsonfile, indent=4)
