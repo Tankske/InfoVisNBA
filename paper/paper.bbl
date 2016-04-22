@@ -21,11 +21,14 @@
   \sortlist[entry]{debug/global}
     \entry{basketball-reference}{online}{}
       \name{author}{1}{}{%
-        {{hash=d41d8cd98f00b204e9800998ecf8427e}{%
-}}%
+        {{hash=59b7488813036726bc6c702727bd4a19}{%
+           family={Refernce},
+           family_i={R\bibinitperiod},
+           given={Basketball},
+           given_i={B\bibinitperiod}}}%
       }
-      \strng{namehash}{d41d8cd98f00b204e9800998ecf8427e}
-      \strng{fullhash}{d41d8cd98f00b204e9800998ecf8427e}
+      \strng{namehash}{59b7488813036726bc6c702727bd4a19}
+      \strng{fullhash}{59b7488813036726bc6c702727bd4a19}
       \field{sortinit}{b}
       \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
       \field{labelnamesource}{author}
@@ -39,11 +42,14 @@
     \endentry
     \entry{d3}{online}{}
       \name{author}{1}{}{%
-        {{hash=d41d8cd98f00b204e9800998ecf8427e}{%
-}}%
+        {{hash=3a56f801778dd81bf67b8f9cdccacb12}{%
+           family={Bostock},
+           family_i={B\bibinitperiod},
+           given={Mike},
+           given_i={M\bibinitperiod}}}%
       }
-      \strng{namehash}{d41d8cd98f00b204e9800998ecf8427e}
-      \strng{fullhash}{d41d8cd98f00b204e9800998ecf8427e}
+      \strng{namehash}{3a56f801778dd81bf67b8f9cdccacb12}
+      \strng{fullhash}{3a56f801778dd81bf67b8f9cdccacb12}
       \field{sortinit}{d}
       \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
       \field{labelnamesource}{author}
@@ -57,11 +63,14 @@
     \endentry
     \entry{html5}{online}{}
       \name{author}{1}{}{%
-        {{hash=d41d8cd98f00b204e9800998ecf8427e}{%
-}}%
+        {{hash=e13ef65947daff3633e95f29e73de7b0}{%
+           family={Community},
+           family_i={C\bibinitperiod},
+           given={Wikipedia},
+           given_i={W\bibinitperiod}}}%
       }
-      \strng{namehash}{d41d8cd98f00b204e9800998ecf8427e}
-      \strng{fullhash}{d41d8cd98f00b204e9800998ecf8427e}
+      \strng{namehash}{e13ef65947daff3633e95f29e73de7b0}
+      \strng{fullhash}{e13ef65947daff3633e95f29e73de7b0}
       \field{sortinit}{h}
       \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
       \field{labelnamesource}{author}
@@ -75,11 +84,12 @@
     \endentry
     \entry{jquery}{online}{}
       \name{author}{1}{}{%
-        {{hash=d41d8cd98f00b204e9800998ecf8427e}{%
-}}%
+        {{hash=6a2d7208853daffcb96fb5a7382b0c7b}{%
+           family={JQuery},
+           family_i={J\bibinitperiod}}}%
       }
-      \strng{namehash}{d41d8cd98f00b204e9800998ecf8427e}
-      \strng{fullhash}{d41d8cd98f00b204e9800998ecf8427e}
+      \strng{namehash}{6a2d7208853daffcb96fb5a7382b0c7b}
+      \strng{fullhash}{6a2d7208853daffcb96fb5a7382b0c7b}
       \field{sortinit}{j}
       \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
       \field{labelnamesource}{author}
@@ -91,13 +101,37 @@
       \verb https://jquery.com/
       \endverb
     \endentry
+    \entry{per}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e13ef65947daff3633e95f29e73de7b0}{%
+           family={Community},
+           family_i={C\bibinitperiod},
+           given={Wikipedia},
+           given_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e13ef65947daff3633e95f29e73de7b0}
+      \strng{fullhash}{e13ef65947daff3633e95f29e73de7b0}
+      \field{sortinit}{p}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{title}{Wikipedia - Player Efficiency Rating}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Player_efficiency_rating/
+      \endverb
+    \endentry
     \entry{peterbeshai}{online}{}
       \name{author}{1}{}{%
-        {{hash=d41d8cd98f00b204e9800998ecf8427e}{%
-}}%
+        {{hash=f65844da1e49a648b6314c9f74e9b71e}{%
+           family={Beshai},
+           family_i={B\bibinitperiod},
+           given={Peter},
+           given_i={P\bibinitperiod}}}%
       }
-      \strng{namehash}{d41d8cd98f00b204e9800998ecf8427e}
-      \strng{fullhash}{d41d8cd98f00b204e9800998ecf8427e}
+      \strng{namehash}{f65844da1e49a648b6314c9f74e9b71e}
+      \strng{fullhash}{f65844da1e49a648b6314c9f74e9b71e}
       \field{sortinit}{p}
       \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
       \field{labelnamesource}{author}

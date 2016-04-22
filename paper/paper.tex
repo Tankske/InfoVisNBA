@@ -111,6 +111,8 @@
   hypertexnames=false
 }
 
+\pagenumbering{arabic}
+
 % create a shortcut to typeset table headings
 % \newcommand\tabhead[1]{\small\textbf{#1}}
 
@@ -215,15 +217,11 @@ final preprocessing step combined all data into one json file.
 
 \section{Visualization}\label{sec:visualization}
 The visualization consists of three parts:
-\paragraph{The bubble view} 
-A compact view on the play-offs per season.
-\paragraph{The statistics (zoom) view} 
-A more detailed view on a statistic of a selected 
-team.
-\paragraph{The team view} 
-A detailed view on how good or bad a team scores on a specific 
-field position. \\
-\newline
+\begin{itemize}
+    \item The bubble view: a compact view on the play-offs per season
+    \item The statistics (zoom) view: a more detailed view on a statistic of a selected team
+    \item The team view: a detailed view on how good or bad a team scores on a specific field position
+\end{itemize}
 All three are discussed in more detail below. The three views are available to
 the user on a single webpage. The user start on the bubble view and is able to
 navigate to the statistics and team views by scrolling down or clicking on
@@ -276,14 +274,14 @@ an overview. The statistics view will be explained in more detail in the next se
 
 
 \subsection{The statistics view}
-The statistics view gives a user a clear overview of how a statistic has been 
-influenced compared to the year before. The view consists of 3 parts:
-\paragraph{Context section} 
-The top part informs the user about the shown context.
-\paragraph{Arrow section} 
-This section illustrates why a statistic changed.
-\paragraph{Small multiples section} 
-Small multiples of team statistics and how they evolve over time.
+The statistics view gives a user a clear overview of how a statistic has been influenced compared to the year before. The view consists of 3 parts:
+\begin{itemize}
+    \item Context section: the top part should inform the user of his/her
+        context
+    \item Arrow section: hhis section illustrates why a statistic changed
+    \item Small multiples section: hmall multiples of team statistics and how they evolve over time
+\end{itemize}
+
 \subsubsection{Context section}
 The context section should inform the user at all times of the current selections 
 that have been made. The statistics view will always be based on a specific team
@@ -296,9 +294,9 @@ updated as well as the textual information.
 \subsubsection{Arrow section of selected statistic}
 This section illustrates a change for a chosen statistic for the selected team compared with the season before. This should give a visitor more insight into why a statistic changed over time. The selected team is represented by a circle in the same way as explained in the bubble view. The change for a statistic is represented by three arrows:
 \begin{itemize}
-    \item arrow on the left pointing towards the circle: indicating the influence of players who joined the team (team member current season, not previous season)
-    \item arrow on the right of the circle: indicating how the team inherent changed (team member this season and previous season)
-    \item arrow on the left pointing away from the circle: indicating the influence of players who left the team (team member previous season, not current season)
+    \item Arrow on the left pointing towards the circle: indicating the influence of players who joined the team (team member current season, not previous season)
+    \item Arrow on the right of the circle: indicating how the team inherent changed (team member this season and previous season)
+    \item Arrow on the left pointing away from the circle: indicating the influence of players who left the team (team member previous season, not current season)
 \end{itemize}
 <figure of the statistics view>
 The shirts next to the arrows are the shirts of players that had the biggest 
@@ -354,14 +352,12 @@ When working with d3.js we encountered some obstacles:
 
 
 \section{Lessons learned}\label{sec:discussion}
-
-We've learned a couple of lessons during the creation of this visualization: 
+We've learned a couple of lessons during the creation of this visualization:
 \begin{itemize}
-    \item find a use case as soon as possible to built your visualization around
-    \item each separate component should be a sufficient informative visualization on itself
-    \item creating a custom visualization costs time and opportunities 
+    \item Find a use case as soon as possible to build your visualization around
+    \item Each separate component should be a sufficient informative visualization on itself
+    \item Creating a custom visualization costs time and opportunities
 \end{itemize}
-
 In what follows we will discuss our experience in more detail.
 
 \subsection{A good use case}
@@ -417,13 +413,11 @@ Next to that, although we've tried to write our code as general as possible, we'
 %\bibliographystyle{SIGCHI-Reference-Format}
 \printbibliography
 
-\begin{appendices}
+\appendix
+\section{Terminology}\label{sec:terminology}
 
-    \section{Terminology}\label{sec:terminology}
-
-    \paragraph{PER} Player Efficiency Rating - An all-in-one basketball rating,
-    boiling down all of a player's contributions into one number\cite{per}.
-\end{appendices}
+\paragraph{PER} Player Efficiency Rating - An all-in-one basketball rating,
+boiling down all of a player's contributions into one number\cite{per}.
 
 \end{document}
 

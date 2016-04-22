@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.6)  22 APR 2016 12:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.6)  22 APR 2016 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1101,53 +1101,53 @@ File: english.lbx 2016/03/03 v3.3 biblatex localization (PK/JW/AB)
  (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 118.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 118
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 120.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 120
 .
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 118
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 120.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 120
 .
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 118
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 120.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 120
 .
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 118.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 120.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 120.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 120.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 118.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 120.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1181,7 +1181,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring ON on input line 118.
+Package hyperref Info: Link coloring ON on input line 120.
 
 (c:/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1191,9 +1191,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count340
 )
-LaTeX Info: Redefining \ref on input line 118.
-LaTeX Info: Redefining \pageref on input line 118.
-LaTeX Info: Redefining \nameref on input line 118.
+LaTeX Info: Redefining \ref on input line 120.
+LaTeX Info: Redefining \pageref on input line 120.
+LaTeX Info: Redefining \nameref on input line 120.
 
 (./paper.out) (./paper.out)
 \@outlinefile=\write6
@@ -1208,9 +1208,9 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'paper.bbl' found.
  (./paper.bbl)
-Package biblatex Info: Reference section=0 on input line 118.
-Package biblatex Info: Reference segment=0 on input line 118.
-LaTeX Info: Redefining \microtypecontext on input line 118.
+Package biblatex Info: Reference section=0 on input line 120.
+Package biblatex Info: Reference segment=0 on input line 120.
+LaTeX Info: Redefining \microtypecontext on input line 120.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1225,8 +1225,8 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 14
+1.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
@@ -1235,68 +1235,68 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 14
+1.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 14
+1.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 14
+1.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 139.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 141.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 139.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 141.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 139.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 141.
 
 (c:/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 139.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 141.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 139.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 141.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 139.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 141.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 141.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 141.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 141.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 153.
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 153.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 155.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 155.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/t1txtt.fd
@@ -1307,14 +1307,37 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 155.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 155.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 161.
 
 
-LaTeX Warning: Citation 'per' on page 1 undefined on input line 203.
+LaTeX Warning: Reference `sec:goal' on page 1 undefined on input line 161.
+
+
+LaTeX Warning: Reference `sec:data' on page 1 undefined on input line 163.
+
+
+LaTeX Warning: Reference `sec:literature' on page 1 undefined on input line 164
+.
+
+
+LaTeX Warning: Reference `sec:visualization' on page 1 undefined on input line 
+168.
+
+
+LaTeX Warning: Reference `sec:discussion' on page 1 undefined on input line 171
+.
+
+
+LaTeX Warning: Reference `sec:conclusion' on page 1 undefined on input line 173
+.
+
+
+LaTeX Warning: Reference `sec:terminology' on page 1 undefined on input line 17
+3.
 
 [1{c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1322,58 +1345,26 @@ LaTeX Warning: Citation 'per' on page 1 undefined on input line 203.
 Non-PDF special ignored!
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 224--238
-
- []
-
-
-Underfull \vbox (badness 6300) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
 
-LaTeX Warning: Citation 'd3.js' on page 3 undefined on input line 342.
+LaTeX Warning: Citation 'd3.js' on page 3 undefined on input line 340.
 
-[3]
-
-! LaTeX Error: Environment appendices undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.420 \begin{appendices}
-                        
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: Citation 'per' on page 4 undefined on input line 425.
-
-
-! LaTeX Error: \begin{document} ended by \end{appendices}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.426 \end{appendices}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 428.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 428.
+[3] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 422.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 422.
  (./paper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 428.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 428.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 422.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 422.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 0A0DCC68D8ABAA575A36D6D7E8474B6E;1121.
+(rerunfilecheck)             Checksum: 589532E9FF282A5372801A1C591B29E5;1122.
 
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package biblatex Warning: Please (re)run Biber on the file:
@@ -1383,14 +1374,14 @@ Package biblatex Warning: Please (re)run Biber on the file:
 Package logreq Info: Writing requests to 'paper.run.xml'.
 \openout1 = `paper.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 428.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 422.
  ) 
 Here is how much of TeX's memory you used:
- 25007 strings out of 493027
- 453479 string characters out of 6137685
- 867001 words of memory out of 5000000
- 27879 multiletter control sequences out of 15000+600000
- 79266 words of font info for 200 fonts, out of 8000000 for 9000
+ 25006 strings out of 493027
+ 453455 string characters out of 6137685
+ 866668 words of memory out of 5000000
+ 27878 multiletter control sequences out of 15000+600000
+ 79844 words of font info for 206 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,10n,56p,913b,1068s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texm
@@ -1400,10 +1391,10 @@ nts/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw
 8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive
 /2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2015/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 94285 bytes).
+Output written on paper.pdf (4 pages, 96125 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
- 64 named destinations out of 1000 (max. 500000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 500000)
  27293 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -3,16 +3,16 @@
 \BOOKMARK [1][-]{section.9}{Data}{}% 3
 \BOOKMARK [1][-]{section.11}{Related Work}{}% 4
 \BOOKMARK [1][-]{section.13}{Visualization}{}% 5
-\BOOKMARK [2][-]{subsection.21}{The bubble view}{section.13}% 6
-\BOOKMARK [2][-]{subsection.23}{The statistics view}{section.13}% 7
-\BOOKMARK [3][-]{subsubsection.31}{Context section}{subsection.23}% 8
-\BOOKMARK [3][-]{subsubsection.33}{Arrow section of selected statistic}{subsection.23}% 9
-\BOOKMARK [3][-]{subsubsection.35}{Small multiples of different statistics}{subsection.23}% 10
-\BOOKMARK [2][-]{subsection.37}{The team view}{section.13}% 11
-\BOOKMARK [2][-]{subsection.39}{Technology}{section.13}% 12
-\BOOKMARK [1][-]{section.41}{Lessons learned}{}% 13
-\BOOKMARK [2][-]{subsection.43}{A good use case}{section.41}% 14
-\BOOKMARK [2][-]{subsection.45}{Each component should be informative}{section.41}% 15
-\BOOKMARK [2][-]{subsection.47}{Custom visualizations}{section.41}% 16
-\BOOKMARK [1][-]{section.49}{Conclusion}{}% 17
-\BOOKMARK [1][-]{section.52}{Terminology}{}% 18
+\BOOKMARK [2][-]{subsection.15}{The bubble view}{section.13}% 6
+\BOOKMARK [2][-]{subsection.17}{The statistics view}{section.13}% 7
+\BOOKMARK [3][-]{subsubsection.19}{Context section}{subsection.17}% 8
+\BOOKMARK [3][-]{subsubsection.21}{Arrow section of selected statistic}{subsection.17}% 9
+\BOOKMARK [3][-]{subsubsection.23}{Small multiples of different statistics}{subsection.17}% 10
+\BOOKMARK [2][-]{subsection.25}{The team view}{section.13}% 11
+\BOOKMARK [2][-]{subsection.27}{Technology}{section.13}% 12
+\BOOKMARK [1][-]{section.29}{Lessons learned}{}% 13
+\BOOKMARK [2][-]{subsection.31}{A good use case}{section.29}% 14
+\BOOKMARK [2][-]{subsection.33}{Each component should be informative}{section.29}% 15
+\BOOKMARK [2][-]{subsection.35}{Custom visualizations}{section.29}% 16
+\BOOKMARK [1][-]{section.37}{Conclusion}{}% 17
+\BOOKMARK [1][-]{appendix.41}{Terminology}{}% 18
