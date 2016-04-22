@@ -215,11 +215,13 @@ final preprocessing step combined all data into one json file.
 
 \section{Visualization}\label{sec:visualization}
 The visualization consists of three parts:
-\paragraph{The bubble view} a compact view on the play-offs per season
-\paragraph{The statistics (zoom) view} a more detailed view on a statistic of a selected 
-team
-\paragraph{The team view} a detailed view on how good or bad a team scores on a specific 
-field position
+\begin{itemize}
+    \item The bubble view: a compact view on the play-offs per season
+    \item The statistics (zoom) view: a more detailed view on a statistic of a
+        selected team
+    \item The team view: a detailed view on how good or bad a team scores on a
+        specific field position
+\end{itemize}
 All three are discussed in more detail below. The three views are available to
 the user on a single webpage. The user start on the bubble view and is able to
 navigate to the statistics and team views by scrolling down or clicking on
@@ -274,9 +276,13 @@ an overview. This view will be explained in more detail in the next section.
 \subsection{The statistics view}
 The statistics view gives a user a clear overview of how a statistic has been 
 influenced compared to the year before. The view consists of 3 parts:
-\paragraph{Context section} the top part should inform the user of his/her context.
-\paragraph{Arrow section} This section illustrates why a statistic changed
-\paragraph{Small multiples section} Small multiples of team statistics and how they evolve over time
+\begin{itemize}
+    \item Context section: the top part should inform the user of his/her
+        context.
+    \item Arrow section: This section illustrates why a statistic changed
+    \item Small multiples section: Small multiples of team statistics and how
+        they evolve over time
+\end{itemize}
 \subsubsection{Context section}
 The context section should inform the user at all times of the current selections 
 that have been made. The statistics view will always be based on a specific team
@@ -362,9 +368,11 @@ overlapping.
 
 \section{Lessons learned}\label{sec:discussion}
 We've learned a couple of lessons during the creation of this visualization:
-- Find a use case as soon as possible to built your visualization around
-- Each separate component should be a sufficient informative visualization on itself
-- Creating a custom visualization costs time and opportunities
+\begin{itemize}
+    \item Find a use case as soon as possible to build your visualization around
+    \item Each separate component should be a sufficient informative visualization on itself
+    \item Creating a custom visualization costs time and opportunities
+\end{itemize}
 In what follows we will discuss our experience in more detail.
 
 \subsection{A good use case}
@@ -435,13 +443,11 @@ to vizualise other sports.
 %\bibliographystyle{SIGCHI-Reference-Format}
 \printbibliography
 
-\begin{appendices}
+\appendix
+\section{Terminology}\label{sec:terminology}
 
-    \section{Terminology}\label{sec:terminology}
-
-    \paragraph{PER} Player Efficiency Rating - An all-in-one basketball rating,
-    boiling down all of a player's contributions into one number\cite{per}.
-\end{appendices}
+\paragraph{PER} Player Efficiency Rating - An all-in-one basketball rating,
+boiling down all of a player's contributions into one number\cite{per}.
 
 \end{document}
 

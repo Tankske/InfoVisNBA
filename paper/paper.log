@@ -1,9 +1,9 @@
-This is LuaTeX, Version beta-0.80.0 (TeX Live 2015/Debian) (rev 5238)  (format=lualatex 2016.4.7)  21 APR 2016 09:29
+This is LuaTeX, Version beta-0.80.0 (TeX Live 2015/Debian) (rev 5238)  (format=lualatex 2016.4.22)  22 APR 2016 11:53
  restricted \write18 enabled.
-**paper.tex
+**paper
 (./paper.tex
 LaTeX2e <2016/02/01>
-Babel <3.9n> and hyphenation patterns for 80 languages loaded.
+Babel <3.9q> and hyphenation patterns for 1 language(s) loaded.
 (./sigchi.cls (/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
@@ -54,40 +54,40 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip41
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
+Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
+File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen106
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen107
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count80
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 199.
 \uproot@=\count81
 \leftroot@=\count82
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 297.
 \classnum@=\count83
 \DOTSCASE@=\count84
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen108
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count85
 \c@MaxMatrixCols=\count86
 \dotsspace@=\muskip10
@@ -108,8 +108,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip42
 \multlinetaggap=\skip43
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
 
 Document Class SIGCHI
@@ -545,10 +545,10 @@ Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2015/12/22 v3.2 programmable bibliographies (PK/JW/AB)
+Package: biblatex 2016/03/03 v3.3 programmable bibliographies (PK/JW/AB)
 
-(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex2.sty
-Package: biblatex2 2015/12/22 v3.2 programmable bibliographies (biber) (PK/JW/AB
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex_.sty
+Package: biblatex_ 2016/03/03 v3.3 programmable bibliographies (biber) (PK/JW/AB
 )
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -700,13 +700,13 @@ Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2015/12/22 v3.2 biblatex compatibility (PK/JW/AB)
+File: blx-compat.def 2016/03/03 v3.3 biblatex compatibility (PK/JW/AB)
 )
 Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
+Package biblatex Info: ... file 'biblatex_.def' found.
 
-(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex_.def
+File: biblatex_.def 
 \c@textcitecount=\count297
 \c@textcitetotal=\count298
 \c@textcitemaxnames=\count299
@@ -722,12 +722,12 @@ Package biblatex Warning: Redefining '\citeyear'.
 Package biblatex Info: Trying to load bibliography style 'draft'...
 Package biblatex Info: ... file 'draft.bbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/draft.bbx
-File: draft.bbx 2015/12/22 v3.2 biblatex bibliography style (PK/JW/AB)
+File: draft.bbx 2016/03/03 v3.3 biblatex bibliography style (PK/JW/AB)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2015/12/22 v3.2 biblatex bibliography style (PK/JW/AB)
+File: standard.bbx 2016/03/03 v3.3 biblatex bibliography style (PK/JW/AB)
 \c@bbx:relatedcount=\count304
 \c@bbx:relatedtotal=\count305
 ))
@@ -735,7 +735,7 @@ Package biblatex Info: Trying to load citation style 'draft'...
 Package biblatex Info: ... file 'draft.cbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/draft.cbx
-File: draft.cbx 2015/12/22 v3.2 biblatex citation style (PK/JW/AB)
+File: draft.cbx 2016/03/03 v3.3 biblatex citation style (PK/JW/AB)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -1097,67 +1097,70 @@ LaTeX Info: Redefining \addtolength on input line 81.
 )
 \c@@todonotes@numberoftodonotes=\count332
 )
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 113.
 
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 113.
-Package hyperref Info: Option `colorlinks' set `true' on input line 113.
-Package hyperref Info: Option `breaklinks' set `true' on input line 113.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 113.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 112.
+
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 112.
+
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 112.
+Package hyperref Info: Option `colorlinks' set `true' on input line 112.
+Package hyperref Info: Option `breaklinks' set `true' on input line 112.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 112.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2015/12/22 v3.2 biblatex localization (PK/JW/AB)
+File: english.lbx 2016/03/03 v3.3 biblatex localization (PK/JW/AB)
 )
 \@quotelevel=\count333
 \@quotereset=\count334
  (./paper.aux)
 \openout1 = paper.aux
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 119.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 119.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 118.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 118.
 
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 119.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 119.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 118.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 118.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 119.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 119.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 118.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 118.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 119.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 119.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 118.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 119.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1190,7 +1193,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ))
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring ON on input line 119.
+Package hyperref Info: Link coloring ON on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1200,9 +1203,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count341
 )
-LaTeX Info: Redefining \ref on input line 119.
-LaTeX Info: Redefining \pageref on input line 119.
-LaTeX Info: Redefining \nameref on input line 119.
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 
 (./paper.out) (./paper.out)
 \@outlinefile=\write6
@@ -1215,16 +1218,11 @@ Package biblatex Info: Automatic encoding selection.
 
 \openout4 = paper.bcf
 Package biblatex Info: Trying to load bibliographic data...
-
-
-Package biblatex Warning: File 'paper.bbl' is wrong format version - expected 2.
-5.
-
 Package biblatex Info: ... file 'paper.bbl' found.
-(./paper.bbl)
-Package biblatex Info: Reference section=0 on input line 119.
-Package biblatex Info: Reference segment=0 on input line 119.
-LaTeX Info: Redefining \microtypecontext on input line 119.
+ (./paper.bbl)
+Package biblatex Info: Reference section=0 on input line 118.
+Package biblatex Info: Reference segment=0 on input line 118.
+LaTeX Info: Redefining \microtypecontext on input line 118.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1234,16 +1232,12 @@ Package microtype Info: Using default expansion set `basictext'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
- (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-ABD: EveryShipout initializing macros [1
-
-
-Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-]
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 140
+ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 139
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
@@ -1253,63 +1247,63 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 140
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 139
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 140
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 139
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 140
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 139
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 140.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 139.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 140.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 139.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 140.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 139.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 140.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 139.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 140.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 139.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 140.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 139.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 140.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 140.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 140.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 154.
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 154.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 153.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 153.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
@@ -1319,143 +1313,56 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 154.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 154.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 160.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-LaTeX Warning: Reference `sec:goal' on page \thepage  undefined on input line 16
-0.
+Non-PDF special ignored!
 
-
-LaTeX Warning: Reference `sec:data' on page \thepage  undefined on input line 16
-2.
-
-
-LaTeX Warning: Reference `sec:literature' on page \thepage  undefined on input l
-ine 163.
-
-
-LaTeX Warning: Reference `sec:visualization' on page \thepage  undefined on inpu
-t line 167.
-
-
-LaTeX Warning: Reference `sec:discussion' on page \thepage  undefined on input l
-ine 170.
-
-
-LaTeX Warning: Reference `sec:conclusion' on page \thepage  undefined on input l
-ine 172.
-
-
-LaTeX Warning: Reference `sec:goal' on page \thepage  undefined on input line 17
-4.
-
-
-LaTeX Warning: Reference `sec:data' on page \thepage  undefined on input line 19
-5.
-
-
-LaTeX Warning: Citation 'basketball-reference' on page 2 undefined on input line
- 197.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--202
-[][][] \T1/ptm/m/n/10 The data vi-su-al-ized is a sub-set of the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--202
-\T1/ptm/m/n/10 data avail-able on bas-ket-ball statis-tics site
- []
-
-
-Underfull \hbox (badness 5681) in paragraph at lines 195--202
-\T1/ptm/m/n/10 basketball-reference[] A wide range
- []
-
-
-LaTeX Warning: Reference `sec:literature' on page \thepage  undefined on input l
-ine 211.
-
-
-LaTeX Warning: Reference `sec:visualization' on page \thepage  undefined on inpu
-t line 214.
-
-[2
-
-]
-
-LaTeX Warning: Citation 'peterbeshai' on page 3 undefined on input line 327.
-
-[3]
-
-LaTeX Warning: Citation 'd3' on page 4 undefined on input line 336.
-
-
-LaTeX Warning: Citation 'html5' on page 4 undefined on input line 337.
-
-
-LaTeX Warning: Citation 'jquery' on page 4 undefined on input line 337.
-
-
-LaTeX Warning: Reference `sec:discussion' on page \thepage  undefined on input l
-ine 355.
-
-
-LaTeX Warning: Reference `sec:conclusion' on page \thepage  undefined on input l
-ine 401.
-
-
-LaTeX Warning: Empty bibliography on input line 428.
-
+] [2]
 
 Package balance Warning: You have called \balance in second column
 (balance)                Columns might not be balanced.
 
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 430.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 430.
+[3] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 452.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 452.
  (./paper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 430.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 430.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 452.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 452.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 6A223EB7D0B884A893C86B996CDF901E;1073.
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                paper
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: 589532E9FF282A5372801A1C591B29E5;1122.
 Package logreq Info: Writing requests to 'paper.run.xml'.
 
 \openout1 = paper.run.xml
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 430.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 452.
 )
 
 Here is how much of LuaTeX's memory you used:
- 25638 strings out of 494867
+ 25788 strings out of 495004
  125200,953878 words of node,token memory allocated
- 348 words of node memory still in use:
-   5 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 44 glue_spec, 1 write nodes
-   avail lists: 1:2,2:30,3:178,4:1812,5:338,6:6803,7:676,8:16,9:230,10:523
- 28105 multiletter control sequences out of 65536+600000
- 178 fonts using 6999067 bytes
- 62i,10n,56p,910b,716s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 361 words of node memory still in use:
+   5 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 45 glue_spec, 3 action, 1 write nod
+es
+   avail lists: 1:2,2:34,3:224,4:1972,5:333,6:6827,7:676,8:42,9:213,10:534
+ 28112 multiletter control sequences out of 65536+600000
+ 180 fonts using 7077579 bytes
+ 62i,10n,56p,906b,781s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<</usr/share/texlive/
-texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb><</usr/share/texlive/texmf-dist
-/fonts/type1/urw/helvetic/uhvb8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1
-/urw/helvetic/uhvro8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmb8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (4 pages, 69350 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><</usr/share/texlive/texmf-
+dist/fonts/type1/public/txfonts/t1xbtt.pfb><</usr/share/texlive/texmf-dist/fonts
+/type1/urw/helvetic/uhvb8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1/urw/h
+elvetic/uhvro8a.pfb><</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
+.pfb><</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><</usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (4 pages, 95159 bytes).
 
-PDF statistics: 143 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 131072)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 191 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 131072)
+ 160 words of extra memory for PDF output out of 10000 (max. 10000000)
 
