@@ -212,6 +212,9 @@ step, each team's playoff rankings were calculated based on the matches played
 during the playoffs, and the rest of the data was combined into json format. The
 final preprocessing step combined all data into one json file.
 
+<Tell something more about the data in terms of tall/wide data
+Tell something more about pre-processing steps (why?, did we change it over time?)
+rfr to picture in 1st ppt sl 60>
 \section{Related Work}\label{sec:literature}
 
 
@@ -222,6 +225,12 @@ The visualization consists of three parts:
     \item The statistics (zoom) view: a more detailed view on a statistic of a selected team
     \item The team view: a detailed view on how good or bad a team scores on a specific field position
 \end{itemize}
+
+<Explain that this complies with the infovis seeking mantra: Overview, zoom&filter, details on demand
+Bubble = overview
+statistics= details on demand
+>
+
 All three are discussed in more detail below. The three views are available to
 the user on a single webpage. The user start on the bubble view and is able to
 navigate to the statistics and team views by scrolling down or clicking on
@@ -271,6 +280,19 @@ fixated when the users clicks on a team.
 He/she then automatically gets forwarded to the statistics view where the bubble 
 view is still represented in the right upper corner to make sure the user keeps
 an overview. The statistics view will be explained in more detail in the next section.
+< Hierarchy = sorting = facilitate trends of winners
+position have a meaning in the bubble view
+when selecting circle => zoom/more detail
+Bubble principle of 
+- Symmetry (whole = play-off)
+- conectedness arc = games played
+Pre attentive characteristics
+- size of circles
+- hue to highligt selections or indicate increase decline arrows next view
+
+We considered a map view, but didn't do it because geographical position has no added value
+This visualization helped us discover data quality issues => cut off year 1984
+>
 
 
 \subsection{The statistics view}
@@ -288,8 +310,10 @@ that have been made. The statistics view will always be based on a specific team
 and season that have been selected or that are initated. This should be clear based
 on the textual information in the top left. Next to that, in the top right a small 
 bubble view is shown. It indicates the team selected and how well it performed in 
-the play-offs during that season, as ecplained in the bubble view section. When changing teams and/or season, this view gets 
+the play-offs during that season, as explained in the bubble view section. When changing teams and/or season, this view gets 
 updated as well as the textual information.
+<Explain that the context supports the short term memory of human beings rfr. Monkey Illusion>
+
 
 \subsubsection{Arrow section of selected statistic}
 This section illustrates a change for a chosen statistic for the selected team compared with the season before. This should give a visitor more insight into why a statistic changed over time. The selected team is represented by a circle in the same way as explained in the bubble view. The change for a statistic is represented by three arrows:
@@ -305,11 +329,17 @@ the right enables the user to change between
 statistics. Next to that it informs the user of which statistic has been chosen. When 
 the user hits the circle in the middle representing the teams, he is guided 
 to the team view. This view will be explained in more detail in the next section.
+<filtering: 
+- time & team
+- based on exploration (small multiples)
+- dynamically: changes impact multiple parts>
 
 \subsubsection{Small multiples of different statistics}
 Below the arrow section small multiples are shown of multiple statistics over time. 
 The line charts enables a user to identify peaks or drops that possibly influenced the 
 outcome of a team is this season, following seasons or previous seasons. A user interacts with the visualization by shifting the bar indicating the current year displayed. By doing this the view gets updated and the user can see the impact on the team in the context section and why the statistic changes in the arrow section. An alternative to scroll through time is to use the timeline at the bottom of the page.
+<this vis helps us comparre statistics over time and relations between them
+eg. srs score & play-off ranking>
 
 \subsection{The team view}
 This view as well as the statistics view should give the user the ability to search
@@ -335,11 +365,30 @@ fulfill our need to give the visitor a clear overview of how a player performed 
 to its peergroup.
 <Sketch of the small multiples>
 
+\section{Possible improvements}
+As with most projects, the result is never 'finished', meaning that there are always improvements
+possible but due to timing or resource constraints the haven't all been implemented. In what 
+follows, we suggest a number of features that might improve the visualization:
+\begin{itemize}
+    \item Smooth transitions between states could improve the user experience. For example when changing
+    year, a transformation of the arrow in the statistics view would help the user see a difference between years.
+    At the moment the arrows change at the blink of an eye, making it difficult for us humans with a short term memory
+    to make the comparison.
+    \item To further support our short term memory we could also 'save' the previous state. Eg. in the field view we could
+    visualize ghost shirts to indicate which players left the team or position and highlight players that joined the team. 
+    This would help the user see how the team changes over time.
+    \item At the moment no attention has been payed to the process & provenance of the exploration. A user thus needs to 
+    memorize his action to be able to share or reproduce his actions. This could be improved by adding URL parameters. This
+    way a user at least can share or save a state of an analysis. One step further is to provide a play-feature. The visitor could 
+    them share his exploration and replay it. A simple implemention would ask the visitor for a start date and an end date and
+    would then 'play' the changes of a particular team and characteristic over time.
+\end{itemize}
 
 \subsection{Technology}
-To create the visualization, the d3 javascript framework~\cite{d3.js} was used in combination with html5~\cite{html5} and jquery~\cite{jquery}. This allows easy
+To create the visualization, the d3 javascript framework~\cite{d3.js} was used in combination with html5~\cite{html5} and jquery~\cite{jquery}.  Note that D3 is based on HTML, CSS, Javascript and SVG.
+Next to that,the use of D3 was a requirement for the project. This allows easy
 access to the visualization as most modern browsers are capable of handling
-these technologies.
+these webstandards. 
 The choice not to use the d3 framework for the entire visualization was made to
 ease the layout configuration of the visualization. Instead, html was used to do
 the global layout of the visualization. We opted to structure the site with multiple
@@ -354,17 +403,17 @@ When working with d3.js we encountered some obstacles:
 \section{Lessons learned}\label{sec:discussion}
 We've learned a couple of lessons during the creation of this visualization:
 \begin{itemize}
-    \item Find a use case as soon as possible to build your visualization around
+    \item Find a story to tell with your visualization
     \item Each separate component should be a sufficient informative visualization on itself
     \item Creating a custom visualization costs time and opportunities
 \end{itemize}
 In what follows we will discuss our experience in more detail.
 
-\subsection{A good use case}
+\subsection{Story telling}
 At the beginning of this project we were able to design the 3 separate views 
 quite quickly. Our main problem was to integrate these views as a whole. When we created drafts of two views being the bubble view and the statitics view, we suddenly noted patterns. The Golden State Warriors became NBA champion a couple of years after a great uplift in SRS score. This due to a increase inside the team and because of new players joining the team in 2009. In 
 the years following, the team kept on attracting talented players and increased the inherent team score (with ups and downs) to become NBA champion in 2015. With the team view, one can even notice that the team gets stronger in center team positions during this period. The visualization however is missing at the moment if this reinforcement of the field positions
-is due to the attraction of talented people or by utilizing available talent within the team.
+is due to the attraction of talented people or by utilizing available talent within the team. Rfr to possible improvements. Being able to visualize this story, enabled us to support visistors in searching their own stories. They are able to explore the data for patters. On top of that, we provide the insight on how the changes were impacted by changes in teamplayers.
 
 \subsection{Each component should be informative}
 In order to have a good visualization as a whole, each component should be a clear and 
