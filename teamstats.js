@@ -36,15 +36,17 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .range([singleHeight, 0])
         .domain([60, 140]);
 
-    var bases = [{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale}
-            ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale}
-            ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale}
-            ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale}
-            ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale}
-            ,{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale}
-            ,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale}
-            ,{ name: 'Opponent Points/Game', dataSelector: function(d) {return d.team.opponent['PTS/G'];}, scaler: pointScale}
+    var bases = [{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
+            ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line"}
+            ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line"}
+            ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line"}
+            ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area"}
+            ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area"}
+            ,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale, type: "area"}
+            ,{ name: 'Opponent Points/Game', dataSelector: function(d) {return d.team.opponent['PTS/G'];}, scaler: pointScale, type: "area"}
             ];
+
+    var color = d3.scale.category10();
 
     var x = d3.scale.linear()
     .range([0, singleWidth])
@@ -52,12 +54,15 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     var xAxis = d3.svg.axis()
         .scale(x)
+        .ticks(3)
+        .tickFormat(d3.format("d"))
         .orient("top");
 
     function makeLine(b) {
-        return d3.svg.line()
+        return d3.svg.area()
                 .x(function(d) { return x(d.year); })
-                .y(function(d) { return b.scaler(b.dataSelector(d)); });
+                .y0(function(d) { return singleHeight; })
+                .y1(function(d) { return b.scaler(b.dataSelector(d)); });
     }
 
     filteredData = data.map(function (d) { 
@@ -74,11 +79,14 @@ function drawTs(data, team, year, div, x, y, width, height) {
                     .enter().append("svg")
                         .attr("width", singleWidth)
                         .attr("height", singleHeight)
+                        .attr("id", function(d, e) { return "sm" + e; })
                         .attr("class", "smallmultiple");
 
     svg.append("path")
         .datum(filteredData)
-        .attr("class", "line")
+        .attr("class", function(d, e) { return bases[e].type; })
+        .attr("fill", function(d, e) {return color(e);})
+        .attr("stroke", function(d, e) {return color(e);})
         .attr("d", function(d ,e) { return makeLine(bases[e])(d); });
 
     svg.append("text")
@@ -92,12 +100,22 @@ function drawTs(data, team, year, div, x, y, width, height) {
           .attr("transform", "translate(0," + (singleHeight - 1) + ")")
           .call(xAxis);
 
-    svg.append("g")
-        .attr("class", "y axis")
-        .attr("transform", "translate(10, 0)")
-        .call(function(d) { return d3.svg.axis()
-            .scale(d.scaler)
-            .orient("right")});
+
+    div.selectAll("svg")
+        .call(function (allSvgs) {
+            allSvgs[0].forEach(function (oneSvg) {
+                var scaler = bases[oneSvg.id.substring(2)].scaler;
+                d3.select("#" + oneSvg.id)
+                    .append("g")
+                        .attr("class", "y axis")
+                        .attr("transform", "translate(0, 0)")
+                        .call(d3.svg.axis()
+                                .scale(scaler)
+                                .ticks(3)
+                                .orient("right"));
+            });
+        });
+
 
     svg.append("line")
         .attr("class", "curYearLine");

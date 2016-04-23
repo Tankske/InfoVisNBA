@@ -307,7 +307,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 .smallmultiple .line {
     fill: none;
-    stroke: red;
+}
+
+.smallmultiple .area {
+    stroke: none;
 }
 
 .curYearLine {
