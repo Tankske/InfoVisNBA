@@ -202,6 +202,20 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr("id", "arrowLeft2")
         .attr("class", "arrowOut");
 
+    var teamName = teamWanted.replace(/\s+/g, '');
+    defs.append('pattern')
+        .attr('id', function(d) { return (teamName+"logo");}) // just create a unique id (id comes from the json)
+        .attr('patternContentUnits', 'objectBoundingBox')
+        .attr('width', 1)
+        .attr('height', 1)
+        .append("svg:image")
+        .attr("xlink:xlink:href", function(d) { return ("./teamlogos/" + teamName + ".png");})
+        .attr("height", 0.8)
+        .attr("width", 0.8)
+        .attr("x", 0.1)
+        .attr("y", 0.1)
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
 
     function drawShirt(xPos, yPos, name, number, team) {
         team = team.replace(/\s+/g, '');
@@ -305,7 +319,10 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr("class", "teambubblezoom")
         .attr("cx", (chartWidth/2 + margin.left/2 + rad)) //arrow heigth is half of the width
         .attr("cy", (h/2))
-        .attr("r", rad);
+        .attr("r", rad)
+        //.attr("overflow", "hidden")
+        .style("fill", function(d) { return ("url(#" + teamName + "logo)");});
+    //TODO als logo er ni instaat een placeholder?
 
 
     var arrowIncoming = chart.append('g')
