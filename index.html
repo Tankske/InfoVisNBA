@@ -22,7 +22,6 @@
             d3.select(".d3-tip").remove();
             drawBubbles(bubbleSvg, 0, 0, width, height, year, false);
             drawFullTeamChange(year);
-            drawLegend();
         }
 
         function drawFullTeamChange(year) {
@@ -125,7 +124,7 @@
                             </div>
 
 							<script type="text/javascript">
-
+                                drawLegend();
                                 var view = "bubble";
 
 
