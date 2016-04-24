@@ -472,7 +472,9 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 4) 
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
-
+                     				else if (winner.playoffrank == 2 && loser.playoffrank == 5) 
+                     					return {	"x": layoutDict.Second.second[0],
+                     								"y": layoutDict.Second.second[1]	}
             
       								else 
       									return  {	"x": document.getElementById(winner.team.split(" ").join("_")).cx.animVal.value, 
