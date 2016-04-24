@@ -1,5 +1,4 @@
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
-		console.log(dataInput);
 		
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
@@ -115,16 +114,29 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			else
 				return "black";
 		}
+
+		svg.append("defs")
+   			.append("pattern")
+   			.attr("id", "atlantaHawks")
+   			.attr('width', 1)
+     		.attr('height', 1)
+   			.append("svg:image")
+   				.attr("xlink:href", "logos/atlanta hawks.gif")
+   				.attr('width', 1)
+     			.attr('height', 1)
+   			;
    		
    		var tip = d3.tip()
   					.attr('class', 'd3-tip')
-  					.offset([-10, 0])
   					.html(function(d) {
     					return  "<p><span style='color:orange'>" + d["team"] + "</span> <\p>" +
     						"SRS: <span style='color:red'>" + d["srs"] + "</span> </br>" + 
     						"League standings: <span style='color:red'>" + d["leaguerank"] + "</span> </br>" + 
     						"Play off result: <span style='color:red'>" + d["playoffrank"] + "</span>";
   						})
+  					.style('top', 0)
+  					.style('right', 0)
+
   		
 		
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
@@ -185,9 +197,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
 								return xPosition(data[outlineVariable], data[id]);
 			    					})
-			    			.style("fill", function(data) { 
-			    					return rgbcolor(data[strokeVariable], data["region"]);
-			    					})	//Separate fill color per region. Create more dynamic!			    			
+			    			.attr("fill", "url(#atlantaHawks)")
+			    				//function(data) { 
+			    				//	return rgbcolor(data[strokeVariable], data["region"]);
+			    				//	})	//Separate fill color per region. Create more dynamic!			    			
 			    			.style("stroke-width", 5)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
@@ -198,10 +211,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									d3.selectAll("."+name).style("visibility", "visible");
    									visibleClass = name;
    									visibleBoolean = !visibleBoolean;
-   									d3.select(this).style('fill','orange');
+   									//d3.select(this).style('fill','orange');
       						})
    							.on('mouseover', function(data) {
-   									d3.select(this).style('fill','orange');
+   									//d3.select(this).style('fill','orange');
    									tip.show(data);
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
@@ -212,7 +225,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       						.on('mouseout', function(data) {
       								tip.hide(data);
       								d3.select(this)
-										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
+										.attr('fill', 'url(#atlantaHawks)');
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
       									console.log("#"+visibleClass.split(".").join("_"))
@@ -303,7 +316,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      												"y":document.getElementById(data.winner.split(" ").join("_")).cy.animVal.value}; })
                      			.target( function(data) { return {	"x":document.getElementById(data.loser.split(" ").join("_")).cx.animVal.value,
                      												"y":document.getElementById(data.loser.split(" ").join("_")).cy.animVal.value}; })
-                     			//.projection(function(data) { return [data.x, data.y]; });
 
       arcs.append("path")
       				.attr("class", function(data){
