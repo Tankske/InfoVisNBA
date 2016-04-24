@@ -1,6 +1,78 @@
+function drawLegend(){
+		var legende = d3.select("#legende").append('svg')
+							.attr("width", '500px')
+					
+		legende.append('circle')
+					.attr("r", 10)
+					.attr("cx", 30)
+					.attr("cy", 30)
+					.style("fill", d3.rgb(255,255,255))		    			
+			    	.style("stroke-width", 5)
+			    	.attr("stroke", 'gold');
+
+		legende.append('text')
+					.attr('dx', 50)
+					.attr('dy', 33)
+					.text('Team won gold medal')
+
+		legende.append('circle')
+					.attr("r", 10)
+					.attr("cx", 30)
+					.attr("cy", 60)
+					.style("fill", d3.rgb(255,255,255))		    			
+			    	.style("stroke-width", 5)
+			    	.attr("stroke", 'silver');
+
+		legende.append('text')
+					.attr('dx', 50)
+					.attr('dy', 63)
+					.text('Team won silver medal')
+
+		legende.append('circle')
+					.attr("r", 10)
+					.attr("cx", 30)
+					.attr("cy", 90)
+					.style("fill", d3.rgb(255,255,255))		    			
+			    	.style("stroke-width", 5)
+			    	.attr("stroke", '#D3782F');
+
+		legende.append('text')
+					.attr('dx', 50)
+					.attr('dy', 93)
+					.text('Team won bronze medal in conference')
+
+		legende.append('circle')
+					.attr("r", 10)
+					.attr("cx", 250)
+					.attr("cy", 30)
+					.style("fill", d3.rgb(255,255,255))		    			
+			    	.style("stroke-width", 5)
+			    	.attr("stroke", 'steelblue');
+
+		legende.append('text')
+					.attr('dx', 270)
+					.attr('dy', 33)
+					.text('Team part of east conference')
+
+		legende.append('circle')
+					.attr("r", 10)
+					.attr("cx", 250)
+					.attr("cy", 60)
+					.style("fill", d3.rgb(255,255,255))		    			
+			    	.style("stroke-width", 5)
+			    	.attr("stroke", 'red');
+
+		legende.append('text')
+					.attr('dx', 270)
+					.attr('dy', 63)
+					.text('Team part of west conference')
+}
+
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
-		//console.log(dataInput);
-		
+		//Legende visualiseren
+
+
+
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
 		var east = dataInput.filter(function(data) { return data.region == "east"});
@@ -136,13 +208,16 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    		
    		var tip = d3.tip()
   					.attr('class', 'd3-tip')
-  					.offset([-10, 0])
+  					.style("right", "20 px")     
+  					.style("top", "20 px")
   					.html(function(d) {
     					return  "<p><span style='color:orange'>" + d["team"] + "</span> <\p>" +
     						"SRS: <span style='color:red'>" + d["srs"] + "</span> </br>" + 
     						"League standings: <span style='color:red'>" + d["leaguerank"] + "</span> </br>" + 
     						"Play off result: <span style='color:red'>" + d["playoffrank"] + "</span>";
   						})
+
+
   		
 		
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
@@ -208,7 +283,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			//		})	//Separate fill color per region. Create more dynamic!	
 			    			.style("fill", function(data) { console.log("url(#" + data[id].split(" ").join("_") + "logo)")
 			    				return ("url(#" + data[id] + "logo)");})		    			
-			    			.style("stroke-width", 5)
+			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
 			    					})
@@ -232,7 +307,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       						.on('mouseout', function(data) {
       								tip.hide(data);
                                     d3.select(this)
-                                        .style('fill',rgbcolor(data[strokeVariable], data["region"]));
+                                        .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
       									//console.log("#"+visibleClass.split(".").join("_"))
@@ -259,7 +334,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			//		return rgbcolor(data[strokeVariable], data["region"]);
 			    			//		})	//Separate fill color per region. Create more dynamic!
 			    			.style("fill", function(data) { return ("url(#" + data[id].split(" ").join("_") + "logo)");})			    			
-			    			.style("stroke-width", 5)
+			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
 			    					})
@@ -284,7 +359,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       						.on('mouseout', function(data) {
       								tip.hide(data);
       								d3.select(this)
-										.style('fill',rgbcolor(data[strokeVariable], data["region"]));
+										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
       									//console.log("."+visibleClass+"circles");

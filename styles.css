@@ -17,6 +17,16 @@ body {
 .wrapper {
 }
 
+.infoContainer {
+
+}
+
+.info {
+ height : 100px;
+ width: 500px;
+ float: left;
+}
+
 header {
 	position: relative;
 	height: 100px;

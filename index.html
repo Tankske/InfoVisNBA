@@ -22,6 +22,7 @@
             d3.select(".d3-tip").remove();
             drawBubbles(bubbleSvg, 0, 0, width, height, year, false);
             drawFullTeamChange(year);
+            drawLegend();
         }
 
         function drawFullTeamChange(year) {
@@ -49,7 +50,7 @@
                     .attr("width", w)
                     .attr("height", h);
             }
-    
+ 
             drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
 
             d3.selectAll(".teambubble")
@@ -98,6 +99,10 @@
 					<div id="InfoVis">
                             <div class="allviss">
                                 <div class="scrollable">
+                                    <div class="infoContainer" id="containerInfo">
+                                        <div class="info" id="legende"></div>
+                                        <div class="info" id="teamInfo"></div>
+                                    </div>
                                     <div class="visualization" id="bubblevis"></div>
                                     <div class="headerblocker" id="zoomblocker">
                                         <div class="visualization" id="bubbleheader">
