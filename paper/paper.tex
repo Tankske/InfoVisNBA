@@ -175,17 +175,21 @@ definitions for common basketball terms used in this paper.
 
 \section{Goal and Target Audience}\label{sec:goal} 
 The visualization's goal can be best summarized by the following sentence: ``Why
-did they win?'' The visualization focuses on exposing relations between team
+did a certain NBA-team win the Championship?'' The visualization focuses on exposing relations between team
 performance and their player roster over several years. It allows users to find
 explanations for major improvements and declines in team performance.  The
 visualization allows exploration of NBA data by lay persons.  More specifically,
-the visualization does not try to offer premade explanations for phenomenons
+the visualization does not focus on premade explanations for phenomenons
 visible in the NBA data. By providing easy and intuitive access to the data, the
 visualization allows users to draw their own conclusions. The visualization's
 target audience are lay persons. Specifically, fans of NBA are the core of our
 target audience. This means the visualization assumes most common basketball
 terms are known to the audience and does not provide basic terminology
 explanations. 
+< We also give basic insights in why a statistic changes (arrow views)
+we try to help them explore patters and trigger them for questions
+Do we create awareness?
+>
 
 \section{Data}\label{sec:data}
 The data visualized is a subset of the data available on basketball statistics
@@ -213,6 +217,7 @@ during the playoffs, and the rest of the data was combined into json format. The
 final preprocessing step combined all data into one json file.
 
 <Tell something more about the data in terms of tall/wide data
+Mention that it's a time series
 Tell something more about pre-processing steps (why?, did we change it over time?)
 rfr to picture in 1st ppt sl 60>
 \section{Related Work}\label{sec:literature}
@@ -229,6 +234,9 @@ The visualization consists of three parts:
 <Explain that this complies with the infovis seeking mantra: Overview, zoom&filter, details on demand
 Bubble = overview
 statistics= details on demand
+Talk about th organization of the 3 views + the choice for a tiled approach
+- Each page is a 'tile' that we force with fixed scrolling
+- Use of the keyboard is possible (space bar to scroll + arrows, arrows for timeline)
 >
 
 All three are discussed in more detail below. The three views are available to
@@ -263,7 +271,9 @@ enclosed circles and a sunburst.
 Although the enclosed circles is a compact representation as well, we have continued 
 with our own design as we believe this view is more original and innovative. We 
 didn't encouter a similar view when searching for alternatives to visualize a 
-play-off or championship. 
+play-off or championship. A new visualization has the advantage that it will 
+trigger persons as well.
+<Talk about the importance of estethics seen in the lesson>
 Our initial bubble view was too compact. It connected teams that played against
 each other directly. When searching for alternatives to reflect on our choice we
 discovered a similar visualization in a totally different context. 
@@ -303,6 +313,9 @@ The statistics view gives a user a clear overview of how a statistic has been in
     \item Arrow section: hhis section illustrates why a statistic changed
     \item Small multiples section: hmall multiples of team statistics and how they evolve over time
 \end{itemize}
+
+\subsection{Improving the result}
+Talk about how we improved the data-ink ration in the end..
 
 \subsubsection{Context section}
 The context section should inform the user at all times of the current selections 
@@ -382,6 +395,8 @@ follows, we suggest a number of features that might improve the visualization:
     way a user at least can share or save a state of an analysis. One step further is to provide a play-feature. The visitor could 
     them share his exploration and replay it. A simple implemention would ask the visitor for a start date and an end date and
     would then 'play' the changes of a particular team and characteristic over time.
+    \item We could support users further in exploring for patterns by focussing more on comparisons. We could integrate a view 
+    where a visitor is able to compare two teams in the same year, or in two different years.
 \end{itemize}
 
 \subsection{Technology}
@@ -431,6 +446,7 @@ worst score for that specific team over time or for the best and worst team in t
 \subsection{Custom visualizations}
 Before exploring what is out there in the d3.js world, we made our own sketches. This is how we came up with the 3 custom views that makes our visualization. When comparing our design with alternatives we could not find something that satisfied our needs. Nonetheless, they gave us inspiration to finetune our designs. Although we are satisfied with our result and we are convinced it was the right choice to reach our goal, it had some draw backs.
 We noted that other teams had more freedom in exploring multiple different visualizations which enabled them to evaluate different options with trial and error. We could have prepared our data in a format that was more compatible with out of the box examples, but this would have had too much of an impact on our result.
+<Talk about redesign>
 Next to that, although we've tried to write our code as general as possible, we're not convinced this could be shared in such a way that other people building a visualization could easily re-use our work to visualize other sports.
 
 \section{Conclusion}\label{sec:conclusion}
