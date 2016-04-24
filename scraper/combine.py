@@ -8,24 +8,15 @@ with open('data.json', 'r') as jsonfile:
 
 for yeardata in data:
     year = yeardata['year']
+    print ""
+    print "NEW YEAR " + str(year)
     for team in yeardata['teams']:
         teamname = team['team']
-        teamfile = teamfolder + str(year) + "_" + teamname.replace(" ", "_").replace("/", "-") + ".csv"
-        with open(teamfile, 'r') as csvfile:
-            reader = csv.reader(csvfile, delimiter=',')
-            keys = []
-            players = []
-            first = True;
-            for row in reader:
-                if first:
-                    keys = row
-                    first = False;
-                else:
-                    player = {}
-                    for i in range(0, len(row)):
-                        player[keys[i]] = row[i]
-                    players.append(player)
-            team['players'] = players
+        print "Doing team " + teamname
+        teamfile = teamfolder + str(year) + "_" + teamname.replace(" ", "_").replace("/", "-") + ".json"
+        with open(teamfile, 'r') as jsonfile:
+            f = json.load(jsonfile)
+            team['players'] = f
 
 with open('combined.json', 'w') as outjsonfile:
     json.dump(data, outjsonfile, indent=4)

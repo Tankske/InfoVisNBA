@@ -3,13 +3,14 @@
 <head>
 	<link rel="stylesheet" href="styles.css">
 	
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <script src="jquery-2.2.3.min.js"></script>
+	<script src="lib/d3.min.js" charset="utf-8"></script>
+	<script src="lib/d3-tip.min.js"></script>
+    <script src="lib/jquery-2.2.3.min.js"></script>
 	
     <script src="bubbleview.js"></script>
     <script src="zoomview.js"></script>
     <script src="teamstats.js"></script>
+    <script src="field.js"></script>
 
     <script>
         var team="Golden State Warriors";
@@ -20,14 +21,19 @@
             d3.select(".bubblechart").remove();
             d3.select(".d3-tip").remove();
             drawBubbles(bubbleSvg, 0, 0, width, height, year, false);
-            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
-            drawTeamChange();
+            drawFullTeamChange(year);
         }
 
-        function drawTeamChange() {
-            drawZoom(zoomSvg, 0, 0, width, height - 280, year, team);
-            drawTeamStats(teamSvg, 0, 0, width, 200, year, team);
-            drawField(fieldSvg, 0, 0, width, height - 80, year, team);
+        function drawFullTeamChange(year) {
+            drawTeamChange(year);
+            drawTeamStats(teamSvg, 0, 0, width, 180, year, team);
+        }
+
+
+        function drawTeamChange(year) {
+            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team);
+            drawField(fieldSvg, 0, 0, width, height - 380, year, team);
+            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
 
@@ -53,7 +59,7 @@
                     if (view === "bubble") {
                         scrollMe("zoom");
                     }
-                    drawTeamChange();
+                    drawFullTeamChange(window.year);
                 });
 
             d3.select(".backbubble")
@@ -73,14 +79,15 @@
         }
 
         function drawField(svg, x, y, w, h, year, team) {
-            svg.append("g")
-                .attr("class", "chart fieldchart")
-                .append("image")
-                .attr("xlink:href", "team/fieldview.png")
-                .attr("x", x)
-                .attr("y", y)
-                .attr("width", w)
-                .attr("height", h);
+            drawF(theData, team, year, svg, x, y, w, h);
+            <!--svg.append("g")-->
+                <!--.attr("class", "chart fieldchart")-->
+                <!--.append("image")-->
+                <!--.attr("xlink:href", "team/fieldview.png")-->
+                <!--.attr("x", x)-->
+                <!--.attr("y", y)-->
+                <!--.attr("width", w)-->
+                <!--.attr("height", h);-->
         }
     </script>
 </head>
@@ -102,11 +109,11 @@
                                     <div class="visualization" id="zoomvis"></div>
                                     <div class="visualization" id="teamvis"></div>
                                     <div class="headerblocker" id="fieldblocker"></div>
-                                    <div class="visualization" id="fieldvis"></div>
+                                    <div class="visualization" id="fieldvis"> </div>
                                 </div>
                                 <div class="visualization" id="timelinefooter">
                                     <p>
-                                        <input class="timeline" type="range" min="1971" max="2015" id="year" value=2015>
+                                        <input class="timeline" type="range" min="1984" max="2015" id="year" value=2015>
                                         <p id="yearSlider">2015</p>
                                     </p>
                                 </div>
@@ -127,6 +134,7 @@
                                         $("html, body").animate({ scrollTop: $('#bubblevis').offset().top }, 600);
                                         $('#bubbleheader').removeClass('stick');
                                         $('#minibubbles').removeClass('stick');
+                                        $('#teamvis').removeClass('stick');
                                         $('#minibubbles').css("left", "");
                                         view = "scrollingbubble";
                                     } else if (where === "zoom") {
@@ -146,6 +154,7 @@
                                     } else if (view === "scrollingzoom" && window_top == $('#zoomblocker').offset().top) {
                                         $('#bubbleheader').addClass('stick');
                                         $('#minibubbles').addClass('stick');
+                                        $('#teamvis').addClass('stick');
                                         $('#minibubbles').css("left", $('#zoomblocker').offset().left + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
                                         view = "zoom";
                                     } else if (view === "scrollingfield" && window_top == $('#fieldblocker').offset().top) {
@@ -198,8 +207,7 @@
 
                                 //var view = "bubble";
 
-                                var year = 2015;
-
+                                window.year = 2015;
 
 								d3.select("#year").on("input", function() {
 									year = +this.value
@@ -215,6 +223,7 @@
                                     theData = data;
                                     drawAll();
                                 });
+
 							</script>
 					</div>							
 			</main>

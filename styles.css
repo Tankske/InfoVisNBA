@@ -305,12 +305,35 @@ input[type=range]:focus::-ms-fill-upper {
     right: 0px;
 }
 
+#teamvis {
+    background: white;
+    width: 1000px;
+}
+
+#teamvis.stick {
+    position:fixed;
+    bottom: 80px;
+}
+
 .smallmultiple .line {
     fill: none;
-    stroke: red;
+}
+
+.smallmultiple .area {
+    stroke: none;
 }
 
 .curYearLine {
     fill: none;
     stroke: blue;
+}
+
+.smallm_g {
+    pointer-events: all;
+}
+
+.posname {}
+
+.selectedbubble {
+    fill: yellow;
 }
