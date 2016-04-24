@@ -5,7 +5,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		var dataInput = dataInput[0].teams;
 		var east = dataInput.filter(function(data) { return data.region == "east"});
 		var west = dataInput.filter(function(data) { return data.region == "west"});
-		
+
 		//var height = 600,
 			//width = document.body.clientWidth*0.8;
 		
@@ -115,6 +115,24 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			else
 				return "black";
 		}
+
+		//var teamName = (teamWanted.replace(/\s+/g, '')).toLowerCase();
+		var node = svg.selectAll('node')
+				.data(dataInput);
+		var defs = node.enter().append('defs');
+		defs.append('pattern')
+				.attr('id', function(data) { return (data[id].split(" ").join("_")+"logo");}) // just create a unique id (id comes from the json)
+				.attr('patternContentUnits', 'objectBoundingBox')
+				.attr('width', 1)
+				.attr('height', 1)
+				.append("svg:image")
+				.attr("xlink:xlink:href", function(data) { 
+					return ("./teamlogos/" + ((data[id].replace(/\s+/g, '')).toLowerCase()) + ".png");})
+				.attr("height", 0.8)
+				.attr("width", 0.8)
+				.attr("x", 0.1)
+				.attr("y", 0.1)
+				.attr("preserveAspectRatio", "xMidYMid meet");
    		
    		var tip = d3.tip()
   					.attr('class', 'd3-tip')
@@ -185,9 +203,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
 								return xPosition(data[outlineVariable], data[id]);
 			    					})
-			    			.style("fill", function(data) { 
-			    					return rgbcolor(data[strokeVariable], data["region"]);
-			    					})	//Separate fill color per region. Create more dynamic!			    			
+			    			//.style("fill", function(data) { 
+			    			//		return rgbcolor(data[strokeVariable], data["region"]);
+			    			//		})	//Separate fill color per region. Create more dynamic!	
+			    			.style("fill", function(data) { console.log("url(#" + data[id].split(" ").join("_") + "logo)")
+			    				return ("url(#" + data[id] + "logo)");})		    			
 			    			.style("stroke-width", 5)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
@@ -235,9 +255,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
 								return xPosition(data[outlineVariable], data[id]);
 			    					})
-			    			.style("fill", function(data) { 
-			    					return rgbcolor(data[strokeVariable], data["region"]);
-			    					})	//Separate fill color per region. Create more dynamic!			    			
+			    			//.style("fill", function(data) { 
+			    			//		return rgbcolor(data[strokeVariable], data["region"]);
+			    			//		})	//Separate fill color per region. Create more dynamic!
+			    			.style("fill", function(data) { return ("url(#" + data[id].split(" ").join("_") + "logo)");})			    			
 			    			.style("stroke-width", 5)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
