@@ -87,7 +87,6 @@ div.bubblechart {
 .d3-tip {
   position: fixed;
   top: 0;
-  left: 0;
   width: 500px;
   height: 200px;
   line-height: 1;
@@ -102,7 +101,6 @@ div.bubblechart {
 .d3-tip:after {
   position: fixed;
   top: 0;
-  right: 0;
   width: 500px;
   height: 200px;
   box-sizing: border-box;
