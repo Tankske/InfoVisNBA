@@ -49,7 +49,7 @@
                     .attr("width", w)
                     .attr("height", h);
             }
-    
+ 
             drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
 
             d3.selectAll(".teambubble")
@@ -98,6 +98,11 @@
 					<div id="InfoVis">
                             <div class="allviss">
                                 <div class="scrollable">
+                                    <div class="infoContainer" id="containerInfo">
+                                        <div class="info" id="teamInfo"></div>
+                                        <div class="info" id="legende"></div>
+
+                                    </div>
                                     <div class="visualization" id="bubblevis"></div>
                                     <div class="headerblocker" id="zoomblocker">
                                         <div class="visualization" id="bubbleheader">
@@ -120,7 +125,7 @@
                             </div>
 
 							<script type="text/javascript">
-
+                                drawLegend();
                                 var view = "bubble";
 
 
