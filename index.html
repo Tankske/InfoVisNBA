@@ -13,7 +13,7 @@
     <script src="field.js"></script>
 
     <script>
-        var team="Golden State Warriors";
+        var team= theData.filter(function(d) {return d.team == "Golden State Warriors"});
 
         function drawAll() {
 
@@ -26,13 +26,13 @@
 
         function drawFullTeamChange(year) {
             drawTeamChange(year);
-            drawTeamStats(teamSvg, 0, 0, width, 180, year, team);
+            drawTeamStats(teamSvg, 0, 0, width, 180, year, team.team);
         }
 
 
         function drawTeamChange(year) {
-            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team);
-            drawField(fieldSvg, 0, 0, width, height - 380, year, team);
+            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team.team);
+            drawField(fieldSvg, 0, 0, width, height - 380, year, team.team);
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
