@@ -27,6 +27,10 @@ body {
  float: left;
 }
 
+#legende {
+  font-size: small;
+}
+
 header {
 	position: relative;
 	height: 100px;

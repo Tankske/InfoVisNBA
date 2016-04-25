@@ -3,11 +3,11 @@ function drawLegend(){
 							.attr("width", '500px')
 					
 		legende.append('circle')
-					.attr("r", 10)
+					.attr("r", 5)
 					.attr("cx", 30)
 					.attr("cy", 30)
 					.style("fill", d3.rgb(255,255,255))		    			
-			    	.style("stroke-width", 5)
+			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'gold');
 
 		legende.append('text')
@@ -16,11 +16,11 @@ function drawLegend(){
 					.text('Team won gold medal')
 
 		legende.append('circle')
-					.attr("r", 10)
+					.attr("r", 5)
 					.attr("cx", 30)
 					.attr("cy", 60)
 					.style("fill", d3.rgb(255,255,255))		    			
-			    	.style("stroke-width", 5)
+			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'silver');
 
 		legende.append('text')
@@ -29,11 +29,11 @@ function drawLegend(){
 					.text('Team won silver medal')
 
 		legende.append('circle')
-					.attr("r", 10)
+					.attr("r", 5)
 					.attr("cx", 30)
 					.attr("cy", 90)
 					.style("fill", d3.rgb(255,255,255))		    			
-			    	.style("stroke-width", 5)
+			    	.style("stroke-width", 3)
 			    	.attr("stroke", '#D3782F');
 
 		legende.append('text')
@@ -42,11 +42,11 @@ function drawLegend(){
 					.text('Team won bronze medal in conference')
 
 		legende.append('circle')
-					.attr("r", 10)
+					.attr("r", 5)
 					.attr("cx", 250)
 					.attr("cy", 30)
 					.style("fill", d3.rgb(255,255,255))		    			
-			    	.style("stroke-width", 5)
+			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'steelblue');
 
 		legende.append('text')
@@ -55,11 +55,11 @@ function drawLegend(){
 					.text('Team part of west conference')
 
 		legende.append('circle')
-					.attr("r", 10)
+					.attr("r", 5)
 					.attr("cx", 250)
 					.attr("cy", 60)
 					.style("fill", d3.rgb(255,255,255))		    			
-			    	.style("stroke-width", 5)
+			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'red');
 
 		legende.append('text')
@@ -285,17 +285,19 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       								d3.selectAll(".arc").style("visibility", "hidden");
    									var name = data.team.split(" ").join(".");
    									d3.selectAll("."+name).style("visibility", "visible");
-   									visibleClass = name;
-   									visibleBoolean = !visibleBoolean;
    									d3.select(this)
-                                        .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
-   									if (!visibleBoolean)	
-   										d3.select(this).style('fill','orange'); 
-				                    $("#bubbleheader h1").text(data.team);
-				                    if (view === "bubble") {
-				                        scrollMe("zoom");
-				                    }
-				                    drawFullTeamChange(window.year);
+										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
+   									visibleClass = '';
+   									visibleBoolean = !visibleBoolean;
+									if (!visibleBoolean){
+   										d3.select(this).style('fill','orange');
+   										visibleClass = name;
+					                    $("#bubbleheader h1").text(data.team);
+					                    if (view === "bubble") {
+					                        scrollMe("zoom");
+					                    }
+					                    drawFullTeamChange(window.year);
+					                }
       						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
@@ -346,37 +348,38 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									d3.selectAll("."+name).style("visibility", "visible");
    									d3.select(this)
 										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
-   									visibleClass = name;
+   									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
-									if (!visibleBoolean)	
-   										d3.select(this).style('fill','orange'); 
-				                    $("#bubbleheader h1").text(data.team);
-				                    if (view === "bubble") {
-				                        scrollMe("zoom");
-				                    }
-				                    drawFullTeamChange(window.year);
-				                    console.log(visibleBoolean)
-				              	})
+									if (!visibleBoolean){
+   										d3.select(this).style('fill','orange');
+   										visibleClass = name;
+					                    $("#bubbleheader h1").text(data.team);
+					                    if (view === "bubble") {
+					                        scrollMe("zoom");
+					                    }
+					                    drawFullTeamChange(window.year);
+					                }
+      						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
    									updateTeamInfo(data)
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
-   										var name = data.team.split(" ").join(".");
-   										d3.selectAll("."+name).style("visibility", "visible");
-   										d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');	
+   										name = data.team.split(" ").join(".");
+   										d3.selectAll("."+name).style("visibility", "visible");	
    									}
 								})
       						.on('mouseout', function(data) {
       								d3.select("#teamInfo").select("text").remove();
-      								d3.select(this)
-										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
+                                    d3.select(this)
+                                        .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
-      								} else {
+									} else {
 										d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
 										updateTeamInfo(team)	
 									}
+									
                             });
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
