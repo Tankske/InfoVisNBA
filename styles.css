@@ -85,8 +85,6 @@ div.bubblechart {
 }
 
 .d3-tip {
-  position: fixed;
-  top: 0;
   width: 500px;
   height: 200px;
   line-height: 1;
@@ -99,8 +97,6 @@ div.bubblechart {
 
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
-  position: fixed;
-  top: 0;
   width: 500px;
   height: 200px;
   box-sizing: border-box;
