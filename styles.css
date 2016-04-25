@@ -156,6 +156,7 @@ div.bubblechart {
     width: 1000px;
     bottom: 0;
     background: white;
+    z-index: 10;
 }
 
 /* Styling the slider */
@@ -323,6 +324,7 @@ input[type=range]:focus::-ms-fill-upper {
 #teamvis.stick {
     position:fixed;
     bottom: 80px;
+    z-index: 100;
 }
 
 .smallmultiple .line {
@@ -346,4 +348,78 @@ input[type=range]:focus::-ms-fill-upper {
 
 .selectedbubble {
     fill: yellow;
+}
+
+#fieldvis {
+    float: right;
+    position: relative;
+    width: 80%;
+}
+#zoomvis {
+    float: right;
+    position: relative;
+    width: 80%;
+}
+
+.stick {
+    z-index: 10;
+}
+
+#varchoosesidebar {
+  float: left;
+  width: 20%;
+  position: relative;
+}
+
+#varchoosesidebar.stick {
+  position: fixed;
+  top: 200px;
+  width: 200px;
+}
+
+#varchoosesidebar form ul{
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+ul li{
+  color: #302505;
+  display: block;
+  position: relative;
+  float: left;
+  width: 80%;
+  background: #b3b3b3;
+  margin: 0;
+}
+
+ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 20px 25px 10px;
+  height: 18px;
+  cursor: pointer;
+}
+
+ul li:hover label{
+	color: #FFFFFF;
+}
+
+ul li .check{
+  display: none;
+}
+
+input[type=radio]:checked ~ label{
+  color: white;
+  background: #993333;
 }

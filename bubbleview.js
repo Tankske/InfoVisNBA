@@ -83,7 +83,7 @@ function updateTeamInfo(team){
 }
    		
 
-function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
+function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height, colors){
 
 		height = height - 100;
 
@@ -275,10 +275,21 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
 								return xPosition(data[outlineVariable], data[id]);
 			    					})
-			    			.style("fill", function(data) { return ("url(#" + data[id].split(" ").join("_") + "logo)");})		    			
+                            .style("fill", function(data) { 
+                                if (colors) { 
+                                    return ShirtColors[data[id].replace(/\s+/g, '')].shirt;
+                                } else {
+                                    return ("url(#" + data[id].split(" ").join("_") + "logo)");
+                                }
+                            })
 			    			.style("stroke-width", 3)
-			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
-			    				return strokeColor(data[strokeVariable], data.region)
+			    			.attr("stroke", function(data) {
+                                return ShirtColors[data[id].replace(/\s+/g, '')].edge;
+                                if (colors) { 
+                                    return ShirtColors[data[id].replace(/\s+/g, '')].edge;
+                                } else {
+                                    return strokeColor(data[strokeVariable], data.region);
+                                }
 			    					})
       						.on('click', function(data){
       								d3.selectAll(".arc").style("visibility", "hidden");

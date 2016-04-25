@@ -31,8 +31,8 @@
 
 
         function drawTeamChange(year) {
-            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team);
-            drawField(fieldSvg, 0, 0, width, height - 380, year, team);
+            drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team);
+            drawField(fieldSvg, 0, 0, 0.8 * width, height - 380, year, team);
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
@@ -111,7 +111,23 @@
                                         </div>
                                         <div class="visualization" id="minibubbles"></div>
                                     </div>
-                                    <div class="visualization" id="zoomvis"></div>
+                                    <div class="viswrapper">
+                                        <div id="varchoosesidebar">
+                                                <form>
+                                                    <ul>
+                                                        <li>
+                                                            <input type="radio" value="PER" id="perradio" name="varchoose" checked="checked">
+                                                            <label for="perradio">PER</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" value="NoPlayers" id="npradio" name="varchoose">
+                                                            <label for="npradio">No. Players</label>
+                                                        </li>
+                                                    </ul>
+                                                </form>
+                                        </div>
+                                        <div class="visualization" id="zoomvis" ></div>
+                                    </div>
                                     <div class="visualization" id="teamvis"></div>
                                     <div class="headerblocker" id="fieldblocker"></div>
                                     <div class="visualization" id="fieldvis"> </div>
@@ -140,6 +156,7 @@
                                         $('#bubbleheader').removeClass('stick');
                                         $('#minibubbles').removeClass('stick');
                                         $('#teamvis').removeClass('stick');
+                                        $('#varchoosesidebar').removeClass('stick');
                                         $('#minibubbles').css("left", "");
                                         view = "scrollingbubble";
                                     } else if (where === "zoom") {
@@ -160,6 +177,7 @@
                                         $('#bubbleheader').addClass('stick');
                                         $('#minibubbles').addClass('stick');
                                         $('#teamvis').addClass('stick');
+                                        $('#varchoosesidebar').addClass('stick');
                                         $('#minibubbles').css("left", $('#zoomblocker').offset().left + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
                                         view = "zoom";
                                     } else if (view === "scrollingfield" && window_top == $('#fieldblocker').offset().top) {
@@ -199,14 +217,14 @@
 
                                 var zoomSvg = d3.select("#zoomvis")
                                     .append("svg")
-                                    .attr("width", width)
+                                    .attr("width", 0.8 * width)
                                     .attr("height", height - $('#zoomblocker').height() - 200)
 
                                 var teamSvg = d3.select("#teamvis");
 
                                 var fieldSvg = d3.select("#fieldvis")
                                     .append("svg")
-                                    .attr("width", width)
+                                    .attr("width", 0.8 * width)
 
                                     .attr("height", height - $('#zoomblocker').height())
 
