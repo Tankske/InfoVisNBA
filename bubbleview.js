@@ -68,18 +68,37 @@ function drawLegend(){
 					.text('Team part of east conference')
 }
 
-function updateTeamInfo(team){
+function removeTeamInfo(){
 		var teamInfo = d3.select("#teamInfo").select("text").remove();
+		var teamInfo = d3.select("#teamInfo").select("svg").remove();
+}
+
+function updateTeamInfo(team){
+		removeTeamInfo()
 		teamInfo = d3.select("#teamInfo")
 							.attr("width", '500px')
 							.attr('class', 'd3-tip')		
 
 		d3.select("#teamInfo").append('text')
-					.attr("dx", '20px').attr("dy", '20px')
+					.attr("dx", '20px')
+					.attr("dy", '20px')
+					.attr("width", '200px')
+					.attr('float','left')
+					.attr('class', 'textTeamInfo')
   					.html("<p><span style='color:orange'>" + team["team"] + "</span> <\p>" +
     						"SRS: <span style='color:red'>" + team["srs"] + "</span> </br>" + 
     						"League standings: <span style='color:red'>" + team["leaguerank"] + "</span> </br>" + 
     						"Play off result: <span style='color:red'>" + team["playoffrank"] + "</span>")
+
+		d3.select("#teamInfo").append('svg')
+					.attr("width", 100)
+    				.attr("height", 100)
+				.append('circle')
+					.style('fill',("url(#" + team["team"].split(" ").join("_") + "logo)"))
+					.attr("r", width/20)
+	    			.attr("cy", 50)
+	    			.attr("cx", 50)
+	    			.attr('float','left')
 }
    		
 
@@ -309,7 +328,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
-      								d3.select("#teamInfo").select("text").remove();
+      								removeTeamInfo()
                                     d3.select(this)
                                         .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
@@ -370,7 +389,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
-      								d3.select("#teamInfo").select("text").remove();
+      								removeTeamInfo()
                                     d3.select(this)
                                         .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){

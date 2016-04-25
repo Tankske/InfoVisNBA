@@ -23,8 +23,8 @@ body {
 }
 
 .info {
+ display: flex;
  width: 50%;
- float: left;
 }
 
 #legende {
@@ -90,6 +90,7 @@ div.bubblechart {
 
 .d3-tip {
   position: relative;
+  float: left;
   top: 0;
   width: 50%;
   line-height: 1;
