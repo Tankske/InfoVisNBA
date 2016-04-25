@@ -52,15 +52,15 @@
  
             drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
 
-            d3.selectAll(".teambubble")
-                .on("click", function(d) {
-                    team = d.team;
-                    $("#bubbleheader h1").text(team);
-                    if (view === "bubble") {
-                        scrollMe("zoom");
-                    }
-                    drawFullTeamChange(window.year);
-                });
+            // d3.selectAll(".teambubble")
+            //     .on("click", function(d) {
+            //         team = d.team;
+            //         $("#bubbleheader h1").text(team);
+            //         if (view === "bubble") {
+            //             scrollMe("zoom");
+            //         }
+            //         drawFullTeamChange(window.year);
+            //     });
 
             d3.select(".backbubble")
                 .on("click", function(d) {
