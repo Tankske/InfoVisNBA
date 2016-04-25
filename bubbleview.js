@@ -72,9 +72,7 @@ function updateTeamInfo(team){
 		var teamInfo = d3.select("#teamInfo").select("text").remove();
 		teamInfo = d3.select("#teamInfo")
 							.attr("width", '500px')
-							.attr('class', 'd3-tip')
-		console.log(team)
-		
+							.attr('class', 'd3-tip')		
 
 		d3.select("#teamInfo").append('text')
 					.attr("dx", '20px').attr("dy", '20px')
@@ -298,7 +296,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				                        scrollMe("zoom");
 				                    }
 				                    drawFullTeamChange(window.year);
-				                    console.log(visibleBoolean)
       						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
@@ -311,12 +308,15 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								})
       						.on('mouseout', function(data) {
       								d3.select("#teamInfo").select("text").remove();
-      								updateTeamInfo(team)
                                     d3.select(this)
                                         .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
-									} else d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
+									} else {
+										d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
+										updateTeamInfo(team)	
+									}
+									
                             });
       	
 
@@ -369,13 +369,14 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								})
       						.on('mouseout', function(data) {
       								d3.select("#teamInfo").select("text").remove();
-      								updateTeamInfo(data)
       								d3.select(this)
 										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
-      									d3.selectAll(".arc").style("visibility", "visible");	
-									}	else d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
-
+      									d3.selectAll(".arc").style("visibility", "visible");
+      								} else {
+										d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
+										updateTeamInfo(team)	
+									}
                             });
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
