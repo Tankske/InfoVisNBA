@@ -66,18 +66,19 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     var minMaxSRSAllYears = minMaxSRS(inData);
     var minMaxTransfersAllYears = minMaxNbTransfers(inData);
 
-    var sideBarWidth = 0.1*w;
-    var chartWidth = w - sideBarWidth - margin.left;
+    //var sideBarWidth = 0.1*w;
+    //var chartWidth = w - sideBarWidth - margin.left;
+    var chartWidth = w;
 
     var maxWidthInOutPart = chartWidth*1/2 - margin.left/2;
     var minWidthInOutPart = 1/10 * maxWidthInOutPart;
 
     var maxWidthCircle = chartWidth*1/3 - margin.left;
 
-    var maxWidthStayedPart = chartWidth - maxWidthInOutPart - maxWidthCircle - margin.left/2;
+    var maxWidthStayedPart = chartWidth - maxWidthInOutPart - maxWidthCircle - 2*margin.left;
 
     var maxHeightStayedPart = h;
-    var minHeightStayedPart = 1/10 * h;
+    var minHeightStayedPart = 0;
 
     var arrowRectHorizontalHeight = h/8;
     var arrowRectVerticalWidth = maxWidthStayedPart/10;
@@ -106,55 +107,55 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
 //            minMax = minMaxPerSeason(data,yearWanted);
 
 
-    // Dimensions of sidebar item: width, height, spacing, radius of rounded rect.
-    var si = {
-        w: 70, h: 30, s: 5, r: 3
-    };
-
-    var sidebar = svg.append("svg")
-        .attr("class","sidebar")
-        .attr("width", sideBarWidth)
-        .attr("height", h)
-        .attr("x", chartWidth + margin.left);
-
-    sidebar.append("rect")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", si.w)
-        .attr("height", si.h)
-        .style("fill", "#bbbbbb")
-        .on('mouseover', function() { d3.select(this).style('fill','orange'); })
-        .on('mouseout', function() { d3.select(this).style('fill','#bbbbbb'); })
-        .on("click", function() { console.log("CLICKED"); });
-
-
-    sidebar.append("svg:text")
-        .attr("x", si.w/2)
-        .attr("y", si.h/2)
-        .attr("dy", "0.35em")
-        .attr("text-anchor", "middle")
-        .style("fill", "#000000")
-        .text("PER");
-
-    sidebar.append("rect")
-        .attr("x", 0)
-        .attr("y", si.h + si.s)
-        .attr("width", si.w)
-        .attr("height", si.h)
-        .style("fill", "#bbbbbb")
-        .attr("overflow", "auto")
-        .on('mouseover', function() { d3.select(this).style('fill','orange'); })
-        .on('mouseout', function() { d3.select(this).style('fill','#bbbbbb'); })
-        .on("click", function() { console.log("CLICKED"); });
-
-    sidebar.append("svg:text")
-        .attr("x", si.w/2)
-        .attr("y", si.h + si.s + si.h/2)
-        .attr("dy", "0.35em")
-        .attr("text-anchor", "middle")
-        .attr("overflow", "auto")
-        .style("fill", "#000000")
-        .text("Nb Players");
+    //// Dimensions of sidebar item: width, height, spacing, radius of rounded rect.
+    //var si = {
+    //    w: 70, h: 30, s: 5, r: 3
+    //};
+    //
+    //var sidebar = svg.append("svg")
+    //    .attr("class","sidebar")
+    //    .attr("width", sideBarWidth)
+    //    .attr("height", h)
+    //    .attr("x", chartWidth + margin.left);
+    //
+    //sidebar.append("rect")
+    //    .attr("x", 0)
+    //    .attr("y", 0)
+    //    .attr("width", si.w)
+    //    .attr("height", si.h)
+    //    .style("fill", "#bbbbbb")
+    //    .on('mouseover', function() { d3.select(this).style('fill','orange'); })
+    //    .on('mouseout', function() { d3.select(this).style('fill','#bbbbbb'); })
+    //    .on("click", function() { console.log("CLICKED"); });
+    //
+    //
+    //sidebar.append("svg:text")
+    //    .attr("x", si.w/2)
+    //    .attr("y", si.h/2)
+    //    .attr("dy", "0.35em")
+    //    .attr("text-anchor", "middle")
+    //    .style("fill", "#000000")
+    //    .text("PER");
+    //
+    //sidebar.append("rect")
+    //    .attr("x", 0)
+    //    .attr("y", si.h + si.s)
+    //    .attr("width", si.w)
+    //    .attr("height", si.h)
+    //    .style("fill", "#bbbbbb")
+    //    .attr("overflow", "auto")
+    //    .on('mouseover', function() { d3.select(this).style('fill','orange'); })
+    //    .on('mouseout', function() { d3.select(this).style('fill','#bbbbbb'); })
+    //    .on("click", function() { console.log("CLICKED"); });
+    //
+    //sidebar.append("svg:text")
+    //    .attr("x", si.w/2)
+    //    .attr("y", si.h + si.s + si.h/2)
+    //    .attr("dy", "0.35em")
+    //    .attr("text-anchor", "middle")
+    //    .attr("overflow", "auto")
+    //    .style("fill", "#000000")
+    //    .text("Nb Players");
 
     var chart = svg.append("svg")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
         .attr("class","chart zoomchart")
@@ -191,6 +192,11 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     defs.append("path")
         .attr("d", "M -10,0 h 20 l -10,10 z")
         .attr("id", "arrowDown");
+
+    defs.append("path")
+        .attr("d", "M -10,-0.5 h 20 v 1 h -20 z")
+        .attr("stroke", "black")
+        .attr("id", "transferVerticalZeroLine");
 
     defs.append("path")
         .attr("d", "M 0,-10 v 20 h 7.5 z")
@@ -304,6 +310,8 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
     var rad = getRadiusScaledCircle(teamSRS, maxWidthCircle, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var maxRad = getRadiusScaledCircle(minMaxSRSAllYears[1], maxWidthCircle, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var minRad = getRadiusScaledCircle(minMaxSRSAllYears[0], maxWidthCircle, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    console.log(maxRad);
+    console.log(minRad);
 
 
     chart.append("path")
@@ -313,9 +321,10 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
             return "translate(0, " +  (h/2) + "), scale(" + (maxWidthInOutPart/50) + ", 1)";
         });
 
-    chart.append('g')
-        .attr('class', 'circleTeam')
-        .append("circle")
+    var circles = chart.append('g')
+        .attr('class', 'circleTeam');
+
+    circles.append("circle")
         .attr("class", "teambubblezoom")
         .attr("cx", (chartWidth/2 + margin.left/2 + rad)) //arrow heigth is half of the width
         .attr("cy", (h/2))
@@ -323,6 +332,40 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         //.attr("overflow", "hidden")
         .style("fill", function(d) { return ("url(#" + teamName + "logo)");});
     //TODO als logo er ni instaat een placeholder?
+
+    //circles.append("circle")
+    //    .attr("class", "teambubblezoom")
+    //    .attr("cx", (chartWidth/2 + margin.left/2 + minRad)) //arrow heigth is half of the width
+    //    .attr("cy", (h/2))
+    //    .attr("r", minRad)
+    //    .attr("stroke", "black")
+    //    .style("fill", "green")
+    //    .style("opacity", 0.7);
+    //circles.append("circle")
+    //    .attr("class", "teambubblezoom")
+    //    .attr("cx", (chartWidth/2 + margin.left/2 + (maxRad-minRad)/2+minRad)) //arrow heigth is half of the width
+    //    .attr("cy", (h/2))
+    //    .attr("r", (maxRad-minRad)/2+minRad)
+    //    .attr("stroke", "black")
+    //    .style("fill", "orange")
+    //    .style("opacity", 0.5);
+    //circles.append("circle")
+    //    .attr("class", "teambubblezoom")
+    //    .attr("cx", (chartWidth/2 + margin.left/2 + maxRad-minRad)) //arrow heigth is half of the width
+    //    .attr("cy", (h/2))
+    //    .attr("r", maxRad-minRad)
+    //    .attr("stroke", "black")
+    //    .style("fill", "yellow")
+    //    .style("opacity", 0.3);
+    //circles.append("circle")
+    //    .attr("class", "teambubblezoom")
+    //    .attr("cx", (chartWidth/2 + margin.left/2 + maxRad)) //arrow heigth is half of the width
+    //    .attr("cy", (h/2))
+    //    .attr("r", maxRad)
+    //    .attr("stroke", "black")
+    //    .style("fill", "red")
+    //    .style("opacity", 0.1);
+
 
 
     var arrowIncoming = chart.append('g')
@@ -431,16 +474,15 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
      50 is breedte truitje*/
 
     var maxStayed = Math.max(Math.abs(minMaxPERAllYears[2]), minMaxPERAllYears[3]);
-    var scaleValueYStayedPositive = scaleArrow(stayedPer, 0, maxStayed, minHeightStayedPart, (maxHeightStayedPart - 10*(arrowRectVerticalWidth/10)));
-    var scaleValueYStayedNegative = scaleArrow(Math.abs(stayedPer), 0, maxStayed, minHeightStayedPart, (maxHeightStayedPart - 10*(arrowRectVerticalWidth/10)));
+    var scaleValueYStayed = scaleArrow(Math.abs(stayedPer), 0, maxStayed, minHeightStayedPart, (maxHeightStayedPart/2 - 10*(arrowRectVerticalWidth/10)));
 
-    if (parseFloat(stayedPer) >= 0) {
+    if (parseFloat(stayedPer) > 0) {
 
         arrowStayed.append("use")
             .attr("xlink:href","#transferRectVertical")
             .attr("class", "arrowStayedUp")
             .attr('transform', function(d) {
-                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " +  (h/2 - scaleValueYStayedPositive) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (scaleValueYStayedPositive/50) +")";
+                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " +  (h/2 - scaleValueYStayed) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (scaleValueYStayed/50) +")";
                 /*50 is hoogte balk
                  20 is breedte pijlkop
                  10 is breedte balk
@@ -451,7 +493,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
             .attr("xlink:href","#arrowUp")
             .attr("class", "arrowStayedUp")
             .attr('transform', function(d) {
-                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " + (h/2 - scaleValueYStayedPositive - (10*(arrowRectVerticalWidth/10))) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (arrowRectVerticalWidth/10) +")";
+                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " + (h/2 - scaleValueYStayed - (10*(arrowRectVerticalWidth/10))) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (arrowRectVerticalWidth/10) +")";
                 /*50 is lengte balk
                  7.5 is breedte pijlkop
                  10 is hoogte balk
@@ -465,7 +507,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
             .attr("xlink:href","#transferRectVertical")
             .attr("class", "arrowStayedDown")
             .attr('transform', function(d) {
-                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " +  (h/2) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (scaleValueYStayedNegative/50) +")";
+                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " +  (h/2) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (scaleValueYStayed/50) +")";
                 /*50 is hoogte balk
                  20 is breedte pijlkop
                  10 is breedte balk
@@ -476,7 +518,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
             .attr("xlink:href","#arrowDown")
             .attr("class", "arrowStayedDown")
             .attr('transform', function(d) {
-                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " +  (h/2 + scaleValueYStayedNegative) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (arrowRectVerticalWidth/10) +")";
+                return "translate(" + (chartWidth - maxWidthStayedPart + margin.left/2 + 10*(arrowRectVerticalWidth/10)) + ", " +  (h/2 + scaleValueYStayed) + "), scale(" + (arrowRectVerticalWidth/10) + ", " + (arrowRectVerticalWidth/10) +")";
                 /*50 is lengte balk
                  7.5 is breedte pijlkop
                  10 is hoogte balk
@@ -492,6 +534,13 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr("dy", ".35em")
         .attr("text-anchor", "start")
         .text("" + stayedPer);
+
+
+    arrowStayed.append("use")
+        .attr("xlink:href","#transferVerticalZeroLine")
+        .attr('transform', function(d) {
+            return "translate(" + (chartWidth - maxWidthStayedPart + margin.left / 2 + 10 * (arrowRectVerticalWidth / 10)) + ", " + (h / 2) + "), scale(" + (arrowRectVerticalWidth / 10) + ", " + (arrowRectVerticalWidth / 10) + ")";
+        });
 
     var playersStayed = playerPERDifference(arrayPlayers[1], arrayPlayers[2]);
     drawBestTwoShirts(playersStayed, teamWanted, (chartWidth - maxWidthStayedPart + margin.left/2 + 20*(arrowRectVerticalWidth/10) + margin.left/2 + margin.left), (h/2 - margin.bottom - 70),
@@ -738,26 +787,46 @@ function minMaxPER(dataInput) {
     return minMaxInStayedOut;
 }
 
-function getRadiusScaledCircle(radiusVariable, maxWidth, maxHeight, min, max) {
+function getRadiusScaledCircle(areaVariable, maxWidth, maxHeight, min, max) {
     var maxSpace;
     var minSpace;
-    if (maxWidth/2 > maxHeight/2) {
+    if (maxWidth > maxHeight) {
         maxSpace = maxHeight/2;
         minSpace = maxHeight/12;
     }
-    else if (maxWidth/2 <= maxHeight/2) {
+    else if (maxWidth <= maxHeight) {
         maxSpace = maxWidth/2;
         minSpace = maxWidth/12;
     }
 
+    var minValue = min - min +1;
+    var maxValue = max - min +1;
+    var areaVariableValue = areaVariable - min +1;
 
-//    var result = 1.0083 * Math.pow(((radiusVariable - min +1)/(min - min+1)),0.5716) * minSpace;
-//    result =  Math.sqrt(result/Math.PI);
+    var maxAreaSpace = Math.pow(maxSpace,2)*Math.PI;
+    var minAreaSpace = Math.pow(minSpace,2)*Math.PI;
+    var maxArea = Math.pow(maxValue,2)*Math.PI;
+    var minArea = Math.pow(minValue,2)*Math.PI;
+    var givenArea = Math.pow(areaVariableValue,2)*Math.PI;
+
+    //var resultMax = 1.0083 * Math.pow((maxValue/minValue),0.5716) * minAreaSpace;
+    //maxArea = resultMax;
+    //
+    //var resultMin = 1.0083 * Math.pow((minValue/minValue),0.5716) * minAreaSpace;
+    //minArea = resultMin;
+    //
+    //var result = 1.0083 * Math.pow((areaVariableValue/minValue),0.5716) * minAreaSpace;
+    //givenArea = result;
 
 
-    var unity = (maxSpace-minSpace)/(max-min);
+    var unity = (maxAreaSpace-minAreaSpace)/(maxArea-minArea);
 //    return minSpace + result*unity;
-    return minSpace + (radiusVariable-min)*unity;
+    var calculatedArea =  minAreaSpace + (givenArea-minArea)*unity;
+
+    return Math.sqrt(calculatedArea/Math.PI);
+//    var unity = (maxSpace-minSpace)/(max-min);
+////    return minSpace + result*unity;
+//    return minSpace + (areaVariable-min)*unity;
 
     /*Flannery Appearance Compensation case:
      Pj = 1.0083 * (Valj/ValMin)^0.5716 * Pmin
