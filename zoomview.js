@@ -209,7 +209,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr('width', 1)
         .attr('height', 1)
         .append("svg:image")
-        .attr("xlink:xlink:href", function(d) { return ("./teamlogos/" + teamName + ".png");})
+        .attr("xlink:xlink:href", function(d) { return ("./teamlogos/" + teamName.toLowerCase() + ".png");})
         .attr("height", 0.8)
         .attr("width", 0.8)
         .attr("x", 0.1)
