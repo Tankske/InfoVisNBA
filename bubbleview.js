@@ -73,8 +73,10 @@ function updateTeamInfo(team){
 		teamInfo = d3.select("#teamInfo")
 							.attr("width", '500px')
 							.attr('class', 'd3-tip')
+		console.log(team)
+		
 
-		teamInfo.append('text')
+		d3.select("#teamInfo").append('text')
 					.attr("dx", '20px').attr("dy", '20px')
   					.html("<p><span style='color:orange'>" + team["team"] + "</span> <\p>" +
     						"SRS: <span style='color:red'>" + team["srs"] + "</span> </br>" + 
@@ -367,7 +369,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								})
       						.on('mouseout', function(data) {
       								d3.select("#teamInfo").select("text").remove();
-      								updateTeamInfo(team)
+      								updateTeamInfo(data)
       								d3.select(this)
 										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
