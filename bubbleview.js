@@ -85,7 +85,7 @@ function updateTeamInfo(team){
 
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
 
-		height = height - 100;
+		height = height;
 
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
