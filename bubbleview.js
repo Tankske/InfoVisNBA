@@ -52,7 +52,7 @@ function drawLegend(){
 		legende.append('text')
 					.attr('dx', 270)
 					.attr('dy', 33)
-					.text('Team part of east conference')
+					.text('Team part of west conference')
 
 		legende.append('circle')
 					.attr("r", 10)
@@ -65,8 +65,23 @@ function drawLegend(){
 		legende.append('text')
 					.attr('dx', 270)
 					.attr('dy', 63)
-					.text('Team part of west conference')
+					.text('Team part of east conference')
 }
+
+function updateTeamInfo(team){
+		var teamInfo = d3.select("#teamInfo").select("text").remove();
+		teamInfo = d3.select("#teamInfo")
+							.attr("width", '500px')
+							.attr('class', 'd3-tip')
+
+		teamInfo.append('text')
+					.attr("dx", '20px').attr("dy", '20px')
+  					.html("<p><span style='color:orange'>" + team["team"] + "</span> <\p>" +
+    						"SRS: <span style='color:red'>" + team["srs"] + "</span> </br>" + 
+    						"League standings: <span style='color:red'>" + team["leaguerank"] + "</span> </br>" + 
+    						"Play off result: <span style='color:red'>" + team["playoffrank"] + "</span>")
+}
+   		
 
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height){
 
@@ -165,9 +180,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		  };
 		}
 		
-		function radius(radiusVariable) {
-			return (11 + radiusVariable)*1.8 * width/1000;				// veranderen obv D3.scale
-		}
+		var radius = d3.scale.sqrt()
+				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
+					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
+				.range([width/60,width/20])
+
 		
 		function strokeColor(strokeVariable, groupVariable){
 			if (strokeVariable == 1)
@@ -200,28 +217,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				.attr("width", 0.8)
 				.attr("x", 0.1)
 				.attr("y", 0.1)
-				.attr("preserveAspectRatio", "xMidYMid meet");
-   		
-   		var tip = d3.tip()
-  					.attr('class', 'd3-tip')
-  					.style("right", "20 px")     
-  					.style("top", "20 px")
-  					.html(function(d) {
-    					return  "<p><span style='color:orange'>" + d["team"] + "</span> <\p>" +
-    						"SRS: <span style='color:red'>" + d["srs"] + "</span> </br>" + 
-    						"League standings: <span style='color:red'>" + d["leaguerank"] + "</span> </br>" + 
-    						"Play off result: <span style='color:red'>" + d["playoffrank"] + "</span>";
-  						})
-
-
-  		
+				.attr("preserveAspectRatio", "xMidYMid meet");  		
 		
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
                         .attr("class","chart bubblechart")
                         .attr("height", height)
                         .attr("width", width)
-		
-		chart.call(tip);
        	
        	var arc = d3.svg.arc()
 					.outerRadius(function(data)
@@ -274,11 +275,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
 								return xPosition(data[outlineVariable], data[id]);
 			    					})
-			    			//.style("fill", function(data) { 
-			    			//		return rgbcolor(data[strokeVariable], data["region"]);
-			    			//		})	//Separate fill color per region. Create more dynamic!	
-			    			.style("fill", function(data) { //console.log("url(#" + data[id].split(" ").join("_") + "logo)")
-			    				return ("url(#" + data[id] + "logo)");})		    			
+			    			.style("fill", function(data) { return ("url(#" + data[id].split(" ").join("_") + "logo)");})		    			
 			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
 			    				return strokeColor(data[strokeVariable], data.region)
@@ -293,7 +290,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
-   									tip.show(data);
+   									updateTeamInfo(data)
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
    										var name = data.team.split(" ").join(".");
@@ -301,13 +298,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
-      								tip.hide(data);
+      								d3.select("#teamInfo").select("text").remove();
                                     d3.select(this)
                                         .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
-      									//console.log("#"+visibleClass.split(".").join("_"))
-      									//console.log(d3.select("#"+visibleClass.split(".").join("_")));
       									d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
 									}
 
@@ -327,8 +322,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								return xPosition(data[outlineVariable], data[id]);
 			    					})
 			    			//.style("fill", function(data) { 
-			    			//		return rgbcolor(data[strokeVariable], data["region"]);
-			    			//		})	//Separate fill color per region. Create more dynamic!
 			    			.style("fill", function(data) { return ("url(#" + data[id].split(" ").join("_") + "logo)");})			    			
 			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
@@ -344,7 +337,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       						})
    							.on('mouseover', function(data) {
    									d3.select(this).style('fill','orange');
-   									tip.show(data);
+   									updateTeamInfo(data)
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
    										var name = data.team.split(" ").join(".");
@@ -353,7 +346,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
-      								tip.hide(data);
       								d3.select(this)
 										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
@@ -363,8 +355,15 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 									}
 									else d3.select("#"+visibleClass).style('fill','orange');
                             });
+				
+      	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
+      	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
+      	console.log(champion)
 
-       var layoutDict = {
+      	var layoutDict = {};
+
+      	if (champion.region = 'west')
+       		layoutDict = {
 		      Champion: {
 		            first:      [ xPos + width/3,   yPos + 20+(2)*(height/(yMaxData*2+2))],
 		            second:     [ xPos + width/5,   yPos + 20+(4)*(height/(yMaxData*2+2))],
@@ -381,6 +380,27 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		            first:      [ xPos + width*6/9,   yPos + 20+(6)*(height/(yMaxData*2+2))]
 		      }
 		 };
+		 else 
+		 	layoutDict = {
+		      Champion: {
+		            first:      [ xPos + width*2/3,   yPos + 20+(2)*(height/(yMaxData*2+2))],
+		            second:     [ xPos + width*4/5,   yPos + 20+(4)*(height/(yMaxData*2+2))],
+		            third:      [ xPos + width*8/9,   yPos + 20+(6)*(height/(yMaxData*2+2))]
+		      },
+		      Second: {
+		            first:      [ xPos + width/5,   yPos + 20+(4)*(height/(yMaxData*2+2))],
+		            second:     [ xPos + width/9,   yPos + 20+(6)*(height/(yMaxData*2+2))]
+		      },
+		      ThirdEast: {
+		            first:      [ xPos + width*3/9,   yPos + 20+(6)*(height/(yMaxData*2+2))]
+		      },
+		      ThirdWest: {
+		            first:      [ xPos + width*6/9,   yPos + 20+(6)*(height/(yMaxData*2+2))]
+		      }
+		 };
+
+		 console.log(champion)
+		 console.log(layoutDict)
 
 		 var winner = dataInput.filter(function(d) { return d.team == 'Golden State Warriors'});
 		 var loser = dataInput.filter(function(d) { return d.team == 'Golden State Warriors'});
