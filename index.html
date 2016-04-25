@@ -13,7 +13,7 @@
     <script src="field.js"></script>
 
     <script>
-        var team="Golden State Warriors";
+        var team= theData.filter(function(d) {return d.team == "Golden State Warriors"});
 
         function drawAll() {
 
@@ -26,13 +26,13 @@
 
         function drawFullTeamChange(year) {
             drawTeamChange(year);
-            drawTeamStats(teamSvg, 0, 0, width, 180, year, team);
+            drawTeamStats(teamSvg, 0, 0, width, 180, year, team.team);
         }
 
 
         function drawTeamChange(year) {
-            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team);
-            drawField(fieldSvg, 0, 0, width, height - 380, year, team);
+            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team.team);
+            drawField(fieldSvg, 0, 0, width, height - 380, year, team.team);
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
@@ -49,18 +49,18 @@
                     .attr("width", w)
                     .attr("height", h);
             }
-    
+ 
             drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
 
-            d3.selectAll(".teambubble")
-                .on("click", function(d) {
-                    team = d.team;
-                    $("#bubbleheader h1").text(team);
-                    if (view === "bubble") {
-                        scrollMe("zoom");
-                    }
-                    drawFullTeamChange(window.year);
-                });
+            // d3.selectAll(".teambubble")
+            //     .on("click", function(d) {
+            //         team = d.team;
+            //         $("#bubbleheader h1").text(team);
+            //         if (view === "bubble") {
+            //             scrollMe("zoom");
+            //         }
+            //         drawFullTeamChange(window.year);
+            //     });
 
             d3.select(".backbubble")
                 .on("click", function(d) {
@@ -98,6 +98,11 @@
 					<div id="InfoVis">
                             <div class="allviss">
                                 <div class="scrollable">
+                                    <div class="infoContainer" id="containerInfo">
+                                        <div class="info" id="teamInfo"></div>
+                                        <div class="info" id="legende"></div>
+
+                                    </div>
                                     <div class="visualization" id="bubblevis"></div>
                                     <div class="headerblocker" id="zoomblocker">
                                         <div class="visualization" id="bubbleheader">
@@ -120,7 +125,7 @@
                             </div>
 
 							<script type="text/javascript">
-
+                                drawLegend();
                                 var view = "bubble";
 
 
@@ -176,7 +181,7 @@
                                 $(window).scrollTop(0);
 
                                 var width = 1000,
-                                    height = window.innerHeight - $('#timelinefooter').height() ;
+                                    height = window.innerHeight - $('#timelinefooter').height() - $('#containerInfo').height() ;
 
                                 var miniw = $('#minibubbles').width(),
                                     minih = $('#minibubbles').height();
