@@ -18,7 +18,7 @@
             //d3.selectAll(".chart").remove();
             d3.select(".bubblechart").remove();
             d3.select(".d3-tip").remove();
-            drawBubbles(bubbleSvg, 0, 0, width, height, year, false);
+            drawBubbles(bubbleSvg, 0, 0, width, height - 200, year, false);
             drawFullTeamChange(year);
         }
 
@@ -29,9 +29,9 @@
 
 
         function drawTeamChange(year) {
-            drawZoom(zoomSvg, 0, 0, width, height - 380, year, team.team);
-            drawField(fieldSvg, 0, 0, width, height - 380, year, team.team);
-            //drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
+            drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
+            drawField(fieldSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
+            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
 
@@ -96,16 +96,26 @@
 					<div id="InfoVis">
                             <div class="allviss">
                                 <div class="scrollable">
-                                    <div class="infoContainer" id="containerInfo">
-                                        <div class="info" id="teamInfo"></div>
+                                    <div class="headerblocker" id="containerInfo">
                                         <div class="info" id="legende"></div>
-
                                     </div>
                                     <div class="visualization" id="bubblevis"></div>
                                     <div class="headerblocker" id="zoomblocker">
-                                        <div class="visualization" id="bubbleheader">
-                                            <h1>Golden State Warriors</h1>
-                                            <h2>2015</h2>
+                                        <div class="visualization stick" id="bubbleheader">
+                                            <h1 id="teamname"></h1>
+                                            <table>
+                                                <tr>
+                                                    <td> <h2 id="yearname"></h2> </td>
+                                                    <td> <p id="srs"></p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td> <p id="playoffrank"></p></td>
+                                                </tr>
+                                                    <td></td>
+                                                    <td> <p id="leaguerank"></p></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                         <div class="visualization" id="minibubbles"></div>
                                     </div>
@@ -148,12 +158,11 @@
                                 $(window).scroll(movescroll);
                                 movescroll();
 
-                                $('#bubbleheader').css("width", "" + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
+                                $('#bubbleheader').css("width", "" + ($('#wrapper').width() - $('#legende').width()) + "px");
 
                                 function scrollMe(where) {
                                     if (where === "bubble") {
                                         $("html, body").animate({ scrollTop: $('#containerInfo').offset().top }, 600);
-                                        $('#bubbleheader').removeClass('stick');
                                         $('#minibubbles').removeClass('stick');
                                         $('#teamvis').removeClass('stick');
                                         $('#varchoosesidebar').removeClass('stick');
@@ -174,10 +183,9 @@
                                     if (view === "scrollingbubble" && window_top == $('#containerInfo').offset().top) {
                                         view = "bubble";
                                     } else if (view === "scrollingzoom" && window_top == $('#zoomblocker').offset().top) {
-                                        $('#bubbleheader').addClass('stick');
-                                        $('#minibubbles').addClass('stick');
                                         $('#teamvis').addClass('stick');
                                         $('#varchoosesidebar').addClass('stick');
+                                        $('#minibubbles').addClass('stick');
                                         $('#minibubbles').css("left", $('#zoomblocker').offset().left + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
                                         view = "zoom";
                                     } else if (view === "scrollingfield" && window_top == $('#fieldblocker').offset().top) {
@@ -207,7 +215,7 @@
                                 var bubbleSvg = d3.select("#bubblevis")
                                     .append("svg")
                                     .attr("width", width)
-                                    .attr("height", height - $('#containerInfo').height() )
+                                    .attr("height", height - $('#zoomblocker').height() )
 
                                 var miniBubbleSvg = d3.select("#minibubbles")
                                     .append("svg")
@@ -232,9 +240,10 @@
                                 window.year = 2015;
 
 								d3.select("#year").on("input", function() {
-									year = +this.value
+									window.year = +this.value
 									document.getElementById("yearSlider").innerHTML= year;
-                                    $("#bubbleheader h2").text(year);
+                                    window.team = theData.find(function(d) {return d.year == window.year; }).teams.find(function(d) { return d.team === window.team.team;});
+                                    updateTeamInfo(window.team, window.year);
 
                                     drawAll();
                                 });

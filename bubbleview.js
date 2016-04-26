@@ -1,6 +1,6 @@
 function drawLegend(){
 		var legende = d3.select("#legende").append('svg')
-							.attr("width", '500px')
+							.attr("width", '300px')
 					
 		legende.append('circle')
 					.attr("r", 5)
@@ -11,22 +11,35 @@ function drawLegend(){
 			    	.attr("stroke", 'gold');
 
 		legende.append('text')
-					.attr('dx', 50)
-					.attr('dy', 33)
+					.attr('dx', 40)
+					.attr('dy', 34)
 					.text('Team won gold medal')
 
 		legende.append('circle')
 					.attr("r", 5)
 					.attr("cx", 30)
-					.attr("cy", 60)
+					.attr("cy", 50)
 					.style("fill", d3.rgb(255,255,255))		    			
 			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'silver');
 
 		legende.append('text')
-					.attr('dx', 50)
-					.attr('dy', 63)
+					.attr('dx', 40)
+					.attr('dy', 54)
 					.text('Team won silver medal')
+
+		legende.append('circle')
+					.attr("r", 5)
+					.attr("cx", 30)
+					.attr("cy", 70)
+					.style("fill", d3.rgb(255,255,255))		    			
+			    	.style("stroke-width", 3)
+			    	.attr("stroke", '#D3782F');
+
+		legende.append('text')
+					.attr('dx', 40)
+					.attr('dy', 74)
+					.text('Team won bronze medal in conference')
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -34,71 +47,43 @@ function drawLegend(){
 					.attr("cy", 90)
 					.style("fill", d3.rgb(255,255,255))		    			
 			    	.style("stroke-width", 3)
-			    	.attr("stroke", '#D3782F');
-
-		legende.append('text')
-					.attr('dx', 50)
-					.attr('dy', 93)
-					.text('Team won bronze medal in conference')
-
-		legende.append('circle')
-					.attr("r", 5)
-					.attr("cx", 250)
-					.attr("cy", 30)
-					.style("fill", d3.rgb(255,255,255))		    			
-			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'steelblue');
 
 		legende.append('text')
-					.attr('dx', 270)
-					.attr('dy', 33)
+					.attr('dx', 40)
+					.attr('dy', 93)
 					.text('Team part of west conference')
 
 		legende.append('circle')
 					.attr("r", 5)
-					.attr("cx", 250)
-					.attr("cy", 60)
+					.attr("cx", 30)
+					.attr("cy", 110)
 					.style("fill", d3.rgb(255,255,255))		    			
 			    	.style("stroke-width", 3)
 			    	.attr("stroke", 'red');
 
 		legende.append('text')
-					.attr('dx', 270)
-					.attr('dy', 63)
+					.attr('dx', 40)
+					.attr('dy', 113)
 					.text('Team part of east conference')
 }
 
 function removeTeamInfo(){
-		var teamInfo = d3.select("#teamInfo").select("text").remove();
-		var teamInfo = d3.select("#teamInfo").select("svg").remove();
+        teamheader = d3.select("#bubbleheader");
+        teamheader.selectAll("h1").text("");
+        teamheader.selectAll("h2").text("");
+        teamheader.selectAll("p").text("");
 }
 
-function updateTeamInfo(team){
-		removeTeamInfo()
-		teamInfo = d3.select("#teamInfo")
-							.attr("width", '500px')
-							.attr('class', 'd3-tip')		
+function updateTeamInfo(team, year){
+       teamheader = d3.select("#bubbleheader")
 
-		d3.select("#teamInfo").append('text')
-					.attr("dx", '20px')
-					.attr("dy", '20px')
-					.attr("width", '200px')
-					.attr('float','left')
-					.attr('class', 'textTeamInfo')
-  					.html("<p><span style='color:orange'>" + team["team"] + "</span> <\p>" +
-    						"SRS: <span style='color:red'>" + team["srs"] + "</span> </br>" + 
-    						"League standings: <span style='color:red'>" + team["leaguerank"] + "</span> </br>" + 
-    						"Play off result: <span style='color:red'>" + team["playoffrank"] + "</span>")
+       teamheader.select("#teamname").text(team.team);
+       teamheader.select("#yearname").text(year);
 
-		d3.select("#teamInfo").append('svg')
-					.attr("width", 100)
-    				.attr("height", 100)
-				.append('circle')
-					.style('fill',("url(#" + team["team"].split(" ").join("_") + "logo)"))
-					.attr("r", width/20)
-	    			.attr("cy", 50)
-	    			.attr("cx", 50)
-	    			.attr('float','left')
+       teamheader.select("#srs").text("SRS: " + team.srs);
+       teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);
+       teamheader.select("#leaguerank").text("League rank: " + team.leaguerank);
 }
    		
 
@@ -237,6 +222,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				.attr("x", 0.1)
 				.attr("y", 0.1)
 				.attr("preserveAspectRatio", "xMidYMid meet");  		
+
+        var highlights = svg.append("g")
+                            .attr("class", "highlights")
+                            .attr("height", height)
+                            .attr("width", width);
 		
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
                         .attr("class","chart bubblechart")
@@ -281,7 +271,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
 		var visibleBoolean = false;
 
-		circleWest.append("circle")
+        function appendCircles (appendToMe) {
+            appendToMe.append("circle")
 							.attr("class","circle teambubble")
 							.attr("id", function(data){
                                     visibleBoolean = true;
@@ -312,17 +303,24 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    					})
       						.on('click', function(data){
       								team = data;
+                                    highlights.selectAll(".selectedcircle").remove();
       								d3.selectAll(".arc").style("visibility", "hidden");
    									var name = data.team.split(" ").join(".");
    									d3.selectAll("."+name).style("visibility", "visible");
-   									d3.select(this)
-										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
    									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
 									if (!visibleBoolean){
-   										d3.select(this).style('fill','orange');
    										visibleClass = name;
 					                    $("#bubbleheader h1").text(data.team);
+                                        highlights
+                                            .append("circle")
+                                            .attr("fill", "red")
+                                            .attr("r", d3.select(this).attr("r"))
+                                            .attr("cx", d3.select(this).attr("cx"))
+                                            .attr("cy", d3.select(this).attr("cy"))
+                                            .attr("z-index", "-100")
+                                            .attr("stroke", "none")
+                                            .attr("class", "selectedcircle");
 					                    if (view === "bubble") {
 					                        scrollMe("zoom");
 					                    }
@@ -330,8 +328,17 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 					                }
       						})
    							.on('mouseover', function(data) {
-   									d3.select(this).style('fill','orange');
-   									updateTeamInfo(data)
+                                    highlights.selectAll(".highlightcircle").remove();
+                                    highlights
+                                        .append("circle")
+                                        .attr("fill", "orange")
+                                        .attr("r", d3.select(this).attr("r"))
+                                        .attr("cx", d3.select(this).attr("cx"))
+                                        .attr("cy", d3.select(this).attr("cy"))
+                                        .attr("z-index", "-100")
+                                        .attr("stroke", "none")
+                                        .attr("class", "highlightcircle");
+   									updateTeamInfo(data, window.year)
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
    										name = data.team.split(" ").join(".");
@@ -339,82 +346,23 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
+                                    highlights.selectAll(".highlightcircle").remove();
       								removeTeamInfo()
-                                    d3.select(this)
-                                        .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
 									} else {
-										d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
-										updateTeamInfo(team)	
+                                        updateTeamInfo(team, window.year);
 									}
 									
                             });
-      	
+        }
 
-		circleEast.append("circle")
-							.attr("class","circle teambubble")
-							.attr("id", function(data){
-                                    visibleBoolean = true;
-									return data[id].split(" ").join("_") })
-			    			.attr("r",function(data)
-								{return radius(parseFloat(data["srs"])); })
-			    			.attr("cy", function(data){					// Distribute position over height
-								return yPosition(data[outlineVariable])
-			    					})
-			    			.attr("cx", function(data){					// Separate position per region. Create more dynamic!
-								return xPosition(data[outlineVariable], data[id]);
-			    					})
-			    			//.style("fill", function(data) { 
-			    			.style("fill", function(data) { return ("url(#" + data[id].split(" ").join("_") + "logo)");})			    			
-			    			.style("stroke-width", 3)
-			    			.attr("stroke", function(data) { 					// Color stroke based on strokeVariable.
-			    				return strokeColor(data[strokeVariable], data.region)
-			    					})
-      						.on('click', function(data){
-      								team = data;
-      								d3.selectAll(".arc").style("visibility", "hidden");
-   									var name = data.team.split(" ").join(".");
-   									d3.selectAll("."+name).style("visibility", "visible");
-   									d3.select(this)
-										.style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
-   									visibleClass = '';
-   									visibleBoolean = !visibleBoolean;
-									if (!visibleBoolean){
-   										d3.select(this).style('fill','orange');
-   										visibleClass = name;
-					                    $("#bubbleheader h1").text(data.team);
-					                    if (view === "bubble") {
-					                        scrollMe("zoom");
-					                    }
-					                    drawFullTeamChange(window.year);
-					                }
-      						})
-   							.on('mouseover', function(data) {
-   									d3.select(this).style('fill','orange');
-   									updateTeamInfo(data)
-   									if (visibleBoolean){
-   										d3.selectAll(".arc").style("visibility", "hidden");
-   										name = data.team.split(" ").join(".");
-   										d3.selectAll("."+name).style("visibility", "visible");	
-   									}
-								})
-      						.on('mouseout', function(data) {
-      								removeTeamInfo()
-                                    d3.select(this)
-                                        .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
-      								if (visibleBoolean){
-      									d3.selectAll(".arc").style("visibility", "visible");
-									} else {
-										d3.select("#"+visibleClass.split(".").join("_")).style('fill','orange');
-										updateTeamInfo(team)	
-									}
-									
-                            });
+        appendCircles(circleWest);
+        appendCircles(circleEast);
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
       	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
-      	console.log(champion)
+      	//console.log(champion)
 
       	var layoutDict = {};
 
@@ -455,8 +403,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		      }
 		 };
 
-		 console.log(champion)
-		 console.log(layoutDict)
+		 //console.log(champion)
+		 //console.log(layoutDict)
 
 		 var winner = dataInput.filter(function(d) { return d.team == 'Golden State Warriors'});
 		 var loser = dataInput.filter(function(d) { return d.team == 'Golden State Warriors'});

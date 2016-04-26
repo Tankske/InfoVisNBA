@@ -134,14 +134,14 @@ function drawTs(data, team, year, div, x, y, width, height) {
         highlightYear = year;
         fixcyline();
         drawTeamChange(year);
-        d3.select("#bubbleheader").select("h2").text(year);
+        updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
     });
 
     svg.on("mousemove", function() {
          highlightYear = Math.round(x.invert(d3.mouse(this)[0]));
          fixcyline();
          drawTeamChange(highlightYear);
-         d3.select("#bubbleheader").select("h2").text(highlightYear);
+        updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
     });
 
     svg.on("click", function() {

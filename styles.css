@@ -18,13 +18,14 @@ body {
 }
 
 .infoContainer {
- display: flex;
+ width: 1000px;
  margin: 0px;
 }
 
 .info {
- display: flex;
- width: 50%;
+ width: 300px;
+ float: right;
+ position: relative;
 }
 
 #legende {
@@ -50,6 +51,7 @@ footer {
 
 h1 {
 	font-size: 250%;
+	margin: 10px 0 10px 0px;
 }
 
 svg {
@@ -92,11 +94,12 @@ div.bubblechart {
   position: relative;
   float: left;
   top: 0;
-  width: 50%;
   line-height: 1;
   font-weight: bold;
   padding: 5px;
   border-radius: 2px;
+  background: lightgrey;
+  border-color: black;
 }
 
 .teambubble:hover {
@@ -120,7 +123,8 @@ div.bubblechart {
     width: 760px;
     top: 0;
     float: left;
-    background: white;
+    background: lightgrey;
+    height: 200px;
 }
 
 #bubbleheader.stick {
@@ -138,7 +142,7 @@ div.bubblechart {
     height: 80px;
     width: 1000px;
     bottom: 0;
-    background: white;
+    background: lightgrey;
     z-index: 10;
 }
 
@@ -292,7 +296,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 #minibubbles {
     margin: 0 0 0 0px;
-    width: 240px;
+    width: 300px;
     height: 200px;
     overflow: hidden;
     float: right;
@@ -306,8 +310,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #teamvis {
-    background: white;
+    background: lightgrey;
     width: 1000px;
+    position: relative;
 }
 
 #teamvis.stick {
@@ -358,6 +363,8 @@ input[type=range]:focus::-ms-fill-upper {
   float: left;
   width: 20%;
   position: relative;
+  background: lightgrey;
+  height: 100%;
 }
 
 #varchoosesidebar.stick {
@@ -382,7 +389,7 @@ ul li{
   float: left;
   width: 80%;
   background: #b3b3b3;
-  margin: 0;
+  margin: 0 10% 0 10%;
 }
 
 ul li input[type=radio]{
@@ -411,4 +418,23 @@ ul li .check{
 input[type=radio]:checked ~ label{
   color: white;
   background: #993333;
+}
+
+#bubbleheader table {
+    width: 100%;
+    margin: 0;
+}
+
+#bubbleheader table td {
+    width: 50%;
+    height: 20px;
+}
+
+#bubbleheader table h2 {
+    margin: 0;
+}
+
+#bubbleheader table p {
+    margin: 0;
+    padding: 0;
 }
