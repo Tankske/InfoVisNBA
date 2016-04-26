@@ -68,18 +68,37 @@ function drawLegend(){
 					.text('Team part of east conference')
 }
 
-function updateTeamInfo(team){
+function removeTeamInfo(){
 		var teamInfo = d3.select("#teamInfo").select("text").remove();
+		var teamInfo = d3.select("#teamInfo").select("svg").remove();
+}
+
+function updateTeamInfo(team){
+		removeTeamInfo()
 		teamInfo = d3.select("#teamInfo")
 							.attr("width", '500px')
 							.attr('class', 'd3-tip')		
 
 		d3.select("#teamInfo").append('text')
-					.attr("dx", '20px').attr("dy", '20px')
+					.attr("dx", '20px')
+					.attr("dy", '20px')
+					.attr("width", '200px')
+					.attr('float','left')
+					.attr('class', 'textTeamInfo')
   					.html("<p><span style='color:orange'>" + team["team"] + "</span> <\p>" +
     						"SRS: <span style='color:red'>" + team["srs"] + "</span> </br>" + 
     						"League standings: <span style='color:red'>" + team["leaguerank"] + "</span> </br>" + 
     						"Play off result: <span style='color:red'>" + team["playoffrank"] + "</span>")
+
+		d3.select("#teamInfo").append('svg')
+					.attr("width", 100)
+    				.attr("height", 100)
+				.append('circle')
+					.style('fill',("url(#" + team["team"].split(" ").join("_") + "logo)"))
+					.attr("r", width/20)
+	    			.attr("cy", 50)
+	    			.attr("cx", 50)
+	    			.attr('float','left')
 }
    		
 
@@ -320,7 +339,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
-      								d3.select("#teamInfo").select("text").remove();
+      								removeTeamInfo()
                                     d3.select(this)
                                         .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
@@ -381,7 +400,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									}
 								})
       						.on('mouseout', function(data) {
-      								d3.select("#teamInfo").select("text").remove();
+      								removeTeamInfo()
                                     d3.select(this)
                                         .style('fill',("url(#" + data[id].split(" ").join("_") + "logo)"));
       								if (visibleBoolean){
@@ -509,6 +528,49 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
       arcs.append("path")
       				.attr("class", function(data){
+      								//console.log(dataInput.filter(function(d) {return d[id] == data.winner })[0])
+									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"]})
+      				.attr("stroke", "green")
+      				.attr("stroke-width", 5)
+      				.attr("d", d3.svg.diagonal()
+								.source( function(data) { i = i+1
+									winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
+									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
+      									return   {	"x": document.getElementById(loser.team.split(" ").join("_")).cx.animVal.value, 
+                     								"y": document.getElementById(loser.team.split(" ").join("_")).cy.animVal.value
+                     													}; })
+                     			.target( function(data) { 
+                     				if(winner.playoffrank == 1 && loser.playoffrank == 2)
+                     					return {	"x": layoutDict.Champion.first[0],
+                     								"y": layoutDict.Champion.first[1]	}
+                     				else if (winner.playoffrank == 1 && loser.playoffrank == 3) 
+                     					return {	"x": layoutDict.Champion.second[0],
+                     								"y": layoutDict.Champion.second[1]	}
+                     				else if (winner.playoffrank == 1 && loser.playoffrank == 4) 
+                     					return {	"x": layoutDict.Champion.third[0],
+                     								"y": layoutDict.Champion.third[1]	}
+                     				else if (winner.playoffrank == 1 && loser.playoffrank == 5) 
+                     					return {	"x": layoutDict.Champion.third[0],
+                     								"y": layoutDict.Champion.third[1]	}
+                     				else if (winner.playoffrank == 2 && loser.playoffrank == 3) 
+                     					return {	"x": layoutDict.Second.first[0],
+                     								"y": layoutDict.Second.first[1]	}
+                     				else if (winner.playoffrank == 2 && loser.playoffrank == 4) 
+                     					return {	"x": layoutDict.Second.second[0],
+                     								"y": layoutDict.Second.second[1]	}
+                     				else if (winner.playoffrank == 2 && loser.playoffrank == 5) 
+                     					return {	"x": layoutDict.Second.second[0],
+                     								"y": layoutDict.Second.second[1]	}
+      								else 
+      									return  {	"x": document.getElementById(winner.team.split(" ").join("_")).cx.animVal.value, 
+                     								"y": document.getElementById(winner.team.split(" ").join("_")).cy.animVal.value
+                     													}; }))
+      				.style("fill", "none")
+      				.style("visibility", visibleBoolean ? "visible" : "hidden");
+      i = 0
+
+      arcs.append("path")
+      				.attr("class", function(data){
 									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
@@ -549,7 +611,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      													}; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
-
       
 
       d3.select("."+visibleClass).style("visibility", "visible");
