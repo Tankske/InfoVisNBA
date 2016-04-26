@@ -13,8 +13,6 @@
     <script src="field.js"></script>
 
     <script>
-        var team= theData.filter(function(d) {return d.team == "Golden State Warriors"});
-
         function drawAll() {
 
             //d3.selectAll(".chart").remove();
@@ -33,7 +31,7 @@
         function drawTeamChange(year) {
             drawZoom(zoomSvg, 0, 0, width, height - 380, year, team.team);
             drawField(fieldSvg, 0, 0, width, height - 380, year, team.team);
-            drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
+            //drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
 
@@ -50,7 +48,7 @@
                     .attr("height", h);
             }
  
-            drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h);
+            drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h, back);
 
             // d3.selectAll(".teambubble")
             //     .on("click", function(d) {
@@ -130,7 +128,9 @@
                                     </div>
                                     <div class="visualization" id="teamvis"></div>
                                     <div class="headerblocker" id="fieldblocker"></div>
-                                    <div class="visualization" id="fieldvis"> </div>
+                                    <div class="viswrapper">
+                                        <div class="visualization" id="fieldvis"> </div>
+                                    </div>
                                 </div>
                                 <div class="visualization" id="timelinefooter">
                                     <p>
@@ -152,7 +152,7 @@
 
                                 function scrollMe(where) {
                                     if (where === "bubble") {
-                                        $("html, body").animate({ scrollTop: $('#bubblevis').offset().top }, 600);
+                                        $("html, body").animate({ scrollTop: $('#containerInfo').offset().top }, 600);
                                         $('#bubbleheader').removeClass('stick');
                                         $('#minibubbles').removeClass('stick');
                                         $('#teamvis').removeClass('stick');
@@ -171,7 +171,7 @@
                                 function movescroll() {
                                     var window_top = $(window).scrollTop();
 
-                                    if (view === "scrollingbubble" && window_top == $('#bubblevis').offset().top) {
+                                    if (view === "scrollingbubble" && window_top == $('#containerInfo').offset().top) {
                                         view = "bubble";
                                     } else if (view === "scrollingzoom" && window_top == $('#zoomblocker').offset().top) {
                                         $('#bubbleheader').addClass('stick');
@@ -196,10 +196,9 @@
                                         }
                                     }
                                 }
-                                $(window).scrollTop(0);
 
                                 var width = 1000,
-                                    height = window.innerHeight - $('#timelinefooter').height() - $('#containerInfo').height() ;
+                                    height = window.innerHeight - $('#timelinefooter').height() ;
 
                                 var miniw = $('#minibubbles').width(),
                                     minih = $('#minibubbles').height();
@@ -208,7 +207,7 @@
                                 var bubbleSvg = d3.select("#bubblevis")
                                     .append("svg")
                                     .attr("width", width)
-                                    .attr("height", height)
+                                    .attr("height", height - $('#containerInfo').height() )
 
                                 var miniBubbleSvg = d3.select("#minibubbles")
                                     .append("svg")
@@ -241,10 +240,13 @@
                                 });
 
                                 var theData;
+                                var team;
 
                                 d3.json("combined.json", function(data) {
-                                    theData = data;
+                                   theData = data;
+                                   team = theData.find(function(d) { return d.year == 2015; }).teams.find(function(d) {return d.team == "Golden State Warriors"});
                                     drawAll();
+                                    $(window).scrollTop(0);
                                 });
 
 							</script>
