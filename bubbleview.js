@@ -226,21 +226,30 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				.attr("y", 0.1)
 				.attr("preserveAspectRatio", "xMidYMid meet");  		
 
-        var highlights = svg.append("g")
-                            .attr("class", "highlights")
-                            .attr("height", height)
-                            .attr("width", width);
-		
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
                         .attr("class","chart bubblechart")
                         .attr("height", height)
                         .attr("width", width)
-       	
+
        	var arc = d3.svg.arc()
 					.outerRadius(function(data)
 						{return (11 + parseFloat(data["srs"]))*1.5})
 				.startAngle(0)
 				.endAngle(1.5*Math.PI);
+
+		var lines = chart.append("g")
+								.attr("id", "arcs")
+								.attr("class", "svg");
+
+        var circleBackgrounds = chart.append("g")
+                                    .attr("class", "circlebackgrounds")
+                                    .attr("width", width)
+                                    .attr("height", height);
+
+        var highlights = chart.append("g")
+                            .attr("class", "highlights")
+                            .attr("height", height)
+                            .attr("width", width);
 		
 		var circlesEast = chart.append("g")
 								.attr("id","circlesEast")
@@ -248,10 +257,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		
 		var circlesWest = chart.append("g")
 								.attr("id","circlesWest")
-								.attr("class", "svg");
-
-		var lines = chart.append("g")
-								.attr("id", "arcs")
 								.attr("class", "svg");
 		
 		var circleEast = circlesEast.selectAll("g") 			//Select all div's within the created div (= empty)
@@ -297,9 +302,9 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                             })
 			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) {
-                                return ShirtColors[fixteamname(data[id])].edge;
+                                //return ShirtColors[fixteamname(data[id])].edge;
                                 if (colors) { 
-                                    return ShirtColors[fixteamname(data[id])].edge;
+                                    //return ShirtColors[fixteamname(data[id])].edge;
                                 } else {
                                     return strokeColor(data[strokeVariable], data.region);
                                 }
@@ -362,6 +367,19 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
         appendCircles(circleWest);
         appendCircles(circleEast);
+
+        d3.selectAll(".teambubble")
+            .call(function (d) {
+                cb = d3.select(".circlebackgrounds");
+                d[0].forEach(function (circle) {
+                    console.log(circle);
+                    cb.append("circle")
+                        .attr("fill", "white")
+                        .attr("cx", circle.cx.baseVal.value)
+                        .attr("cy", circle.cy.baseVal.value)
+                        .attr("r", circle.r.baseVal.value);
+                });
+            });
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
       	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
@@ -415,17 +433,17 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       arcs.append("path")
       				.attr("class", function(data){
       								if(winner.playoffrank == 1 && loser.playoffrank == 2)
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Champion.first[2]
+                                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.first[2]
                      				else if (winner.playoffrank == 1 && loser.playoffrank == 3) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Champion.second[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.second[2]
                      				else if (winner.playoffrank == 1 && loser.playoffrank == 4) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Champion.third[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.third[2]
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 3) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Second.first[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Second.first[2]
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 4) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Second.second[2]	
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Second.second[2]	
                      				else 
-									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + ' start'})
+                                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + ' start'})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
@@ -480,7 +498,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       arcs.append("path")
       				.attr("class", function(data){
       								//console.log(dataInput.filter(function(d) {return d[id] == data.winner })[0])
-									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"]})
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
