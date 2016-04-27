@@ -1,50 +1,51 @@
 
 var ShirtColors = {
-    TorontoRaptors : {shirt: "#ff0000", edge:  "#000000"},
-    BostonCeltics : {shirt: "#008000", edge: "#ffffff"},
-    BrooklynNets : {shirt: "#000000", edge: "#ffffff"},
-    Philadelphia76ers : {shirt: "#ff0000", edge: "#0000ff"},
-    NewYorkKnicks  : {shirt: "#0000ff;", edge: "#ff4500"},
-    ClevelandCavaliers : {shirt: "#8b0000", edge: "#ffd700"},
-    ChicagoBulls : {shirt: "#ff0000", edge: "#000000"},
-    MilwaukeeBucks : {shirt: "#006400", edge: "#ff0000"},
-    IndianaPacers : {shirt: "#000080", edge: "#ffd700"},
-    DetroitPistons : {shirt: "#0000ff", edge: "##ff0000"},
-    AtlantaHawks : {shirt: "#000080", edge: "#ff0000"},
-    WashingtonWizards : {shirt: "#ff0000", edge: "#000080"},
-    MiamiHeat : {shirt: "#000000", edge: "#8b0000"},
-    CharlotteHornets : {shirt: "#800080", edge: "#008080"},
-    OrlandoMagic : {shirt: "#0000ff", edge: "#000000"},
-    PortlandTrailBlazers : {shirt: "#000000", edge: "#ff0000"},
-    OklahomaCityThunder : {shirt: "#009acd", edge: "#00008b"},
-    UtahJazz : {shirt: "#000080", edge: "#006400"},
-    DenverNuggets : {shirt: "#6ca6cd", edge: "#000080"},
-    MinnesotaTimberwolves : {shirt: "#00688b", edge: "#000000"},
-    GoldenStateWarriors : {shirt: "#0000ff", edge: "#ffd700"},
-    LosAngelesClippers : {shirt: "#ff0000", edge: "#0000ff"},
-    PhoenixSuns : {shirt: "#800080", edge: "#ff8c00"},
-    SacramentoKings : {shirt: "#800080", edge: "#000000"},
-    LosAngelesLakers : {shirt: "#800080", edge: "#ffd700"},
-    HoustonRockets : {shirt: "#ff0000", edge: "#ffffff"},
-    SanAntonioSpurs : {shirt: "#000000", edge: "#c0c0c0"},
-    MemphisGrizzlies : {shirt: "#191970", edge: "#6ca6cd"},
-    DallasMavericks : {shirt: "#000080", edge: "#0000ff"},
-    NewOrleansPelicans : {shirt: "#00008b", edge: "#ffd700"},
-    BuffaloBraves : {shirt: "6ca6cd", edge: "000000"},
-    BaltimoreBullets : {shirt: "0000ff", edge: "ff0000"},
-    CincinnatiRoyals : {shirt: "0000ff", edge: "ffffff"},
-    SeattleSuperSonics : {shirt: "006400", edge: "ffd700"},
-    KansasCityOmahaKings : {shirt: "0000ff", edge: "ff0000"},
-    CapitalBullets : {shirt: "0000ff", edge: "ff0000"},
-    WashingtonBullets : {shirt: "ff0000", edge: "0000ff"},
-    NewOrleansJazz : {shirt: "800080", edge: "ffd700"},
-    KansasCityKings : {shirt: "0000ff", edge: "ff0000"},
-    NewYorkNets : {shirt: "0000ff", edge: "ff0000"},
-    NewJerseyNets : {shirt: "000080", edge: "ff0000"},
-    SanDiegoClippers : {shirt: "0000ff", edge: "ff0000"},
-    VancouverGrizzlies : {shirt: "40e0d0", edge: "000000"},
-    NewOrleansHornets : {shirt: "009acd", edge: "551a8b"},
-    CharlotteBobcats : {shirt: "000080", edge: "add8e6"}
+    torontoraptors : {shirt: "#ff0000", edge:  "#000000"},
+    bostonceltics : {shirt: "#008000", edge: "#ffffff"},
+    brooklynnets : {shirt: "#000000", edge: "#ffffff"},
+    philadelphia76ers : {shirt: "#ff0000", edge: "#0000ff"},
+    newyorkknicks  : {shirt: "#0000ff;", edge: "#ff4500"},
+    clevelandcavaliers : {shirt: "#8b0000", edge: "#ffd700"},
+    chicagobulls : {shirt: "#ff0000", edge: "#000000"},
+    milwaukeebucks : {shirt: "#006400", edge: "#ff0000"},
+    indianapacers : {shirt: "#000080", edge: "#ffd700"},
+    detroitpistons : {shirt: "#0000ff", edge: "##ff0000"},
+    atlantahawks : {shirt: "#000080", edge: "#ff0000"},
+    washingtonwizards : {shirt: "#ff0000", edge: "#000080"},
+    miamiheat : {shirt: "#000000", edge: "#8b0000"},
+    charlottehornets : {shirt: "#800080", edge: "#008080"},
+    orlandomagic : {shirt: "#0000ff", edge: "#000000"},
+    portlandtrailblazers : {shirt: "#000000", edge: "#ff0000"},
+    oklahomacitythunder : {shirt: "#009acd", edge: "#00008b"},
+    utahjazz : {shirt: "#000080", edge: "#006400"},
+    denvernuggets : {shirt: "#6ca6cd", edge: "#000080"},
+    minnesotatimberwolves : {shirt: "#00688b", edge: "#000000"},
+    goldenstatewarriors : {shirt: "#0000ff", edge: "#ffd700"},
+    losangelesclippers : {shirt: "#ff0000", edge: "#0000ff"},
+    phoenixsuns : {shirt: "#800080", edge: "#ff8c00"},
+    sacramentokings : {shirt: "#800080", edge: "#000000"},
+    losangeleslakers : {shirt: "#800080", edge: "#ffd700"},
+    houstonrockets : {shirt: "#ff0000", edge: "#ffffff"},
+    sanantoniospurs : {shirt: "#000000", edge: "#c0c0c0"},
+    memphisgrizzlies : {shirt: "#191970", edge: "#6ca6cd"},
+    dallasmavericks : {shirt: "#000080", edge: "#0000ff"},
+    neworleanspelicans : {shirt: "#00008b", edge: "#ffd700"},
+    buffalobraves : {shirt: "6ca6cd", edge: "000000"},
+    baltimorebullets : {shirt: "0000ff", edge: "ff0000"},
+    cincinnatiroyals : {shirt: "0000ff", edge: "ffffff"},
+    seattlesupersonics : {shirt: "006400", edge: "ffd700"},
+    kansascityomahakings : {shirt: "0000ff", edge: "ff0000"},
+    capitalbullets : {shirt: "0000ff", edge: "ff0000"},
+    washingtonbullets : {shirt: "ff0000", edge: "0000ff"},
+    neworleansjazz : {shirt: "800080", edge: "ffd700"},
+    kansascitykings : {shirt: "0000ff", edge: "ff0000"},
+    newyorknets : {shirt: "0000ff", edge: "ff0000"},
+    newjerseynets : {shirt: "000080", edge: "ff0000"},
+    sandiegoclippers : {shirt: "0000ff", edge: "ff0000"},
+    vancouvergrizzlies : {shirt: "40e0d0", edge: "000000"},
+    neworleanshornets : {shirt: "009acd", edge: "551a8b"},
+    neworleansoklahomacityhornets : {shirt: "009acd", edge: "551a8b"},
+    charlottebobcats : {shirt: "000080", edge: "add8e6"}
 }
 
 var margin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -208,14 +209,14 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr("id", "arrowLeft2")
         .attr("class", "arrowOut");
 
-    var teamName = teamWanted.replace(/\s+/g, '');
+    var teamName = fixteamname(teamWanted);
     defs.append('pattern')
-        .attr('id', function(d) { return (teamName+"logo");}) // just create a unique id (id comes from the json)
+        .attr('id', function(d) { return (fixteamname(teamName)+"logo");}) // just create a unique id (id comes from the json)
         .attr('patternContentUnits', 'objectBoundingBox')
         .attr('width', 1)
         .attr('height', 1)
         .append("svg:image")
-        .attr("xlink:xlink:href", function(d) { return ("./teamlogos/" + teamName.toLowerCase() + ".png");})
+        .attr("xlink:xlink:href", function(d) { return ("./teamlogos/" + fixteamname(teamName) + ".png");})
         .attr("height", 0.8)
         .attr("width", 0.8)
         .attr("x", 0.1)
@@ -224,7 +225,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
 
 
     function drawShirt(xPos, yPos, name, number, team) {
-        team = team.replace(/\s+/g, '');
+        team = fixteamname(team);
         var shirtColor = ShirtColors[team].shirt;
         var shirtEdge = ShirtColors[team].edge;
 //                if (shirtColor)

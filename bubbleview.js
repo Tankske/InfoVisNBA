@@ -1,3 +1,7 @@
+function fixteamname(teamname) {
+    return teamname.replace(/[\s\/]+/g,'').toLowerCase();
+}
+
 function drawLegend(){
 		var legende = d3.select("#legende").append('svg')
 							.attr("width", '300px')
@@ -205,18 +209,17 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				return "black";
 		}
 
-		//var teamName = (teamWanted.replace(/\s+/g, '')).toLowerCase();
 		var node = svg.selectAll('node')
 				.data(dataInput);
 		var defs = node.enter().append('defs');
 		defs.append('pattern')
-				.attr('id', function(data) { return (data[id].split(" ").join("_")+"logo");}) // just create a unique id (id comes from the json)
+                .attr('id', function(data) { return (fixteamname(data[id])+"logo");}) // just create a unique id (id comes from the json)
 				.attr('patternContentUnits', 'objectBoundingBox')
 				.attr('width', 1)
 				.attr('height', 1)
 				.append("svg:image")
 				.attr("xlink:xlink:href", function(data) { 
-					return ("./teamlogos/" + ((data[id].replace(/\s+/g, '')).toLowerCase()) + ".png");})
+                    return ("./teamlogos/" + (fixteamname(data[id]) + ".png"));})
 				.attr("height", 0.8)
 				.attr("width", 0.8)
 				.attr("x", 0.1)
@@ -287,16 +290,16 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    					})
                             .style("fill", function(data) { 
                                 if (colors) { 
-                                    return ShirtColors[data[id].replace(/\s+/g, '')].shirt;
+                                    return ShirtColors[fixteamname(data[id])].shirt;
                                 } else {
-                                    return ("url(#" + data[id].split(" ").join("_") + "logo)");
+                                    return ("url(#" + fixteamname(data[id]) + "logo)");
                                 }
                             })
 			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) {
-                                return ShirtColors[data[id].replace(/\s+/g, '')].edge;
+                                return ShirtColors[fixteamname(data[id])].edge;
                                 if (colors) { 
-                                    return ShirtColors[data[id].replace(/\s+/g, '')].edge;
+                                    return ShirtColors[fixteamname(data[id])].edge;
                                 } else {
                                     return strokeColor(data[strokeVariable], data.region);
                                 }
@@ -305,8 +308,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       								team = data;
                                     highlights.selectAll(".selectedcircle").remove();
       								d3.selectAll(".arc").style("visibility", "hidden");
-   									var name = data.team.split(" ").join(".");
-   									d3.selectAll("."+name).style("visibility", "visible");
+                                    var name = fixteamname(data.team);
+                                    d3.selectAll("."+name).style("visibility", "visible");
    									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
 									if (!visibleBoolean){
@@ -341,7 +344,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									updateTeamInfo(data, window.year)
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
-   										name = data.team.split(" ").join(".");
+                                        name = fixteamname(data.team);
    										d3.selectAll("."+name).style("visibility", "visible");	
    									}
 								})
@@ -362,11 +365,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
       	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
-      	//console.log(champion)
+      	console.log(champion)
 
       	var layoutDict = {};
 
-      	if (champion.region = 'west')
+      	if (champion.region === "west")
        		layoutDict = {
 		      Champion: {
 		            first:      [ xPos + width/3,   yPos + 20+(2)*(height/(yMaxData*2+2)), ' Champion first second third'],

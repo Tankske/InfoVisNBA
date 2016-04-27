@@ -118,7 +118,7 @@ function drawF(data, team, year, svg, x, y, width, height) {
 }
 
 function drawScaledShirt(xPos, yPos, player, team, chart, scale, tip) {
-    team = team.replace(/\s+/g, '');
+    team = fixteamname(team);
     var shirtColor = ShirtColors[team].shirt;
     var shirtEdge = ShirtColors[team].edge;
 //                if (shirtColor)
