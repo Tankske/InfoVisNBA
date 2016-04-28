@@ -14,7 +14,7 @@ for yeardata in data:
         teamname = team['team']
         print "Doing team " + teamname
         team['info'] = { "PTS/G": team['info']['PTS/G'], "FG%": team['info']['FG%']}
-        team['opponent'] = { "PTS/G": team['info']['PTS/G']}
+        team['opponent'] = { "PTS/G": team['opponent']['PTS/G']}
         team['misc'] = {"Attendance": team['misc']['Attendance'], "Age": team['misc']['Age']}
         newplayers = []
         for player in team['players']:

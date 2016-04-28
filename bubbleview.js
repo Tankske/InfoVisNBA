@@ -1,3 +1,7 @@
+function fixteamname(teamname) {
+    return teamname.replace(/[\s\/]+/g,'').toLowerCase();
+}
+
 function drawLegend(){
 		var legende = d3.select("#legende").append('svg')
 							.attr("width", '300px')
@@ -89,6 +93,12 @@ function updateTeamInfo(team, year){
 
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height, colors){
 
+        if (colors) {
+            suffix = "small";
+        } else {
+            suffix = "big";
+        }
+
 		height = height;
 
 		var playOffs = dataInput[0].playoffs;
@@ -122,7 +132,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		
 		function yPosition(outlineVariable) {
 			if (outlineVariable === undefined){
-				return (yPos + height-40)}
+                return (yPos + 0.94 * height)}
 			else	
 				return (yPos + 20+(parseInt(outlineVariable)*2-1)*(height/(yMaxData*2+2)))
 		}
@@ -205,39 +215,47 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				return "black";
 		}
 
-		//var teamName = (teamWanted.replace(/\s+/g, '')).toLowerCase();
 		var node = svg.selectAll('node')
 				.data(dataInput);
 		var defs = node.enter().append('defs');
 		defs.append('pattern')
-				.attr('id', function(data) { return (data[id].split(" ").join("_")+"logo");}) // just create a unique id (id comes from the json)
+                .attr('id', function(data) { return (fixteamname(data[id])+"logo");}) // just create a unique id (id comes from the json)
 				.attr('patternContentUnits', 'objectBoundingBox')
 				.attr('width', 1)
 				.attr('height', 1)
 				.append("svg:image")
 				.attr("xlink:xlink:href", function(data) { 
-					return ("./teamlogos/" + ((data[id].replace(/\s+/g, '')).toLowerCase()) + ".png");})
+                    return ("./teamlogos/" + (fixteamname(data[id]) + ".png"));})
 				.attr("height", 0.8)
 				.attr("width", 0.8)
 				.attr("x", 0.1)
 				.attr("y", 0.1)
 				.attr("preserveAspectRatio", "xMidYMid meet");  		
 
-        var highlights = svg.append("g")
-                            .attr("class", "highlights")
-                            .attr("height", height)
-                            .attr("width", width);
-		
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
                         .attr("class","chart bubblechart")
                         .attr("height", height)
                         .attr("width", width)
-       	
+
        	var arc = d3.svg.arc()
 					.outerRadius(function(data)
 						{return (11 + parseFloat(data["srs"]))*1.5})
 				.startAngle(0)
 				.endAngle(1.5*Math.PI);
+
+		var lines = chart.append("g")
+								.attr("id", "arcs")
+								.attr("class", "svg");
+
+        var circleBackgrounds = chart.append("g")
+                                    .attr("class", "circlebackgrounds")
+                                    .attr("width", width)
+                                    .attr("height", height);
+
+        var highlights = chart.append("g")
+                            .attr("class", "highlights")
+                            .attr("height", height)
+                            .attr("width", width);
 		
 		var circlesEast = chart.append("g")
 								.attr("id","circlesEast")
@@ -245,10 +263,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		
 		var circlesWest = chart.append("g")
 								.attr("id","circlesWest")
-								.attr("class", "svg");
-
-		var lines = chart.append("g")
-								.attr("id", "arcs")
 								.attr("class", "svg");
 		
 		var circleEast = circlesEast.selectAll("g") 			//Select all div's within the created div (= empty)
@@ -276,7 +290,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 							.attr("class","circle teambubble")
 							.attr("id", function(data){
                                     visibleBoolean = true;
-									return data[id].split(" ").join("_") })
+                                    return fixteamname(data[id]) + suffix})
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
 			    			.attr("cy", function(data){					// Distribute position over height
@@ -287,26 +301,21 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    					})
                             .style("fill", function(data) { 
                                 if (colors) { 
-                                    return ShirtColors[data[id].replace(/\s+/g, '')].shirt;
+                                    return "lightgrey";
                                 } else {
-                                    return ("url(#" + data[id].split(" ").join("_") + "logo)");
+                                    return ("url(#" + fixteamname(data[id]) + "logo)");
                                 }
                             })
 			    			.style("stroke-width", 3)
 			    			.attr("stroke", function(data) {
-                                return ShirtColors[data[id].replace(/\s+/g, '')].edge;
-                                if (colors) { 
-                                    return ShirtColors[data[id].replace(/\s+/g, '')].edge;
-                                } else {
-                                    return strokeColor(data[strokeVariable], data.region);
-                                }
+                                return strokeColor(data[strokeVariable], data.region);
 			    					})
       						.on('click', function(data){
       								team = data;
                                     highlights.selectAll(".selectedcircle").remove();
       								d3.selectAll(".arc").style("visibility", "hidden");
-   									var name = data.team.split(" ").join(".");
-   									d3.selectAll("."+name).style("visibility", "visible");
+                                    var name = fixteamname(data.team);
+                                    d3.selectAll("."+name).style("visibility", "visible");
    									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
 									if (!visibleBoolean){
@@ -341,7 +350,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									updateTeamInfo(data, window.year)
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
-   										name = data.team.split(" ").join(".");
+                                        name = fixteamname(data.team);
    										d3.selectAll("."+name).style("visibility", "visible");	
    									}
 								})
@@ -359,14 +368,27 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
         appendCircles(circleWest);
         appendCircles(circleEast);
+
+        d3.selectAll("#bubblevis .teambubble")
+            .call(function (d) {
+                cb = d3.select(".circlebackgrounds");
+                d[0].forEach(function (circle) {
+                    console.log(circle);
+                    cb.append("circle")
+                        .attr("fill", "white")
+                        .attr("cx", circle.cx.baseVal.value)
+                        .attr("cy", circle.cy.baseVal.value)
+                        .attr("r", circle.r.baseVal.value);
+                });
+            });
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
       	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
-      	//console.log(champion)
+      	console.log(champion)
 
       	var layoutDict = {};
 
-      	if (champion.region = 'west')
+      	if (champion.region === "west")
        		layoutDict = {
 		      Champion: {
 		            first:      [ xPos + width/3,   yPos + 20+(2)*(height/(yMaxData*2+2)), ' Champion first second third'],
@@ -412,17 +434,17 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       arcs.append("path")
       				.attr("class", function(data){
       								if(winner.playoffrank == 1 && loser.playoffrank == 2)
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Champion.first[2]
+                                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.first[2]
                      				else if (winner.playoffrank == 1 && loser.playoffrank == 3) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Champion.second[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.second[2]
                      				else if (winner.playoffrank == 1 && loser.playoffrank == 4) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Champion.third[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.third[2]
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 3) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Second.first[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Second.first[2]
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 4) 
-                     					return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + layoutDict.Second.second[2]	
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Second.second[2]	
                      				else 
-									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"] + ' start'})
+                                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + ' start'})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
@@ -445,8 +467,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
 
-      									return   {	"x": document.getElementById(winner.team.split(" ").join("_")).cx.animVal.value, 
-                     								"y": document.getElementById(winner.team.split(" ").join("_")).cy.animVal.value
+                                        return   {	"x": document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value, 
+                                                    "y": document.getElementById(fixteamname(winner.team) + suffix).cy.animVal.value
                      													}; })
                      			.target( function(data) { 
                      				if(winner.playoffrank == 1 && loser.playoffrank == 2)
@@ -466,8 +488,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      								"y": layoutDict.Second.second[1]	}
 
       								else 
-      									return  {	"x": document.getElementById(loser.team.split(" ").join("_")).cx.animVal.value, 
-                     								"y": document.getElementById(loser.team.split(" ").join("_")).cy.animVal.value
+                                        return  {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
+                                                    "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
                      													}; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
@@ -477,15 +499,15 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       arcs.append("path")
       				.attr("class", function(data){
       								//console.log(dataInput.filter(function(d) {return d[id] == data.winner })[0])
-									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"]})
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
 								.source( function(data) { i = i+1
 									winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
 									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
-      									return   {	"x": document.getElementById(loser.team.split(" ").join("_")).cx.animVal.value, 
-                     								"y": document.getElementById(loser.team.split(" ").join("_")).cy.animVal.value
+                                    return   {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
+                                                "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
                      													}; })
                      			.target( function(data) { 
                      				if(winner.playoffrank == 1 && loser.playoffrank == 2)
@@ -510,8 +532,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
       								else 
-      									return  {	"x": document.getElementById(winner.team.split(" ").join("_")).cx.animVal.value, 
-                     								"y": document.getElementById(winner.team.split(" ").join("_")).cy.animVal.value
+                                        return  {	"x": document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value, 
+                     								"y": document.getElementById(fixteamname(winner.team) + suffix).cy.animVal.value
                      													}; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
@@ -519,16 +541,15 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
       arcs.append("path")
       				.attr("class", function(data){
-									return "arc" + " " + data["winner"] + " " +  data["loser"] + " " + data["game"]})
+                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
 								.source( function(data) { i = i+1
 									winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
 									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
-
-      									return   {	"x": document.getElementById(loser.team.split(" ").join("_")).cx.animVal.value, 
-                     												"y": document.getElementById(loser.team.split(" ").join("_")).cy.animVal.value
+                                        return   {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
+                                                    "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
                      													}; })
                      			.target( function(data) { 
                      				if(winner.playoffrank == 1 && loser.playoffrank == 2)
@@ -554,8 +575,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      								"y": layoutDict.Second.second[1]	}
             
       								else 
-      									return  {	"x": document.getElementById(winner.team.split(" ").join("_")).cx.animVal.value, 
-                     								"y": document.getElementById(winner.team.split(" ").join("_")).cy.animVal.value
+      									return  {	"x": document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value, 
+                     								"y": document.getElementById(fixteamname(winner.team) + suffix).cy.animVal.value
                      													}; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
