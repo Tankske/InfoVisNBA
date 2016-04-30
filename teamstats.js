@@ -145,15 +145,17 @@ function drawTs(data, team, year, div, x, y, width, height) {
         updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
     });
 
-    realsvg.on("mousemove", function() {
-         highlightYear = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
-         fixcyline();
-         drawTeamChange(highlightYear);
-        updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
-    });
+    //realsvg.on("mousemove", function() {
+         //highlightYear = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
+         //fixcyline();
+         //drawTeamChange(highlightYear);
+        //updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
+    //});
 
     realsvg.on("click", function() {
          window.year = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
+         $("#year").val(window.year);
+         $("#yearSlider").text(window.year);
          drawAll();
     });
 
