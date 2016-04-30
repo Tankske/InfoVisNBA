@@ -103,7 +103,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
+            //console.log(d);
             return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
                 "PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
                 "Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
@@ -176,7 +176,7 @@ function drawArrows(dataInput, teamName, arrowVariable, playersInStayedOldStayed
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
+            //console.log(d);
             return "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
                 "PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
                 "Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
@@ -204,8 +204,8 @@ function drawArrows(dataInput, teamName, arrowVariable, playersInStayedOldStayed
         inStayedOutValue = nbTransfersTeam(playersInStayedOldStayedCurrOut);
         minMaxValueAllYears = minMaxNbTransfers(dataInput);
     }
-    console.log(minMaxValueAllYears);
-    console.log(minMaxPER(dataInput));
+    //console.log(minMaxValueAllYears);
+    //console.log(minMaxPER(dataInput));
 
     var scaleValueHorizontalIncoming = scaleArrow(inStayedOutValue[0], minMaxValueAllYears[0], minMaxValueAllYears[1], minWidthInOutPart, (maxWidthInOutPart - 7.5*(2*maxHeightRectArrowInOutPart/20)));
 
@@ -374,8 +374,8 @@ function drawTeamCircle(teamName, teamSRS, minSRSAllYears, maxSRSAllYears, svg, 
     var rad = getRadiusScaledCircle(teamSRS, w, h, minSRSAllYears, maxSRSAllYears);
     var maxRad = getRadiusScaledCircle(maxSRSAllYears, w, h, minSRSAllYears, maxSRSAllYears);
     var minRad = getRadiusScaledCircle(minSRSAllYears, w, h, minSRSAllYears, maxSRSAllYears);
-    console.log(maxRad);
-    console.log(minRad);
+    //console.log(maxRad);
+    //console.log(minRad);
 
     var circles = svg.append('g')
         .attr('class', 'circleTeam');

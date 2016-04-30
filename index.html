@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="visualization" id="minibubbles"></div>
                                     </div>
-                                    <div class="viswrapper">
+                                    <div class="viswrapper" id="zoomviswrapper">
                                         <div id="varchoosesidebar">
                                                 <form>
                                                     <ul>
@@ -159,6 +159,7 @@
                                 movescroll();
 
                                 $('#bubbleheader').css("width", "" + ($('#wrapper').width() - $('#legende').width()) + "px");
+                                $('#zoomviswrapper').css("height", "" + ($(window).height() - $('#bubbleheader').height() - $('#timelinefooter').height() - $('#teamvis').height()) + "px");
 
                                 function scrollMe(where) {
                                     if (where === "bubble") {

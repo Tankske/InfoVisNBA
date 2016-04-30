@@ -373,7 +373,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
             .call(function (d) {
                 cb = d3.select(".circlebackgrounds");
                 d[0].forEach(function (circle) {
-                    console.log(circle);
                     cb.append("circle")
                         .attr("fill", "white")
                         .attr("cx", circle.cx.baseVal.value)
@@ -384,7 +383,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
       	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
-      	console.log(champion)
+      	//console.log(champion)
 
       	var layoutDict = {};
 

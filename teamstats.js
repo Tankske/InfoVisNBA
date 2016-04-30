@@ -5,8 +5,11 @@ function drawTs(data, team, year, div, x, y, width, height) {
     var nRows = 2;
     var nColumns = 4;
 
-    var singleWidth = width / nColumns;
-    var singleHeight = height / nRows;
+    var margin = { top: 9, right: 10, bottom: 1, left: 10};
+
+    var singleWidth = width / nColumns - margin.left - margin.right;
+    var singleHeight = height / nRows - margin.top - margin.bottom;
+
 
     var srsScale = d3.scale.linear()
         .range([singleHeight, 0])
@@ -74,13 +77,17 @@ function drawTs(data, team, year, div, x, y, width, height) {
     });
 
 
-    var svg = div.selectAll("svg")
+    var realsvg = div.selectAll("svg")
                     .data(bases)
                     .enter().append("svg")
-                        .attr("width", singleWidth)
-                        .attr("height", singleHeight)
+                        .attr("width", singleWidth + margin.left + margin.right)
+                        .attr("height", singleHeight + margin.top + margin.bottom)
                         .attr("id", function(d, e) { return "sm" + e; })
                         .attr("class", "smallmultiple");
+
+    var svg = realsvg
+                .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     svg.append("path")
         .datum(filteredData)
@@ -106,6 +113,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
             allSvgs[0].forEach(function (oneSvg) {
                 var scaler = bases[oneSvg.id.substring(2)].scaler;
                 d3.select("#" + oneSvg.id)
+                    .select("g")
                     .append("g")
                         .attr("class", "y axis")
                         .attr("transform", "translate(0, 0)")
@@ -137,15 +145,15 @@ function drawTs(data, team, year, div, x, y, width, height) {
         updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
     });
 
-    svg.on("mousemove", function() {
-         highlightYear = Math.round(x.invert(d3.mouse(this)[0]));
+    realsvg.on("mousemove", function() {
+         highlightYear = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
          fixcyline();
          drawTeamChange(highlightYear);
         updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
     });
 
-    svg.on("click", function() {
-         window.year = Math.round(x.invert(d3.mouse(this)[0]));
+    realsvg.on("click", function() {
+         window.year = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
          drawAll();
     });
 
