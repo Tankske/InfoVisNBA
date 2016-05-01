@@ -102,6 +102,10 @@ div.bubblechart {
   border-color: black;
 }
 
+.teambubble {
+    cursor: pointer;
+}
+
 .teambubble:hover {
   fill: orange;
 }
@@ -361,16 +365,41 @@ input[type=range]:focus::-ms-fill-upper {
 
 #varchoosesidebar {
   float: left;
-  width: 20%;
   position: relative;
   background: lightgrey;
-  height: 100%;
 }
 
 #varchoosesidebar.stick {
   position: fixed;
   top: 200px;
   width: 200px;
+}
+
+#sidebar {
+    float: left;
+    position: relative;
+    width: 20%;
+    background: lightgrey;
+    height: 100%
+}
+
+#sidebar.stick {
+    height: 1000px;
+    position: fixed;
+    width: 200px;
+    top: 200px;
+}
+
+#playerinfo {
+    float: left;
+    position: relative;
+}
+
+#playerinfo.stick {
+    position:fixed;
+    width: 160px;
+    bottom: 280px;
+    padding: 0px 20px 0px 20px;
 }
 
 #varchoosesidebar form ul{
@@ -437,4 +466,12 @@ input[type=radio]:checked ~ label{
 #bubbleheader table p {
     margin: 0;
     padding: 0;
+}
+
+.smallmultiple {
+    cursor: pointer;
+}
+
+.shirt {
+    cursor: default;
 }

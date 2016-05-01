@@ -99,18 +99,18 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr("width", w)
         .attr("height", h);
 
-    var tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function(d) {
-            //console.log(d);
-            return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
-                "PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
-                "Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
-                "Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
-                "Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
-        });
-    chart.call(tip);
+    //var tip = d3.tip()
+        //.attr('class', 'd3-tip')
+        //.offset([-10, 0])
+        //.html(function(d) {
+            ////console.log(d);
+            //return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
+                //"PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
+                //"Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
+                //"Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
+                //"Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
+        //});
+    //chart.call(tip);
 
     var defs = chart.append("defs");
 

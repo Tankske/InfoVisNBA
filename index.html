@@ -120,19 +120,28 @@
                                         <div class="visualization" id="minibubbles"></div>
                                     </div>
                                     <div class="viswrapper" id="zoomviswrapper">
-                                        <div id="varchoosesidebar">
-                                                <form>
-                                                    <ul>
-                                                        <li>
-                                                            <input type="radio" value="PER" id="perradio" name="varchoose" checked="checked">
-                                                            <label for="perradio">PER</label>
-                                                        </li>
-                                                        <li>
-                                                            <input type="radio" value="NoPlayers" id="npradio" name="varchoose">
-                                                            <label for="npradio">No. Players</label>
-                                                        </li>
-                                                    </ul>
-                                                </form>
+                                        <div id="sidebar">
+                                            <div id="varchoosesidebar">
+                                                    <form>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="radio" value="PER" id="perradio" name="varchoose" checked="checked">
+                                                                <label for="perradio">PER</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" value="NoPlayers" id="npradio" name="varchoose">
+                                                                <label for="npradio">No. Players</label>
+                                                            </li>
+                                                        </ul>
+                                                    </form>
+                                            </div>
+                                            <div id="playerinfo">
+                                                <h2 id="playername"></h2>
+                                                <p id="playerper"></p>
+                                                <p id="playerheight"></p>
+                                                <p id="playerweight"></p>
+                                                <p id="playerbirthday"></p>
+                                            </div>
                                         </div>
                                         <div class="visualization" id="zoomvis" ></div>
                                     </div>
@@ -166,7 +175,9 @@
                                         $("html, body").animate({ scrollTop: $('#containerInfo').offset().top }, 600);
                                         $('#minibubbles').removeClass('stick');
                                         $('#teamvis').removeClass('stick');
+                                        $('#sidebar').removeClass('stick');
                                         $('#varchoosesidebar').removeClass('stick');
+                                        $('#playerinfo').removeClass('stick');
                                         $('#minibubbles').css("left", "");
                                         view = "scrollingbubble";
                                     } else if (where === "zoom") {
@@ -185,13 +196,15 @@
                                         view = "bubble";
                                     } else if (view === "scrollingzoom" && window_top == $('#zoomblocker').offset().top) {
                                         $('#teamvis').addClass('stick');
+                                        $('#sidebar').addClass('stick');
                                         $('#varchoosesidebar').addClass('stick');
+                                        $('#playerinfo').addClass('stick');
                                         $('#minibubbles').addClass('stick');
                                         $('#minibubbles').css("left", $('#zoomblocker').offset().left + ($('#wrapper').width() - $('#minibubbles').width()) + "px");
                                         view = "zoom";
                                     } else if (view === "scrollingfield" && window_top == $('#fieldblocker').offset().top) {
                                         view = "field";
-                                    } else if (view === "bubble" && window_top > $('#bubblevis').offset().top) {
+                                    } else if (view === "bubble" && window_top > $('#containerInfo').offset().top) {
                                         scrollMe("zoom");
                                     } else if (view === "zoom") {
                                         if (window_top < $('#zoomblocker').offset().top) {

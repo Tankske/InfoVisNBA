@@ -1,3 +1,17 @@
+function showPlayerInfo(d) {
+    pi = d3.select("#playerinfo");
+    pi.select("#playername").text(d["Player"]);
+    pi.select("#playerper").text("PER: " +  d.advanced["PER"]);
+    pi.select("#playerheight").text("Height: " + d["Ht"]);
+    pi.select("#playerweight").text("Weight: " + d["Wt"]);
+    pi.select("#playerbirthday").text("Birthday: " + d["Birth Date"]);
+}
+
+function clearPlayerInfo() {
+    d3.select("#playerinfo").selectAll("p").text("");
+    d3.select("#playerinfo").selectAll("h2").text("");
+}
+
 var perScale = d3.scale.linear()
                     .range([0.3, 3])
                     .domain([0, 1600]);
@@ -42,18 +56,18 @@ function drawF(data, team, year, svg, x, y, width, height) {
                 .attr("width", width)
                 .attr("height", height);
 
-    var tip = d3.tip()
-                .attr('class', 'd3-tip')
-                .offset([-10, 0])
-                .html(function(d) {
-                    console.log(d);
-                    return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
-                        "PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
-                        "Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
-                        "Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
-                        "Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
-                });
-    chart.call(tip);
+    //var tip = d3.tip()
+                //.attr('class', 'd3-tip')
+                //.offset([-10, 0])
+                //.html(function(d) {
+                    //console.log(d);
+                    //return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
+                        //"PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
+                        //"Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
+                        //"Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
+                        //"Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
+                //});
+    //chart.call(tip);
 
 
 
@@ -94,8 +108,7 @@ function drawF(data, team, year, svg, x, y, width, height) {
                         players[i], 
                         team, 
                         chart, 
-                        exagerratedPerScale(players[i].advanced.PER),
-                        tip);
+                        exagerratedPerScale(players[i].advanced.PER));
         alreadyOn[pos].before += wh.width + 10;
         var rectWidth = Number(d3.select("#posrect" + pos).attr("width"));
         var rectHeight = Number(d3.select("#posrect" + pos).attr("height"));
@@ -117,7 +130,7 @@ function drawF(data, team, year, svg, x, y, width, height) {
     }
 }
 
-function drawScaledShirt(xPos, yPos, player, team, chart, scale, tip) {
+function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
     team = fixteamname(team);
     var shirtColor = ShirtColors[team].shirt;
     var shirtEdge = ShirtColors[team].edge;
@@ -200,10 +213,10 @@ function drawScaledShirt(xPos, yPos, player, team, chart, scale, tip) {
         .text(player['No.']);
 
         playerShirt.on('mouseover', function() {
-            tip.show(player);
+            showPlayerInfo(player);
         });
         playerShirt.on('mouseout', function() {
-            tip.hide(player);
+            clearPlayerInfo();
         });
 
     return { width: 50 * scale, height: 70 * scale };
