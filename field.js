@@ -2,8 +2,11 @@ function showPlayerInfo(d) {
     pi = d3.select("#playerinfo");
     pi.select("#playername").text(d["Player"]);
     pi.select("#playerper").text("PER: " +  d.advanced["PER"]);
-    pi.select("#playerheight").text("Height: " + d["Ht"]);
-    pi.select("#playerweight").text("Weight: " + d["Wt"]);
+    pi.select("#playerefg").text("eFG%: " + d.totals["eFG%"]);
+    pi.select("#playerortg").text("ORtg: " + d.perposs["ORtg"]);
+    pi.select("#playerdrtg").text("DRtg: " + d.perposs["DRtg"]);
+    //pi.select("#playerheight").text("Height: " + d["Ht"]);
+    //pi.select("#playerweight").text("Weight: " + d["Wt"]);
     pi.select("#playerbirthday").text("Birthday: " + d["Birth Date"]);
 }
 
@@ -22,15 +25,15 @@ function exagerratedPerScale(per) {
     return perScale(exagerratedPer);
 }
 
-function drawF(data, team, year, svg, x, y, width, height) {
+function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
     players = data.find(function(d) {return d.year === year;})
                 .teams.find(function(d) {return d.team === team;})
                 .players;
 
     players.sort(function (a, b) {
-        if (a.advanced.PER > b.advanced.PER) {
+        if (stat(a) > stat(b)) {
             return -1;
-        } else if (a.advanced.PER < b.advanced.PER) {
+        } else if (stat(a) < stat(b)) {
             return 1;
         } else {
             return 0;
@@ -55,21 +58,6 @@ function drawF(data, team, year, svg, x, y, width, height) {
                 .attr("class","chart fieldchart")
                 .attr("width", width)
                 .attr("height", height);
-
-    //var tip = d3.tip()
-                //.attr('class', 'd3-tip')
-                //.offset([-10, 0])
-                //.html(function(d) {
-                    //console.log(d);
-                    //return  "<p><span style='color:orange'>" + d["Player"] + "</span> <\p>" +
-                        //"PER: <span style='color:red'>" + d.advanced["PER"] + "</span> </br>" +
-                        //"Height: <span style='color:red'>" + d["Ht"] + "</span> </br>" +
-                        //"Weight: <span style='color:red'>" + d["Wt"] + "</span> </br>" +
-                        //"Birthday: <span style='color:red'>" + d["Birth Date"] + "</span> </br>";
-                //});
-    //chart.call(tip);
-
-
 
     var backs = chart.append("g")
         .attr("class", "backs")
@@ -108,7 +96,7 @@ function drawF(data, team, year, svg, x, y, width, height) {
                         players[i], 
                         team, 
                         chart, 
-                        exagerratedPerScale(players[i].advanced.PER));
+                        scaler(stat(players[i])));
         alreadyOn[pos].before += wh.width + 10;
         var rectWidth = Number(d3.select("#posrect" + pos).attr("width"));
         var rectHeight = Number(d3.select("#posrect" + pos).attr("height"));

@@ -1,5 +1,7 @@
 function drawTs(data, team, year, div, x, y, width, height) {
 
+    data = data.filter(function(d) { return d.year != 1984; });
+
     d3.selectAll(".smallmultiple").remove();
 
     var nRows = 2;
@@ -39,21 +41,27 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .range([singleHeight, 0])
         .domain([60, 140]);
 
+    var ratingScale = d3.scale.linear()
+        .range([singleHeight, 0])
+        .domain([95, 125]);
+
     var bases = [{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
             ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line"}
             ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line"}
             ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line"}
             ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area"}
             ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area"}
-            ,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale, type: "area"}
-            ,{ name: 'Opponent Points/Game', dataSelector: function(d) {return d.team.opponent['PTS/G'];}, scaler: pointScale, type: "area"}
+            //,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale, type: "area"}
+            //,{ name: 'Opponent Points/Game', dataSelector: function(d) {return d.team.opponent['PTS/G'];}, scaler: pointScale, type: "area"}
+            ,{ name: 'Offensive Rating', dataSelector: function(d) {return d.team.misc.ORtg;}, scaler: ratingScale, type: "area"}
+            ,{ name: 'Defensive Rating', dataSelector: function(d) {return d.team.misc.DRtg;}, scaler: ratingScale, type: "area"}
             ];
 
     var color = d3.scale.category10();
 
     var x = d3.scale.linear()
     .range([0, singleWidth])
-        .domain([1984,2015]);
+        .domain([1985,2015]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -132,18 +140,18 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .attr("class", "curYearVal")
         .attr("text-anchor", "middle");
 
-    svg.append("text")
-        .attr("class", "curYearName")
-        .attr("text-anchor", "middle");
+    //svg.append("text")
+        //.attr("class", "curYearName")
+        //.attr("text-anchor", "middle");
 
     var highlightYear = year;
 
-    svg.on("mouseleave", function() {
-        highlightYear = year;
-        fixcyline();
-        drawTeamChange(year);
-        updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
-    });
+    //svg.on("mouseleave", function() {
+        //highlightYear = year;
+        //fixcyline();
+        //drawTeamChange(year);
+        //updateTeamInfo(data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;}), highlightYear);
+    //});
 
     //realsvg.on("mousemove", function() {
          //highlightYear = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
@@ -154,8 +162,11 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     realsvg.on("click", function() {
          window.year = Math.round(x.invert(d3.mouse(this)[0] - margin.left));
+         highlightYear = window.year;
+         window.team = data.find(function (d) { return d.year == highlightYear; }).teams.find(function (d) {return d.team === window.team.team;})
          $("#year").val(window.year);
          $("#yearSlider").text(window.year);
+         updateTeamInfo(window.team, highlightYear);
          drawAll();
     });
 
@@ -171,10 +182,10 @@ function drawTs(data, team, year, div, x, y, width, height) {
             .attr("y", function(d) { return d.scaler(d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; })));})
             .text(function(d) { return d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; }));});
 
-        d3.selectAll(".curYearName")
-            .attr("x", x(highlightYear))
-            .attr("y", singleHeight - 10)
-            .text(highlightYear);
+        //d3.selectAll(".curYearName")
+            //.attr("x", x(highlightYear))
+            //.attr("y", singleHeight - 10)
+            //.text(highlightYear);
     }
 
 

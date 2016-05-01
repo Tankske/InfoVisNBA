@@ -91,7 +91,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
             });
         }
     });
-    console.log("minmax " + minMaxSRSTeam);
+    //console.log("minmax " + minMaxSRSTeam);
 
     arrayPlayers = separatePlayers(previousPlayers, currentPlayers);
 
@@ -205,8 +205,8 @@ function drawArrows(dataInput, teamName, arrowVariable, playersInStayedOldStayed
         inStayedOutValue = nbTransfersTeam(playersInStayedOldStayedCurrOut);
         minMaxValueAllYears = minMaxNbTransfers(dataInput);
     }
-    console.log(minMaxValueAllYears);
-    console.log(minMaxPER(dataInput));
+    //console.log(minMaxValueAllYears);
+    //console.log(minMaxPER(dataInput));
 
     var scaleValueHorizontalIncoming = scaleArrow(inStayedOutValue[0], minMaxValueAllYears[0], minMaxValueAllYears[1], minWidthInOutPart, (maxWidthInOutPart - 7.5*(2*maxHeightRectArrowInOutPart/20)));
 
@@ -377,8 +377,8 @@ function drawTeamCircle(teamName, teamSRS, minMaxSRSTeam, minMaxSRSAllYears, svg
     var maxRad = getRadiusScaledCircle(minMaxSRSAllYears[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var teamMinRad = getRadiusScaledCircle(minMaxSRSTeam[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var teamMaxRad = getRadiusScaledCircle(minMaxSRSTeam[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
-    console.log(teamMinRad);
-    console.log(teamMaxRad);
+    //console.log(teamMinRad);
+    //console.log(teamMaxRad);
 
     var circles = svg.append('g')
         .attr('class', 'circleTeam');
@@ -662,9 +662,9 @@ function getRadiusScaledCircle(areaVariable, maxWidth, maxHeight, min, max) {
     var maxFlannery = Math.exp(Math.log(maxValue)*0.57);
     var varFlannery = Math.exp(Math.log(areaVariableValue)*0.57);
 
-    console.log("minflan " + minFlannery);
-    console.log("maxflan " +maxFlannery);
-    console.log("varflan " +varFlannery);
+    //console.log("minflan " + minFlannery);
+    //console.log("maxflan " +maxFlannery);
+    //console.log("varflan " +varFlannery);
 
     var unity = (maxSpace-minSpace)/(maxFlannery-minFlannery);
     var radius =  minFlannery + (varFlannery-minFlannery)*unity;

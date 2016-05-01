@@ -14,8 +14,6 @@
 
     <script>
         function drawAll() {
-
-            //d3.selectAll(".chart").remove();
             d3.select(".bubblechart").remove();
             d3.select(".d3-tip").remove();
             drawBubbles(bubbleSvg, 0, 0, width, height - 200, year, false);
@@ -30,8 +28,12 @@
 
         function drawTeamChange(year) {
             drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
-            drawField(fieldSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
+            redrawField(year);
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
+        }
+
+        function redrawField(year) {
+            drawField(fieldSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
         }
 
 
@@ -40,7 +42,7 @@
             if (back) {
                 svg.append("rect")
                     .attr("class", "backbubble")
-                    .attr("fill", "white")
+                    .attr("fill", "lightgrey")
                     //.attr("opacity", "0")
                     .attr("x", x)
                     .attr("y", y)
@@ -77,15 +79,7 @@
         }
 
         function drawField(svg, x, y, w, h, year, team) {
-            drawF(theData, team, year, svg, x, y, w, h);
-            <!--svg.append("g")-->
-                <!--.attr("class", "chart fieldchart")-->
-                <!--.append("image")-->
-                <!--.attr("xlink:href", "team/fieldview.png")-->
-                <!--.attr("x", x)-->
-                <!--.attr("y", y)-->
-                <!--.attr("width", w)-->
-                <!--.attr("height", h);-->
+            drawF(theData, team, year, svg, x, y, w, h, playerDataSelector, playerScaler);
         }
     </script>
 </head>
@@ -122,15 +116,27 @@
                                     <div class="viswrapper" id="zoomviswrapper">
                                         <div id="sidebar">
                                             <div id="varchoosesidebar">
-                                                    <form>
+                                                    <form id="playervarform">
                                                         <ul>
                                                             <li>
                                                                 <input type="radio" value="PER" id="perradio" name="varchoose" checked="checked">
                                                                 <label for="perradio">PER</label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" value="NoPlayers" id="npradio" name="varchoose">
-                                                                <label for="npradio">No. Players</label>
+                                                                <input type="radio" value="Age" id="ageradio" name="varchoose">
+                                                                <label for="ageradio">Age</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" value="efg" id="efgradio" name="varchoose">
+                                                                <label for="efgradio">eFG%</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" value="ortg" id="ortgradio" name="varchoose">
+                                                                <label for="ortgradio">ORtg</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="radio" value="drtg" id="drtgradio" name="varchoose">
+                                                                <label for="drtgradio">DRtg</label>
                                                             </li>
                                                         </ul>
                                                     </form>
@@ -138,8 +144,11 @@
                                             <div id="playerinfo">
                                                 <h2 id="playername"></h2>
                                                 <p id="playerper"></p>
-                                                <p id="playerheight"></p>
-                                                <p id="playerweight"></p>
+                                                <p id="playerefg"></p>
+                                                <p id="playerortg"></p>
+                                                <p id="playerdrtg"></p>
+                                                <!--<p id="playerheight"></p>-->
+                                                <!--<p id="playerweight"></p>-->
                                                 <p id="playerbirthday"></p>
                                             </div>
                                         </div>
@@ -153,13 +162,46 @@
                                 </div>
                                 <div class="visualization" id="timelinefooter">
                                     <p>
-                                        <input class="timeline" type="range" min="1984" max="2015" id="year" value=2015>
+                                        <input class="timeline" type="range" min="1985" max="2015" id="year" value=2015>
                                         <p id="yearSlider">2015</p>
                                     </p>
                                 </div>
                             </div>
 
 							<script type="text/javascript">
+                                var playerDataSelector = function(p) { return p.advanced.PER; };
+                                var playerScaler = exagerratedPerScale;
+
+                                $("#perradio").click(function() {
+                                    playerDataSelector = function (p) {return p.advanced.PER; };
+                                    playerScaler = exagerratedPerScale;
+                                    redrawField(window.year);
+                                });
+
+                                $('#ageradio').click(function() {
+                                    playerDataSelector = function(p) {return p.totals.Age; };
+                                    playerScaler = d3.scale.linear().range([0.3,2]).domain([18,40]);
+                                    redrawField(window.year);
+                                });
+
+                                $('#efgradio').click(function() {
+                                    playerDataSelector = function(p) {return p.totals['eFG%']; };
+                                    playerScaler = d3.scale.linear().range([0.3,2]).domain([0.3,0.7]);
+                                    redrawField(window.year);
+                                });
+
+                                $('#ortgradio').click(function() {
+                                    playerDataSelector = function(p) {return p.perposs['ORtg']; };
+                                    playerScaler = d3.scale.linear().range([0.3,2]).domain([80,130]);
+                                    redrawField(window.year);
+                                });
+
+                                $('#drtgradio').click(function() {
+                                    playerDataSelector = function(p) {return p.perposs['DRtg']; };
+                                    playerScaler = d3.scale.linear().range([0.3,2]).domain([80,130]);
+                                    redrawField(window.year);
+                                });
+
                                 drawLegend();
                                 var view = "bubble";
 
