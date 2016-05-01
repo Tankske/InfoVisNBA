@@ -60,6 +60,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         teamSRS = 0;
 
     var minMaxSRSAllYears = minMaxSRS(inData);
+    var minMaxSRSTeam = minMaxTeamSRS(inData, teamWanted);
 
     var maxWidthInOutPart = w*1/2 - margin.left/ 2;
 
@@ -71,7 +72,6 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
 
     var arrowRectHorizontalHeight = h/8;
     var arrowRectVerticalWidth = maxWidthStayedPart/10;
-
 
     inData.forEach(function (yearData) {
         if (yearData.year == yearWanted - 1) {
@@ -91,6 +91,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
             });
         }
     });
+    console.log("minmax " + minMaxSRSTeam);
 
     arrayPlayers = separatePlayers(previousPlayers, currentPlayers);
 
@@ -159,7 +160,7 @@ function drawTransfers(inData, teamWanted, yearWanted, arrowVariable, svg, xpos,
         .attr("y", 0.1)
         .attr("preserveAspectRatio", "xMidYMid meet");
 
-    drawTeamCircle(teamName, teamSRS, minMaxSRSAllYears[0], minMaxSRSAllYears[1], chart, (xpos + w/2 + margin.left/2), (ypos + h/2), maxWidthCircle, h);
+    drawTeamCircle(teamName, teamSRS, minMaxSRSTeam, minMaxSRSAllYears, chart, (xpos + w/2 + margin.left/2), (ypos + h/2), maxWidthCircle, h);
     //TODO Arrowvariable
     drawArrows(inData, teamName, "PER", arrayPlayers, chart, w, h, maxWidthInOutPart, arrowRectHorizontalHeight, maxWidthStayedPart, maxHeightStayedPart, arrowRectVerticalWidth);
 }
@@ -204,8 +205,8 @@ function drawArrows(dataInput, teamName, arrowVariable, playersInStayedOldStayed
         inStayedOutValue = nbTransfersTeam(playersInStayedOldStayedCurrOut);
         minMaxValueAllYears = minMaxNbTransfers(dataInput);
     }
-    //console.log(minMaxValueAllYears);
-    //console.log(minMaxPER(dataInput));
+    console.log(minMaxValueAllYears);
+    console.log(minMaxPER(dataInput));
 
     var scaleValueHorizontalIncoming = scaleArrow(inStayedOutValue[0], minMaxValueAllYears[0], minMaxValueAllYears[1], minWidthInOutPart, (maxWidthInOutPart - 7.5*(2*maxHeightRectArrowInOutPart/20)));
 
@@ -369,16 +370,20 @@ function drawArrows(dataInput, teamName, arrowVariable, playersInStayedOldStayed
 
 }
 
-function drawTeamCircle(teamName, teamSRS, minSRSAllYears, maxSRSAllYears, svg, xPos, yPos, w, h ) {
+function drawTeamCircle(teamName, teamSRS, minMaxSRSTeam, minMaxSRSAllYears, svg, xPos, yPos, w, h ) {
 
-    var rad = getRadiusScaledCircle(teamSRS, w, h, minSRSAllYears, maxSRSAllYears);
-    var maxRad = getRadiusScaledCircle(maxSRSAllYears, w, h, minSRSAllYears, maxSRSAllYears);
-    var minRad = getRadiusScaledCircle(minSRSAllYears, w, h, minSRSAllYears, maxSRSAllYears);
-    //console.log(maxRad);
-    //console.log(minRad);
+    var rad = getRadiusScaledCircle(teamSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var minRad = getRadiusScaledCircle(minMaxSRSAllYears[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var maxRad = getRadiusScaledCircle(minMaxSRSAllYears[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var teamMinRad = getRadiusScaledCircle(minMaxSRSTeam[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var teamMaxRad = getRadiusScaledCircle(minMaxSRSTeam[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    console.log(teamMinRad);
+    console.log(teamMaxRad);
 
     var circles = svg.append('g')
         .attr('class', 'circleTeam');
+
+
 
     circles.append("circle")
         .attr("class", "teambubblezoom")
@@ -387,41 +392,26 @@ function drawTeamCircle(teamName, teamSRS, minSRSAllYears, maxSRSAllYears, svg, 
         .attr("r", rad)
         //.attr("overflow", "hidden")
         .style("fill", function(d) { return ("url(#" + teamName + "logo)");});
+        //.style("fill", "green")
     //TODO als logo er ni instaat een placeholder?
 
-    //circles.append("circle")
-    //    .attr("class", "teambubblezoom")
-    //    .attr("cx", (chartWidth/2 + margin.left/2 + minRad)) //arrow heigth is half of the width
-    //    .attr("cy", (h/2))
-    //    .attr("r", minRad)
-    //    .attr("stroke", "black")
-    //    .style("fill", "green")
-    //    .style("opacity", 0.7);
-    //circles.append("circle")
-    //    .attr("class", "teambubblezoom")
-    //    .attr("cx", (chartWidth/2 + margin.left/2 + (maxRad-minRad)/2+minRad)) //arrow heigth is half of the width
-    //    .attr("cy", (h/2))
-    //    .attr("r", (maxRad-minRad)/2+minRad)
-    //    .attr("stroke", "black")
-    //    .style("fill", "orange")
-    //    .style("opacity", 0.5);
-    //circles.append("circle")
-    //    .attr("class", "teambubblezoom")
-    //    .attr("cx", (chartWidth/2 + margin.left/2 + maxRad-minRad)) //arrow heigth is half of the width
-    //    .attr("cy", (h/2))
-    //    .attr("r", maxRad-minRad)
-    //    .attr("stroke", "black")
-    //    .style("fill", "yellow")
-    //    .style("opacity", 0.3);
-    //circles.append("circle")
-    //    .attr("class", "teambubblezoom")
-    //    .attr("cx", (chartWidth/2 + margin.left/2 + maxRad)) //arrow heigth is half of the width
-    //    .attr("cy", (h/2))
-    //    .attr("r", maxRad)
-    //    .attr("stroke", "black")
-    //    .style("fill", "red")
-    //    .style("opacity", 0.1);
+    circles.append("circle")
+        .attr("class", "teambubblezoom")
+        .attr("cx", xPos + maxRad) //arrow heigth is half of the width
+        .attr("cy", yPos)
+        .attr("r", teamMaxRad)
+        .attr("stroke", "red")
+    //.style("fill", "cornflowerblue");
+        .style("fill-opacity", 0);
 
+    circles.append("circle")
+        .attr("class", "teambubblezoom")
+        .attr("cx", xPos + maxRad) //arrow heigth is half of the width
+        .attr("cy", yPos)
+        .attr("r", teamMinRad)
+        .attr("stroke", "red")
+        //.style("fill", "red");
+        .style("fill-opacity", 0);
 }
 
 function drawBestTwoShirts(players, teamName, svg, x1, y1, x2, y2, tip) {
@@ -656,15 +646,29 @@ function getRadiusScaledCircle(areaVariable, maxWidth, maxHeight, min, max) {
         minSpace = maxWidth/12;
     }
 
+    //Get rid of negative values
     var minValue = min - min +1;
     var maxValue = max - min +1;
     var areaVariableValue = areaVariable - min +1;
 
-    var maxAreaSpace = Math.pow(maxSpace,2)*Math.PI;
-    var minAreaSpace = Math.pow(minSpace,2)*Math.PI;
-    var maxArea = Math.pow(maxValue,2)*Math.PI;
-    var minArea = Math.pow(minValue,2)*Math.PI;
-    var givenArea = Math.pow(areaVariableValue,2)*Math.PI;
+    //var maxAreaSpace = Math.pow(maxSpace,2)*Math.PI;
+    //var minAreaSpace = Math.pow(minSpace,2)*Math.PI;
+    //var maxArea = Math.pow(maxValue,2)*Math.PI;
+    //var minArea = Math.pow(minValue,2)*Math.PI;
+    //var givenArea = Math.pow(areaVariableValue,2)*Math.PI;
+
+    //Flannery method: radius = e^(ln(value)*0.57)
+    var minFlannery = Math.exp(Math.log(minValue)*0.57);
+    var maxFlannery = Math.exp(Math.log(maxValue)*0.57);
+    var varFlannery = Math.exp(Math.log(areaVariableValue)*0.57);
+
+    console.log("minflan " + minFlannery);
+    console.log("maxflan " +maxFlannery);
+    console.log("varflan " +varFlannery);
+
+    var unity = (maxSpace-minSpace)/(maxFlannery-minFlannery);
+    var radius =  minFlannery + (varFlannery-minFlannery)*unity;
+    return radius;
 
     //var resultMax = 1.0083 * Math.pow((maxValue/minValue),0.5716) * minAreaSpace;
     //maxArea = resultMax;
@@ -675,15 +679,11 @@ function getRadiusScaledCircle(areaVariable, maxWidth, maxHeight, min, max) {
     //var result = 1.0083 * Math.pow((areaVariableValue/minValue),0.5716) * minAreaSpace;
     //givenArea = result;
 
-
-    var unity = (maxAreaSpace-minAreaSpace)/(maxArea-minArea);
-//    return minSpace + result*unity;
-    var calculatedArea =  minAreaSpace + (givenArea-minArea)*unity;
-
-    return Math.sqrt(calculatedArea/Math.PI);
-//    var unity = (maxSpace-minSpace)/(max-min);
+//    var unity = (maxAreaSpace-minAreaSpace)/(maxArea-minArea);
 ////    return minSpace + result*unity;
-//    return minSpace + (areaVariable-min)*unity;
+//    var calculatedArea =  minAreaSpace + (givenArea-minArea)*unity;
+
+    //return Math.sqrt(calculatedArea/Math.PI);
 
     /*Flannery Appearance Compensation case:
      Pj = 1.0083 * (Valj/ValMin)^0.5716 * Pmin
@@ -716,6 +716,23 @@ function minMaxSRS(data) {
         });
     })
     return minMaxSRS;
+}
+
+function minMaxTeamSRS(data, teamName) {
+    var minMaxSRSTeam = [Number.MAX_VALUE, - Number.MAX_VALUE];
+    data.forEach(function (yearData) {
+        yearData.teams.forEach(function (teamData) {
+            if (teamData.team == teamName) {
+                if (teamData.srs < minMaxSRSTeam[0]) {
+                    minMaxSRSTeam[0] = (teamData.srs).toFixed(1);
+                }
+                if (teamData.srs > minMaxSRSTeam[1]) {
+                    minMaxSRSTeam[1] = (teamData.srs).toFixed(1);
+                }
+            }
+        });
+    })
+    return minMaxSRSTeam;
 }
 
 function bestTwoPlayers(players) {
