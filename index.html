@@ -13,6 +13,9 @@
     <script src="field.js"></script>
 
     <script>
+
+        var visibleBoolean = false;
+
         function drawAll() {
             d3.select(".bubblechart").remove();
             d3.select(".d3-tip").remove();
@@ -306,10 +309,12 @@
 
                                 var theData;
                                 var team;
+                                //var visibleBoolean = false;
+
 
                                 d3.json("combined.json", function(data) {
                                    theData = data;
-                                   team = theData.find(function(d) { return d.year == 2015; }).teams.find(function(d) {return d.team == "Golden State Warriors"});
+                                   team = theData.find(function(d) { return d.year == 2015; }).teams.find(function(d) {return d.team == "Chicago Bulls"});
                                     drawAll();
                                     $(window).scrollTop(0);
                                     updateTeamInfo(window.team, window.year);
