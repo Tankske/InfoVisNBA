@@ -30,9 +30,13 @@
 
 
         function drawTeamChange(year) {
-            drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
+            redrawZoom(year);
             redrawField(year);
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
+        }
+
+        function redrawZoom(year) {
+            drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
         }
 
         function redrawField(year) {
@@ -74,7 +78,7 @@
         }
 
         function drawZoom(svg, x, y, w, h, year, team) {
-            drawTransfers(theData, team, year, "PER", svg, x, y, w, h);
+            drawTransfers(theData, team, year, svg, x, y, w, h, playerDataSelector, playerScaler);
         }
 
         function drawTeamStats(svg, x, y, w, h, year, team) {
@@ -178,30 +182,35 @@
                                 $("#perradio").click(function() {
                                     playerDataSelector = function (p) {return p.advanced.PER; };
                                     playerScaler = exagerratedPerScale;
+                                    redrawZoom(window.year);
                                     redrawField(window.year);
                                 });
 
                                 $('#ageradio').click(function() {
                                     playerDataSelector = function(p) {return p.totals.Age; };
                                     playerScaler = d3.scale.linear().range([0.3,2]).domain([18,40]);
+                                    redrawZoom(window.year);
                                     redrawField(window.year);
                                 });
 
                                 $('#efgradio').click(function() {
                                     playerDataSelector = function(p) {return p.totals['eFG%']; };
                                     playerScaler = d3.scale.linear().range([0.3,2]).domain([0.3,0.7]);
+                                    redrawZoom(window.year);
                                     redrawField(window.year);
                                 });
 
                                 $('#ortgradio').click(function() {
                                     playerDataSelector = function(p) {return p.perposs['ORtg']; };
                                     playerScaler = d3.scale.linear().range([0.3,2]).domain([80,130]);
+                                    redrawZoom(window.year);
                                     redrawField(window.year);
                                 });
 
                                 $('#drtgradio').click(function() {
                                     playerDataSelector = function(p) {return p.perposs['DRtg']; };
                                     playerScaler = d3.scale.linear().range([0.3,2]).domain([80,130]);
+                                    redrawZoom(window.year);
                                     redrawField(window.year);
                                 });
 
