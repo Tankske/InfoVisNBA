@@ -46,7 +46,7 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
     svg.append("g")
         .attr("class", "chart fieldchart")
         .append("image")
-        .attr("xlink:href", "img/court.png")
+        .attr("xlink:href", "img/court2.png")
         .attr("x", x)
         .attr("y", y)
         .attr("width", width)
@@ -78,7 +78,8 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
             .attr("width", 20)
             .attr("height", 0)
             .attr("class", "posrect")
-            .attr("fill", "white")
+            .attr("fill", "#D8D8D8")
+            .style("fill-opacity", 0.5)
             .attr("id", "posrect" + posName);
 
         backs.append("text")
@@ -139,43 +140,68 @@ function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
 //                    .attr("width", (width/2-margin.right-margin.left)/3)
 //                    .attr("height", (width/2-margin.right-margin.left)*7/15);
 
-    playerShirt.append("rect")
-        //                    .attr("shape-rendering", "crispEdges")
-        .attr("width", 50 * scale)
-        .attr("height", 70 * scale)
+
+    playerShirt.append("path")
+        .attr("d", "M 0," + (25 * scale) + " A " + (8 * scale) + "," + (20 * scale) + " 0 0,0 " + (7.94 * scale) + ",0 H " + ((25 - 8) * scale) +
+            " A " + (8 * scale) + "," + (8 * scale) + " 0 1,0 " + ((25 + 8) * scale) + ",0 H " + ((50 - 7.94) * scale) +
+            " A " + (8 * scale) + "," + (20 * scale) + " 0 0,0 " + (50 * scale) + "," + (25 * scale) + " V " + (70 * scale) + " H -" + (50 * scale) + " Z")
         .attr("fill", shirtColor);
 
-
-
-    playerShirt.append("ellipse")
-        //                    .attr("shape-rendering", "crispEdges")
-        .attr("fill", "white")
-        .attr("rx", 8 * scale)
-        .attr("ry", 20 * scale)
-        .attr("cy", 5 * scale)
-        .attr("cx", 0)
+    playerShirt.append("path")
+        .attr("d", "M 0," + (25 * scale) + " A " + (8 * scale) + "," + (20 * scale) + " 0 0,0 " + (7.94 * scale) + ",0")
         .attr("stroke-width", 2 * scale)
+        .attr("fill", "none")
         .attr("stroke", shirtEdge);
 
-    playerShirt.append("ellipse")
-        //                    .attr("shape-rendering", "crispEdges")
-        .attr("fill", "white")
-        .attr("rx", 8 * scale)
-        .attr("ry", 20 * scale)
-        .attr("cy", 5 * scale)
-        .attr("cx", 50 * scale)
+    playerShirt.append("path")
+        .attr("d", "M " + ((25 - 8) * scale) + ",0 A " + (8 * scale) + "," + (8 * scale) + " 0 1,0 " + ((25 + 8) * scale) + ",0")
         .attr("stroke-width", 2 * scale)
+        .attr("fill", "none")
         .attr("stroke", shirtEdge);
 
-    playerShirt.append("ellipse")
-        //                    .attr("shape-rendering", "crispEdges")
-        .attr("fill", "white")
-        .attr("rx", 8 * scale)
-        .attr("ry", 8 * scale)
-        .attr("cy", 0 * scale)
-        .attr("cx", 25 * scale)
+    playerShirt.append("path")
+        .attr("d", "M " + ((50 - 7.94) * scale) + ",0 A " + (8 * scale) + "," + (20 * scale) + " 0 0,0 " + (50 * scale) + "," + (25 * scale))
         .attr("stroke-width", 2 * scale)
+        .attr("fill", "none")
         .attr("stroke", shirtEdge);
+
+    //playerShirt.append("rect")
+    //    //                    .attr("shape-rendering", "crispEdges")
+    //    .attr("width", 50 * scale)
+    //    .attr("height", 70 * scale)
+    //    .attr("fill", shirtColor);
+    //
+    //
+    //
+    //playerShirt.append("ellipse")
+    //    //                    .attr("shape-rendering", "crispEdges")
+    //    .attr("fill", "white")
+    //    .attr("rx", 8 * scale)
+    //    .attr("ry", 20 * scale)
+    //    .attr("cy", 5 * scale)
+    //    .attr("cx", 0)
+    //    .attr("stroke-width", 2 * scale)
+    //    .attr("stroke", shirtEdge);
+    //
+    //playerShirt.append("ellipse")
+    //    //                    .attr("shape-rendering", "crispEdges")
+    //    .attr("fill", "white")
+    //    .attr("rx", 8 * scale)
+    //    .attr("ry", 20 * scale)
+    //    .attr("cy", 5 * scale)
+    //    .attr("cx", 50 * scale)
+    //    .attr("stroke-width", 2 * scale)
+    //    .attr("stroke", shirtEdge);
+    //
+    //playerShirt.append("ellipse")
+    //    //                    .attr("shape-rendering", "crispEdges")
+    //    .attr("fill", "white")
+    //    .attr("rx", 8 * scale)
+    //    .attr("ry", 8 * scale)
+    //    .attr("cy", 0 * scale)
+    //    .attr("cx", 25 * scale)
+    //    .attr("stroke-width", 2 * scale)
+    //    .attr("stroke", shirtEdge);
 
     playerShirt.append("text")
         .attr("id", (player.Player.split(" ")).pop())
@@ -200,13 +226,13 @@ function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
         .attr("font-size", 25 * scale + "px")
         .text(player['No.']);
 
-        playerShirt.on('mouseover', function() {
-            showPlayerInfo(player);
-        });
-        playerShirt.on('mouseout', function() {
-            clearPlayerInfo();
-        });
+    playerShirt.on('mouseover', function () {
+        showPlayerInfo(player);
+    });
+    playerShirt.on('mouseout', function () {
+        clearPlayerInfo();
+    });
 
-    return { width: 50 * scale, height: 70 * scale };
-    //return playerShirt;
+    return {width: 50 * scale, height: 70 * scale};
+//return playerShirt;
 }
