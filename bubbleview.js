@@ -283,13 +283,13 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 							.enter()
 							.append("g");
 
-		var visibleBoolean = false;
+
 
         function appendCircles (appendToMe) {
             appendToMe.append("circle")
 							.attr("class","circle teambubble")
 							.attr("id", function(data){
-                                    visibleBoolean = true;
+                                    //visibleBoolean = true;
                                     return fixteamname(data[id]) + suffix})
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
@@ -316,11 +316,30 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       								d3.selectAll(".arc").style("visibility", "hidden");
                                     var name = fixteamname(data.team);
                                     d3.selectAll("."+name).style("visibility", "visible");
+                                    d3.selectAll("."+name).attr("stroke", "green")
+									region = data.region
+									rank = data.playoffrank
+									try {
+										    nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == data.team})[0].winner)
+										}
+										catch(err) {
+   											nameWinner = ''
+   										}
+									if (rank == 2) {
+										d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
+										d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
+									} 
+										
+									else {
+										d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
+										d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
+									}
    									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
 									if (!visibleBoolean){
    										visibleClass = name;
 					                    $("#bubbleheader h1").text(data.team);
+					                    console.log(highlights)
                                         highlights
                                             .append("circle")
                                             .attr("fill", "red")
@@ -351,7 +370,26 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
    									if (visibleBoolean){
    										d3.selectAll(".arc").style("visibility", "hidden");
                                         name = fixteamname(data.team);
-   										d3.selectAll("."+name).style("visibility", "visible");	
+   										d3.selectAll("."+name).style("visibility", "visible");
+   										d3.selectAll("."+name).attr("stroke", "green")
+   										region = data.region
+   										rank = data.playoffrank
+   										try {
+										    nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == data.team})[0].winner)
+										}
+										catch(err) {
+   											nameWinner = ''
+   										}
+   										console.log(".r"+rank+'.'+region+'.'+nameWinner)
+   										if (rank == 2) {
+   											d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
+   											d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
+   										} 
+   											
+   										else {
+   											d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
+   											d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
+   										}
    									}
 								})
       						.on('mouseout', function(data) {
@@ -359,6 +397,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       								removeTeamInfo()
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
+      									d3.selectAll(".arc").attr("stroke", "green")
 									} else {
                                         updateTeamInfo(team, window.year);
 									}
@@ -368,6 +407,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
         appendCircles(circleWest);
         appendCircles(circleEast);
+
+
 
         d3.selectAll("#bubblevis .teambubble")
             .call(function (d) {
@@ -383,67 +424,66 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				
       	var finale = playOffs.filter(function(d) { return d.game == 'Finals'})[0]
       	var champion = dataInput.filter(function(d) { return d.team == finale.winner})[0]
-      	//console.log(champion)
 
       	var layoutDict = {};
 
       	if (champion.region === "west")
        		layoutDict = {
 		      Champion: {
-		            first:      [ xPos + width/3,   yPos + 20+(2)*(height/(yMaxData*2+2)), ' Champion first second third'],
-		            second:     [ xPos + width/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Champion second third'],
-		            third:      [ xPos + width/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Champion third']
+		            first:      [ xPos + width/3,   yPos + 20+(2)*(height/(yMaxData*2+2)), ' Champion r2 r3 r4 r5 west'],
+		            second:     [ xPos + width/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Champion r3 r4 r5 west'],
+		            third:      [ xPos + width/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Champion r4 r5 west']
 		      },
 		      Second: {
-		            first:      [ xPos + width*4/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Second first second'],
-		            second:     [ xPos + width*8/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Second second']
+		            first:      [ xPos + width*4/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Second r3 r4 r5 east'],
+		            second:     [ xPos + width*8/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Second r4 r5 east']
 		      },
 		      ThirdEast: {
-		            first:      [ xPos + width*3/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' ThirdEast first']
+		            first:      [ xPos + width*3/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Third east r5']
 		      },
 		      ThirdWest: {
-		            first:      [ xPos + width*6/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' ThirdWest first']
+		            first:      [ xPos + width*6/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Third west r5']
 		      }
 		 };
 		 else 
 		 	layoutDict = {
 		      Champion: {
-		            first:      [ xPos + width*2/3,   yPos + 20+(2)*(height/(yMaxData*2+2)), ' Champion first second third'],
-		            second:     [ xPos + width*4/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Champion second third'],
-		            third:      [ xPos + width*8/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Champion third']
+		            first:      [ xPos + width*2/3,   yPos + 20+(2)*(height/(yMaxData*2+2)), ' Champion r2 r3 r4 r5 east'],
+		            second:     [ xPos + width*4/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Champion r3 r4 r5 east'],
+		            third:      [ xPos + width*8/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Champion r4 r5 east']
 		      },
 		      Second: {
-		            first:      [ xPos + width/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Second first second'],
-		            second:     [ xPos + width/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Second second']
+		            first:      [ xPos + width/5,   yPos + 20+(4)*(height/(yMaxData*2+2)), ' Second r3 r4 r5 west'],
+		            second:     [ xPos + width/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Second r4 r5 west']
 		      },
 		      ThirdEast: {
-		            first:      [ xPos + width*3/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' ThirdEast first']
+		            first:      [ xPos + width*3/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Third r5 east']
 		      },
 		      ThirdWest: {
-		            first:      [ xPos + width*6/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' ThirdWest first']
+		            first:      [ xPos + width*6/9,   yPos + 20+(6)*(height/(yMaxData*2+2)), ' Third r5 west']
 		      }
 		 };
-
-		 //console.log(champion)
-		 //console.log(layoutDict)
 
 		 var winner = dataInput.filter(function(d) { return d.team == 'Golden State Warriors'});
 		 var loser = dataInput.filter(function(d) { return d.team == 'Golden State Warriors'});
 
       arcs.append("path")
       				.attr("class", function(data){
-      								if(winner.playoffrank == 1 && loser.playoffrank == 2)
-                                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.first[2]
+      								winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
+									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
+      								if(winner.playoffrank == 1 && loser.playoffrank == 2){
+                                        return "arc" + " " + fixteamname(data["winner"]) + " " + data["game"] + layoutDict.Champion.first[2]
+                                    }
                      				else if (winner.playoffrank == 1 && loser.playoffrank == 3) 
-                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.second[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " + data["game"] + layoutDict.Champion.second[2]
                      				else if (winner.playoffrank == 1 && loser.playoffrank == 4) 
-                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Champion.third[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " + data["game"] + layoutDict.Champion.third[2]
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 3) 
-                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Second.first[2]
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " + data["game"] + layoutDict.Second.first[2]
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 4) 
-                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + layoutDict.Second.second[2]	
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " + data["game"] + layoutDict.Second.second[2]	
                      				else 
-                                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"] + ' start'})
+                                        return "arc" + " " + fixteamname(data["winner"]) + " " + data["game"] + ' start'})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
@@ -497,8 +537,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
       arcs.append("path")
       				.attr("class", function(data){
+      								//winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
+									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
       								//console.log(dataInput.filter(function(d) {return d[id] == data.winner })[0])
-                                    return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"]})
+                                    return "arc" + " " + fixteamname(data["winner"]) + " " + loser.region + " r" + loser.playoffrank + " " +  fixteamname(data["loser"]) + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
       				.attr("d", d3.svg.diagonal()
@@ -538,49 +580,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
       i = 0
 
-      arcs.append("path")
-      				.attr("class", function(data){
-                        return "arc" + " " + fixteamname(data["winner"]) + " " +  fixteamname(data["loser"]) + " " + data["game"]})
-      				.attr("stroke", "green")
-      				.attr("stroke-width", 5)
-      				.attr("d", d3.svg.diagonal()
-								.source( function(data) { i = i+1
-									winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
-									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
-                                        return   {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
-                                                    "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
-                     													}; })
-                     			.target( function(data) { 
-                     				if(winner.playoffrank == 1 && loser.playoffrank == 2)
-                     					return {	"x": layoutDict.Champion.first[0],
-                     								"y": layoutDict.Champion.first[1]	}
-                     				else if (winner.playoffrank == 1 && loser.playoffrank == 3) 
-                     					return {	"x": layoutDict.Champion.second[0],
-                     								"y": layoutDict.Champion.second[1]	}
-                     				else if (winner.playoffrank == 1 && loser.playoffrank == 4) 
-                     					return {	"x": layoutDict.Champion.third[0],
-                     								"y": layoutDict.Champion.third[1]	}
-                     				else if (winner.playoffrank == 1 && loser.playoffrank == 5) 
-                     					return {	"x": layoutDict.Champion.third[0],
-                     								"y": layoutDict.Champion.third[1]	}
-                     				else if (winner.playoffrank == 2 && loser.playoffrank == 3) 
-                     					return {	"x": layoutDict.Second.first[0],
-                     								"y": layoutDict.Second.first[1]	}
-                     				else if (winner.playoffrank == 2 && loser.playoffrank == 4) 
-                     					return {	"x": layoutDict.Second.second[0],
-                     								"y": layoutDict.Second.second[1]	}
-                     				else if (winner.playoffrank == 2 && loser.playoffrank == 5) 
-                     					return {	"x": layoutDict.Second.second[0],
-                     								"y": layoutDict.Second.second[1]	}
-            
-      								else 
-      									return  {	"x": document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value, 
-                     								"y": document.getElementById(fixteamname(winner.team) + suffix).cy.animVal.value
-                     													}; }))
-      				.style("fill", "none")
-      				.style("visibility", visibleBoolean ? "visible" : "hidden");
-      
-
       d3.select("."+visibleClass).style("visibility", "visible");
       d3.select("."+visibleClass+"circles").style('fill','orange');
 
@@ -593,5 +592,37 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       d3.selectAll("#circlesEast").moveToFront();
       d3.selectAll("#circlesWest").moveToFront();
       
+      if (team != null){
+			highlights.selectAll(".selectedcircle").remove();
+			d3.selectAll(".arc").style("visibility", "hidden");
+            var name = fixteamname(team.team);
+            d3.selectAll("."+name).style("visibility", "visible");
+            d3.selectAll("."+name).attr("stroke", "green")
+			region = team.region
+			rank = team.playoffrank
+			nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == team.team})[0].winner) || ''
+			if (rank == 2) {
+				d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
+				d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
+			} 
+				
+			else {
+				d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
+				d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
+			}
+			visibleClass = name;
+            $("#bubbleheader h1").text(team.team);
+            //console.log(d3.select('#chicagobullsbig'))
+            console.log('#'+name)
+            highlights
+                .append("circle")
+                .attr("fill", "red")
+                .attr("r", d3.selectAll('#'+name+suffix).attr("r"))
+                .attr("cx", d3.select('#'+name+suffix).attr("cx"))
+                .attr("cy", d3.select('#'+name+suffix)	.attr("cy"))
+                .attr("z-index", "-100")
+                .attr("stroke", "none")
+                .attr("class", "selectedcircle");
+		}
 
 	}
