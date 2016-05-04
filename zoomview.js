@@ -320,7 +320,7 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
     var maxStayed = Math.max(Math.abs(minMaxValueAllYears[2]), minMaxValueAllYears[3]);
     var scaleValueVerticalStayed = scaleArrow(Math.abs(inStayedOutValue[1]), 0, maxStayed, minHeightStayedPart, (maxHeightStayedPart/2 - 10*(maxWidthRectArrowStayedPart/10)));
 
-    if (parseFloat(inStayedOutValue[2]) > 0) {
+    if (parseFloat(inStayedOutValue[1]) > 0) {
 
         arrowStayed.append("use")
             .attr("xlink:href","#transferRectVertical")
@@ -345,7 +345,7 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
             });
 
     }
-    else if(parseFloat(inStayedOutValue[2]) < 0) {
+    else if(parseFloat(inStayedOutValue[1]) < 0) {
 
         arrowStayed.append("use")
             .attr("xlink:href","#transferRectVertical")
