@@ -45,7 +45,12 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .range([singleHeight, 0])
         .domain([95, 125]);
 
-    var bases = [{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
+    var totalPerScaler = d3.scale.linear()
+        .range([singleHeight, 0])
+        .domain([100, 300]);
+
+    var bases = [//{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
+            { name: 'Total PER', dataSelector: function(d) {return d.team.totalper; }, scaler: totalPerScaler, type: "line"}
             ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line"}
             ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line"}
             ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line"}
