@@ -18,6 +18,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 34)
 					.text('Team ended first in conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -31,6 +32,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 54)
 					.text('Team ended second in conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -44,6 +46,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 74)
 					.text('Team ended third in conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -57,6 +60,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 93)
 					.text('Team part of western conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -70,6 +74,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 113)
 					.text('Team part of eastern conference')
+					.attr("fill", "#FDF3E7");
 }
 
 function removeTeamInfo(){
@@ -88,6 +93,27 @@ function updateTeamInfo(team, year){
        teamheader.select("#srs").text("SRS: " + team.srs);
        teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);
        teamheader.select("#leaguerank").text("League rank: " + team.leaguerank);
+}
+
+function createDefinitions(svg, dataInput) {
+	var node = svg.selectAll('node')
+				.data(dataInput[0].teams);
+
+	var defs = node.enter().append('defs');
+
+		defs.append('pattern')
+                .attr('id', function(data) { return (fixteamname(data.team)+"logo");}) // just create a unique id (id comes from the json)
+				.attr('patternContentUnits', 'objectBoundingBox')
+				.attr('width', 1)
+				.attr('height', 1)
+				.append("svg:image")
+				.attr("xlink:xlink:href", function(data) { 
+                    return ("./teamlogos/" + (fixteamname(data.team) + ".png"));})
+				.attr("height", 0.8)
+				.attr("width", 0.8)
+				.attr("x", 0.1)
+				.attr("y", 0.1)
+				.attr("preserveAspectRatio", "xMidYMid meet");
 }
    		
 
@@ -186,9 +212,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		// Returns an event handler for fading a given chord group.
 		function fade(opacity) {
 		  return function(g, i) {
-		  	//console.log(svg.selectAll(".circles"));
 		    svg.selectAll(".circles")
-		        //.filter(function(d) { return d.source.index != i && d.target.index != i; })
 		      .transition()
 		        .style("opacity", opacity);
 		  };
@@ -215,22 +239,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				return "black";
 		}
 
-		var node = svg.selectAll('node')
-				.data(dataInput);
-		var defs = node.enter().append('defs');
-		defs.append('pattern')
-                .attr('id', function(data) { return (fixteamname(data[id])+"logo");}) // just create a unique id (id comes from the json)
-				.attr('patternContentUnits', 'objectBoundingBox')
-				.attr('width', 1)
-				.attr('height', 1)
-				.append("svg:image")
-				.attr("xlink:xlink:href", function(data) { 
-                    return ("./teamlogos/" + (fixteamname(data[id]) + ".png"));})
-				.attr("height", 0.8)
-				.attr("width", 0.8)
-				.attr("x", 0.1)
-				.attr("y", 0.1)
-				.attr("preserveAspectRatio", "xMidYMid meet");  		
+		  		
 
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
                         .attr("class","chart bubblechart")
@@ -311,6 +320,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                                 return strokeColor(data[strokeVariable], data.region);
 			    					})
       						.on('click', function(data){
+      								console.log(team);
       								team = data;
                                     highlights.selectAll(".selectedcircle").remove();
       								d3.selectAll(".arc").style("visibility", "hidden");
@@ -336,10 +346,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 									}
    									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
-									if (!visibleBoolean){
+									if (!visibleBoolean ){
+										
    										visibleClass = name;
 					                    $("#bubbleheader h1").text(data.team);
-					                    console.log(highlights)
                                         highlights
                                             .append("circle")
                                             .attr("fill", "red")
@@ -359,7 +369,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                                     highlights.selectAll(".highlightcircle").remove();
                                     highlights
                                         .append("circle")
-                                        .attr("fill", "orange")
+                                        .attr("fill", "#FFB347")
                                         .attr("r", d3.select(this).attr("r"))
                                         .attr("cx", d3.select(this).attr("cx"))
                                         .attr("cy", d3.select(this).attr("cy"))
@@ -380,7 +390,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 										catch(err) {
    											nameWinner = ''
    										}
-   										console.log(".r"+rank+'.'+region+'.'+nameWinner)
    										if (rank == 2) {
    											d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
    											d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
@@ -537,9 +546,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
       arcs.append("path")
       				.attr("class", function(data){
-      								//winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
 									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
-      								//console.log(dataInput.filter(function(d) {return d[id] == data.winner })[0])
                                     return "arc" + " " + fixteamname(data["winner"]) + " " + loser.region + " r" + loser.playoffrank + " " +  fixteamname(data["loser"]) + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
@@ -581,7 +588,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       i = 0
 
       d3.select("."+visibleClass).style("visibility", "visible");
-      d3.select("."+visibleClass+"circles").style('fill','orange');
+      d3.select("."+visibleClass+"circles").style('fill','#FFB347');
 
       d3.selection.prototype.moveToFront = function() {
  					return this.each(function(){
@@ -600,7 +607,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
             d3.selectAll("."+name).attr("stroke", "green")
 			region = team.region
 			rank = team.playoffrank
-			nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == team.team})[0].winner) || ''
+			try{
+				nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == team.team})[0].winner) || ''
+			}
+			catch(err) {
+					nameWinner = ''
+				}
 			if (rank == 2) {
 				d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
 				d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
@@ -612,8 +624,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			}
 			visibleClass = name;
             $("#bubbleheader h1").text(team.team);
-            //console.log(d3.select('#chicagobullsbig'))
-            console.log('#'+name)
             highlights
                 .append("circle")
                 .attr("fill", "red")

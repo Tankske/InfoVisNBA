@@ -47,7 +47,7 @@
             if (back) {
                 svg.append("rect")
                     .attr("class", "backbubble")
-                    .attr("fill", "lightgrey")
+                    .attr("fill", "#C63D0F")
                     //.attr("opacity", "0")
                     .attr("x", x)
                     .attr("y", y)
@@ -337,6 +337,8 @@
                                     drawAll();
                                 });
 
+                                
+
                                 var theData;
                                 var team;
                                 //var visibleBoolean = false;
@@ -345,10 +347,13 @@
                                 d3.json("combined.json", function(data) {
                                    theData = data;
                                    team = theData.find(function(d) { return d.year == 2015; }).teams.find(function(d) {return d.team == "Chicago Bulls"});
+                                   createDefinitions(bubbleSvg, theData.filter(function(d) {return d.year == window.year}))
                                     drawAll();
                                     $(window).scrollTop(0);
                                     updateTeamInfo(window.team, window.year);
                                 });
+
+
 
 							</script>
 					</div>							

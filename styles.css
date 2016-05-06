@@ -12,6 +12,9 @@ body {
 	margin: 	auto;
 	height: 	100%;
 	width: 		1000px;
+  color: #FDF3E7;
+  font-family:Roboto;
+  font-weight: 200;
 }
 
 .wrapper {
@@ -28,6 +31,11 @@ body {
  position: relative;
 }
 
+.info svg {
+  margin-top: 30px;
+  color: #FDF3E7;
+}
+
 #legende {
   font-size: small;
 }
@@ -35,6 +43,7 @@ body {
 header {
 	position: relative;
 	height: 100px;
+
 }
 
 .header {
@@ -51,7 +60,8 @@ footer {
 
 h1 {
 	font-size: 250%;
-	margin: 10px 0 10px 0px;
+	margin: 10px 10px 10px 10px;
+  color: #FFB347;
 }
 
 svg {
@@ -60,7 +70,7 @@ svg {
 
 div.bubblechart {
   font: 10px sans-serif;
-  background-color: steelblue;
+  
   text-align: right;
   padding: 3px;
   margin: 1px;
@@ -69,7 +79,6 @@ div.bubblechart {
 
 
 .bubblechart rect {
-  fill: steelblue;
 }
 
 .bubblechart text {
@@ -98,9 +107,11 @@ div.bubblechart {
   font-weight: bold;
   padding: 5px;
   border-radius: 2px;
-  background: grey;
+  background: #7E8F7C;
   border-color: black;
   z-index: 10000;
+  color: #FDF3E7;
+  opacity: 0.4s;
 }
 
 .teambubble {
@@ -114,6 +125,9 @@ div.bubblechart {
 #yearSlider {
     text-align: center; 
     vertical-align: center;
+    color: #C63D0F;
+    font-weight: bold;
+    margin-top: -10px;
 }
 
 .scrollable {
@@ -128,26 +142,27 @@ div.bubblechart {
     width: 760px;
     top: 0;
     float: left;
-    background: lightgrey;
+    background: #C63D0F;
     height: 200px;
 }
 
 #bubbleheader.stick {
     position:fixed;
+    margin-left: 10px;
 }
 
 .headerblocker {
-    height: 200px;
+    height: 205px;
     background: white;
     /* z-index: 10; */
 }
 
 #timelinefooter {
     position: fixed;
-    height: 80px;
+    height: 60px;
     width: 1000px;
     bottom: 0;
-    background: lightgrey;
+    /* background: lightgrey; */
     z-index: 10;
 }
 
@@ -160,10 +175,10 @@ input[type=range] {
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    height: 16px;
+    height: 24px;
     width: 16px;
     border-radius: 50%;
-    background: goldenrod;
+    background: #C63D0F;
     margin-top: -4px;
 }
 
@@ -182,13 +197,12 @@ input[type=range]::-ms-track {
 /* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
+  height: 20px;
+  width: 8px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #C63D0F;
   cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
 }
 
@@ -196,10 +210,10 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
+  height: 20px;
+  width: 8px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #C63D0F;
   cursor: pointer;
 }
 
@@ -207,32 +221,29 @@ input[type=range]::-moz-range-thumb {
 input[type=range]::-ms-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
+  height: 20px;
+  width: 8px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #C63D0F;
   cursor: pointer;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
   width: 80%;
-  height: 8.4px;
+  height: 3px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
+  background: #C63D0F;
   border-radius: 1.3px;
-  border: 0.2px solid #010101;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #367ebd;
+  background: #C63D0F;
 }
 
 input[type=range]::-moz-range-track {
   width: 80%;
   height: 8.4px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
@@ -248,22 +259,22 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
+  background: #C63D0F;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
+  background: #C63D0F;
 }
 input[type=range]::-ms-fill-upper {
-  background: #3071a9;
+  background: #C63D0F;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
+  background: #C63D0F;
 }
 
 .circleTeam {
@@ -274,27 +285,27 @@ input[type=range]:focus::-ms-fill-upper {
 
 .arrowIn {
     stroke-linecap: butt;
-    stroke: green;
-    fill: green;
+    stroke: #03C03C;
+    fill: #03C03C;
     shape-rendering: crispEdges;
 }
 
 .arrowOut {
     stroke-linecap: butt;
-    stroke: red;
-    fill: red;
+    stroke: #C23B22;
+    fill: #C23B22;
     shape-rendering: crispEdges;
 }
 
 .arrowStayedUp {
     stroke-linecap: butt;
-    stroke: green;
-    fill: green;
+    stroke: #03C03C;
+    fill: #03C03C;
 }
 .arrowStayedDown {
     stroke-linecap: butt;
-    stroke: red;
-    fill: red;
+    stroke: #C23B22;
+    fill: #C23B22;
 }
 
 
@@ -315,14 +326,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #teamvis {
-    background: lightgrey;
     width: 1000px;
     position: relative;
 }
 
 #teamvis.stick {
     position:fixed;
-    bottom: 80px;
+    bottom: 50px;
     z-index: 100;
 }
 
@@ -367,59 +377,66 @@ input[type=range]:focus::-ms-fill-upper {
 #varchoosesidebar {
   float: left;
   position: relative;
-  background: lightgrey;
 }
 
 #varchoosesidebar.stick {
   position: fixed;
   top: 200px;
-  width: 200px;
+  width: 170px;
 }
 
 #sidebar {
     float: left;
     position: relative;
     width: 20%;
-    background: lightgrey;
     height: 100%
 }
 
 #sidebar.stick {
     height: 1000px;
     position: fixed;
-    width: 200px;
+    margin-left: 0px;
+    width: 150px;
     top: 200px;
 }
 
 #playerinfo {
     float: left;
     position: relative;
+    border-radius: 25px;
+    background: #C63D0F;
+
 }
 
 #playerinfo.stick {
     position:fixed;
-    width: 160px;
-    bottom: 280px;
-    padding: 0px 20px 0px 20px;
+    width: 150px;
+    bottom: 300px;
+    padding: 0px 0px 0px 20px;
+}
+
+#playerinfo.stick h2 {
+    color: #FFB347;
 }
 
 #varchoosesidebar form ul{
   list-style: none;
   height: 100%;
   width: 100%;
-  margin: 0;
+  margin: 5px;
   padding: 0;
 }
 
 
 ul li{
-  color: #302505;
+  color: #3B3738;
   display: block;
   position: relative;
   float: left;
   width: 90%;
-  background: #b3b3b3;
+  background: white;
   margin: 0 5% 0 5%;
+  text-align: center;
 }
 
 ul li input[type=radio]{
@@ -430,15 +447,15 @@ ul li input[type=radio]{
 ul li label{
   display: block;
   position: relative;
-  font-weight: 300;
-  font-size: 1.35em;
+  font-size: 15px;
   padding: 15px 20px 15px 10px;
   height: 18px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 ul li:hover label{
-	color: #FFFFFF;
+	color: #C63D0F;
 }
 
 ul li .check{
@@ -446,13 +463,13 @@ ul li .check{
 }
 
 input[type=radio]:checked ~ label{
-  color: white;
-  background: #993333;
+  color: #FDF3E7;
+  background: #C63D0F;
 }
 
 #bubbleheader table {
     width: 100%;
-    margin: 0;
+    margin-left: 10px;
 }
 
 #bubbleheader table td {
@@ -479,7 +496,7 @@ input[type=radio]:checked ~ label{
 
 #legende {
     height: 200px;
-    background: lightgrey;
+    background: #C63D0F;
 }
 
 #playerinfo p {
@@ -727,7 +744,7 @@ input[type=radio]:checked ~ label{
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #fff;
+    color: #C63D0F;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -735,7 +752,7 @@ input[type=radio]:checked ~ label{
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    top: 0px;
+    top: -20px;
     left: 100%;
 }
 
@@ -743,4 +760,6 @@ input[type=radio]:checked ~ label{
     visibility: visible;
     cursor: default;
 }
+
+
 
