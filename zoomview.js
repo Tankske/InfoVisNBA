@@ -60,9 +60,7 @@ function drawTransfers(inData, teamWanted, yearWanted, svg, xpos, ypos, w, h, ar
         teamSRS = 0;
 
     var minMaxSRSAllYears = minMaxSRS(inData);
-    console.log("dfef " + minMaxSRSAllYears);
     var minMaxSRSThisYear = minMaxSRSYear(inData, yearWanted);
-    console.log("dfef " + minMaxSRSThisYear);
     var minMaxSRSTeam = minMaxTeamSRS(inData, teamWanted);
 
     var maxWidthInOutPart = w*1/2 - margin.left/ 2;
@@ -96,7 +94,6 @@ function drawTransfers(inData, teamWanted, yearWanted, svg, xpos, ypos, w, h, ar
             });
         }
     });
-    //console.log("minmax " + minMaxSRSTeam);
 
     arrayPlayers = separatePlayers(previousPlayers, currentPlayers);
 
@@ -166,8 +163,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
     var yearMinRad = getRadiusScaledCircle(minMaxSRSYear[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var yearAverageRad = getRadiusScaledCircle(averageSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var yearMaxRad = getRadiusScaledCircle(minMaxSRSYear[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
-    //console.log(teamMinRad);
-    //console.log(teamMaxRad);
 
     var maxSRSBoolean = "visible";
     if (minMaxSRSYear[1] >= teamSRS && teamSRS >= (minMaxSRSYear[1] - 1)) {
@@ -190,7 +185,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Minimum SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:orange'>" + minMaxSRSYear[0].toFixed(2) + "</span>";
         });
 
@@ -198,7 +192,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Average SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:orange'>" + averageSRS + "</span>";
         });
 
@@ -206,7 +199,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr('class', 'tooltip-top')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Maximum SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:orange'>" + minMaxSRSYear[1].toFixed(2) + "</span>";
         });
 
@@ -214,7 +206,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Team SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:cornflowerblue'>" + teamSRS.toFixed(2) + "</span>";
         });
 
@@ -222,7 +213,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>SRS (Simple Rating System):</strong> <span style='color:black'>A score for a team based on the results of the teams.</span>";
         });
 
@@ -496,10 +486,8 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         teamHiddenBoolean = true;
     }
 
-    console.log(teamHiddenBoolean);
     if (hiddenBoolean) {
         if (teamHiddenBoolean) {
-            console.log(teamHiddenBoolean);
             circles.append("path")
                 .attr("class", "teambubblezoom")
                 .attr("id", "teamCircleHidden")
@@ -608,7 +596,6 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Incoming value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
                 "Value of players who were not part of this team in the previous season but are playing in this team in the current season.</br>" +
                 "(Value taken of season " + (year-1) + "-" + year + ")";
@@ -619,7 +606,6 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Outgoing value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
                 "Value of players who were playing in this team in the previous season and are not part of this team in the current season.</br>" +
                 "(Value taken of season " + (year-2) + "-" + (year-1) + ")";
@@ -629,7 +615,6 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            console.log(d);
             return  "<strong>Stayed value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
                 "Difference in value between the current season and the previous season for players who were part of this team in both seasons.</br>" +
                 "(Difference taken between value of season " + (year-1) + "-" + year + " and " + (year-2) + "-" + (year-1) + ")";
@@ -653,8 +638,6 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
     //    inStayedOutValue = nbTransfersTeam(playersInStayedOldStayedCurrOut);
     //    minMaxValueAllYears = minMaxNbTransfers(dataInput);
     //}
-    //console.log(minMaxValueAllYears);
-    //console.log(minMaxPER(dataInput));
 
     var scaleValueHorizontalIncoming = scaleArrow(inStayedOutValue[0], minMaxValueAllYears[0], minMaxValueAllYears[1], minWidthInOutPart, (maxWidthInOutPart - 7.5*(2*maxHeightRectArrowInOutPart/20)));
 
@@ -885,9 +868,7 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
 function drawBestTwoShirts(players, teamName, svg, x1, y1, x2, y2, playerStat, scaler) {
 
     //function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
-    console.log(players);
     var bestPlayers = bestTwoPlayers(players);
-    console.log(bestPlayers);
     if (bestPlayers.length >= 1) {
         //drawShirt(x1, y1, bestPlayers[0].Player, bestPlayers[0]["No."], team);
         drawScaledShirt(x1,
@@ -1106,8 +1087,6 @@ function getRadiusScaledCircle(value, maxWidth, maxHeight, minValue, maxValue) {
     var newValueRadius = 1.0083 * Math.pow((adjustedValue/adjustedMinValue),0.5716) * minRadius;
 
     var result = d3.scale.linear().range([minRadius,maxRadius]).domain([newMinRadius,newMaxRadius])(newValueRadius);
-
-    console.log(result);
 
     return result;
 //    var unity = (maxAreaSpace-minAreaSpace)/(maxArea-minArea);

@@ -417,8 +417,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
         appendCircles(circleWest);
         appendCircles(circleEast);
 
-
-
         d3.selectAll("#bubblevis .teambubble")
             .call(function (d) {
                 cb = d3.select(".circlebackgrounds");
@@ -499,6 +497,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								.source( function(data) { i = i+1
 									winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
 									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
+									console.log(fixteamname(winner.team) + suffix)
 									if (winner.playoffrank == 1 && loser.playoffrank == 3) 
                      					return {	"x": layoutDict.Champion.first[0],
                      								"y": layoutDict.Champion.first[1]	}
@@ -535,10 +534,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
 
-      								else 
+      								else { console.log(fixteamname(loser.team) + suffix)
                                         return  {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
                                                     "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
-                     													}; }))
+                     													}}
+                     													; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
 
@@ -554,6 +554,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 								.source( function(data) { i = i+1
 									winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
 									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
+									console.log(fixteamname(loser.team) + suffix)
                                     return   {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
                                                 "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
                      													}; })
@@ -579,10 +580,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 5) 
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
-      								else 
+      								else {	console.log(fixteamname(winner.team) + suffix)
+      										console.log("x: " + document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value)
                                         return  {	"x": document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value, 
                      								"y": document.getElementById(fixteamname(winner.team) + suffix).cy.animVal.value
-                     													}; }))
+                     													}}
+                     													; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
       i = 0
