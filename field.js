@@ -91,14 +91,14 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
             .attr("fill", "#D8D8D8")
             .style("fill-opacity", 0.5)
             .attr("id", "posrect" + posName)
-            .on('mouseover', function() {
-                d3.select("#posrect" + posName).style("fill-opacity", 1);
-                tipPosition.show(alreadyOn[posName].fullname);
+            .on('mouseenter', function() {
+                var thisPosName = this.id.replace(/posrect/,'');
+                d3.select("#posrect" + thisPosName).style("fill-opacity", 1);
+                tipPosition.show(alreadyOn[thisPosName].fullname);
 
             })
-            .on('mouseout', function() {
+            .on('mouseleave', function() {
                 tipPosition.hide();
-
             });
 
 
@@ -246,7 +246,7 @@ function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
         .attr("font-size", 25 * scale + "px")
         .text(player['No.']);
 
-    playerShirt.on('mouseover', function () {
+    playerShirt.on('mouseover', function (d) {
         showPlayerInfo(player);
     });
     playerShirt.on('mouseout', function () {

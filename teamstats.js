@@ -7,7 +7,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
     var nRows = 2;
     var nColumns = 4;
 
-    var margin = { top: 25, right: 4, bottom: 15, left: 31};
+    var margin = { top: 25, right: 5, bottom: 15, left: 35};
 
     var singleWidth = width / nColumns - margin.left - margin.right;
     var singleHeight = height / nRows - margin.top - margin.bottom;
@@ -49,17 +49,52 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .range([singleHeight, 0])
         .domain([100, 300]);
 
+    var tipPer = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "<strong>Player Efficiency Rating:</strong> <span style='color:black'>The PER sums up all a player's<br /> positive accomplishments, subtracts the negative accomplishments,<br/> and returns a per-minute rating of a player's performance.</span>";
+        });
+
+    var tipSRS = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "<strong>SRS (Simple Rating System):</strong> <span style='color:black'>A score for a team based on the results of the teams.</span>";
+        });
+
+    var tipAudience = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "<span style='color:black'>The total audience this season.</span>";
+        });
+
+    var tipOrtg = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "<span style='color:black'>Estimate of the number of points scored per 100 possessions.</span>";
+        });
+
+    var tipDrtg = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "<span style='color:black'>Estimate of the number of points allowed per 100 possessions.</span>";
+        });
+
     var bases = [//{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
-            { name: 'Total PER', dataSelector: function(d) {return d.team.totalper; }, scaler: totalPerScaler, type: "line", format: d3.format(".0f")}
+            { name: 'Total PER', dataSelector: function(d) {return d.team.totalper; }, scaler: totalPerScaler, type: "line", format: d3.format(".0f"), tip: tipPer}
             ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line", format: d3.format("d")}
             ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line", format: d3.format("d")}
             ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line", format: d3.format(".1f")}
-            ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area", format: d3.format(".3sr")}
-            ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area", format: d3.format(".2f")}
+            ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area", format: d3.format(".3sr"), tip: tipAudience}
+            ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area", format: d3.format(".2f"), tip: tipSRS}
             //,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale, type: "area"}
             //,{ name: 'Opponent Points/Game', dataSelector: function(d) {return d.team.opponent['PTS/G'];}, scaler: pointScale, type: "area"}
-            ,{ name: 'Offensive Rating', dataSelector: function(d) {return d.team.misc.ORtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f")}
-            ,{ name: 'Defensive Rating', dataSelector: function(d) {return d.team.misc.DRtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f")}
+            ,{ name: 'Offensive Rating', dataSelector: function(d) {return d.team.misc.ORtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f"), tip: tipOrtg}
+            ,{ name: 'Defensive Rating', dataSelector: function(d) {return d.team.misc.DRtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f"), tip: tipDrtg}
             ];
 
     //var color = d3.scale.category10();
@@ -109,6 +144,13 @@ function drawTs(data, team, year, div, x, y, width, height) {
                 .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    svg.call(tipPer);
+    svg.call(tipSRS);
+    svg.call(tipAudience);
+    svg.call(tipOrtg);
+    svg.call(tipDrtg);
+
+
     svg.append("path")
         .datum(filteredData)
         .attr("class", function(d, e) { return bases[e].type; })
@@ -122,7 +164,17 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .attr("text-anchor", "left")
         .attr("class", "tooltip-top")
         .attr("data-tooltip", "tool")
-        .text(function(d) { return d.name; });
+        .text(function(d) { return d.name; })
+        .on("mouseover", function(d) {
+            if (d.tip != undefined) {
+                d.tip.show();
+            }
+        })
+        .on("mouseout", function(d) {
+            if (d.tip != undefined) {
+                d.tip.hide();
+            }
+        });
     
     svg.append("g")
           .attr("class", "x axis")

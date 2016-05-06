@@ -92,14 +92,15 @@ div.bubblechart {
 
 .d3-tip {
   position: relative;
-  float: left;
+  /* float: left; */
   top: 0;
   line-height: 1;
   font-weight: bold;
   padding: 5px;
   border-radius: 2px;
-  background: lightgrey;
+  background: grey;
   border-color: black;
+  z-index: 10000;
 }
 
 .teambubble {
