@@ -203,7 +203,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         });
 
     var tipMax = d3.tip()
-        .attr('class', 'd3-tip')
+        .attr('class', 'tooltip-top')
         .offset([-10, 0])
         .html(function(d) {
             console.log(d);
@@ -778,9 +778,10 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
 
     var maxStayed = Math.max(Math.abs(minMaxValueAllYears[2]), minMaxValueAllYears[3]);
     var scaleValueVerticalStayed = scaleArrow(Math.abs(inStayedOutValue[1]), 0, maxStayed, minHeightStayedPart, (maxHeightStayedPart/2 - 10*(maxWidthRectArrowStayedPart/10)));
+    var increaseBoolean = true;
 
     if (parseFloat(inStayedOutValue[1]) > 0) {
-
+        increaseBoolean = true;
         arrowStayed.append("use")
             .attr("xlink:href","#transferRectVertical")
             .attr("class", "arrowStayedUp")
@@ -821,7 +822,7 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
 
     }
     else if(parseFloat(inStayedOutValue[1]) < 0) {
-
+        increaseBoolean = false;
         arrowStayed.append("use")
             .attr("xlink:href","#transferRectVertical")
             .attr("class", "arrowStayedDown")
@@ -877,7 +878,7 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
             return "translate(" + (w - maxWidthStayedPart + 10 * (maxWidthRectArrowStayedPart / 10)) + ", " + (h / 2) + "), scale(" + (maxWidthRectArrowStayedPart / 10) + ", " + (maxWidthRectArrowStayedPart / 10) + ")";
         });
 
-    drawBestTwoShirts(playersInStayedOldStayedCurrOut[2], teamName, svg, (w - maxWidthStayedPart + 20*(maxWidthRectArrowStayedPart/10) + margin.left), (h/2 - margin.bottom - 70),
+    drawMostInfluenceTwoShirts(playersInStayedOldStayedCurrOut[1], playersInStayedOldStayedCurrOut[2], increaseBoolean, teamName, svg, (w - maxWidthStayedPart + 20*(maxWidthRectArrowStayedPart/10) + margin.left), (h/2 - margin.bottom - 70),
         (w - maxWidthStayedPart + 20*(maxWidthRectArrowStayedPart/10) + margin.left), (h/2 + margin.bottom), arrowVariable, shirtScaler);
 
 }
@@ -885,8 +886,51 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
 function drawBestTwoShirts(players, teamName, svg, x1, y1, x2, y2, playerStat, scaler) {
 
     //function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
-
+    console.log(players);
     var bestPlayers = bestTwoPlayers(players);
+    console.log(bestPlayers);
+    if (bestPlayers.length >= 1) {
+        //drawShirt(x1, y1, bestPlayers[0].Player, bestPlayers[0]["No."], team);
+        drawScaledShirt(x1,
+            y1,
+            bestPlayers[0],
+            teamName,
+            svg,
+            scaler(playerStat(bestPlayers[0])));
+        if (bestPlayers.length >= 2) {
+            //drawShirt(x2, y2, bestPlayers[1].Player, bestPlayers[1]["No."], team);
+            drawScaledShirt(x2,
+                y2,
+                bestPlayers[1],
+                teamName,
+                svg,
+                scaler(playerStat(bestPlayers[1])));
+        }
+    }
+}
+
+function findPlayer(players, playerName) {
+    for (var i=0, len=players.length; i<len; i++) {
+        if (players[i].Player == playerName) {
+            return players[i];
+        }
+    }
+}
+
+function drawMostInfluenceTwoShirts(playersOld, playersNew, increaseBoolean, teamName, svg, x1, y1, x2, y2, playerStat, scaler) {
+
+    //function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
+    var playersWithPERDifference = playerPERDifference(playersOld, playersNew);
+    var mostChangedPlayers = [];
+    if (increaseBoolean) {
+        mostChangedPlayers = bestTwoPlayers(playersWithPERDifference);
+    }
+    else {
+        mostChangedPlayers = worstTwoPlayers(playersWithPERDifference);
+    }
+    var bestPlayer1 = findPlayer(playersNew, mostChangedPlayers[0].Player);
+    var bestPlayer2 = findPlayer(playersNew, mostChangedPlayers[1].Player);
+    var bestPlayers = [bestPlayer1, bestPlayer2];
     if (bestPlayers.length >= 1) {
         //drawShirt(x1, y1, bestPlayers[0].Player, bestPlayers[0]["No."], team);
         drawScaledShirt(x1,
@@ -1030,6 +1074,10 @@ function minMaxStat(dataInput, stat) {
     return minMaxInStayedOut;
 }
 
+function perceptionScale(value, minValue, maxValue, minRange, maxRange) {
+    var minV = minValue - minValue + 1;
+}
+
 function getRadiusScaledCircle(areaVariable, maxWidth, maxHeight, min, max) {
     var maxSpace;
     var minSpace;
@@ -1151,6 +1199,29 @@ function minMaxSRSYear(data, yearWanted) {
     return minMaxSRSTeam;
 }
 
+function worstTwoPlayers(players) {
+    var result = [],
+        min1 = Number.MAX_VALUE,
+        min2 = Number.MAX_VALUE;
+    for (var i = 0; i<players.length; i++) {
+        if (! (players[i].advanced == undefined)) {
+            if (players[i].advanced.PER < min1) {
+                if (result.length > 0) {
+                    min2 = min1;
+                    result[1] = result[0];
+                }
+                min1 = players[i].advanced.PER;
+                result[0] = players[i];
+            }
+            else if (players[i].advanced.PER < min2) {
+                min2 = players[i].advanced.PER;
+                result[1] = players[i];
+            }
+        }
+    }
+    return result;
+}
+
 function bestTwoPlayers(players) {
     var result = [],
         max1 = - Number.MAX_VALUE,
@@ -1158,11 +1229,11 @@ function bestTwoPlayers(players) {
     for (var i = 0; i<players.length; i++) {
         if (! (players[i].advanced == undefined)) {
             if (players[i].advanced.PER > max1) {
-                max1 = players[i].advanced.PER;
                 if (result.length > 0) {
                     max2 = max1;
                     result[1] = result[0];
                 }
+                max1 = players[i].advanced.PER;
                 result[0] = players[i];
             }
             else if (players[i].advanced.PER > max2) {

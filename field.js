@@ -26,9 +26,13 @@ function exagerratedPerScale(per) {
 }
 
 function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
-    players = data.find(function(d) {return d.year === year;})
-                .teams.find(function(d) {return d.team === team;})
-                .players;
+    players = data.find(function (d) {
+            return d.year === year;
+        })
+        .teams.find(function (d) {
+            return d.team === team;
+        })
+        .players;
 
     players.sort(function (a, b) {
         if (stat(a) > stat(b)) {
@@ -54,10 +58,10 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
         .attr("preserveAspectRatio", "none");
 
     var chart = svg
-                .append("g")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
-                .attr("class","chart fieldchart")
-                .attr("width", width)
-                .attr("height", height);
+        .append("g")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
+        .attr("class", "chart fieldchart")
+        .attr("width", width)
+        .attr("height", height);
 
     var backs = chart.append("g")
         .attr("class", "backs")
@@ -67,57 +71,60 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
     var tipPosition = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
-        .html(function(d) {
+        .html(function (d) {
             console.log(d);
-            return  "<strong>" + d + " </strong>";
+            return "<strong>" + d + " </strong>";
         });
     chart.call(tipPosition);
 
-    var alreadyOn = {SG: {before: 0, xpos: 0.4 * width, ypos: 0.2 * height, fullname: "Shooting Guard"}
-                    ,PF: {before: 0, xpos: 0.05 * width, ypos: 0.9 * height - 100, fullname: "Power Forward"}
-                    ,C: {before: 0, xpos: 0.7 * width, ypos: 0.5 * height - 50, fullname: "Center"}
-                    ,PG: {before: 0, xpos: 0.4 * width, ypos: 0.8 * height - 100, fullname: "Point Guard"}
-                    ,SF: {before: 0, xpos: 0.05 * width, ypos: 0.05 * height, fullname: "Small Forward"}};
+    var alreadyOn = {
+        SG: {before: 0, xpos: 0.4 * width, ypos: 0.2 * height, fullname: "Shooting Guard"}
+        , PF: {before: 0, xpos: 0.05 * width, ypos: 0.9 * height - 100, fullname: "Power Forward"}
+        , C: {before: 0, xpos: 0.7 * width, ypos: 0.5 * height - 50, fullname: "Center"}
+        , PG: {before: 0, xpos: 0.4 * width, ypos: 0.8 * height - 100, fullname: "Point Guard"}
+        , SF: {before: 0, xpos: 0.05 * width, ypos: 0.05 * height, fullname: "Small Forward"}
+    };
 
     for (var posName in alreadyOn) {
 
 
         backs.append("rect")
-            .attr("x",alreadyOn[posName].xpos - 25)
-            .attr("y",alreadyOn[posName].ypos - width/50)
+            .attr("x", alreadyOn[posName].xpos - 25)
+            .attr("y", alreadyOn[posName].ypos - width / 50)
             .attr("width", 20)
             .attr("height", 0)
             .attr("class", "posrect")
             .attr("fill", "#D8D8D8")
-            .style("fill-opacity", 0.5)
+            .style("fill-opacity", 0.4)
             .attr("id", "posrect" + posName)
-            .on('mouseenter', function() {
-                var thisPosName = this.id.replace(/posrect/,'');
-                d3.select("#posrect" + thisPosName).style("fill-opacity", 1);
+            .on('mouseenter', function () {
+                var thisPosName = this.id.replace(/posrect/, '');
+                d3.select("#posrect" + thisPosName).style("fill", "black");
                 tipPosition.show(alreadyOn[thisPosName].fullname);
 
             })
-            .on('mouseleave', function() {
+            .on('mouseleave', function () {
+                var thisPosName = this.id.replace(/posrect/, '');
+                d3.select("#posrect" + thisPosName).style("fill", "D8D8D8");
                 tipPosition.hide();
             });
 
-
         backs.append("text")
             .attr("class", "posname")
-            .attr("x",alreadyOn[posName].xpos - 20)
-            .attr("y",alreadyOn[posName].ypos)
-            .attr("font-size", width/50 + "px")
+            .attr("x", alreadyOn[posName].xpos - 20)
+            .attr("y", alreadyOn[posName].ypos)
+            .attr("font-size", width / 50 + "px")
             .text(posName);
     }
 
     for (i = 0; i < players.length; i++) {
         var pos = players[i].Pos;
         var wh = drawScaledShirt(alreadyOn[pos].xpos + alreadyOn[pos].before,
-                        alreadyOn[pos].ypos, 
-                        players[i], 
-                        team, 
-                        chart, 
-                        scaler(stat(players[i])));
+            alreadyOn[pos].ypos,
+            players[i],
+            team,
+            chart,
+            scaler(stat(players[i])));
         alreadyOn[pos].before += wh.width + 10;
         var rectWidth = Number(d3.select("#posrect" + pos).attr("width"));
         var rectHeight = Number(d3.select("#posrect" + pos).attr("height"));
@@ -132,7 +139,7 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
         var rectWidth = Number(d3.select("#posrect" + pos).attr("width"));
         var rectHeight = Number(d3.select("#posrect" + pos).attr("height"));
         rectWidth += 10;
-        rectHeight += width/50 + 10;
+        rectHeight += width / 50 + 10;
         d3.select("#posrect" + pos)
             .attr("width", rectWidth)
             .attr("height", rectHeight);
