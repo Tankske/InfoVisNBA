@@ -17,7 +17,7 @@ function drawLegend(){
 		legende.append('text')
 					.attr('dx', 40)
 					.attr('dy', 34)
-					.text('Team won gold medal')
+					.text('Team ended first in conference')
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -30,7 +30,7 @@ function drawLegend(){
 		legende.append('text')
 					.attr('dx', 40)
 					.attr('dy', 54)
-					.text('Team won silver medal')
+					.text('Team ended second in conference')
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -43,7 +43,7 @@ function drawLegend(){
 		legende.append('text')
 					.attr('dx', 40)
 					.attr('dy', 74)
-					.text('Team won bronze medal in conference')
+					.text('Team ended third in conference')
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -51,12 +51,12 @@ function drawLegend(){
 					.attr("cy", 90)
 					.style("fill", d3.rgb(255,255,255))		    			
 			    	.style("stroke-width", 3)
-			    	.attr("stroke", 'steelblue');
+			    	.attr("stroke", 'red');
 
 		legende.append('text')
 					.attr('dx', 40)
 					.attr('dy', 93)
-					.text('Team part of west conference')
+					.text('Team part of western conference')
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -64,12 +64,12 @@ function drawLegend(){
 					.attr("cy", 110)
 					.style("fill", d3.rgb(255,255,255))		    			
 			    	.style("stroke-width", 3)
-			    	.attr("stroke", 'red');
+			    	.attr("stroke", 'steelblue');
 
 		legende.append('text')
 					.attr('dx', 40)
 					.attr('dy', 113)
-					.text('Team part of east conference')
+					.text('Team part of eastern conference')
 }
 
 function removeTeamInfo(){
@@ -208,9 +208,9 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			else if (strokeVariable == 3)
 				return "#D3782F";
 			else if (groupVariable == "west")
-				return "steelblue"
-			else if (groupVariable == "east")
 				return "red"
+			else if (groupVariable == "east")
+				return "steelblue"
 			else
 				return "black";
 		}
