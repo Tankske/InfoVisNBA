@@ -592,7 +592,6 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
 }
 
 function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playersInStayedOldStayedCurrOut, svg, w, h, maxWidthInOutPart, maxHeightRectArrowInOutPart, maxWidthStayedPart, maxHeightStayedPart, maxWidthRectArrowStayedPart) {
-
     var minWidthInOutPart = 1/10 * maxWidthInOutPart,
         minHeightStayedPart = 0;
 

@@ -412,7 +412,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
-ul li{
+#playervarform ul li{
   color: #302505;
   display: block;
   position: relative;
@@ -422,12 +422,12 @@ ul li{
   margin: 0 5% 0 5%;
 }
 
-ul li input[type=radio]{
+#playervarform ul li input[type=radio]{
   position: absolute;
   visibility: hidden;
 }
 
-ul li label{
+#playervarform ul li label{
   display: block;
   position: relative;
   font-weight: 300;
@@ -437,15 +437,15 @@ ul li label{
   cursor: pointer;
 }
 
-ul li:hover label{
+#playervarform ul li:hover label{
 	color: #FFFFFF;
 }
 
-ul li .check{
+#playervarform ul li .check{
   display: none;
 }
 
-input[type=radio]:checked ~ label{
+#playervarform input[type=radio]:checked ~ label{
   color: white;
   background: #993333;
 }
@@ -461,7 +461,7 @@ input[type=radio]:checked ~ label{
 }
 
 #bubbleheader table h2 {
-    margin: 0;
+    margin: 0 0 0 10px;
 }
 
 #bubbleheader table p {
@@ -744,3 +744,21 @@ input[type=radio]:checked ~ label{
     cursor: default;
 }
 
+.about {
+    top: 0;
+    margin-right: 10px;
+    float: right;
+    z-index: 1000000;
+}
+
+.about a {
+    color: black;
+    font-size: 16pt;
+    text-decoration: none;
+}
+
+.headerblocker h1 {
+    width: 600px;
+    float: left;
+    margin-left: 10px;
+}
