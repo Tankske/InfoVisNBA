@@ -182,7 +182,7 @@
 
                                 function fixyear () {
                                     $("#year").val(window.year);
-                                    $("#yearSlider").text(window.year);
+                                    $("#yearSlider").text((window.year - 1) + "-" + window.year);
                                     updateTeamInfo(window.team, window.year);
                                     drawAll();
                                 }
