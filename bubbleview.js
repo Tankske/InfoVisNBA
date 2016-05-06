@@ -83,7 +83,7 @@ function updateTeamInfo(team, year){
        teamheader = d3.select("#bubbleheader")
 
        teamheader.select("#teamname").text(team.team);
-       teamheader.select("#yearname").text(year);
+       teamheader.select("#yearname").text((year-1) + "-" + year);
 
        teamheader.select("#srs").text("SRS: " + team.srs);
        teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);

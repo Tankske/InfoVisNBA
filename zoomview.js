@@ -61,6 +61,8 @@ function drawTransfers(inData, teamWanted, yearWanted, svg, xpos, ypos, w, h, ar
 
     var minMaxSRSAllYears = minMaxSRS(inData);
     console.log("dfef " + minMaxSRSAllYears);
+    var minMaxSRSThisYear = minMaxSRSYear(inData, yearWanted);
+    console.log("dfef " + minMaxSRSThisYear);
     var minMaxSRSTeam = minMaxTeamSRS(inData, teamWanted);
 
     var maxWidthInOutPart = w*1/2 - margin.left/ 2;
@@ -150,56 +152,446 @@ function drawTransfers(inData, teamWanted, yearWanted, svg, xpos, ypos, w, h, ar
         .attr("y", 0.1)
         .attr("preserveAspectRatio", "xMidYMid meet");
 
-    drawTeamCircle(teamName, teamSRS, minMaxSRSTeam, minMaxSRSAllYears, chart, (xpos + w/2 + margin.left), (ypos + h/2), maxWidthCircle, h);
-    drawArrows(inData, teamName, arrowVariable, shirtScaler, arrayPlayers, chart, w, h, maxWidthInOutPart, arrowRectHorizontalHeight, maxWidthStayedPart, maxHeightStayedPart, arrowRectVerticalWidth);
+    drawTeamCircle(teamName, yearWanted, teamSRS, minMaxSRSThisYear, minMaxSRSAllYears, chart, (xpos + w/2 + margin.left), (ypos + h/2), maxWidthCircle, h);
+    drawArrows(inData, teamName, yearWanted, arrowVariable, shirtScaler, arrayPlayers, chart, w, h, maxWidthInOutPart, arrowRectHorizontalHeight, maxWidthStayedPart, maxHeightStayedPart, arrowRectVerticalWidth);
 }
 
-function drawTeamCircle(teamName, teamSRS, minMaxSRSTeam, minMaxSRSAllYears, svg, xPos, yPos, w, h) {
+function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYears, svg, xPos, yPos, w, h) {
+
+    var averageSRS = 0;
 
     var rad = getRadiusScaledCircle(teamSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var minRad = getRadiusScaledCircle(minMaxSRSAllYears[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     var maxRad = getRadiusScaledCircle(minMaxSRSAllYears[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
-    var teamMinRad = getRadiusScaledCircle(minMaxSRSTeam[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
-    var teamMaxRad = getRadiusScaledCircle(minMaxSRSTeam[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var yearMinRad = getRadiusScaledCircle(minMaxSRSYear[0], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var yearAverageRad = getRadiusScaledCircle(averageSRS, w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
+    var yearMaxRad = getRadiusScaledCircle(minMaxSRSYear[1], w, h, minMaxSRSAllYears[0], minMaxSRSAllYears[1]);
     //console.log(teamMinRad);
     //console.log(teamMaxRad);
 
-    var circles = svg.append('g')
-        .attr('class', 'circleTeam');
+    var maxSRSBoolean = "visible";
+    if (minMaxSRSYear[1] >= teamSRS && teamSRS >= (minMaxSRSYear[1] - 1)) {
+        maxSRSBoolean = "hidden";
+    }
+    var teamAboveAverageSRSBoolean = "visible";
+    if ((averageSRS + 1) >= teamSRS && teamSRS > averageSRS) {
+        teamAboveAverageSRSBoolean = "hidden";
+    }
+    var AverageSRSBoolean = "visible";
+    if (averageSRS >= teamSRS && teamSRS > (averageSRS - 1)) {
+        AverageSRSBoolean = "hidden";
+    }
+    var minSRSBoolean = "visible";
+    if ((minMaxSRSYear[0] + 1) >= teamSRS && teamSRS >= minMaxSRSYear[0]) {
+        minSRSBoolean = "hidden";
+    }
 
-    circles.append("circle")
-        .attr("class", "teambubblezoom")
-        .attr("cx", xPos + maxRad) //arrow heigth is half of the width
-        .attr("cy", yPos)
-        .attr("r", rad)
-        .style("stroke-width", 4)
-        .style("fill", function(d) { return ("url(#" + teamName + "logo)");});
+    var tipMin = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Minimum SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:orange'>" + minMaxSRSYear[0].toFixed(2) + "</span>";
+        });
+
+    var tipAverage = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Average SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:orange'>" + averageSRS + "</span>";
+        });
+
+    var tipMax = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Maximum SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:orange'>" + minMaxSRSYear[1].toFixed(2) + "</span>";
+        });
+
+    var tipCurr = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Team SRS (" + (year-1) + "-" + year + "):</strong> <span style='color:cornflowerblue'>" + teamSRS.toFixed(2) + "</span>";
+        });
+
+    var tipSRS = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>SRS (Simple Rating System):</strong> <span style='color:black'>A score for a team based on the results of the teams.</span>";
+        });
+
+    svg.call(tipMin);
+    svg.call(tipAverage);
+    svg.call(tipMax);
+    svg.call(tipCurr);
+    svg.call(tipSRS);
+
+    var highlights = svg.append("g")
+        .attr("class", "highlights")
+        .attr("height", height)
+        .attr("width", width);
+
+
+
+
+    var circles = svg.append('svg')
+        .attr('class', 'circleTeam');
 
     //.style("fill", "green")
     //TODO als logo er ni instaat een placeholder?
+    circles.append("rect")
+        .attr("x", xPos)
+        .attr("y", yPos - maxRad)
+        .attr("width", 2*maxRad)
+        .attr("height", 2*maxRad)
+        .attr("fill", "white")
+        .attr("fill-opacity", 0)
+        .attr("stroke", "none")
+        .on('mouseover', function() {
+            highlights.selectAll(".highlightcircle").remove();
+            highlights
+                .append("rect")
+                .attr("stroke", "none")
+                .style("fill", "#D8D8D8")
+                .attr("x", d3.select(this).attr("x"))
+                .attr("y", d3.select(this).attr("y"))
+                .attr("width", d3.select(this).attr("width"))
+                .attr("height", d3.select(this).attr("height"))
+                .attr("class", "highlightcircle");
+            tipSRS.show(document.getElementById("maxYearCircle"));;
+        })
+        .on('mouseout', function() {
+            highlights.selectAll(".highlightcircle").remove();
+            tipSRS.hide();
+        });
+
 
     circles.append("circle")
         .attr("class", "teambubblezoom")
+        .attr("id", "maxYearCircle")
         .attr("cx", xPos + maxRad) //arrow heigth is half of the width
         .attr("cy", yPos)
-        .attr("r", teamMaxRad)
-        .attr("stroke", "red")
+        .attr("r", yearMaxRad)
+        .attr("stroke", "grey")
         //.style("fill", "cornflowerblue");
-        .style("stroke-width", 2)
-        .style("fill-opacity", 0);
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.2)
+        .style("fill-opacity", 0)
+        .on('mouseover', function() {
+            highlights.selectAll(".highlightcircle").remove();
+            highlights
+                .append("circle")
+                .attr("stroke", "orange")
+                .style("stroke-width", 2)
+                .style("fill", "white")
+                .attr("r", d3.select(this).attr("r"))
+                .attr("cx", d3.select(this).attr("cx"))
+                .attr("cy", d3.select(this).attr("cy"))
+                .attr("class", "highlightcircle");
+            d3.select("#teamCircle").style("fill-opacity", 0.05);
+            d3.select("#teamCircle").style("stroke-width", 1);
+            d3.select("#teamCircle").style("stroke", "cornflowerblue");
+            tipMax.show(document.getElementById("maxYearCircle"));;
+        })
+        .on('mouseout', function() {
+            highlights.selectAll(".highlightcircle").remove();
+            d3.select("#teamCircle").style("fill-opacity", 1);
+            d3.select("#teamCircle").style("stroke-width", 2);
+            d3.select("#teamCircle").style("stroke", "black");
+            tipMax.hide();
+        });
+
+    if (rad > yearAverageRad) {
+        circles.append("circle")
+            .attr("class", "teambubblezoom")
+            .attr("id", "teamCircle")
+            .attr("cx", xPos + maxRad) //arrow heigth is half of the width
+            .attr("cy", yPos)
+            .attr("r", rad)
+            .style("stroke-width", 2)
+            .style("fill", function (d) {
+                return ("url(#" + teamName + "logo)");
+            })
+            .on('mouseover', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                highlights
+                    .append("circle")
+                    .attr("fill", "white")
+                    .attr("r", d3.select(this).attr("r"))
+                    .attr("cx", d3.select(this).attr("cx"))
+                    .attr("cy", d3.select(this).attr("cy"))
+                    .attr("class", "highlightcircle");
+                d3.select("#teamCircle").style("fill-opacity", 0.05);
+                d3.select("#teamCircle").style("stroke", "cornflowerblue");
+                tipCurr.show(document.getElementById("maxYearCircle"));;
+            })
+            .on('mouseout', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                d3.select("#teamCircle").style("fill-opacity", 1);
+                d3.select("#teamCircle").style("stroke", "black");
+                tipCurr.hide();
+            });
+
+        circles.append("circle")
+            .attr("class", "teambubblezoom")
+            .attr("cx", xPos + maxRad) //arrow heigth is half of the width
+            .attr("cy", yPos)
+            .attr("r", yearAverageRad)
+            .attr("stroke", "grey")
+            .style("stroke-width", 1)
+            .style("stroke-opacity", 0.3)
+            .style("fill-opacity", 0)
+            .on('mouseover', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                highlights
+                    .append("circle")
+                    .attr("stroke", "orange")
+                    .style("stroke-width", 2)
+                    .style("fill", "white")
+                    .attr("r", d3.select(this).attr("r"))
+                    .attr("cx", d3.select(this).attr("cx"))
+                    .attr("cy", d3.select(this).attr("cy"))
+                    .attr("class", "highlightcircle");
+                d3.select("#teamCircle").style("fill-opacity", 0.05);
+                d3.select("#teamCircle").style("stroke-width", 1);
+                d3.select("#teamCircle").style("stroke", "cornflowerblue");
+                tipAverage.show(document.getElementById("maxYearCircle"));;
+            })
+            .on('mouseout', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                d3.select("#teamCircle").style("fill-opacity", 1);
+                d3.select("#teamCircle").style("stroke-width", 2);
+                d3.select("#teamCircle").style("stroke", "black");
+                tipAverage.hide();
+            });
+    }
+
+    else if (rad <= yearAverageRad) {
+        circles.append("circle")
+            .attr("class", "teambubblezoom")
+            .attr("cx", xPos + maxRad) //arrow heigth is half of the width
+            .attr("cy", yPos)
+            .attr("r", yearAverageRad)
+            .attr("stroke", "grey")
+            .style("stroke-width", 1)
+            .style("stroke-opacity", 0.3)
+            .style("fill-opacity", 0)
+            .on('mouseover', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                highlights
+                    .append("circle")
+                    .attr("stroke", "orange")
+                    .style("stroke-width", 2)
+                    .style("fill", "white")
+                    .attr("r", d3.select(this).attr("r"))
+                    .attr("cx", d3.select(this).attr("cx"))
+                    .attr("cy", d3.select(this).attr("cy"))
+                    .attr("class", "highlightcircle");
+                d3.select("#teamCircle").style("fill-opacity", 0.05);
+                d3.select("#teamCircle").style("stroke-width", 1);
+                d3.select("#teamCircle").style("stroke", "cornflowerblue");
+                tipAverage.show(document.getElementById("maxYearCircle"));;
+            })
+            .on('mouseout', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                d3.select("#teamCircle").style("fill-opacity", 1);
+                d3.select("#teamCircle").style("stroke-width", 2);
+                d3.select("#teamCircle").style("stroke", "black");
+                tipAverage.hide();
+            });
+
+        circles.append("circle")
+            .attr("class", "teambubblezoom")
+            .attr("id", "teamCircle")
+            .attr("cx", xPos + maxRad) //arrow heigth is half of the width
+            .attr("cy", yPos)
+            .attr("r", rad)
+            .style("stroke-width", 2)
+            //.style("fill", "cornflowerblue");
+            .style("fill", function (d) {
+                return ("url(#" + teamName + "logo)");
+            })
+            .on('mouseover', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                highlights
+                    .append("circle")
+                    .attr("fill", "white")
+                    .attr("r", d3.select(this).attr("r"))
+                    .attr("cx", d3.select(this).attr("cx"))
+                    .attr("cy", d3.select(this).attr("cy"))
+                    .attr("class", "highlightcircle");
+                d3.select("#teamCircle").style("fill-opacity", 0.05);
+                d3.select("#teamCircle").style("stroke", "cornflowerblue");
+                tipCurr.show(document.getElementById("maxYearCircle"));;
+            })
+            .on('mouseout', function() {
+                highlights.selectAll(".highlightcircle").remove();
+                d3.select("#teamCircle").style("fill-opacity", 1);
+                d3.select("#teamCircle").style("stroke", "black");
+                tipCurr.hide();
+            });
+    }
 
     circles.append("circle")
         .attr("class", "teambubblezoom")
+        .attr("id", "minCircle")
         .attr("cx", xPos + maxRad) //arrow heigth is half of the width
         .attr("cy", yPos)
-        .attr("r", teamMinRad)
-        .attr("stroke", "red")
-        //.style("fill", "red");
-        .style("stroke-width", 2)
-        .style("fill-opacity", 0);
+        .attr("r", yearMinRad)
+        .attr("stroke", "grey")
+        .style("stroke-width", 1)
+        .style("stroke-opacity", 0.3)
+        .attr("fill-opacity", 0)
+        .on('mouseover', function() {
+            highlights.selectAll(".highlightcircle").remove();
+            highlights
+            .append("circle")
+                .attr("stroke", "orange")
+                .style("stroke-width", 2)
+                .style("fill", "white")
+                .attr("r", d3.select(this).attr("r"))
+                .attr("cx", d3.select(this).attr("cx"))
+                .attr("cy", d3.select(this).attr("cy"))
+                .attr("class", "highlightcircle");
+            d3.select("#teamCircle").style("fill-opacity", 0.05);
+            d3.select("#teamCircle").style("stroke-width", 1);
+            d3.select("#teamCircle").style("stroke", "cornflowerblue");
+            d3.select("#teamCircleHidden").style("stroke", "white");
+            tipMin.show(document.getElementById("maxYearCircle"));
+        })
+        .on('mouseout', function() {
+            highlights.selectAll(".highlightcircle").remove();
+            d3.select("#teamCircle").style("fill-opacity", 1);
+            d3.select("#teamCircle").style("stroke-width", 2);
+            d3.select("#teamCircle").style("stroke", "black");
+            d3.select("#teamCircleHidden").style("stroke", "black");
+            tipMin.hide();
+        });
+
+    var hiddenRad = 0;
+    var hiddenBoolean = false;
+    var teamHiddenBoolean = false;
+    if (maxSRSBoolean == "hidden") {
+        hiddenRad = yearMaxRad;
+        hiddenBoolean = true;
+    }
+    else if (teamAboveAverageSRSBoolean == "hidden") {
+        hiddenRad = rad;
+        hiddenBoolean = true;
+        teamHiddenBoolean = true;
+    }
+    else if (AverageSRSBoolean == "hidden") {
+        hiddenRad = yearAverageRad;
+        hiddenBoolean = true;
+    }
+    else if (minSRSBoolean == "hidden") {
+        hiddenRad = yearMinRad;
+        hiddenBoolean = true;
+        teamHiddenBoolean = true;
+    }
+
+    console.log(teamHiddenBoolean);
+    if (hiddenBoolean) {
+        if (teamHiddenBoolean) {
+            console.log(teamHiddenBoolean);
+            circles.append("path")
+                .attr("class", "teambubblezoom")
+                .attr("id", "teamCircleHidden")
+                .attr("d", "M " + (xPos + maxRad - hiddenRad) + "," + yPos + " A " + hiddenRad + "," + hiddenRad + " 0 1,0 " + (xPos + maxRad + hiddenRad) + "," + yPos +
+                    " A " + hiddenRad + "," + hiddenRad + " 0 1,0 " + (xPos + maxRad - hiddenRad) + "," + yPos)
+                .style("stroke-width", 2)
+                .attr("stroke", "black")
+                .attr("stroke-opacity", 0)
+                .style("fill", "none")
+                .attr("fill-opacity", 0)
+                .on('mouseover', function() {
+                    highlights.selectAll(".highlightcircle").remove();
+                    highlights
+                        .append("circle")
+                        .attr("stroke", "cornflowerblue")
+                        .style("stroke-width", 2)
+                        .style("fill", "white")
+                        .attr("r", hiddenRad)
+                        .attr("cx", (xPos + maxRad))
+                        .attr("cy", yPos)
+                        .attr("class", "highlightcircle");
+                    d3.select("#teamCircle").style("fill-opacity", 0.05);
+                    d3.select("#teamCircleHidden").style("stroke", "cornflowerblue");
+                    d3.select("#teamCircle").style("stroke-opacity", 0);
+                    tipCurr.show();
+                })
+                .on('mouseout', function() {
+                    highlights.selectAll(".highlightcircle").remove();
+                    d3.select("#teamCircle").style("fill-opacity", 1);
+                    d3.select("#teamCircle").style("stroke", "black");
+                    d3.select("#teamCircleHidden").style("stroke", "black");
+                    d3.select("#teamCircleHidden").attr("stroke-opacity", 0);
+                    d3.select("#teamCircle").style("stroke-opacity", 1);
+                    tipCurr.hide();
+                });
+        }
+        else {
+            circles.append("path")
+                .attr("class", "teambubblezoom")
+                .attr("id", "otherCircleHidden")
+                .attr("d", "M " + (xPos + maxRad - hiddenRad) + "," + yPos + " A " + hiddenRad + "," + hiddenRad + " 0 1,0 " + (xPos + maxRad + hiddenRad) + "," + yPos +
+                    " A " + hiddenRad + "," + hiddenRad + " 0 1,0 " + (xPos + maxRad - hiddenRad) + "," + yPos)
+                .style("fill", "none")
+                .attr("stroke", "grey")
+                .style("stroke-width", 1)
+                .style("stroke-opacity", 0.3)
+                .attr("fill-opacity", 0)
+                .on('mouseover', function() {
+                    highlights.selectAll(".highlightcircle").remove();
+                    highlights
+                        .append("circle")
+                        .attr("stroke", "orange")
+                        .style("stroke-width", 2)
+                        .style("fill", "white")
+                        .attr("r", hiddenRad)
+                        .attr("cx", (xPos + maxRad))
+                        .attr("cy", yPos)
+                        .attr("class", "highlightcircle");
+                    d3.select("#teamCircle").style("fill-opacity", 0.05);
+                    d3.select("#teamCircle").style("stroke-width", 1);
+                    d3.select("#teamCircle").style("stroke-opacity", 0);
+                    if (hiddenRad == yearMaxRad) {
+                        tipMax.show();
+                    }
+                    else if (hiddenRad == yearAverageRad) {
+                        tipAverage.show();
+                    }
+                    else if (hiddenRad == yearMinRad) {
+                        tipMin.show();
+                    }
+                })
+                .on('mouseout', function() {
+                    highlights.selectAll(".highlightcircle").remove();
+                    d3.select("#teamCircle").style("fill-opacity", 1);
+                    d3.select("#teamCircle").style("stroke-width", 2);
+                    d3.select("#teamCircle").style("stroke", "black");
+                    d3.select("#teamCircle").style("stroke-opacity", 1);
+                    if (hiddenRad == yearMaxRad) {
+                        tipMax.hide();
+                    }
+                    else if (hiddenRad == yearAverageRad) {
+                        tipAverage.hide();
+                    }
+                    else if (hiddenRad == yearMinRad) {
+                        tipMin.hide();
+                    }
+                });
+            }
+    }
 }
 
-function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInStayedOldStayedCurrOut, svg, w, h, maxWidthInOutPart, maxHeightRectArrowInOutPart, maxWidthStayedPart, maxHeightStayedPart, maxWidthRectArrowStayedPart) {
+function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playersInStayedOldStayedCurrOut, svg, w, h, maxWidthInOutPart, maxHeightRectArrowInOutPart, maxWidthStayedPart, maxHeightStayedPart, maxWidthRectArrowStayedPart) {
 
     var minWidthInOutPart = 1/10 * maxWidthInOutPart,
         minHeightStayedPart = 0;
@@ -212,6 +604,41 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
 
     var arrowOutgoing = svg.append('g')
         .attr('id', 'outgoing')
+
+    var tipIncoming = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Incoming value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
+                "Value of players who were not part of this team in the previous season but are playing in this team in the current season.</br>" +
+                "(Value taken of season " + (year-1) + "-" + year + ")";
+        });
+
+
+    var tipOutgoing = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Outgoing value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
+                "Value of players who were playing in this team in the previous season and are not part of this team in the current season.</br>" +
+                "(Value taken of season " + (year-2) + "-" + (year-1) + ")";
+        });
+
+    var tipStayed = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>Stayed value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
+                "Difference in value between the current season and the previous season for players who were part of this team in both seasons.</br>" +
+                "(Difference taken between value of season " + (year-1) + "-" + year + " and " + (year-2) + "-" + (year-1) + ")";
+        });
+
+    svg.call(tipIncoming);
+    svg.call(tipOutgoing);
+    svg.call(tipStayed);
 
     var inStayedOutValue = [-1, -1, -1];
     var minMaxValueAllYears = [-1, -1, -1];
@@ -241,6 +668,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
              7.5 is breedte pijlkop
              10 is hoogte balk
              20 is hoogte pijlkop*/
+        })
+        .on('mouseover', function() {
+            tipIncoming.show();
+
+        })
+        .on('mouseout', function() {
+            tipIncoming.hide();
+
         });
 
     arrowIncoming.append("use")
@@ -252,6 +687,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
              7.5 is breedte pijlkop
              10 is hoogte balk
              20 is hoogte pijlkop*/
+        })
+        .on('mouseover', function() {
+            tipIncoming.show();
+
+        })
+        .on('mouseout', function() {
+            tipIncoming.hide();
+
         });
 
     arrowIncoming.append('text')
@@ -262,7 +705,7 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
          10 is hoogte balk
          20 is hoogte pijlkop*/
         .attr("text-anchor", "end")
-        .text("" + inStayedOutValue[0]);
+        .text("" + inStayedOutValue[0].toFixed(1));
 
     drawBestTwoShirts(playersInStayedOldStayedCurrOut[0], teamName, svg, 0, (h/2 - maxHeightRectArrowInOutPart - margin.bottom/2 - 70),
         (50 + margin.left), (h/2 - maxHeightRectArrowInOutPart - margin.bottom/2 - 70), arrowVariable, shirtScaler);
@@ -284,6 +727,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
              7.5 is breedte pijlkop
              10 is hoogte balk
              20 is hoogte pijlkop*/
+        })
+        .on('mouseover', function() {
+            tipOutgoing.show();
+
+        })
+        .on('mouseout', function() {
+            tipOutgoing.hide();
+
         });
 
     arrowOutgoing.append("use")
@@ -295,6 +746,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
              7.5 is breedte pijlkop
              10 is hoogte balk
              20 is hoogte pijlkop*/
+        })
+        .on('mouseover', function() {
+            tipOutgoing.show();
+
+        })
+        .on('mouseout', function() {
+            tipOutgoing.hide();
+
         });
 
     arrowOutgoing.append('text')
@@ -306,7 +765,7 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
          20 is hoogte pijlkop*/
         .attr("text-anchor", "end")
         .attr("dy", "0.71em")
-        .text("" + inStayedOutValue[2]);
+        .text("" + inStayedOutValue[2].toFixed(1));
 
     drawBestTwoShirts(playersInStayedOldStayedCurrOut[3], teamName, svg, 0, (h/2 + maxHeightRectArrowInOutPart + margin.bottom/2),
         (50 + margin.left), (h/2 + maxHeightRectArrowInOutPart + margin.bottom/2), arrowVariable, shirtScaler);
@@ -331,6 +790,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
                  20 is breedte pijlkop
                  10 is breedte balk
                  10 is hoogte pijlkop*/
+            })
+            .on('mouseover', function() {
+                tipStayed.show();
+
+            })
+            .on('mouseout', function() {
+                tipStayed.hide();
+
             });
 
         arrowStayed.append("use")
@@ -342,6 +809,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
                  7.5 is breedte pijlkop
                  10 is hoogte balk
                  20 is hoogte pijlkop*/
+            })
+            .on('mouseover', function() {
+                tipStayed.show();
+
+            })
+            .on('mouseout', function() {
+                tipStayed.hide();
+
             });
 
     }
@@ -356,6 +831,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
                  20 is breedte pijlkop
                  10 is breedte balk
                  10 is hoogte pijlkop*/
+            })
+            .on('mouseover', function() {
+                tipStayed.show();
+
+            })
+            .on('mouseout', function() {
+                tipStayed.hide();
+
             });
 
         arrowStayed.append("use")
@@ -367,6 +850,14 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
                  7.5 is breedte pijlkop
                  10 is hoogte balk
                  20 is hoogte pijlkop*/
+            })
+            .on('mouseover', function() {
+                tipStayed.show();
+
+            })
+            .on('mouseout', function() {
+                tipStayed.hide();
+
             });
 
     }
@@ -377,7 +868,7 @@ function drawArrows(dataInput, teamName, arrowVariable, shirtScaler, playersInSt
         //20 is breedte pijl
         .attr("dy", ".35em")
         .attr("text-anchor", "start")
-        .text("" + inStayedOutValue[1]);
+        .text("" + inStayedOutValue[1].toFixed(1));
 
 
     arrowStayed.append("use")
@@ -464,9 +955,9 @@ function totalStat(players, stat) {
 }
 
 function statInStayedOut(separatedPlayersTeam, stat) {
-    var statIncoming = totalStat(separatedPlayersTeam[0], stat).toFixed(1);
-    var statStayed = (totalStat(separatedPlayersTeam[2], stat) - totalStat(separatedPlayersTeam[1], stat)).toFixed(1);
-    var statOutgoing = totalStat(separatedPlayersTeam[3], stat).toFixed(1);
+    var statIncoming = totalStat(separatedPlayersTeam[0], stat);
+    var statStayed = totalStat(separatedPlayersTeam[2], stat) - totalStat(separatedPlayersTeam[1], stat);
+    var statOutgoing = totalStat(separatedPlayersTeam[3], stat);
     return [statIncoming, statStayed, statOutgoing];
 }
 
@@ -611,11 +1102,11 @@ function minMaxSRS(data) {
 
     data.forEach(function (yearData) {
         yearData.teams.forEach(function (teamData) {
-            if (parseFloat(teamData.srs) < minMaxSRS[0]) {
-                minMaxSRS[0] = parseFloat(teamData.srs).toFixed(1);
+            if (teamData.srs < minMaxSRS[0]) {
+                minMaxSRS[0] = teamData.srs;
             }
             if (parseFloat(teamData.srs) > minMaxSRS[1]) {
-                minMaxSRS[1] = parseFloat(teamData.srs).toFixed(1);
+                minMaxSRS[1] = teamData.srs;
             }
 
         });
@@ -629,13 +1120,33 @@ function minMaxTeamSRS(data, teamName) {
         yearData.teams.forEach(function (teamData) {
             if (teamData.team == teamName) {
                 if (teamData.srs < minMaxSRSTeam[0]) {
-                    minMaxSRSTeam[0] = (teamData.srs).toFixed(1);
+                    minMaxSRSTeam[0] = teamData.srs;
                 }
                 if (teamData.srs > minMaxSRSTeam[1]) {
-                    minMaxSRSTeam[1] = (teamData.srs).toFixed(1);
+                    minMaxSRSTeam[1] = teamData.srs;
                 }
             }
         });
+    })
+    return minMaxSRSTeam;
+}
+
+function minMaxSRSYear(data, yearWanted) {
+    var minMaxSRSTeam = [Number.MAX_VALUE, - Number.MAX_VALUE];
+
+    data.forEach(function (yearData) {
+        if (yearData.year == yearWanted) {
+            yearData.teams.forEach(function (teamData) {
+                if (teamData.srs < minMaxSRSTeam[0]) {
+                    //minMaxSRSTeam[0] = (teamData.srs).toFixed(1);
+                    minMaxSRSTeam[0] = teamData.srs;
+                }
+                if (teamData.srs > minMaxSRSTeam[1]) {
+                    //minMaxSRSTeam[1] = (teamData.srs).toFixed(1);
+                    minMaxSRSTeam[1] = teamData.srs;
+                }
+            });
+        }
     })
     return minMaxSRSTeam;
 }
@@ -646,7 +1157,7 @@ function bestTwoPlayers(players) {
         max2 = - Number.MAX_VALUE;
     for (var i = 0; i<players.length; i++) {
         if (! (players[i].advanced == undefined)) {
-            if (parseFloat(players[i].advanced.PER) > parseFloat(max1)) {
+            if (players[i].advanced.PER > max1) {
                 max1 = players[i].advanced.PER;
                 if (result.length > 0) {
                     max2 = max1;
@@ -654,7 +1165,7 @@ function bestTwoPlayers(players) {
                 }
                 result[0] = players[i];
             }
-            else if (parseFloat(players[i].advanced.PER) > parseFloat(max2)) {
+            else if (players[i].advanced.PER > max2) {
                 max2 = players[i].advanced.PER;
                 result[1] = players[i];
             }
@@ -666,9 +1177,9 @@ function bestTwoPlayers(players) {
 function playerPERDifference(players1, players2) {
     var result = [];
     for (var i = 0; i<players1.length && i<players2.length; i++) {
-        var diff = parseFloat(players2[i].advanced.PER) - parseFloat(players1[i].advanced.PER)
+        var diff = players2[i].advanced.PER - players1[i].advanced.PER;
         var newPlayer = jQuery.extend(true, {}, players2[i]);
-        newPlayer.advanced.PER = diff.toFixed(1);
+        newPlayer.advanced.PER = diff;
         result.push(newPlayer);
     }
 

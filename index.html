@@ -125,25 +125,29 @@
                                             <div id="varchoosesidebar">
                                                     <form id="playervarform">
                                                         <ul>
-                                                            <li>
+                                                            <li class="sidebarLabel">
                                                                 <input type="radio" value="PER" id="perradio" name="varchoose" checked="checked">
                                                                 <label for="perradio">PER</label>
+                                                                <span class="sidebarLabelTooltip">Player Efficiency Rating</span>
                                                             </li>
-                                                            <li>
+                                                            <li class="sidebarLabel">
                                                                 <input type="radio" value="Age" id="ageradio" name="varchoose">
                                                                 <label for="ageradio">Age</label>
                                                             </li>
-                                                            <li>
+                                                            <li class="sidebarLabel">
                                                                 <input type="radio" value="efg" id="efgradio" name="varchoose">
                                                                 <label for="efgradio">eFG%</label>
+                                                                <span class="sidebarLabelTooltip">Effective Field Goal Percentage</span>
                                                             </li>
-                                                            <li>
+                                                            <li class="sidebarLabel">
                                                                 <input type="radio" value="ortg" id="ortgradio" name="varchoose">
                                                                 <label for="ortgradio">ORtg</label>
+                                                                <span class="sidebarLabelTooltip">Offensive Rating</span>
                                                             </li>
-                                                            <li>
+                                                            <li class="sidebarLabel">
                                                                 <input type="radio" value="drtg" id="drtgradio" name="varchoose">
                                                                 <label for="drtgradio">DRtg</label>
+                                                                <span class="sidebarLabelTooltip">Defensive Rating</span>
                                                             </li>
                                                         </ul>
                                                     </form>
@@ -170,7 +174,7 @@
                                 <div class="visualization" id="timelinefooter">
                                     <p>
                                         <input class="timeline" type="range" min="1985" max="2015" id="year" value=2015>
-                                        <p id="yearSlider">2015</p>
+                                        <p id="yearSlider">2014-2015</p>
                                     </p>
                                 </div>
                             </div>
@@ -216,7 +220,6 @@
 
                                 drawLegend();
                                 var view = "bubble";
-
 
                                 $(window).scroll(movescroll);
                                 movescroll();
@@ -309,7 +312,7 @@
 
 								d3.select("#year").on("input", function() {
 									window.year = +this.value
-									document.getElementById("yearSlider").innerHTML= year;
+									document.getElementById("yearSlider").innerHTML= (year-1) + "-" + year;
                                     window.team = theData.find(function(d) {return d.year == window.year; }).teams.find(function(d) { return d.team === window.team.team;});
                                     updateTeamInfo(window.team, window.year);
 
