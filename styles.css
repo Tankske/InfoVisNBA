@@ -74,7 +74,6 @@ div.bubblechart {
   text-align: right;
   padding: 3px;
   margin: 1px;
-  color:white;
 }
 
 
@@ -82,7 +81,6 @@ div.bubblechart {
 }
 
 .bubblechart text {
-	fill: white;
   font: 10px sans-serif;
   text-anchor: end;
 }
@@ -153,7 +151,6 @@ div.bubblechart {
 
 .headerblocker {
     height: 205px;
-    background: white;
     /* z-index: 10; */
 }
 
@@ -279,7 +276,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .circleTeam {
     stroke: #000;
-    fill: #fff;
     /*shape-rendering: crispEdges;*/
 }
 

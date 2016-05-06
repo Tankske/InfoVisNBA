@@ -127,6 +127,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
 		height = height;
 
+		createDefinitions(svg, dataInput)
+
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
 		var east = dataInput.filter(function(data) { return data.region == "east"});
@@ -320,7 +322,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                                 return strokeColor(data[strokeVariable], data.region);
 			    					})
       						.on('click', function(data){
-      								console.log(team);
       								team = data;
                                     highlights.selectAll(".selectedcircle").remove();
       								d3.selectAll(".arc").style("visibility", "hidden");
@@ -346,10 +347,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 									}
    									visibleClass = '';
    									visibleBoolean = !visibleBoolean;
-									if (!visibleBoolean ){
-										
+									if (!visibleBoolean){
    										visibleClass = name;
 					                    $("#bubbleheader h1").text(data.team);
+					                    console.log(highlights)
                                         highlights
                                             .append("circle")
                                             .attr("fill", "red")
@@ -369,7 +370,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                                     highlights.selectAll(".highlightcircle").remove();
                                     highlights
                                         .append("circle")
-                                        .attr("fill", "#FFB347")
+                                        .attr("fill", "orange")
                                         .attr("r", d3.select(this).attr("r"))
                                         .attr("cx", d3.select(this).attr("cx"))
                                         .attr("cy", d3.select(this).attr("cy"))
@@ -390,6 +391,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 										catch(err) {
    											nameWinner = ''
    										}
+   										console.log(".r"+rank+'.'+region+'.'+nameWinner)
    										if (rank == 2) {
    											d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
    											d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
@@ -602,7 +604,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       d3.selectAll("#circlesEast").moveToFront();
       d3.selectAll("#circlesWest").moveToFront();
       
-      if (team != null){
+      if (team != null && !visibleBoolean){
 			highlights.selectAll(".selectedcircle").remove();
 			d3.selectAll(".arc").style("visibility", "hidden");
             var name = fixteamname(team.team);
