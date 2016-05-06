@@ -102,6 +102,7 @@
                                     <div class="headerblocker" id="zoomblocker">
                                         <div class="visualization stick" id="bubbleheader">
                                             <h1 id="teamname"></h1>
+                                            <p class="about"><a href="./about.html">About</a></p>
                                             <table>
                                                 <tr>
                                                     <td> <h2 id="yearname"></h2> </td>
@@ -181,7 +182,7 @@
 
                                 function fixyear () {
                                     $("#year").val(window.year);
-                                    $("#yearSlider").text(window.year);
+                                    $("#yearSlider").text((window.year - 1) + "-" + window.year);
                                     updateTeamInfo(window.team, window.year);
                                     drawAll();
                                 }

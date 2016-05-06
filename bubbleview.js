@@ -81,7 +81,7 @@ function removeTeamInfo(){
         teamheader = d3.select("#bubbleheader");
         teamheader.selectAll("h1").text("");
         teamheader.selectAll("h2").text("");
-        teamheader.selectAll("p").text("");
+        teamheader.selectAll("td p").text("");
 }
 
 function updateTeamInfo(team, year){
