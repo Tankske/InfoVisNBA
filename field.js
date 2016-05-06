@@ -63,7 +63,15 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
         .attr("class", "backs")
         .attr("width", width)
         .attr("height", height);
-    
+
+    var tipPosition = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            console.log(d);
+            return  "<strong>" + d + " </strong>";
+        });
+    chart.call(tipPosition);
 
     var alreadyOn = {SG: {before: 0, xpos: 0.4 * width, ypos: 0.2 * height, fullname: "Shooting Guard"}
                     ,PF: {before: 0, xpos: 0.05 * width, ypos: 0.9 * height - 100, fullname: "Power Forward"}
@@ -72,6 +80,8 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
                     ,SF: {before: 0, xpos: 0.05 * width, ypos: 0.05 * height, fullname: "Small Forward"}};
 
     for (var posName in alreadyOn) {
+
+
         backs.append("rect")
             .attr("x",alreadyOn[posName].xpos - 25)
             .attr("y",alreadyOn[posName].ypos - width/50)
@@ -80,7 +90,17 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
             .attr("class", "posrect")
             .attr("fill", "#D8D8D8")
             .style("fill-opacity", 0.5)
-            .attr("id", "posrect" + posName);
+            .attr("id", "posrect" + posName)
+            .on('mouseover', function() {
+                d3.select("#posrect" + posName).style("fill-opacity", 1);
+                tipPosition.show(alreadyOn[posName].fullname);
+
+            })
+            .on('mouseout', function() {
+                tipPosition.hide();
+
+            });
+
 
         backs.append("text")
             .attr("class", "posname")

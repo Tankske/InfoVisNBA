@@ -126,6 +126,7 @@
                                                             <li class="tooltip-right" data-tooltip="Player Efficiency Rating: The PER sums up all a player's positive accomplishments, subtracts the negative accomplishments, and returns a per-minute rating of a player's performance.">
                                                                 <input type="radio" value="PER" id="perradio" name="varchoose" checked="checked">
                                                                 <label for="perradio">PER</label>
+                                                                <!--<span class="sidebarLabelTooltip">Player Efficiency Rating</span>-->
                                                             </li>
                                                             <li class="tooltip-right" data-tooltip="Player's Age">
                                                                 <input type="radio" value="Age" id="ageradio" name="varchoose">
@@ -134,14 +135,17 @@
                                                             <li class="tooltip-right" data-tooltip="Effective Field Goal Percentage: This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.">
                                                                 <input type="radio" value="efg" id="efgradio" name="varchoose">
                                                                 <label for="efgradio">eFG%</label>
+                                                                <!--<span class="sidebarLabelTooltip">Effective Field Goal Percentage</span>-->
                                                             </li>
                                                             <li class="tooltip-right" data-tooltip="Offensive Rating">
                                                                 <input type="radio" value="ortg" id="ortgradio" name="varchoose">
                                                                 <label for="ortgradio">ORtg</label>
+                                                                <!--<span class="sidebarLabelTooltip">Offensive Rating</span>-->
                                                             </li>
                                                             <li class="tooltip-right" data-tooltip="Defensive Rating">
                                                                 <input type="radio" value="drtg" id="drtgradio" name="varchoose">
                                                                 <label for="drtgradio">DRtg</label>
+                                                                <!--<span class="sidebarLabelTooltip">Defensive Rating</span>-->
                                                             </li>
                                                         </ul>
                                                     </form>
@@ -168,7 +172,7 @@
                                 <div class="visualization" id="timelinefooter">
                                     <p>
                                         <input class="timeline" type="range" min="1985" max="2015" id="year" value=2015>
-                                        <p id="yearSlider">2015</p>
+                                        <p id="yearSlider">2014-2015</p>
                                     </p>
                                 </div>
                             </div>
@@ -234,7 +238,6 @@
 
                                 drawLegend();
                                 var view = "bubble";
-
 
                                 $(window).scroll(movescroll);
                                 movescroll();
@@ -327,7 +330,7 @@
 
 								d3.select("#year").on("input", function() {
 									window.year = +this.value
-									document.getElementById("yearSlider").innerHTML= year;
+									document.getElementById("yearSlider").innerHTML= (year-1) + "-" + year;
                                     window.team = theData.find(function(d) {return d.year == window.year; }).teams.find(function(d) { return d.team === window.team.team;});
                                     updateTeamInfo(window.team, window.year);
 

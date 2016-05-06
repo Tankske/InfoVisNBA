@@ -721,3 +721,25 @@ input[type=radio]:checked ~ label{
   margin-left: 0;
   margin-bottom: -16px;
 }
+
+.sidebarLabel .sidebarLabelTooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 100%;
+}
+
+.sidebarLabel:hover .sidebarLabelTooltip {
+    visibility: visible;
+    cursor: default;
+}
+
