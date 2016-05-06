@@ -7,7 +7,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
     var nRows = 2;
     var nColumns = 4;
 
-    var margin = { top: 9, right: 10, bottom: 1, left: 10};
+    var margin = { top: 25, right: 4, bottom: 15, left: 31};
 
     var singleWidth = width / nColumns - margin.left - margin.right;
     var singleHeight = height / nRows - margin.top - margin.bottom;
@@ -50,19 +50,20 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .domain([100, 300]);
 
     var bases = [//{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
-            { name: 'Total PER', dataSelector: function(d) {return d.team.totalper; }, scaler: totalPerScaler, type: "line"}
-            ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line"}
-            ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line"}
-            ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line"}
-            ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area"}
-            ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area"}
+            { name: 'Total PER', dataSelector: function(d) {return d.team.totalper; }, scaler: totalPerScaler, type: "line", format: d3.format(".0f")}
+            ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line", format: d3.format("d")}
+            ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line", format: d3.format("d")}
+            ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line", format: d3.format(".1f")}
+            ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area", format: d3.format(".3sr")}
+            ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area", format: d3.format(".2f")}
             //,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale, type: "area"}
             //,{ name: 'Opponent Points/Game', dataSelector: function(d) {return d.team.opponent['PTS/G'];}, scaler: pointScale, type: "area"}
-            ,{ name: 'Offensive Rating', dataSelector: function(d) {return d.team.misc.ORtg;}, scaler: ratingScale, type: "area"}
-            ,{ name: 'Defensive Rating', dataSelector: function(d) {return d.team.misc.DRtg;}, scaler: ratingScale, type: "area"}
+            ,{ name: 'Offensive Rating', dataSelector: function(d) {return d.team.misc.ORtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f")}
+            ,{ name: 'Defensive Rating', dataSelector: function(d) {return d.team.misc.DRtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f")}
             ];
 
-    var color = d3.scale.category10();
+    //var color = d3.scale.category10();
+    var color = function (d) { return "steelblue"; }
 
     var x = d3.scale.linear()
     .range([0, singleWidth])
@@ -72,7 +73,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .scale(x)
         .ticks(3)
         .tickFormat(d3.format("d"))
-        .orient("top");
+        .orient("bottom");
 
     function makeLine(b) {
         return d3.svg.area()
@@ -92,12 +93,18 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     var realsvg = div.selectAll("svg")
                     .data(bases)
-                    .enter().append("svg")
-                        .attr("width", singleWidth + margin.left + margin.right)
-                        .attr("height", singleHeight + margin.top + margin.bottom)
-                        .attr("id", function(d, e) { return "sm" + e; })
-                        .attr("class", "smallmultiple");
+                    .enter()
+                        //.append("div")
+                        //.attr("class", "tooltip-right")
+                        //.attr("data-tooltip", "hey there")
+                        //.attr("style", "width: " + (singleWidth + margin.left + margin.right) + "px; height: " + (singleHeight + margin.top + margin.bottom) + "px; display: inline")
+                            .append("svg")
+                            .attr("width", singleWidth + margin.left + margin.right)
+                            .attr("height", singleHeight + margin.top + margin.bottom)
+                            .attr("id", function(d, e) { return "sm" + e; })
+                            .attr("class", "smallmultiple tooltip-top");
 
+    realsvg.append("data-tooltip") .text("hey there");
     var svg = realsvg
                 .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -109,10 +116,12 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .attr("stroke", function(d, e) {return color(e);})
         .attr("d", function(d ,e) { return makeLine(bases[e])(d); });
 
-    svg.append("text")
-        .attr("x", (singleWidth/2))
+    realsvg.append("text")
+        .attr("x", margin.left + 5)
         .attr("y", 20)
-        .attr("text-anchor", "middle")
+        .attr("text-anchor", "left")
+        .attr("class", "tooltip-top")
+        .attr("data-tooltip", "tool")
         .text(function(d) { return d.name; });
     
     svg.append("g")
@@ -125,6 +134,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
         .call(function (allSvgs) {
             allSvgs[0].forEach(function (oneSvg) {
                 var scaler = bases[oneSvg.id.substring(2)].scaler;
+                var format = bases[oneSvg.id.substring(2)].format;
                 d3.select("#" + oneSvg.id)
                     .select("g")
                     .append("g")
@@ -133,7 +143,8 @@ function drawTs(data, team, year, div, x, y, width, height) {
                         .call(d3.svg.axis()
                                 .scale(scaler)
                                 .ticks(3)
-                                .orient("right"));
+                                .tickFormat(format)
+                                .orient("left"));
             });
         });
 
@@ -141,9 +152,11 @@ function drawTs(data, team, year, div, x, y, width, height) {
     svg.append("line")
         .attr("class", "curYearLine");
 
-    svg.append("text")
+    realsvg.append("text")
         .attr("class", "curYearVal")
-        .attr("text-anchor", "middle");
+        .attr("text-anchor", "right")
+        .attr("x", singleWidth - margin.right)
+        .attr("y", 20);
 
     //svg.append("text")
         //.attr("class", "curYearName")
@@ -183,9 +196,9 @@ function drawTs(data, team, year, div, x, y, width, height) {
             .attr("y2", function(d) {return d.scaler(d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; })));});
 
         d3.selectAll(".curYearVal")
-            .attr("x", x(highlightYear))
-            .attr("y", function(d) { return d.scaler(d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; })));})
-            .text(function(d) { return d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; }));});
+            //.attr("x", x(highlightYear))
+            //.attr("y", function(d) { return d.scaler(d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; })));})
+            .text(function(d) { return d.format(d.dataSelector(filteredData.find(function(d) { return d.year == highlightYear; })));});
 
         //d3.selectAll(".curYearName")
             //.attr("x", x(highlightYear))

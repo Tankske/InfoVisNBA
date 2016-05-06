@@ -1,10 +1,10 @@
 function showPlayerInfo(d) {
     pi = d3.select("#playerinfo");
     pi.select("#playername").text(d["Player"]);
-    pi.select("#playerper").text("PER: " +  d.advanced["PER"]);
-    pi.select("#playerefg").text("eFG%: " + d.totals["eFG%"]);
-    pi.select("#playerortg").text("ORtg: " + d.perposs["ORtg"]);
-    pi.select("#playerdrtg").text("DRtg: " + d.perposs["DRtg"]);
+    pi.select("#playerper").text("PER: " +  d3.format(".1f")(d.advanced["PER"]));
+    pi.select("#playerefg").text("eFG%: " + d3.format(".1%")(d.totals["eFG%"]));
+    pi.select("#playerortg").text("ORtg: " + d3.format(".0f")(d.perposs["ORtg"]));
+    pi.select("#playerdrtg").text("DRtg: " + d3.format(".0f")(d.perposs["DRtg"]));
     //pi.select("#playerheight").text("Height: " + d["Ht"]);
     //pi.select("#playerweight").text("Weight: " + d["Wt"]);
     pi.select("#playerbirthday").text("Birthday: " + d["Birth Date"]);
