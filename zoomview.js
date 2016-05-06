@@ -1077,51 +1077,39 @@ function perceptionScale(value, minValue, maxValue, minRange, maxRange) {
     var minV = minValue - minValue + 1;
 }
 
-function getRadiusScaledCircle(areaVariable, maxWidth, maxHeight, min, max) {
-    var maxSpace;
-    var minSpace;
+function getRadiusScaledCircle(value, maxWidth, maxHeight, minValue, maxValue) {
+    var maxRadius;
+    var minRadius;
     if (maxWidth > maxHeight) {
-        maxSpace = maxHeight/2;
-        minSpace = maxHeight/12;
+        maxRadius = maxHeight/2;
+        minRadius = maxHeight/12;
     }
     else if (maxWidth <= maxHeight) {
-        maxSpace = maxWidth/2;
-        minSpace = maxWidth/12;
+        maxRadius = maxWidth/2;
+        minRadius = maxWidth/12;
     }
 
     //Get rid of negative values
-    var minValue = min - min +1;
-    var maxValue = max - min +1;
-    var areaVariableValue = areaVariable - min +1;
+    var adjustedMinValue = minValue - minValue +1;
+    var adjustedMaxValue = maxValue - minValue +1;
+    var adjustedValue = value - minValue +1;
 
-    //var maxAreaSpace = Math.pow(maxSpace,2)*Math.PI;
-    //var minAreaSpace = Math.pow(minSpace,2)*Math.PI;
-    //var maxArea = Math.pow(maxValue,2)*Math.PI;
-    //var minArea = Math.pow(minValue,2)*Math.PI;
-    //var givenArea = Math.pow(areaVariableValue,2)*Math.PI;
 
-    //Flannery method: radius = e^(ln(value)*0.57)
-    var minFlannery = Math.exp(Math.log(minValue)*0.57);
-    var maxFlannery = Math.exp(Math.log(maxValue)*0.57);
-    var varFlannery = Math.exp(Math.log(areaVariableValue)*0.57);
+    //var unity = (maxSpace-minSpace)/(maxFlannery-minFlannery);
+    //var radius =  minFlannery + (varFlannery-minFlannery)*unity;
+    //return radius;
 
-    //console.log("minflan " + minFlannery);
-    //console.log("maxflan " +maxFlannery);
-    //console.log("varflan " +varFlannery);
+    var newMaxRadius = 1.0083 * Math.pow((adjustedMaxValue/adjustedMinValue),0.5716) * minRadius;
 
-    var unity = (maxSpace-minSpace)/(maxFlannery-minFlannery);
-    var radius =  minFlannery + (varFlannery-minFlannery)*unity;
-    return radius;
+    var newMinRadius = 1.0083 * Math.pow((adjustedMinValue/adjustedMinValue),0.5716) * minRadius;
 
-    //var resultMax = 1.0083 * Math.pow((maxValue/minValue),0.5716) * minAreaSpace;
-    //maxArea = resultMax;
-    //
-    //var resultMin = 1.0083 * Math.pow((minValue/minValue),0.5716) * minAreaSpace;
-    //minArea = resultMin;
-    //
-    //var result = 1.0083 * Math.pow((areaVariableValue/minValue),0.5716) * minAreaSpace;
-    //givenArea = result;
+    var newValueRadius = 1.0083 * Math.pow((adjustedValue/adjustedMinValue),0.5716) * minRadius;
 
+    var result = d3.scale.linear().range([minRadius,maxRadius]).domain([newMinRadius,newMaxRadius])(newValueRadius);
+
+    console.log(result);
+
+    return result;
 //    var unity = (maxAreaSpace-minAreaSpace)/(maxArea-minArea);
 ////    return minSpace + result*unity;
 //    var calculatedArea =  minAreaSpace + (givenArea-minArea)*unity;
