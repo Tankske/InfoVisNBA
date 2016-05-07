@@ -596,7 +596,7 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Incoming value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
+            return  "<strong>Incoming value </strong> <span style='color:#FDF3E7'>season " + (year-1) + "-" + year + "</span> <\p>" +
                 "Value of players who were not part of this team in the previous season but are playing in this team in the current season.</br>" +
                 "(Value taken of season " + (year-1) + "-" + year + ")";
         });
@@ -606,7 +606,7 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Outgoing value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
+            return  "<strong>Outgoing value </strong> <span style='color:#FDF3E7'>season " + (year-1) + "-" + year + "</span> <\p>" +
                 "Value of players who were playing in this team in the previous season and are not part of this team in the current season.</br>" +
                 "(Value taken of season " + (year-2) + "-" + (year-1) + ")";
         });
@@ -615,7 +615,7 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Stayed value </strong> <span style='color:black'>season " + (year-1) + "-" + year + "</span> <\p>" +
+            return  "<strong>Stayed value </strong> <span style='color:#FDF3E7'>season " + (year-1) + "-" + year + "</span> <\p>" +
                 "Difference in value between the current season and the previous season for players who were part of this team in both seasons.</br>" +
                 "(Difference taken between value of season " + (year-1) + "-" + year + " and " + (year-2) + "-" + (year-1) + ")";
         });

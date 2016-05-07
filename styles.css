@@ -105,11 +105,28 @@ div.bubblechart {
   font-weight: bold;
   padding: 5px;
   border-radius: 2px;
-  background: #7E8F7C;
-  border-color: black;
+  background: #3B3738;
   z-index: 10000;
   color: #FDF3E7;
-  opacity: 0.4s;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
 }
 
 .teambubble {
@@ -385,14 +402,16 @@ input[type=range]:focus::-ms-fill-upper {
     float: left;
     position: relative;
     width: 170px;
-    height: 100%
+    height: 600px
+    margin-left: 10px;
+    background-color: #C63D0F;
 }
 
 #sidebar.stick {
-    height: 1000px;
+    height: 512px;
     position: fixed;
-    margin-left: 0px;
-    width: 150px;
+    margin-left: 10px;
+    width: 170px;
     top: 200px;
 }
 
@@ -419,20 +438,15 @@ input[type=range]:focus::-ms-fill-upper {
   list-style: none;
   height: 100%;
   width: 100%;
-  margin: 5px;
   padding: 0;
 }
 
-
-
 #playervarform ul li{
-  color: #3B3738;
   display: block;
   position: relative;
   float: left;
-  width: 90%;
-  background: white;
-  margin: 0 5% 0 5%;
+  width: 100%;
+  margin: 0 0 0 0;
   text-align: center;
 }
 
@@ -451,9 +465,8 @@ input[type=range]:focus::-ms-fill-upper {
   font-weight: bold;
 }
 
-
 #playervarform ul li:hover label{
-  color: #C63D0F;
+  color: #FFB347;
 }
 
 #playervarform ul li .check{
@@ -462,8 +475,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 
 #playervarform input[type=radio]:checked ~ label{
-  color: #FDF3E7;
-  background: #C63D0F;
+  color: #C63D0F;
+  background: #FDF3E7;
 }
 
 #bubbleheader table {
