@@ -795,3 +795,7 @@ input[type=range]:focus::-ms-fill-upper {
     float: left;
     margin-left: 10px;
 }
+
+.aboutPage {
+	background-color: #C63D0F;
+}

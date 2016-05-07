@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
 
-    <body>
+    <body class="aboutPage">
         <h1><a href="./index.html">The visualisation</a></h1>
         <p> The visualization consists of three parts: </p>
             <ul>
@@ -17,9 +17,9 @@
 
         <h2>The bubble view</h2>
         <p>This view represents the playoffs of the current season. Only the 16 best teams compete in the playoffs to be the NBA champion. Every confrontation is between two teams of the same Conference, except for the final.
-        Each circle respresents a team, and the size of the circle represents the SRS-score of the team for the selected season.
+        Each circle represents a team, and the size of the circle represents the SRS-score of the team for the selected season.
         The stroke of a circle is gold, silver or bronze to show the teams that ended first, respectively second and third in their own Conference. All the other teams their stroke is red if the team is part of the Western Conference, or blue if the team is part of the Eastern Conference.
-        The two upmost teams are the winners of the playoffs in their own conference and compete in the final.
+        The two up most teams are the winners of the playoffs in their own conference and compete in the final.
         The lines between teams represent that those teams have encountered each other in the playoffs. A connection is always made between a team that stands higher and a team that stands lower. The highest team of the two teams has won the confrontation.
         The higher a team is, the further it has come. Their are 6 different levels. From top to bottom: Winner of the final (place 1), loser of the final (place 2), losers of the semi-finals (place 3), losers of the quarter-finals (place 4), losers of the 1/8-finales (place 5), teams that did not make it to the playoffs (place 6).
         If you go over a team, only the confrontations for that team are shown. If it is green, the confrontation was won by that team (and the team will be higher than the opponent team). If it is red, the confrontation was lost (and the team will be lower than the opponent team).</p>
@@ -27,8 +27,8 @@
         <h2>The statics (zoom) view</h2>
         <p>This view represents a more detailed view of the selected team.
         Their is a small bubble view to keep the overview of where the team is finished in the selected season.
-        The circle with black stroke and with the teamlogo respresents the selected team, and the size of the circle represents the SRS-score of the team for the selected season. The three circles with the grey stroke represent the maximum SRS score of all teams the current season, the average SRS score of all teams of the current season (always zero) and the minimum SRS score of all the teams of the current season.
-        The arrows represent a selected statistic for transfered and stayed players. 
+        The circle with black stroke and with the team logo represents the selected team, and the size of the circle represents the SRS-score of the team for the selected season. The three circles with the grey stroke represent the maximum SRS score of all teams the current season, the average SRS score of all teams of the current season (always zero) and the minimum SRS score of all the teams of the current season.
+        The arrows represent a selected statistic for transferred and stayed players. 
         The green arrow on the left is the arrow for incoming transfers, meaning it represents a value for players that played for the selected team in the selected season, but did not play for the team in the previous season. The value represented by the arrow is the value of the selected season  for the selected statistic.
         The red arrow on the left is the arrow for outgoing transfers, meaning it represents a value for players that played for the selected team in the previous season, but did not play for the team in the current season. The value represented by the arrow is the value of the previous season for the selected statistic.
         the arrow on the right represents a value for the stayed players (player for the team both current and previous season). The value represented by the arrow is the difference between the value of the current season and the value of the previous season for the selected statistic. If the overall score for the statistic is increased for the stayed players, the arrow is green and pointing upwards. If the overall score for the statistic is decreases for the stayed players, the arrow is red and pointing downwards.
@@ -60,8 +60,8 @@
                 <li>SRS: Simple Rating/Ranking System. The SRS (value) is the result of a basic ranking algorithm that calculates a score for a team. Every team's rating is their average point margin, adjusted up or down depending on the strength of their opponents. An average team would have a rating of zero. For a complete explanation, check <a href="http://www.pro-football-reference.com/blog/?p=37">SRS</a></li>
                 <li>PER: Player Efficiency Rating. A measure of per-minute production (attempts to take add up the good things, subtract the bad things, and account for team pace) standardized such that the league average is 15.</li>
                 <li>eFG%: Effective Field Goal Percentage. The number of field goals scored relative to the number of attempts. It is the effective field goal percentage because it adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.</li>
-                <li>ORtg: Offensive Rating. An estimate of points produced (players) or scored (teams) per 100 possessions. (a possesion is the time a team gains offensive possession of the ball until it scores, loses the ball, or commits a violation or fout)</li>
-                <li>DRtg: Defensive Rating. An estimate of points allowed per 100 possessions. (a possesion is the time a team gains offensive possession of the ball until it scores, loses the ball, or commits a violation or fault)</li>
+                <li>ORtg: Offensive Rating. An estimate of points produced (players) or scored (teams) per 100 possessions. (a possession is the time a team gains offensive possession of the ball until it scores, loses the ball, or commits a violation or fault)</li>
+                <li>DRtg: Defensive Rating. An estimate of points allowed per 100 possessions. (a possession is the time a team gains offensive possession of the ball until it scores, loses the ball, or commits a violation or fault)</li>
             </ul>
             <h2>Positions</h2>
                 <ul>
