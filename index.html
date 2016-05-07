@@ -44,6 +44,7 @@
 
         function drawBubbles(svg, x, y, w, h, year, back) {
             d3.select(".backbubble").remove();
+            
             if (back) {
                 svg.append("rect")
                     .attr("class", "backbubble")
@@ -54,18 +55,8 @@
                     .attr("width", w)
                     .attr("height", h);
             }
- 
-            drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h, back);
 
-            // d3.selectAll(".teambubble")
-            //     .on("click", function(d) {
-            //         team = d.team;
-            //         $("#bubbleheader h1").text(team);
-            //         if (view === "bubble") {
-            //             scrollMe("zoom");
-            //         }
-            //         drawFullTeamChange(window.year);
-            //     });
+            drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h, back);
 
             d3.select(".backbubble")
                 .on("click", function(d) {
