@@ -31,7 +31,6 @@
         function drawTeamChange(year) {
             redrawZoom(year);
             redrawField(year);
-            d3.select('miniBubbleSvg').selectAll("svg > *").remove();
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
@@ -47,27 +46,7 @@
 
 
         function drawBubbles(svg, x, y, w, h, year, back) {
-            d3.select(".backbubble").remove();
-            
-            if (back) {
-                svg.append("rect")
-                    .attr("class", "backbubble")
-                    .attr("fill", "#C63D0F")
-                    //.attr("opacity", "0")
-                    .attr("x", x)
-                    .attr("y", y)
-                    .attr("width", w)
-                    .attr("height", h);
-            }
-
             drawCircles(theData.filter(function(d) {return d.year == year}), "srs", "leaguerank", "playoffrank", "team", svg, x, y, w, h, back);
-
-            d3.select(".backbubble")
-                .on("click", function(d) {
-                    if (!(view === "bubble")) {
-                        scrollMe("bubble");
-                    }
-                });
         }
 
         function drawZoom(svg, x, y, w, h, year, team) {

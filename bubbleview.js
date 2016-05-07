@@ -127,8 +127,25 @@ function createDefinitions(svg, dataInput) {
 
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height, colors){
 
+		svg.selectAll("svg > *").remove();
+
         if (colors) {
             suffix = "small";
+            svg.append("rect")
+                    .attr("class", "backbubble")
+                    .attr("fill", "#C63D0F")
+                    //.attr("opacity", "0")
+                    .attr("x", xPos)
+                    .attr("y", yPos)
+                    .attr("width", width)
+                    .attr("height", height);
+
+            d3.select(".backbubble")
+                .on("click", function(d) {
+                    if (!(view === "bubble")) {
+                        scrollMe("bubble");
+                    }
+                });
         } else {
             suffix = "big";
         }
@@ -661,12 +678,12 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			catch(err) {
 					nameWinner = ''
 				}
-			if (rank == 2) {
+			if ((rank == 2) && (nameWinner != '')) {
 				d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
 				d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
 			} 
 				
-			else {
+			else if (nameWinner != '') {
 				d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
 				d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
 			}
