@@ -88,15 +88,17 @@ function updateTeamInfo(team, year){
        teamheader = d3.select("#bubbleheader")
        try{
        		teamheader.select("#teamname").text(team.team);
+       		teamheader.select("#srs").text("SRS: " + team.srs);
+       		teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);
+       		teamheader.select("#leaguerank").text("League rank: " + team.leaguerank);
        }
        catch(err){
-					teamheader.select("#teamname").text('No team selected');
+			teamheader.select("#teamname").text('No team selected');
+			teamheader.select("#srs").text("SRS: Na");
+       		teamheader.select("#playoffrank").text("Playoff rank: Na");
+       		teamheader.select("#leaguerank").text("League rank: Na");
 				}
        teamheader.select("#yearname").text((year-1) + "-" + year);
-
-       teamheader.select("#srs").text("SRS: " + team.srs);
-       teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);
-       teamheader.select("#leaguerank").text("League rank: " + team.leaguerank);
 }
 
 function createDefinitions(svg, dataInput) {

@@ -25,20 +25,24 @@
 
         function drawFullTeamChange(year) {
             drawTeamChange(year);
-            drawTeamStats(teamSvg, 0, 0, width, 180, year, team.team); } 
+            if (team != '')
+                drawTeamStats(teamSvg, 0, 0, width, 180, year, team.team); } 
 
         function drawTeamChange(year) {
             redrawZoom(year);
             redrawField(year);
+            d3.select('miniBubbleSvg').selectAll("svg > *").remove();
             drawBubbles(miniBubbleSvg, 0, 0, miniw, minih, year, true);
         }
 
         function redrawZoom(year) {
-            drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
+            if (team != '')
+                drawZoom(zoomSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
         }
 
         function redrawField(year) {
-            drawField(fieldSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
+            if (team != '')
+                drawField(fieldSvg, 0, 0, 0.8 * width, height - 380, year, team.team);
         }
 
 
