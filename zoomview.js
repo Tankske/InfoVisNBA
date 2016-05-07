@@ -611,21 +611,21 @@ function drawArrows(dataInput, teamName, year, arrowVariable, shirtScaler, playe
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Incoming value: </strong> <\p> Value of players who were not playing for the team in the previous season but are playing for the team in the current season."
+            return  "<strong>Total incoming value: </strong> <\p> Total value of the players who are new from this season. The number of new players is given between parantheses."
         }); 
 		
     var tipOutgoing = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Outgoing value: </strong> <\p> Value of players who were playing for the team in the previous season but are not playing of the team in the current season."
+            return  "<strong>Total outgoing value: </strong> <\p> Total value of the players who left before this season. The number of players who left is given between parantheses."
         });
 
     var tipStayed = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Stayed value: </strong> <\p> Difference in value of players who were playing for the team both in the current and the previous season."
+            return  "<strong>Total stayed value: </strong> <\p> The difference in value of players who were playing for the team both in the current and the previous season. The number of stayed players is given between parantheses."
         });
 
     svg.call(tipIncoming);
