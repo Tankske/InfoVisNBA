@@ -102,15 +102,17 @@ div.bubblechart {
   /* float: left; */
   top: 0;
   line-height: 1;
-  font-weight: bold;
-  padding: 5px;
+  /*font-weight: bold;*/
+  padding: 8px;
+  width: 160px;
+  font-size: 14px;
+  line-height: 1.2;
   border-radius: 2px;
   background: #3B3738;
   z-index: 10000;
   color: #FDF3E7;
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
   -webkit-transition: 
       opacity 0.2s ease-in-out,
         visibility 0.2s ease-in-out,
@@ -128,6 +130,7 @@ div.bubblechart {
   transform:         translate3d(0, 0, 0);
   pointer-events: none;
 }
+
 
 .teambubble {
     cursor: pointer;

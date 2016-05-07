@@ -1,3 +1,25 @@
+//Preprocessed min max values for players from 1985-2015
+var minMaxPEROnePlayer = [-16.6,35.3];
+var minMaxAgeOnePlayer = [18,43];
+//var minMaxEFGPercentageOnePlayer = [0,1];
+//var minMaxORtgOnePlayer = [15,175];
+//var minMaxDRtgOnePlayer = [78,120];
+//Self chosen values
+var minMaxEFGPercentageOnePlayer = [0.35,0.65];
+var minMaxORtgOnePlayer = [75,135];
+var minMaxDRtgOnePlayer = [75,135];
+
+var shirtWidth = 50;
+var shirtHeight = 70;
+
+var minWidthShirt = 34.75;
+var maxWidthShirt = 87.93;
+var minHeightShirt = minWidthShirt*shirtHeight/shirtWidth;
+var maxHeightShirt = maxWidthShirt*shirtHeight/shirtWidth;
+
+var minShirtScale = minWidthShirt/shirtWidth;
+var maxShirtScale = maxWidthShirt/shirtWidth;
+
 function showPlayerInfo(d) {
     pi = d3.select("#playerinfo");
     pi.select("#playername").text(d["Player"]);
@@ -15,15 +37,15 @@ function clearPlayerInfo() {
     d3.select("#playerinfo").selectAll("h2").text("");
 }
 
-var perScale = d3.scale.linear()
-                    .range([0.3, 3])
-                    .domain([0, 1600]);
+//var perScale = d3.scale.linear()
+//                    .range([0.3, 3])
+//                    .domain([0, 1600]);
 
-function exagerratedPerScale(per) {
-    var exagerratedPer = Math.pow(per, 2);
-    if (per < 0) { exagerratedPer = 0; }
-    return perScale(exagerratedPer);
-}
+//function exagerratedPerScale(per) {
+//    var exagerratedPer = Math.pow(per, 1.5);
+//    if (per < 0) { exagerratedPer = 0; }
+//    return perScale(exagerratedPer);
+//}
 
 function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
     players = data.find(function (d) {
@@ -146,6 +168,69 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
     }
 }
 
+function scaleShirtPer(per) {
+	var result = exagerratedPerScaleShirt(per, minMaxPEROnePlayer[0], minMaxPEROnePlayer[1], minShirtScale, maxShirtScale);
+	return result;	
+}
+
+function scaleShirtDRtg(dRtg) {
+	var result = perceptionScaleShirt(dRtg, minMaxDRtgOnePlayer[0], minMaxDRtgOnePlayer[1], minShirtScale, maxShirtScale);
+	return result;	
+}
+
+function scaleShirtORtg(oRtg) {
+	var result = perceptionScaleShirt(oRtg, minMaxORtgOnePlayer[0], minMaxORtgOnePlayer[1], minShirtScale, maxShirtScale);
+	return result;	
+}
+
+function scaleShirtEFGP(efgp) {
+	var result = perceptionScaleShirt(efgp, minMaxEFGPercentageOnePlayer[0], minMaxEFGPercentageOnePlayer[1], minShirtScale, maxShirtScale);
+	return result;	
+}
+
+function scaleShirtAge(age) {
+	var result = perceptionScaleShirt(age, minMaxAgeOnePlayer[0], minMaxAgeOnePlayer[1], minShirtScale, maxShirtScale);
+	return result;	
+}
+
+function exagerratedPerScaleShirt(value, minValue, maxValue, minRange, maxRange) {
+    
+	if (value < 0) { value = 0; }
+	if (minValue < 0) { minValue = 0; }
+	var newMaxSide = Math.pow(maxValue, 1.5);
+    var newMinSide = Math.pow(minValue, 1.5);
+    var newValueSide = Math.pow(value, 1.5);
+    console.log(newMaxSide);
+	console.log(newMinSide);
+	console.log(newValueSide);
+    var result = d3.scale.linear().clamp(true).range([minRange,maxRange]).domain([newMinSide,newMaxSide])(newValueSide);
+
+    return result;
+}
+
+function perceptionScaleShirt(value, minValue, maxValue, minRange, maxRange) {
+    
+	var adjustedMinValue = minValue;
+	var adjustedMaxValue = maxValue;
+	var adjustedValue = value;
+	
+	if (minValue <= 0) {
+		//Get rid of negative values
+    var adjustedMinValue = minValue - minValue +1;
+    var adjustedMaxValue = maxValue - minValue +1;
+    var adjustedValue = value - minValue +1;
+	}
+	
+	
+    var newMaxSide = 1.0083 * Math.pow((adjustedMaxValue/adjustedMinValue),0.5716) * minRange;
+    var newMinSide = 1.0083 * Math.pow((adjustedMinValue/adjustedMinValue),0.5716) * minRange;
+    var newValueSide = 1.0083 * Math.pow((adjustedValue/adjustedMinValue),0.5716) * minRange;
+
+    var result = d3.scale.linear().clamp(true).range([minRange,maxRange]).domain([newMinSide,newMaxSide])(newValueSide);
+
+    return result;
+}
+
 function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
     team = fixteamname(team);
     var shirtColor = ShirtColors[team].shirt;
@@ -251,7 +336,7 @@ function drawScaledShirt(xPos, yPos, player, team, chart, scale) {
         .attr("font-family", "Helvetica")
         .attr("font-weight", "bold")
         .attr("font-size", 25 * scale + "px")
-        .text(player['No.']);
+        .text(parseFloat(player['No.']).toFixed(0));
 
     playerShirt.on('mouseover', function (d) {
         showPlayerInfo(player);

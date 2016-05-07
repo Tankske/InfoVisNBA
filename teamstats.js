@@ -43,52 +43,73 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     var ratingScale = d3.scale.linear()
         .range([singleHeight, 0])
-        .domain([95, 125]);
+        .domain([90, 125]);
 
     var totalPerScaler = d3.scale.linear()
         .range([singleHeight, 0])
         .domain([100, 300]);
 
-    var tipPer = d3.tip()
+    var tipLeagueRank = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>Player Efficiency Rating:</strong> <span style='color:black'>The PER sums up all a player's<br /> positive accomplishments, subtracts the negative accomplishments,<br/> and returns a per-minute rating of a player's performance.</span>";
+            return  "The end position of the team in the regular competition.";
         });
 
+	var tipPlayoffRank = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "The end position of the team in the playoffs.";
+        });
+		
+	var tipAge = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "The average age of the team.";
+        });
+		
+	var tipPer = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return  "The total Player Efficiency Rating of the team.";
+        });
+		
     var tipSRS = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>SRS (Simple Rating System):</strong> <span style='color:black'>A score for a team based on the results of the teams.</span>";
+            return  "The Simple Rating System-score of the team.</span>";
         });
 
     var tipAudience = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<span style='color:black'>The total audience this season.</span>";
+            return  "The total audience this season.";
         });
 
     var tipOrtg = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<span style='color:black'>Estimate of the number of points scored per 100 possessions.</span>";
+            return  "An estimate of the number of points scored per 100 possessions.";
         });
 
     var tipDrtg = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<span style='color:black'>Estimate of the number of points allowed per 100 possessions.</span>";
+            return  "An estimate of the number of points allowed per 100 possessions.";
         });
 
     var bases = [//{ name: 'Field goal %', dataSelector: function(d) {return d.team.info['FG%'];}, scaler: fgScale, type: "line"}
             { name: 'Total PER', dataSelector: function(d) {return d.team.totalper; }, scaler: totalPerScaler, type: "line", format: d3.format(".0f"), tip: tipPer}
-            ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line", format: d3.format("d")}
-            ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line", format: d3.format("d")}
-            ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line", format: d3.format(".1f")}
+            ,{ name: 'League Rank', dataSelector: function(d) {return d.team.leaguerank; }, scaler: rankScale, type: "line", format: d3.format("d"), tip: tipLeagueRank}
+            ,{ name: 'Playoff Rank', dataSelector: function(d) {if (d.team.playoffrank != undefined) {return d.team.playoffrank;} else { return 6;} }, scaler: poRankScale, type: "line", format: d3.format("d"), tip: tipPlayoffRank}
+            ,{ name: 'Average Age', dataSelector: function(d) {return d.team.misc.Age;}, scaler: ageScale, type: "line", format: d3.format(".1f"), tip: tipAge}
             ,{ name: 'Audience', dataSelector: function(d) {return d.team.misc.Attendance;}, scaler: audienceScale, type: "area", format: d3.format(".3sr"), tip: tipAudience}
             ,{ name: 'SRS', dataSelector : function(d) { return d.team.srs; }, scaler: srsScale, type: "area", format: d3.format(".2f"), tip: tipSRS}
             //,{ name: 'Points/Game', dataSelector: function(d) {return d.team.info['PTS/G'];}, scaler: pointScale, type: "area"}
@@ -96,7 +117,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
             ,{ name: 'Offensive Rating', dataSelector: function(d) {return d.team.misc.ORtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f"), tip: tipOrtg}
             ,{ name: 'Defensive Rating', dataSelector: function(d) {return d.team.misc.DRtg;}, scaler: ratingScale, type: "area", format: d3.format(".0f"), tip: tipDrtg}
             ];
-
+			
     //var color = d3.scale.category10();
     var color = function (d) { return "#C63D0F"; }
 
@@ -149,6 +170,9 @@ function drawTs(data, team, year, div, x, y, width, height) {
     svg.call(tipAudience);
     svg.call(tipOrtg);
     svg.call(tipDrtg);
+	svg.call(tipLeagueRank);
+    svg.call(tipAge);
+    svg.call(tipPlayoffRank);
 
 
     svg.append("path")
@@ -261,3 +285,4 @@ function drawTs(data, team, year, div, x, y, width, height) {
 
     fixcyline();
 } 
+
