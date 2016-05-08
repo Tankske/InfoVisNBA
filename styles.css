@@ -346,7 +346,6 @@ input[type=range]:focus::-ms-fill-upper {
     overflow: hidden;
     float: right;
     top: 0;
-    background-color: rgba(253,243,231,0.7);
 }
 
 #minibubbles.stick {
@@ -437,7 +436,6 @@ input[type=range]:focus::-ms-fill-upper {
 #playerinfo {
     float: left;
     position: relative;
-    border-radius: 25px;
     background: rgba(253,243,231,0.7);
 
 }
