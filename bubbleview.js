@@ -18,6 +18,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 34)
 					.text('Team ended first in conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -31,6 +32,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 54)
 					.text('Team ended second in conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -44,6 +46,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 74)
 					.text('Team ended third in conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -57,6 +60,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 93)
 					.text('Team part of western conference')
+					.attr("fill", "#FDF3E7");
 
 		legende.append('circle')
 					.attr("r", 5)
@@ -70,6 +74,7 @@ function drawLegend(){
 					.attr('dx', 40)
 					.attr('dy', 113)
 					.text('Team part of eastern conference')
+					.attr("fill", "#FDF3E7");
 }
 
 function removeTeamInfo(){
@@ -81,25 +86,73 @@ function removeTeamInfo(){
 
 function updateTeamInfo(team, year){
        teamheader = d3.select("#bubbleheader")
-
-       teamheader.select("#teamname").text(team.team);
+       try{
+       		teamheader.select("#teamname").text(team.team);
+       		teamheader.select("#srs").text("SRS: " + team.srs);
+       		teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);
+       		teamheader.select("#leaguerank").text("League rank: " + team.leaguerank);
+       }
+       catch(err){
+			teamheader.select("#teamname").text('No team selected');
+			teamheader.select("#srs").text("SRS: Na");
+       		teamheader.select("#playoffrank").text("Playoff rank: Na");
+       		teamheader.select("#leaguerank").text("League rank: Na");
+				}
        teamheader.select("#yearname").text((year-1) + "-" + year);
+}
 
-       teamheader.select("#srs").text("SRS: " + team.srs);
-       teamheader.select("#playoffrank").text("Playoff rank: " + team.playoffrank);
-       teamheader.select("#leaguerank").text("League rank: " + team.leaguerank);
+function createDefinitions(svg, dataInput) {
+	
+	svg.selectAll('defs').remove();
+	var node = svg.selectAll('node')
+				.data(dataInput[0].teams);
+
+	var defs = node.enter().append('defs');
+
+		defs.append('pattern')
+                .attr('id', function(data) { return (fixteamname(data.team)+"logo");}) // just create a unique id (id comes from the json)
+				.attr('patternContentUnits', 'objectBoundingBox')
+				.attr('width', 1)
+				.attr('height', 1)
+				.append("svg:image")
+				.attr("xlink:xlink:href", function(data) { 
+                    return ("./teamlogos/" + (fixteamname(data.team) + ".png"));})
+				.attr("height", 0.8)
+				.attr("width", 0.8)
+				.attr("x", 0.1)
+				.attr("y", 0.1)
+				.attr("preserveAspectRatio", "xMidYMid meet");
 }
    		
 
 function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable, id, svg, xPos, yPos, width, height, colors){
 
+		svg.selectAll("svg > *").remove();
+
         if (colors) {
             suffix = "small";
+            svg.append("rect")
+                    .attr("class", "backbubble")
+                    .attr("fill", "#C87153")
+                    //.attr("opacity", "0")
+                    .attr("x", xPos)
+                    .attr("y", yPos)
+                    .attr("width", width)
+                    .attr("height", height);
+
+            d3.select(".backbubble")
+                .on("click", function(d) {
+                    if (!(view === "bubble")) {
+                        scrollMe("bubble");
+                    }
+                });
         } else {
             suffix = "big";
         }
 
 		height = height;
+
+		createDefinitions(svg, dataInput)
 
 		var playOffs = dataInput[0].playoffs;
 		var dataInput = dataInput[0].teams;
@@ -186,19 +239,21 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		// Returns an event handler for fading a given chord group.
 		function fade(opacity) {
 		  return function(g, i) {
-		  	//console.log(svg.selectAll(".circles"));
 		    svg.selectAll(".circles")
-		        //.filter(function(d) { return d.source.index != i && d.target.index != i; })
 		      .transition()
 		        .style("opacity", opacity);
 		  };
 		}
 		
-		var radius = d3.scale.sqrt()
+//		var radius = d3.scale.sqrt()
+//				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
+//					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
+//				.range([width/60,width/20])
+
+		var radius = d3.scale.pow().exponent(1.5)
 				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
 					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
 				.range([width/60,width/20])
-
 		
 		function strokeColor(strokeVariable, groupVariable){
 			if (strokeVariable == 1)
@@ -215,22 +270,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 				return "black";
 		}
 
-		var node = svg.selectAll('node')
-				.data(dataInput);
-		var defs = node.enter().append('defs');
-		defs.append('pattern')
-                .attr('id', function(data) { return (fixteamname(data[id])+"logo");}) // just create a unique id (id comes from the json)
-				.attr('patternContentUnits', 'objectBoundingBox')
-				.attr('width', 1)
-				.attr('height', 1)
-				.append("svg:image")
-				.attr("xlink:xlink:href", function(data) { 
-                    return ("./teamlogos/" + (fixteamname(data[id]) + ".png"));})
-				.attr("height", 0.8)
-				.attr("width", 0.8)
-				.attr("x", 0.1)
-				.attr("y", 0.1)
-				.attr("preserveAspectRatio", "xMidYMid meet");  		
+		  		
 
         var chart = svg.append("g")			//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
                         .attr("class","chart bubblechart")
@@ -289,7 +329,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
             appendToMe.append("circle")
 							.attr("class","circle teambubble")
 							.attr("id", function(data){
-                                    //visibleBoolean = true;
                                     return fixteamname(data[id]) + suffix})
 			    			.attr("r",function(data)
 								{return radius(parseFloat(data["srs"])); })
@@ -301,7 +340,10 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 			    					})
                             .style("fill", function(data) { 
                                 if (colors) { 
-                                    return "lightgrey";
+                                	if (team.team == data.team)
+                                		return 'red';
+                                	else
+                                    	return "lightgrey";
                                 } else {
                                     return ("url(#" + fixteamname(data[id]) + "logo)");
                                 }
@@ -311,49 +353,62 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                                 return strokeColor(data[strokeVariable], data.region);
 			    					})
       						.on('click', function(data){
-      								team = data;
-                                    highlights.selectAll(".selectedcircle").remove();
-      								d3.selectAll(".arc").style("visibility", "hidden");
-                                    var name = fixteamname(data.team);
-                                    d3.selectAll("."+name).style("visibility", "visible");
-                                    d3.selectAll("."+name).attr("stroke", "green")
-									region = data.region
-									rank = data.playoffrank
-									try {
-										    nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == data.team})[0].winner)
+      								if (team != '')
+	      									var previousTeam = team.team;
+      								if (!(view === "bubble")) {
+				                        scrollMe("bubble");
+				                       	visibleBoolean = !visibleBoolean;
+	   									team = ''
+				                    } else {
+	      								team = data;
+	                                    highlights.selectAll(".selectedcircle").remove();
+	      								d3.selectAll(".arc").style("visibility", "hidden");
+	                                    var name = fixteamname(data.team);
+	                                    d3.selectAll("."+name).style("visibility", "visible");
+	                                    d3.selectAll("."+name).attr("stroke", "green")
+										region = data.region
+										rank = data.playoffrank
+										try {
+											    nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == data.team})[0].winner)
+											}
+											catch(err) {
+	   											nameWinner = ''
+	   										}
+										if (rank == 2) {
+											d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
+											d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
+										} 
+										else {
+											d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
+											d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
 										}
-										catch(err) {
-   											nameWinner = ''
-   										}
-									if (rank == 2) {
-										d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
-										d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
-									} 
-										
-									else {
-										d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
-										d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
-									}
-   									visibleClass = '';
-   									visibleBoolean = !visibleBoolean;
-									if (!visibleBoolean){
-   										visibleClass = name;
-					                    $("#bubbleheader h1").text(data.team);
-					                    console.log(highlights)
-                                        highlights
-                                            .append("circle")
-                                            .attr("fill", "red")
-                                            .attr("r", d3.select(this).attr("r"))
-                                            .attr("cx", d3.select(this).attr("cx"))
-                                            .attr("cy", d3.select(this).attr("cy"))
-                                            .attr("z-index", "-100")
-                                            .attr("stroke", "none")
-                                            .attr("class", "selectedcircle");
-					                    if (view === "bubble") {
-					                        scrollMe("zoom");
-					                    }
-					                    drawFullTeamChange(window.year);
-					                }
+	   									visibleClass = '';
+	   									console.log(visibleBoolean)
+	   									if (previousTeam == data.team){
+	   										visibleBoolean = !visibleBoolean;
+	   										team = ''
+	   									}
+	   									if (visibleBoolean && previousTeam != data.team){
+	   										visibleBoolean = !visibleBoolean;
+	   									}
+										if (!visibleBoolean && (view === "bubble")){
+	   										visibleClass = name;
+						                    $("#bubbleheader h1").text(data.team);
+	                                        highlights
+	                                            .append("circle")
+	                                            .attr("class", "selectedcircle")
+	                                            .attr("fill", "red")
+	                                            .attr("r", d3.select(this).attr("r"))
+	                                            .attr("cx", d3.select(this).attr("cx"))
+	                                            .attr("cy", d3.select(this).attr("cy"))
+	                                            .attr("z-index", "-100")
+	                                            .attr("stroke", "none")
+						                    if (view === "bubble") {
+						                        scrollMe("zoom");
+						                    }
+						                    drawFullTeamChange(window.year);
+						                }
+						            }
       						})
    							.on('mouseover', function(data) {
                                     highlights.selectAll(".highlightcircle").remove();
@@ -367,7 +422,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                                         .attr("stroke", "none")
                                         .attr("class", "highlightcircle");
    									updateTeamInfo(data, window.year)
-   									if (visibleBoolean){
+   									if (true){
    										d3.selectAll(".arc").style("visibility", "hidden");
                                         name = fixteamname(data.team);
    										d3.selectAll("."+name).style("visibility", "visible");
@@ -380,7 +435,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 										catch(err) {
    											nameWinner = ''
    										}
-   										console.log(".r"+rank+'.'+region+'.'+nameWinner)
    										if (rank == 2) {
    											d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
    											d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
@@ -398,8 +452,32 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       								if (visibleBoolean){
       									d3.selectAll(".arc").style("visibility", "visible");
       									d3.selectAll(".arc").attr("stroke", "green")
+
 									} else {
+										d3.selectAll(".arc").style("visibility", "hidden");
                                         updateTeamInfo(team, window.year);
+      									console.log(team)
+                                        var name = fixteamname(team.team);
+	                                    d3.selectAll("."+name).style("visibility", "visible");
+	                                    d3.selectAll("."+name).attr("stroke", "green")
+										region = team.region
+										rank = team.playoffrank
+										try {
+											    nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == team.team})[0].winner)
+											}
+											catch(err) {
+	   											nameWinner = ''
+	   										}
+										if (rank == 2) {
+											d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
+											d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
+										} 
+											
+										else {
+											d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
+											d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
+										}
+
 									}
 									
                             });
@@ -407,8 +485,6 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
         appendCircles(circleWest);
         appendCircles(circleEast);
-
-
 
         d3.selectAll("#bubblevis .teambubble")
             .call(function (d) {
@@ -526,10 +602,11 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
 
-      								else 
+      								else { 
                                         return  {	"x": document.getElementById(fixteamname(loser.team) + suffix).cx.animVal.value, 
                                                     "y": document.getElementById(fixteamname(loser.team) + suffix).cy.animVal.value
-                     													}; }))
+                     													}}
+                     													; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
 
@@ -537,9 +614,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 
       arcs.append("path")
       				.attr("class", function(data){
-      								//winner = dataInput.filter(function(d) { return d.team == data.winner})[0];
 									loser = dataInput.filter(function(d) { return d.team == data.loser})[0];
-      								//console.log(dataInput.filter(function(d) {return d[id] == data.winner })[0])
                                     return "arc" + " " + fixteamname(data["winner"]) + " " + loser.region + " r" + loser.playoffrank + " " +  fixteamname(data["loser"]) + " " + data["game"]})
       				.attr("stroke", "green")
       				.attr("stroke-width", 5)
@@ -572,16 +647,17 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
                      				else if (winner.playoffrank == 2 && loser.playoffrank == 5) 
                      					return {	"x": layoutDict.Second.second[0],
                      								"y": layoutDict.Second.second[1]	}
-      								else 
+      								else {	
                                         return  {	"x": document.getElementById(fixteamname(winner.team) + suffix).cx.animVal.value, 
                      								"y": document.getElementById(fixteamname(winner.team) + suffix).cy.animVal.value
-                     													}; }))
+                     													}}
+                     													; }))
       				.style("fill", "none")
       				.style("visibility", visibleBoolean ? "visible" : "hidden");
       i = 0
 
       d3.select("."+visibleClass).style("visibility", "visible");
-      d3.select("."+visibleClass+"circles").style('fill','orange');
+      d3.select("."+visibleClass+"circles").style('fill','#FFB347');
 
       d3.selection.prototype.moveToFront = function() {
  					return this.each(function(){
@@ -592,7 +668,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
       d3.selectAll("#circlesEast").moveToFront();
       d3.selectAll("#circlesWest").moveToFront();
       
-      if (team != null){
+      if (team != null && !visibleBoolean){
 			highlights.selectAll(".selectedcircle").remove();
 			d3.selectAll(".arc").style("visibility", "hidden");
             var name = fixteamname(team.team);
@@ -600,20 +676,23 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
             d3.selectAll("."+name).attr("stroke", "green")
 			region = team.region
 			rank = team.playoffrank
-			nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == team.team})[0].winner) || ''
-			if (rank == 2) {
+			try{
+				nameWinner = fixteamname(playOffs.filter(function(d) { return d.loser == team.team})[0].winner) || ''
+			}
+			catch(err) {
+					nameWinner = ''
+				}
+			if ((rank == 2) && (nameWinner != '')) {
 				d3.selectAll(".r"+rank).filter('.'+nameWinner).style("visibility", "visible");
 				d3.selectAll(".r"+rank).filter('.'+nameWinner).attr("stroke", "red")
 			} 
 				
-			else {
+			else if (nameWinner != '') {
 				d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).style("visibility", "visible");
 				d3.selectAll(".r"+rank).filter('.'+region).filter('.'+nameWinner).attr("stroke", "red")
 			}
 			visibleClass = name;
             $("#bubbleheader h1").text(team.team);
-            //console.log(d3.select('#chicagobullsbig'))
-            console.log('#'+name)
             highlights
                 .append("circle")
                 .attr("fill", "red")

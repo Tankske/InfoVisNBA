@@ -12,6 +12,9 @@ body {
 	margin: 	auto;
 	height: 	100%;
 	width: 		1000px;
+	color: #FDF3E7;
+	font-family:Roboto;
+	font-weight: 200;
 }
 
 .wrapper {
@@ -28,6 +31,11 @@ body {
  position: relative;
 }
 
+.info svg {
+  margin-top: 30px;
+  color: #FDF3E7;
+}
+
 #legende {
   font-size: small;
 }
@@ -35,6 +43,7 @@ body {
 header {
 	position: relative;
 	height: 100px;
+
 }
 
 .header {
@@ -51,7 +60,8 @@ footer {
 
 h1 {
 	font-size: 250%;
-	margin: 10px 0 10px 0px;
+	margin: 10px 10px 10px 10px;
+  color: #FFB347;
 }
 
 svg {
@@ -60,20 +70,17 @@ svg {
 
 div.bubblechart {
   font: 10px sans-serif;
-  background-color: steelblue;
+  
   text-align: right;
   padding: 3px;
   margin: 1px;
-  color:white;
 }
 
 
 .bubblechart rect {
-  fill: steelblue;
 }
 
 .bubblechart text {
-	fill: white;
   font: 10px sans-serif;
   text-anchor: end;
 }
@@ -95,13 +102,35 @@ div.bubblechart {
   /* float: left; */
   top: 0;
   line-height: 1;
-  font-weight: bold;
-  padding: 5px;
+  /*font-weight: bold;*/
+  padding: 8px;
+  width: 160px;
+  font-size: 14px;
+  line-height: 1.2;
   border-radius: 2px;
-  background: grey;
-  border-color: black;
+  background: #3B3738;
   z-index: 10000;
+  color: #FDF3E7;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
 }
+
 
 .teambubble {
     cursor: pointer;
@@ -112,8 +141,11 @@ div.bubblechart {
 }
 
 #yearSlider {
-    text-align: center; 
+    text-align: center;
     vertical-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-top: -10px;
 }
 
 .scrollable {
@@ -128,42 +160,43 @@ div.bubblechart {
     width: 760px;
     top: 0;
     float: left;
-    background: lightgrey;
+    background: #C87153;
     height: 200px;
 }
 
 #bubbleheader.stick {
     position:fixed;
+    /* margin-left: 10px; */
 }
 
 .headerblocker {
-    height: 200px;
-    background: white;
+    height: 205px;
     /* z-index: 10; */
 }
 
 #timelinefooter {
     position: fixed;
-    height: 80px;
+    height: 60px;
     width: 1000px;
     bottom: 0;
-    background: lightgrey;
+    background: #C87153;
     z-index: 10;
 }
 
 /* Styling the slider */
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  color: white;
   width: 990px; /* Specific width is required for Firefox. */
 }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    height: 16px;
+    height: 24px;
     width: 16px;
     border-radius: 50%;
-    background: goldenrod;
+    background: #C87153;
     margin-top: -4px;
 }
 
@@ -182,13 +215,12 @@ input[type=range]::-ms-track {
 /* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
+  height: 20px;
+  width: 8px;
   border-radius: 3px;
   background: #ffffff;
   cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
 }
 
@@ -196,8 +228,8 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
+  height: 20px;
+  width: 8px;
   border-radius: 3px;
   background: #ffffff;
   cursor: pointer;
@@ -207,8 +239,8 @@ input[type=range]::-moz-range-thumb {
 input[type=range]::-ms-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
+  height: 20px;
+  width: 8px;
   border-radius: 3px;
   background: #ffffff;
   cursor: pointer;
@@ -216,23 +248,20 @@ input[type=range]::-ms-thumb {
 
 input[type=range]::-webkit-slider-runnable-track {
   width: 80%;
-  height: 8.4px;
+  height: 3px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
+  background: #ffffff;
   border-radius: 1.3px;
-  border: 0.2px solid #010101;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #367ebd;
+  background: #ffffff;
 }
 
 input[type=range]::-moz-range-track {
   width: 80%;
   height: 8.4px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
@@ -248,53 +277,52 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
+  background: #C87153;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
+  background: #C87153;
 }
 input[type=range]::-ms-fill-upper {
-  background: #3071a9;
+  background: #C87153;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
+  background: #C87153;
 }
 
 .circleTeam {
     stroke: #000;
-    fill: #fff;
     /*shape-rendering: crispEdges;*/
 }
 
 .arrowIn {
     stroke-linecap: butt;
-    stroke: green;
-    fill: green;
+    stroke: #03C03C;
+    fill: #03C03C;
     shape-rendering: crispEdges;
 }
 
 .arrowOut {
     stroke-linecap: butt;
-    stroke: red;
-    fill: red;
+    stroke: #C23B22;
+    fill: #C23B22;
     shape-rendering: crispEdges;
 }
 
 .arrowStayedUp {
     stroke-linecap: butt;
-    stroke: green;
-    fill: green;
+    stroke: #03C03C;
+    fill: #03C03C;
 }
 .arrowStayedDown {
     stroke-linecap: butt;
-    stroke: red;
-    fill: red;
+    stroke: #C23B22;
+    fill: #C23B22;
 }
 
 
@@ -315,14 +343,15 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #teamvis {
-    background: lightgrey;
     width: 1000px;
+    background: #C87153;
+    color: white;
     position: relative;
 }
 
 #teamvis.stick {
     position:fixed;
-    bottom: 80px;
+    bottom: 50px;
     z-index: 100;
 }
 
@@ -335,8 +364,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .curYearLine {
-    fill: none;
-    stroke: blue;
+    fill: white;
+    stroke: white;
+    opacity: 1;
 }
 
 .smallm_g {
@@ -367,59 +397,64 @@ input[type=range]:focus::-ms-fill-upper {
 #varchoosesidebar {
   float: left;
   position: relative;
-  background: lightgrey;
 }
 
 #varchoosesidebar.stick {
   position: fixed;
   top: 200px;
-  width: 200px;
+  width: 170px;
 }
 
 #sidebar {
     float: left;
     position: relative;
-    width: 20%;
-    background: lightgrey;
-    height: 100%
+    width: 170px;
+    height: 600px
+    margin-left: 10px;
+    background-color: #C87153;
 }
 
 #sidebar.stick {
-    height: 1000px;
+    height: 600px;
     position: fixed;
-    width: 200px;
+    /* margin-left: 10px; */
+    width: 170px;
     top: 200px;
 }
 
 #playerinfo {
     float: left;
     position: relative;
+    border-radius: 25px;
+    background: #C87153;
+
 }
 
 #playerinfo.stick {
     position:fixed;
-    width: 160px;
-    bottom: 280px;
-    padding: 0px 20px 0px 20px;
+    width: 150px;
+    bottom: 300px;
+    padding: 0px 0px 0px 20px;
+}
+
+#playerinfo.stick h2 {
+    color: #FFB347;
 }
 
 #varchoosesidebar form ul{
   list-style: none;
   height: 100%;
   width: 100%;
-  margin: 0;
   padding: 0;
 }
 
-
 #playervarform ul li{
-  color: #302505;
   display: block;
   position: relative;
   float: left;
-  width: 90%;
-  background: #b3b3b3;
-  margin: 0 5% 0 5%;
+  width: 100%;
+  margin: 0 0 0 0;
+  text-align: center;
 }
 
 #playervarform ul li input[type=radio]{
@@ -430,29 +465,30 @@ input[type=range]:focus::-ms-fill-upper {
 #playervarform ul li label{
   display: block;
   position: relative;
-  font-weight: 300;
-  font-size: 1.35em;
+  font-size: 15px;
   padding: 15px 20px 15px 10px;
   height: 18px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 #playervarform ul li:hover label{
-	color: #FFFFFF;
+  color: #FFB347;
 }
 
 #playervarform ul li .check{
   display: none;
 }
 
+
 #playervarform input[type=radio]:checked ~ label{
-  color: white;
-  background: #993333;
+  color: #C87153;
+  background: #FDF3E7;
 }
 
 #bubbleheader table {
     width: 100%;
-    margin: 0;
+    margin-left: 10px;
 }
 
 #bubbleheader table td {
@@ -479,7 +515,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 #legende {
     height: 200px;
-    background: lightgrey;
+    background: #C87153;
 }
 
 #playerinfo p {
@@ -727,7 +763,7 @@ input[type=range]:focus::-ms-fill-upper {
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #fff;
+    color: #C87153;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -735,7 +771,7 @@ input[type=range]:focus::-ms-fill-upper {
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    top: 0px;
+    top: -20px;
     left: 100%;
 }
 
@@ -743,6 +779,7 @@ input[type=range]:focus::-ms-fill-upper {
     visibility: visible;
     cursor: default;
 }
+
 
 .about {
     top: 0;
@@ -752,7 +789,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .about a {
-    color: black;
+    color: hsl(0, 0%, 100%);
     font-size: 16pt;
     text-decoration: none;
 }
@@ -761,4 +798,22 @@ input[type=range]:focus::-ms-fill-upper {
     width: 600px;
     float: left;
     margin-left: 10px;
+}
+
+.aboutPage {
+	background-color: #C87153;
+}
+
+.smallmultiple text {
+    color: white;
+    fill: white;
+}
+
+.smallmultiple .axis {
+    fill: white;
+}
+
+.smallmultiple .axis path,
+.smallmultiple .axis line {
+    stroke: white;
 }
