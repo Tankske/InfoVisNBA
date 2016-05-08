@@ -119,7 +119,7 @@ function drawTs(data, team, year, div, x, y, width, height) {
             ];
 			
     //var color = d3.scale.category10();
-    var color = function (d) { return "#C63D0F"; }
+    var color = function (d) { return "blue"; }
 
     var x = d3.scale.linear()
     .range([0, singleWidth])

@@ -133,7 +133,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
             suffix = "small";
             svg.append("rect")
                     .attr("class", "backbubble")
-                    .attr("fill", "#C63D0F")
+                    .attr("fill", "#C87153")
                     //.attr("opacity", "0")
                     .attr("x", xPos)
                     .attr("y", yPos)
