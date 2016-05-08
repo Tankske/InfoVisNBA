@@ -94,7 +94,6 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function (d) {
-            console.log(d);
             return "<strong>" + d + " </strong>";
         });
     chart.call(tipPosition);
@@ -200,9 +199,6 @@ function exagerratedPerScaleShirt(value, minValue, maxValue, minRange, maxRange)
 	var newMaxSide = Math.pow(maxValue, 1.5);
     var newMinSide = Math.pow(minValue, 1.5);
     var newValueSide = Math.pow(value, 1.5);
-    console.log(newMaxSide);
-	console.log(newMinSide);
-	console.log(newValueSide);
     var result = d3.scale.linear().clamp(true).range([minRange,maxRange]).domain([newMinSide,newMaxSide])(newValueSide);
 
     return result;

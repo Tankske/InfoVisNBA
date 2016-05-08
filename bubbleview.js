@@ -101,6 +101,11 @@ function updateTeamInfo(team, year){
        teamheader.select("#yearname").text((year-1) + "-" + year);
 }
 
+/*		var radius = d3.scale.pow().exponent(1.5)
+				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
+					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
+				.range([width/60,width/20])*/
+
 function createDefinitions(svg, dataInput) {
 	
 	svg.selectAll('defs').remove();
@@ -250,10 +255,37 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 //					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
 //				.range([width/60,width/20])
 
-		var radius = d3.scale.pow().exponent(1.5)
+
+		function getRadius(srsValue) {
+			var maxRadius = width/60;
+			var minRadius = width/200;
+			//Preprocessed
+			var minValue = -14.68;
+			var maxValue = 11.8;
+
+			//Get rid of negative values
+			var adjustedMinValue = minValue - minValue +1;
+			var adjustedMaxValue = maxValue - minValue +1;
+			var adjustedValue = srsValue - minValue +1;
+
+			// Quadratic
+			var newMaxRadius = Math.pow(adjustedMaxValue, 1.5);
+			var newMinRadius = Math.pow(adjustedMinValue, 1.5);
+			var newValueRadius = Math.pow(adjustedValue, 1.5);
+
+			var result = d3.scale.linear().range([minRadius,maxRadius]).domain([adjustedMinValue,adjustedMaxValue])(newValueRadius);
+			
+			
+			return result;
+		}
+
+		/*var radius = d3.scale.pow().exponent(1.5)
 				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
 					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
-				.range([width/60,width/20])
+				.range([width/60,width/20]);
+				
+		*/
+				
 		
 		function strokeColor(strokeVariable, groupVariable){
 			if (strokeVariable == 1)
@@ -330,8 +362,8 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 							.attr("class","circle teambubble")
 							.attr("id", function(data){
                                     return fixteamname(data[id]) + suffix})
-			    			.attr("r",function(data)
-								{return radius(parseFloat(data["srs"])); })
+			    			.attr("r",function(data) {
+								return getRadius(parseFloat(data["srs"])) })
 			    			.attr("cy", function(data){					// Distribute position over height
 								return yPosition(data[outlineVariable])
 			    					})
