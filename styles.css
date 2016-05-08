@@ -9,12 +9,13 @@
 }
 
 body {
+  background-image: url('http://www.sonbisey.com/wp-content/uploads/2015/11/1102.jpg');
 	margin: 	auto;
 	height: 	100%;
 	width: 		1000px;
-	color: #FDF3E7;
-	font-family:Roboto;
-	font-weight: 200;
+  color: black;
+  font-family:Roboto;
+  font-weight: 200;
 }
 
 .wrapper {
@@ -33,7 +34,7 @@ body {
 
 .info svg {
   margin-top: 30px;
-  color: #FDF3E7;
+  color: rgba(253,243,231,0.7);
 }
 
 #legende {
@@ -61,7 +62,7 @@ footer {
 h1 {
 	font-size: 250%;
 	margin: 10px 10px 10px 10px;
-  color: #FFB347;
+  color: #C23B22;
 }
 
 svg {
@@ -85,15 +86,30 @@ div.bubblechart {
   text-anchor: end;
 }
 
-.axis text {
-	fill: black;
+ #teamvis text {
+	fill: rgba(253,243,231,1);
   font: 10px sans-serif;
+}
+
+#stayed text {
+  fill: rgba(253,243,231,1);
+  font: 14px sans-serif;
+}
+
+#incoming text {
+  fill: rgba(253,243,231,1);
+  font: 14px sans-serif;
+}
+
+#outgoing text {
+  fill: rgba(253,243,231,1);
+  font: 14px sans-serif;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: rgba(253,243,231,1);
   shape-rendering: crispEdges;
 }
 
@@ -102,17 +118,16 @@ div.bubblechart {
   /* float: left; */
   top: 0;
   line-height: 1;
-  /*font-weight: bold;*/
-  padding: 8px;
+  /* font-weight: bold; */
+  padding: 5px;
   width: 160px;
-  font-size: 14px;
-  line-height: 1.2;
   border-radius: 2px;
   background: #3B3738;
   z-index: 10000;
   color: #FDF3E7;
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
   -webkit-transition: 
       opacity 0.2s ease-in-out,
         visibility 0.2s ease-in-out,
@@ -131,7 +146,6 @@ div.bubblechart {
   pointer-events: none;
 }
 
-
 .teambubble {
     cursor: pointer;
 }
@@ -141,9 +155,9 @@ div.bubblechart {
 }
 
 #yearSlider {
-    text-align: center;
+    text-align: center; 
     vertical-align: center;
-    color: rgb(255, 255, 255);
+    color: #FDF3E7;
     font-weight: bold;
     margin-top: -10px;
 }
@@ -157,10 +171,10 @@ div.bubblechart {
 
 #bubbleheader {
     /* position: relative; */
-    width: 760px;
+    width: 750px;
     top: 0;
     float: left;
-    background: #C87153;
+    background: rgba(253,243,231,0.7);
     height: 200px;
 }
 
@@ -179,14 +193,13 @@ div.bubblechart {
     height: 60px;
     width: 1000px;
     bottom: 0;
-    background: #C87153;
+    /* background: lightgrey; */
     z-index: 10;
 }
 
 /* Styling the slider */
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  color: white;
   width: 990px; /* Specific width is required for Firefox. */
 }
 
@@ -196,7 +209,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 24px;
     width: 16px;
     border-radius: 50%;
-    background: #C87153;
+    background: #FDF3E7;
     margin-top: -4px;
 }
 
@@ -218,7 +231,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #FDF3E7;
   cursor: pointer;
   margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
@@ -231,7 +244,7 @@ input[type=range]::-moz-range-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #FDF3E7;
   cursor: pointer;
 }
 
@@ -242,7 +255,7 @@ input[type=range]::-ms-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #FDF3E7;
   cursor: pointer;
 }
 
@@ -250,12 +263,12 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 80%;
   height: 3px;
   cursor: pointer;
-  background: #ffffff;
+  background: #FDF3E7;
   border-radius: 1.3px;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #ffffff;
+  background: #FDF3E7;
 }
 
 input[type=range]::-moz-range-track {
@@ -277,22 +290,22 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #C87153;
+  background: #FDF3E7;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #C87153;
+  background: #FDF3E7;
 }
 input[type=range]::-ms-fill-upper {
-  background: #C87153;
+  background: #FDF3E7;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #C87153;
+  background: #FDF3E7;
 }
 
 .circleTeam {
@@ -344,8 +357,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 #teamvis {
     width: 1000px;
-    background: #C87153;
-    color: white;
     position: relative;
 }
 
@@ -357,16 +368,17 @@ input[type=range]:focus::-ms-fill-upper {
 
 .smallmultiple .line {
     fill: none;
+    stroke: rgba(253,243,231,1);
 }
 
 .smallmultiple .area {
     stroke: none;
+    fill : rgba(253,243,231,1);
 }
 
 .curYearLine {
-    fill: white;
-    stroke: white;
-    opacity: 1;
+    fill: none;
+    stroke: black;
 }
 
 .smallm_g {
@@ -411,11 +423,11 @@ input[type=range]:focus::-ms-fill-upper {
     width: 170px;
     height: 600px
     margin-left: 10px;
-    background-color: #C87153;
+    background-color: rgba(253,243,231,0.7);
 }
 
 #sidebar.stick {
-    height: 600px;
+    height: 255px;
     position: fixed;
     /* margin-left: 10px; */
     width: 170px;
@@ -425,20 +437,20 @@ input[type=range]:focus::-ms-fill-upper {
 #playerinfo {
     float: left;
     position: relative;
-    border-radius: 25px;
-    background: #C87153;
+    background: rgba(253,243,231,0.7);
 
 }
 
 #playerinfo.stick {
     position:fixed;
     width: 150px;
-    bottom: 300px;
+    top: 455px;
     padding: 0px 0px 0px 20px;
+    /* height: 0; */
 }
 
 #playerinfo.stick h2 {
-    color: #FFB347;
+    color: #C23B22;
 }
 
 #varchoosesidebar form ul{
@@ -482,12 +494,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 
 #playervarform input[type=radio]:checked ~ label{
-  color: #C87153;
-  background: #FDF3E7;
+  color: #FDF3E7;
+  background: #C23B22;
 }
 
 #bubbleheader table {
-    width: 100%;
+    width: 80%;
     margin-left: 10px;
 }
 
@@ -515,7 +527,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 #legende {
     height: 200px;
-    background: #C87153;
+    background: rgba(253,243,231,0.7);
 }
 
 #playerinfo p {
@@ -763,7 +775,7 @@ input[type=range]:focus::-ms-fill-upper {
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #C87153;
+    color: #FDF3E7;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -783,37 +795,27 @@ input[type=range]:focus::-ms-fill-upper {
 
 .about {
     top: 0;
-    margin-right: 10px;
+    margin-right: 30px;
     float: right;
     z-index: 1000000;
 }
 
 .about a {
-    color: hsl(0, 0%, 100%);
+    color: black;
     font-size: 16pt;
     text-decoration: none;
 }
 
 .headerblocker h1 {
-    width: 600px;
+    width: 590px;
     float: left;
     margin-left: 10px;
 }
 
 .aboutPage {
-	background-color: #C87153;
-}
-
-.smallmultiple text {
     color: white;
-    fill: white;
 }
 
-.smallmultiple .axis {
-    fill: white;
-}
-
-.smallmultiple .axis path,
-.smallmultiple .axis line {
-    stroke: white;
+.footerblocker {
+    height: 80px;
 }
