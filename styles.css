@@ -179,7 +179,7 @@ div.bubblechart {
 
 #bubbleheader.stick {
     position:fixed;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .headerblocker {
@@ -426,9 +426,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #sidebar.stick {
-    height: 512px;
+    height: 255px;
     position: fixed;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     width: 170px;
     top: 200px;
 }
@@ -443,8 +443,9 @@ input[type=range]:focus::-ms-fill-upper {
 #playerinfo.stick {
     position:fixed;
     width: 150px;
-    bottom: 270px;
+    top: 455px;
     padding: 0px 0px 0px 20px;
+    /* height: 0; */
 }
 
 #playerinfo.stick h2 {
@@ -808,4 +809,8 @@ input[type=range]:focus::-ms-fill-upper {
     width: 590px;
     float: left;
     margin-left: 10px;
+}
+
+.aboutPage {
+    color: white;
 }
