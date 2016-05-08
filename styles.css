@@ -9,20 +9,22 @@
 }
 
 body {
+  background-image: url('http://www.sonbisey.com/wp-content/uploads/2015/11/1102.jpg');
 	margin: 	auto;
 	height: 	100%;
-	width: 		1000px;
-	color: #FDF3E7;
-	font-family:Roboto;
-	font-weight: 200;
+	width: 		100%;
+  color: #FDF3E7;
+  font-family:Roboto;
+  font-weight: 200;
+  vertical-align: center;
 }
 
 .wrapper {
 }
 
 .infoContainer {
- width: 1000px;
  margin: 0px;
+ background-color: 'black';
 }
 
 .info {
@@ -149,9 +151,11 @@ div.bubblechart {
 }
 
 .scrollable {
+    margin: auto;
     overflow-y: scroll;
     overflow: hidden;
     height: 100%;
+    width: 1000px;
     padding-bottom: 80px;
 }
 
@@ -181,6 +185,7 @@ div.bubblechart {
     bottom: 0;
     background: #C87153;
     z-index: 10;
+    margin-left: 210px;
 }
 
 /* Styling the slider */
@@ -196,7 +201,11 @@ input[type=range]::-webkit-slider-thumb {
     height: 24px;
     width: 16px;
     border-radius: 50%;
+<<<<<<< HEAD
+    background: 'white';
+=======
     background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
     margin-top: -4px;
 }
 
@@ -218,7 +227,11 @@ input[type=range]::-webkit-slider-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   cursor: pointer;
   margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
@@ -231,7 +244,11 @@ input[type=range]::-moz-range-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   cursor: pointer;
 }
 
@@ -242,7 +259,11 @@ input[type=range]::-ms-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   cursor: pointer;
 }
 
@@ -250,12 +271,20 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 80%;
   height: 3px;
   cursor: pointer;
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   border-radius: 1.3px;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
 }
 
 input[type=range]::-moz-range-track {
@@ -277,22 +306,37 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
+<<<<<<< HEAD
+  background: 'white';
+}
+input[type=range]::-ms-fill-upper {
+  background: 'white';
+=======
   background: #C87153;
 }
 input[type=range]::-ms-fill-upper {
   background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
+<<<<<<< HEAD
+  background: 'white';
+=======
   background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
 }
 
 .circleTeam {
@@ -487,7 +531,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 #bubbleheader table {
-    width: 100%;
+    width: 600px;
     margin-left: 10px;
 }
 
