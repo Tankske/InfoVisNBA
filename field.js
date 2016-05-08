@@ -6,8 +6,8 @@ var minMaxAgeOnePlayer = [18,43];
 //var minMaxDRtgOnePlayer = [78,120];
 //Self chosen values
 var minMaxEFGPercentageOnePlayer = [0.35,0.65];
-var minMaxORtgOnePlayer = [75,135];
-var minMaxDRtgOnePlayer = [75,135];
+var minMaxORtgOnePlayer = [90,135];
+var minMaxDRtgOnePlayer = [90,135];
 
 var shirtWidth = 50;
 var shirtHeight = 70;
