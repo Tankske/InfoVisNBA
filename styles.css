@@ -118,8 +118,9 @@ div.bubblechart {
   /* float: left; */
   top: 0;
   line-height: 1;
-  font-weight: bold;
+  /* font-weight: bold; */
   padding: 5px;
+  width: 160px;
   border-radius: 2px;
   background: #3B3738;
   z-index: 10000;

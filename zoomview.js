@@ -213,7 +213,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return  "<strong>SRS (Simple Rating System):</strong> <span style='color:black'>A score for a team based on the results of the teams.</span>";
+            return  "Simple Rating System: a rating that takes into account average point differential and strength of schedule. The rating is denominated in points above/below average, where zero is average.";
         });
 
     svg.call(tipMin);
@@ -248,7 +248,8 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
             highlights
                 .append("rect")
                 .attr("stroke", "none")
-                .style("fill", "#D8D8D8")
+                .style("fill", "white")
+				.style("fill-opacity", 0.4)
                 .attr("x", d3.select(this).attr("x"))
                 .attr("y", d3.select(this).attr("y"))
                 .attr("width", d3.select(this).attr("width"))
@@ -268,7 +269,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
         .attr("cx", xPos + maxRad) //arrow heigth is half of the width
         .attr("cy", yPos)
         .attr("r", yearMaxRad)
-        .attr("stroke", "grey")
+        .attr("stroke", "white")
         //.style("fill", "cornflowerblue");
         .style("stroke-width", 1)
         .style("stroke-opacity", 0.2)
@@ -287,6 +288,8 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
             d3.select("#teamCircle").style("fill-opacity", 0.05);
             d3.select("#teamCircle").style("stroke-width", 1);
             d3.select("#teamCircle").style("stroke", "cornflowerblue");
+			d3.select("#averageCircle").style("stroke", "grey");
+            d3.select("#minYearCircle").style("stroke", "grey");
             tipMax.show(document.getElementById("maxYearCircle"));;
         })
         .on('mouseout', function() {
@@ -294,6 +297,8 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
             d3.select("#teamCircle").style("fill-opacity", 1);
             d3.select("#teamCircle").style("stroke-width", 2);
             d3.select("#teamCircle").style("stroke", "black");
+			d3.select("#averageCircle").style("stroke", "white");
+            d3.select("#minYearCircle").style("stroke", "white");
             tipMax.hide();
         });
 
@@ -319,21 +324,26 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
                     .attr("class", "highlightcircle");
                 d3.select("#teamCircle").style("fill-opacity", 0.05);
                 d3.select("#teamCircle").style("stroke", "cornflowerblue");
+				d3.select("#averageCircle").style("stroke", "grey");
+				d3.select("#minYearCircle").style("stroke", "grey");
                 tipCurr.show(document.getElementById("maxYearCircle"));;
             })
             .on('mouseout', function() {
                 highlights.selectAll(".highlightcircle").remove();
                 d3.select("#teamCircle").style("fill-opacity", 1);
                 d3.select("#teamCircle").style("stroke", "black");
+				d3.select("#averageCircle").style("stroke", "white");
+				d3.select("#minYearCircle").style("stroke", "white");
                 tipCurr.hide();
             });
 
         circles.append("circle")
             .attr("class", "teambubblezoom")
+			.attr("id", "averageCircle")
             .attr("cx", xPos + maxRad) //arrow heigth is half of the width
             .attr("cy", yPos)
             .attr("r", yearAverageRad)
-            .attr("stroke", "grey")
+            .attr("stroke", "white")
             .style("stroke-width", 1)
             .style("stroke-opacity", 0.3)
             .style("fill-opacity", 0)
@@ -351,6 +361,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
                 d3.select("#teamCircle").style("fill-opacity", 0.05);
                 d3.select("#teamCircle").style("stroke-width", 1);
                 d3.select("#teamCircle").style("stroke", "cornflowerblue");
+				d3.select("#minYearCircle").style("stroke", "grey");
                 tipAverage.show(document.getElementById("maxYearCircle"));;
             })
             .on('mouseout', function() {
@@ -358,6 +369,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
                 d3.select("#teamCircle").style("fill-opacity", 1);
                 d3.select("#teamCircle").style("stroke-width", 2);
                 d3.select("#teamCircle").style("stroke", "black");
+				d3.select("#minYearCircle").style("stroke", "white");
                 tipAverage.hide();
             });
     }
@@ -365,10 +377,11 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
     else if (rad <= yearAverageRad) {
         circles.append("circle")
             .attr("class", "teambubblezoom")
+			.attr("id", "averageCircle")
             .attr("cx", xPos + maxRad) //arrow heigth is half of the width
             .attr("cy", yPos)
             .attr("r", yearAverageRad)
-            .attr("stroke", "grey")
+            .attr("stroke", "white")
             .style("stroke-width", 1)
             .style("stroke-opacity", 0.3)
             .style("fill-opacity", 0)
@@ -386,6 +399,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
                 d3.select("#teamCircle").style("fill-opacity", 0.05);
                 d3.select("#teamCircle").style("stroke-width", 1);
                 d3.select("#teamCircle").style("stroke", "cornflowerblue");
+				d3.select("#minYearCircle").style("stroke", "grey");
                 tipAverage.show(document.getElementById("maxYearCircle"));;
             })
             .on('mouseout', function() {
@@ -393,6 +407,7 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
                 d3.select("#teamCircle").style("fill-opacity", 1);
                 d3.select("#teamCircle").style("stroke-width", 2);
                 d3.select("#teamCircle").style("stroke", "black");
+				d3.select("#minYearCircle").style("stroke", "white");
                 tipAverage.hide();
             });
 
@@ -430,11 +445,11 @@ function drawTeamCircle(teamName, year, teamSRS, minMaxSRSYear, minMaxSRSAllYear
 
     circles.append("circle")
         .attr("class", "teambubblezoom")
-        .attr("id", "minCircle")
+        .attr("id", "minYearCircle")
         .attr("cx", xPos + maxRad) //arrow heigth is half of the width
         .attr("cy", yPos)
         .attr("r", yearMinRad)
-        .attr("stroke", "grey")
+        .attr("stroke", "white")
         .style("stroke-width", 1)
         .style("stroke-opacity", 0.3)
         .attr("fill-opacity", 0)
