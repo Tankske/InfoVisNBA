@@ -104,15 +104,17 @@ div.bubblechart {
   /* float: left; */
   top: 0;
   line-height: 1;
-  font-weight: bold;
-  padding: 5px;
+  /*font-weight: bold;*/
+  padding: 8px;
+  width: 160px;
+  font-size: 14px;
+  line-height: 1.2;
   border-radius: 2px;
   background: #3B3738;
   z-index: 10000;
   color: #FDF3E7;
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
   -webkit-transition: 
       opacity 0.2s ease-in-out,
         visibility 0.2s ease-in-out,
@@ -131,6 +133,7 @@ div.bubblechart {
   pointer-events: none;
 }
 
+
 .teambubble {
     cursor: pointer;
 }
@@ -140,9 +143,9 @@ div.bubblechart {
 }
 
 #yearSlider {
-    text-align: center; 
+    text-align: center;
     vertical-align: center;
-    color: #C63D0F;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     margin-top: -10px;
 }
@@ -161,13 +164,13 @@ div.bubblechart {
     width: 760px;
     top: 0;
     float: left;
-    background: #C63D0F;
+    background: #C87153;
     height: 200px;
 }
 
 #bubbleheader.stick {
     position:fixed;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .headerblocker {
@@ -180,7 +183,7 @@ div.bubblechart {
     height: 60px;
     width: 1000px;
     bottom: 0;
-    /* background: lightgrey; */
+    background: #C87153;
     z-index: 10;
     margin-left: 210px;
 }
@@ -188,6 +191,7 @@ div.bubblechart {
 /* Styling the slider */
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  color: white;
   width: 990px; /* Specific width is required for Firefox. */
 }
 
@@ -197,7 +201,11 @@ input[type=range]::-webkit-slider-thumb {
     height: 24px;
     width: 16px;
     border-radius: 50%;
+<<<<<<< HEAD
     background: 'white';
+=======
+    background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
     margin-top: -4px;
 }
 
@@ -219,7 +227,11 @@ input[type=range]::-webkit-slider-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   cursor: pointer;
   margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
@@ -232,7 +244,11 @@ input[type=range]::-moz-range-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   cursor: pointer;
 }
 
@@ -243,7 +259,11 @@ input[type=range]::-ms-thumb {
   height: 20px;
   width: 8px;
   border-radius: 3px;
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   cursor: pointer;
 }
 
@@ -251,12 +271,20 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 80%;
   height: 3px;
   cursor: pointer;
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   border-radius: 1.3px;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #ffffff;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
 }
 
 input[type=range]::-moz-range-track {
@@ -278,22 +306,37 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-lower {
+<<<<<<< HEAD
   background: 'white';
 }
 input[type=range]::-ms-fill-upper {
   background: 'white';
+=======
+  background: #C87153;
+}
+input[type=range]::-ms-fill-upper {
+  background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 input[type=range]:focus::-ms-fill-upper {
+<<<<<<< HEAD
   background: 'white';
+=======
+  background: #C87153;
+>>>>>>> 91a32a8e15a39bcc646dc998c728c92ac82be9d8
 }
 
 .circleTeam {
@@ -345,6 +388,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 #teamvis {
     width: 1000px;
+    background: #C87153;
+    color: white;
     position: relative;
 }
 
@@ -363,8 +408,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .curYearLine {
-    fill: none;
-    stroke: blue;
+    fill: white;
+    stroke: white;
+    opacity: 1;
 }
 
 .smallm_g {
@@ -409,13 +455,13 @@ input[type=range]:focus::-ms-fill-upper {
     width: 170px;
     height: 600px
     margin-left: 10px;
-    background-color: #C63D0F;
+    background-color: #C87153;
 }
 
 #sidebar.stick {
-    height: 512px;
+    height: 600px;
     position: fixed;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     width: 170px;
     top: 200px;
 }
@@ -424,7 +470,7 @@ input[type=range]:focus::-ms-fill-upper {
     float: left;
     position: relative;
     border-radius: 25px;
-    background: #C63D0F;
+    background: #C87153;
 
 }
 
@@ -480,7 +526,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 
 #playervarform input[type=radio]:checked ~ label{
-  color: #C63D0F;
+  color: #C87153;
   background: #FDF3E7;
 }
 
@@ -513,7 +559,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 #legende {
     height: 200px;
-    background: #C63D0F;
+    background: #C87153;
 }
 
 #playerinfo p {
@@ -761,7 +807,7 @@ input[type=range]:focus::-ms-fill-upper {
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #C63D0F;
+    color: #C87153;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -787,7 +833,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .about a {
-    color: black;
+    color: hsl(0, 0%, 100%);
     font-size: 16pt;
     text-decoration: none;
 }
@@ -796,4 +842,22 @@ input[type=range]:focus::-ms-fill-upper {
     width: 600px;
     float: left;
     margin-left: 10px;
+}
+
+.aboutPage {
+	background-color: #C87153;
+}
+
+.smallmultiple text {
+    color: white;
+    fill: white;
+}
+
+.smallmultiple .axis {
+    fill: white;
+}
+
+.smallmultiple .axis path,
+.smallmultiple .axis line {
+    stroke: white;
 }

@@ -133,7 +133,7 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
             suffix = "small";
             svg.append("rect")
                     .attr("class", "backbubble")
-                    .attr("fill", "#C63D0F")
+                    .attr("fill", "#C87153")
                     //.attr("opacity", "0")
                     .attr("x", xPos)
                     .attr("y", yPos)
@@ -245,11 +245,15 @@ function drawCircles(dataInput, radiusVariable, strokeVariable, outlineVariable,
 		  };
 		}
 		
-		var radius = d3.scale.sqrt()
+//		var radius = d3.scale.sqrt()
+//				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
+//					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
+//				.range([width/60,width/20])
+
+		var radius = d3.scale.pow().exponent(1.5)
 				.domain([d3.min(dataInput, function(data) {return parseInt(data[radiusVariable]);}),
 					d3.max(dataInput, function(data) {return parseInt(data[radiusVariable]);})	])
 				.range([width/60,width/20])
-
 		
 		function strokeColor(strokeVariable, groupVariable){
 			if (strokeVariable == 1)
