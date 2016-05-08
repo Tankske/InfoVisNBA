@@ -814,3 +814,7 @@ input[type=range]:focus::-ms-fill-upper {
 .aboutPage {
     color: white;
 }
+
+.footerblocker {
+    height: 80px;
+}
