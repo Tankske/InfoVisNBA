@@ -158,7 +158,9 @@
                                 function fixyear () {
                                     $("#year").val(window.year);
                                     $("#yearSlider").text((window.year - 1) + "-" + window.year);
-                                    window.team = theData.find(function(d) {return d.year == window.year; }).teams.find(function(d) { return d.team === window.team.team;});
+                                    if (window.team != undefined) {
+                                        window.team = theData.find(function(d) {return d.year == window.year; }).teams.find(function(d) { return d.team === window.team.team;});
+                                    }
                                     updateTeamInfo(window.team, window.year);
                                     drawAll();
                                 }
