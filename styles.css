@@ -1,3 +1,7 @@
+.fieldchart img {
+	opacity: 0.7;
+}
+
 .flipped {
         -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
