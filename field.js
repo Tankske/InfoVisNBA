@@ -78,7 +78,7 @@ function drawF(data, team, year, svg, x, y, width, height, stat, scaler) {
         .attr("width", width)
         .attr("height", height)
         .attr("preserveAspectRatio", "none")
-        .style("fill-opacity", 0.4);
+        .style("opacity", 0.4);
 
     var chart = svg
         .append("g")					//Append one div to the selected div in which we will construct the visualisation. This is done to separate mutliple visualisations..
