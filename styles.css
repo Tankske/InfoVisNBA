@@ -378,7 +378,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .curYearLine {
     fill: none;
-    stroke: black;
+    stroke: #C23B22;
 }
 
 .smallm_g {
