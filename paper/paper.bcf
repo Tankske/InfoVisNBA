@@ -2027,11 +2027,15 @@
   <bcf:section number="0">
     <bcf:citekey order="1">basketball-reference</bcf:citekey>
     <bcf:citekey order="2">per</bcf:citekey>
-    <bcf:citekey order="3">peterbeshai</bcf:citekey>
-    <bcf:citekey order="4">d3.js</bcf:citekey>
-    <bcf:citekey order="5">html5</bcf:citekey>
-    <bcf:citekey order="6">jquery</bcf:citekey>
-    <bcf:citekey order="7">per</bcf:citekey>
+    <bcf:citekey order="3">perceptualranking</bcf:citekey>
+    <bcf:citekey order="4">tournamentladder</bcf:citekey>
+    <bcf:citekey order="5">enclosedcircles</bcf:citekey>
+    <bcf:citekey order="6">mapviewvisualization</bcf:citekey>
+    <bcf:citekey order="7">peterbeshai</bcf:citekey>
+    <bcf:citekey order="8">d3.js</bcf:citekey>
+    <bcf:citekey order="9">html5</bcf:citekey>
+    <bcf:citekey order="10">jquery</bcf:citekey>
+    <bcf:citekey order="11">per</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="debug/global" type="entry" sortscheme="debug" sortnamekeyscheme="global">
   <bcf:sorting>
