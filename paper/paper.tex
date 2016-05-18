@@ -342,6 +342,26 @@ Although this is a more common representation , and there are some nice desings 
 Although the enclosed circles is a compact representation as well, we have continued 
 with our own design as we believe this view is more original and innovative. Furthermore we are convinced that our view gives a good illustration of the end positions. It's generally assumed that the team that is on top of the ``ladder'' is the winning team. We didn't encouter a similar view when searching for alternatives to visualize a play-off or championship. A new visualization has the advantage that it will trigger users as well.
 
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.9\columnwidth]{figures/presidentcandidatesvisualization}
+  \caption{The path of president candidates in their road to become president.}~\label{fig:whitehousepath}
+\end{figure}
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.9\columnwidth]{figures/playoffviewfirstdesign}
+  \caption{First design of the play-off view.}~\label{fig:firstdesignplayoffview}
+\end{figure}
+
+\begin{figure}
+\centering
+  \missingfigure{}
+%  \includegraphics[width=0.9\columnwidth]{figures/playoffviewfirstimplemantation}
+  \caption{First implementation of the play-off view.}~\label{fig:firstimplementationplayoffview}
+\end{figure}
+
 <Talk about the importance of estethics seen in the lesson>
 Our initial play-off view was too heavy. It connected teams that played against
 each other directly. When searching for alternatives to reflect on our choice we
@@ -400,10 +420,7 @@ This section illustrates a change for a chosen statistic for the selected team c
 <figure of the statistics view>
 The shirts next to the arrows are the shirts of players that had the biggest 
 contribution to that arrow. Note that these shirts don't change in size. The box on 
-the right enables the user to change between 
-statistics. Next to that it informs the user of which statistic has been chosen. When 
-the user hits the circle in the middle representing the teams, he is guided 
-to the team view. This view will be explained in more detail in the next section.
+the right enables the user to change between statistics. Next to that it informs the user of which statistic has been chosen. When the user hits the circle in the middle representing the teams, he is guided to the team view. This view will be explained in more detail in the next section.
 <filtering: 
 - time & team
 - based on exploration (small multiples)
@@ -421,47 +438,30 @@ This view as well as the statistics view should give the user the ability to sea
 for explanations why a team is is performing better or worse over seasons. On the 
 other hand, a user can see what impact a change in team characteristics has on its
 overall performance.
-This view shows each player of the team on its field positions. Shirts aligned next to 
-each other will thus share the same position. The size of a shirt would illustrate a players performance on this spot. The PER score is initiated. This view should give
+This view shows each player of the team on its field positions. Shirts aligned next to each other will thus share the same position. The size of a shirt would illustrate a players performance on this spot. The PER score is initiated. This view should give
 a user insight on how strong or weak a particular team is for a specific field position.
-A user can then scroll through time, see how field positions evolve and what the influence
-is over time.
+A user can then scroll through time, see how field positions evolve and what the influence is over time.
 Initially we designed this view more elaborate. When the user would click on a shirt,
 specific player information would be shown. Next to some general text information, 
-we would have visualised a number of player statistics as small multiples. A bell curve
-should have informed how a player scores compared to his team, other players in the 
-league on this position or all other players in the league. We considered other charts for
-the small multiples as well. A box plot or bullet was less clear for us to indicate where
-a player stands compared to the group he was compared with. Alternatives for the small 
-multiples were evaluated as well. One good alternative was the shooting signature.\cite{peterbeshai}
+we would have visualised a number of player statistics as small multiples. A bell curve should have informed how a player scores compared to his team, other players in the league on this position or all other players in the league. We considered other charts for the small multiples as well. A box plot or bullet was less clear for us to indicate where a player stands compared to the group he was compared with. Alternatives for the small multiples were evaluated as well. One good alternative was the shooting signature.\cite{peterbeshai}
 However, creating such a visualization is again a project on itself and due to time 
-constraints we left it aside. Other possibilities such as a heatmap or spider web didn't
-fulfill our need to give the visitor a clear overview of how a player performed compared
-to its peergroup.
+constraints we left it aside. Other possibilities such as a heatmap or spider web didn't fulfill our need to give the visitor a clear overview of how a player performed compared to its peergroup.
 <Sketch of the small multiples>
 
 \subsection{Improving the result}
 Talk about how we improved the data-ink ration in the end..
 
 \section{Possible improvements}
-As with most projects, the result is never 'finished', meaning that there are always improvements
-possible but due to timing or resource constraints the haven't all been implemented. In what 
-follows, we suggest a number of features that might improve the visualization:
+As with most projects, the result is never 'finished', meaning that there are always improvements possible but due to timing or resource constraints the haven't all been implemented. In what  follows, we suggest a number of features that might improve the visualization:
 \begin{itemize}
-    \item Smooth transitions between states could improve the user experience. For example when changing
-    year, a transformation of the arrow in the statistics view would help the user see a difference between years.
-    At the moment the arrows change at the blink of an eye, making it difficult for us humans with a short term memory
-    to make the comparison.
-    \item To further support our short term memory we could also 'save' the previous state. Eg. in the field view we could
-    visualize ghost shirts to indicate which players left the team or position and highlight players that joined the team. 
+    \item Smooth transitions between states could improve the user experience. For example when changing year, a transformation of the arrow in the statistics view would help the user see a difference between years.
+    At the moment the arrows change at the blink of an eye, making it difficult for us humans with a short term memory to make the comparison.
+    \item To further support our short term memory we could also 'save' the previous state. Eg. in the field view we could visualize ghost shirts to indicate which players left the team or position and highlight players that joined the team. 
     This would help the user see how the team changes over time.
-    \item At the moment no attention has been payed to the process & provenance of the exploration. A user thus needs to 
-    memorize his action to be able to share or reproduce his actions. This could be improved by adding URL parameters. This
-    way a user at least can share or save a state of an analysis. One step further is to provide a play-feature. The visitor could 
-    them share his exploration and replay it. A simple implemention would ask the visitor for a start date and an end date and
+    \item At the moment no attention has been payed to the process & provenance of the exploration. A user thus needs to  memorize his action to be able to share or reproduce his actions. This could be improved by adding URL parameters. This
+    way a user at least can share or save a state of an analysis. One step further is to provide a play-feature. The visitor could them share his exploration and replay it. A simple implemention would ask the visitor for a start date and an end date and
     would then 'play' the changes of a particular team and characteristic over time.
-    \item We could support users further in exploring for patterns by focussing more on comparisons. We could integrate a view 
-    where a visitor is able to compare two teams in the same year, or in two different years.
+    \item We could support users further in exploring for patterns by focussing more on comparisons. We could integrate a view where a visitor is able to compare two teams in the same year, or in two different years.
 \end{itemize}
 
 \subsection{Technology}
@@ -491,22 +491,11 @@ In what follows we will discuss our experience in more detail.
 
 \subsection{Story telling}
 At the beginning of this project we were able to design the 3 separate views 
-quite quickly. Our main problem was to integrate these views as a whole. When we created drafts of two views being the play-off view and the statitics view, we suddenly noted patterns. The Golden State Warriors became NBA champion a couple of years after a great uplift in SRS score. This due to a increase inside the team and because of new players joining the team in 2009. In 
-the years following, the team kept on attracting talented players and increased the inherent team score (with ups and downs) to become NBA champion in 2015. With the team view, one can even notice that the team gets stronger in center team positions during this period. The visualization however is missing at the moment if this reinforcement of the field positions
-is due to the attraction of talented people or by utilizing available talent within the team. Rfr to possible improvements. Being able to visualize this story, enabled us to support visistors in searching their own stories. They are able to explore the data for patters. On top of that, we provide the insight on how the changes were impacted by changes in teamplayers.
+quite quickly. Our main problem was to integrate these views as a whole. When we created drafts of two views being the play-off view and the statitics view, we suddenly noted patterns. The Golden State Warriors became NBA champion a couple of years after a great uplift in SRS score. This due to a increase inside the team and because of new players joining the team in 2009. In the years following, the team kept on attracting talented players and increased the inherent team score (with ups and downs) to become NBA champion in 2015. With the team view, one can even notice that the team gets stronger in center team positions during this period. The visualization however is missing at the moment if this reinforcement of the field positions is due to the attraction of talented people or by utilizing available talent within the team. Rfr to possible improvements. Being able to visualize this story, enabled us to support visistors in searching their own stories. They are able to explore the data for patters. On top of that, we provide the insight on how the changes were impacted by changes in teamplayers.
 
 \subsection{Each component should be informative}
-In order to have a good visualization as a whole, each component should be a clear and 
-informative visualization on itself. This is a lesson learned from our work, but also when
-evaluating the work of peers. We started noticing that most components in a visualization 
-lack references and hence are not informative enough. Eg. each small multiple of a statisctic
-in the statistics view on itself gives sufficient information to stand on itselfs. The bar in
-the small multiple indicates the score in the selected season and enables the user to evaluate
-that score over time. Have there been better scores, or worse scores. Is this score part of 
-an upward movement during years? 
-For this reason we can argue that the circle representing the teams SRS score in the statisctics
-view is not the best choice. We could have chosen a bar chart with an indication of the best and
-worst score for that specific team over time or for the best and worst team in that season.
+In order to have a good visualization as a whole, each component should be a clear and informative visualization on itself. This is a lesson learned from our work, but also when evaluating the work of peers. We started noticing that most components in a visualization lack references and hence are not informative enough. Eg. each small multiple of a statisctic in the statistics view on itself gives sufficient information to stand on itselfs. The bar in the small multiple indicates the score in the selected season and enables the user to evaluate that score over time. Have there been better scores, or worse scores. Is this score part of an upward movement during years? 
+For this reason we can argue that the circle representing the teams SRS score in the statisctics view is not the best choice. We could have chosen a bar chart with an indication of the best and worst score for that specific team over time or for the best and worst team in that season.
 
 \subsection{Custom visualizations}
 Before exploring what is out there in the d3.js world, we made our own sketches. This is how we came up with the 3 custom views that makes our visualization. When comparing our design with alternatives we could not find something that satisfied our needs. Nonetheless, they gave us inspiration to finetune our designs. Although we are satisfied with our result and we are convinced it was the right choice to reach our goal, it had some draw backs.
