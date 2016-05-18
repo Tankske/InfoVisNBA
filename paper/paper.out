@@ -1,22 +1,22 @@
 \BOOKMARK [1][-]{section.5}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.7}{Goal and Target Audience}{}% 2
 \BOOKMARK [1][-]{section.9}{Data}{}% 3
-\BOOKMARK [1][-]{section.11}{Related Work}{}% 4
-\BOOKMARK [1][-]{section.13}{Visualization}{}% 5
-\BOOKMARK [2][-]{subsection.19}{The play-off view}{section.13}% 6
-\BOOKMARK [3][-]{subsubsection.21}{Context section}{subsection.19}% 7
-\BOOKMARK [3][-]{subsubsection.23}{Bubble section}{subsection.19}% 8
-\BOOKMARK [2][-]{subsection.25}{The statistics view}{section.13}% 9
-\BOOKMARK [3][-]{subsubsection.27}{Context section}{subsection.25}% 10
-\BOOKMARK [3][-]{subsubsection.29}{Arrow section of selected statistic}{subsection.25}% 11
-\BOOKMARK [3][-]{subsubsection.31}{Small multiples of different statistics}{subsection.25}% 12
-\BOOKMARK [2][-]{subsection.33}{The team view}{section.13}% 13
-\BOOKMARK [2][-]{subsection.35}{Improving the result}{section.13}% 14
-\BOOKMARK [1][-]{section.37}{Possible improvements}{}% 15
-\BOOKMARK [2][-]{subsection.39}{Technology}{section.37}% 16
-\BOOKMARK [1][-]{section.41}{Lessons learned}{}% 17
-\BOOKMARK [2][-]{subsection.43}{Story telling}{section.41}% 18
-\BOOKMARK [2][-]{subsection.45}{Each component should be informative}{section.41}% 19
-\BOOKMARK [2][-]{subsection.47}{Custom visualizations}{section.41}% 20
-\BOOKMARK [1][-]{section.49}{Conclusion}{}% 21
-\BOOKMARK [1][-]{appendix.53}{Terminology}{}% 22
+\BOOKMARK [1][-]{section.12}{Related Work}{}% 4
+\BOOKMARK [1][-]{section.14}{Visualization}{}% 5
+\BOOKMARK [2][-]{subsection.20}{The play-off view}{section.14}% 6
+\BOOKMARK [3][-]{subsubsection.22}{Context section}{subsection.20}% 7
+\BOOKMARK [3][-]{subsubsection.24}{Bubble section}{subsection.20}% 8
+\BOOKMARK [2][-]{subsection.26}{The statistics view}{section.14}% 9
+\BOOKMARK [3][-]{subsubsection.28}{Context section}{subsection.26}% 10
+\BOOKMARK [3][-]{subsubsection.30}{Arrow section of selected statistic}{subsection.26}% 11
+\BOOKMARK [3][-]{subsubsection.32}{Small multiples of different statistics}{subsection.26}% 12
+\BOOKMARK [2][-]{subsection.34}{The team view}{section.14}% 13
+\BOOKMARK [2][-]{subsection.36}{Improving the result}{section.14}% 14
+\BOOKMARK [1][-]{section.38}{Possible improvements}{}% 15
+\BOOKMARK [2][-]{subsection.40}{Technology}{section.38}% 16
+\BOOKMARK [1][-]{section.42}{Lessons learned}{}% 17
+\BOOKMARK [2][-]{subsection.44}{Story telling}{section.42}% 18
+\BOOKMARK [2][-]{subsection.46}{Each component should be informative}{section.42}% 19
+\BOOKMARK [2][-]{subsection.48}{Custom visualizations}{section.42}% 20
+\BOOKMARK [1][-]{section.50}{Conclusion}{}% 21
+\BOOKMARK [1][-]{appendix.54}{Terminology}{}% 22

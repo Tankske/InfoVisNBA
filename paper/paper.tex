@@ -158,7 +158,7 @@
 
 \section{Introduction}
 
-The National Basketball Association (NBA) is the most famous and perhaps the best professional basketball league in the world. Like in every other sports branch, a lot of data and statistics about players, teams, games and seasons are available, mainly in large tables. Despite these tables contains a lot of information, it is very hard if not impossible, to interpret, compare efficiently and to gather insights in it. In our work we try to present this data in a whole different way. Therefore we have focused ourselves on some parts and not the entire available data.
+The National Basketball Association (NBA) is the most famous and perhaps the best professional basketball league in the world. Like in every other sports branch, a lot of data and statistics about players, teams, games and seasons are available, mainly in large tables. Despite these tables contains a lot of information, it is very hard if not impossible, to interpret, compare efficiently and gather insights in it. In our work we try to present this data in a whole different way. Therefore we have focused ourselves on some parts and not the entire available data.
 
 This paper describes the visualization of NBA data made by the ``The Tufters''
 team for the course ``Information Visualization''. In section~\ref{sec:goal} we
@@ -223,25 +223,25 @@ final preprocessing step combined all data into one json file.
 Mention that it's a time series
 Tell something more about pre-processing steps (why?, did we change it over time?)
 rfr to picture in 1st ppt sl 60>
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.9\columnwidth]{figures/data}
+  \caption{An overview of the data.}~\label{fig:data}
+\end{figure}
+
 \section{Related Work}\label{sec:literature}
 
-Many visualizations of NBA data are focused on the "shot-chart".  This of individual players, multiple players together or all the teams
-This is almost a standard in visualizations about NBA data where even the code for making short charts is easily found ~\cite{shotchartpython}~\cite{shotchartr}~\cite{shotchartapp}. 
+On the IEEE Visualization Conference in 2013, the first workshop on sports data visualization was held \cite{ieeevis}. There is shown that the area of sport produces large amounts of data, which can be used for building visualizations and making analyses of the data. In the past visualizations of sports existed already, but there were not a lot of visualizations, and they were simple in the sense that they just represented the data without trying to give insights or to approach the data on a different way. There are some, but limited, sports-specific visualizations, like the basketball shot chart. This is a visualization frequentely seen when looking for visualizations about the NBA. Some shot chart vizualisations try to be different than others, but the general design and idea stays roughly the same. 
+% 2 goeie papers die hierin verwerkt kunnen worden
+%http://www.sloansportsconference.com/wp-content/uploads/2012/02/Goldsberry_Sloan_Submission.pdf
+%http://vis.berkeley.edu/courses/cs294-10-sp10/wiki/images/archive/a/a2/20100511091342!Stephen_Chu_-_Information_Visualization_in_the_NBA_-_The_Shot_Chart_16.pdf
+
+With our visualization we try to make it easier to interpret a collection of data about the NBA, and try to let users find patterns and insights in the data. A same kind of incentive was the start for \cite{cox2006sportsvis} who created a visualization to help people discover meaning in statistics generated during sporting events in the case of baseball.
 
 
-
-
-This paper (http://inf.ufrgs.br/~lsguedes/skooth/Publications_&_Works_files/nbavis_final.pdf) describes
 
 %Related work/References
-
-%General
-%https://en.wikipedia.org/wiki/National_Basketball_Association
-%http://courses.ischool.berkeley.edu/i247/f05/readings/Baldonado_MultipleViews_AVI00.pdf
-%http://www.interactiondesign.us/courses/2011_AD690/PDFs/Shneiderman_1996.pdf
-%http://workshop.sportvis.com/
-%http://www2.parc.com/istl/groups/uir/publications/items/UIR-1986-02-Mackinlay-TOG-Automating.pdf
-%http://www.cc.gatech.edu/~john.stasko/papers/infovis06.pdf
 
 %Shot charts
 %http://peterbeshai.com/buckets/app
@@ -249,8 +249,6 @@ This paper (http://inf.ufrgs.br/~lsguedes/skooth/Publications_&_Works_files/nbav
 %https://github.com/amatlin/NBAvis
 %https://thedatagame.com.au/2015/09/27/how-to-create-nba-shot-charts-in-r/
 %http://savvastjortjoglou.com/nba-shot-sharts.html?utm_source=Python+Weekly+Newsletter&utm_campaign=5185ff0538-Python_Weekly_Issue_202_July_30_2015&utm_medium=email&utm_term=0_9e26887fc5-5185ff0538-312727397
-%http://www.sloansportsconference.com/wp-content/uploads/2012/02/Goldsberry_Sloan_Submission.pdf
-%http://vis.berkeley.edu/courses/cs294-10-sp10/wiki/images/archive/a/a2/20100511091342!Stephen_Chu_-_Information_Visualization_in_the_NBA_-_The_Shot_Chart_16.pdf
 %http://toddwschneider.com/posts/ballr-interactive-nba-shot-charts-with-r-and-shiny/
 
 %Standings
@@ -308,6 +306,10 @@ statistics view= details on demand
 Talk about th organization of the 3 views + the choice for a tiled approach
 - Each page is a 'tile' that we force with fixed scrolling
 - Use of the keyboard is possible (space bar to scroll + arrows, arrows for timeline)
+- This papers are usefulle to refer to
+http://courses.ischool.berkeley.edu/i247/f05/readings/Baldonado_MultipleViews_AVI00.pdf
+http://www.interactiondesign.us/courses/2011_AD690/PDFs/Shneiderman_1996.pdf
+http://www2.parc.com/istl/groups/uir/publications/items/UIR-1986-02-Mackinlay-TOG-Automating.pdf
 >
 
 All three are discussed in more detail below. The three views are available to
@@ -540,6 +542,7 @@ Next to that, although we've tried to write our code as general as possible, we'
 % References must be the same font size as other body text.
 %\bibliographystyle{SIGCHI-Reference-Format}
 \printbibliography
+%TODO References should be in alphabetical order and represented by numbers in the text.
 
 \appendix
 \section{Terminology}\label{sec:terminology}
