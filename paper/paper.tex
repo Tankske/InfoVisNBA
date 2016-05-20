@@ -158,15 +158,22 @@
 
 \section{Introduction}
 
-The National Basketball Association (NBA) is the most famous and perhaps the best professional basketball league in the world. Like in every other sports branch, a lot of data and statistics about players, teams, games and seasons are available, mainly in large tables. Despite these tables contains a lot of information, it is very hard if not impossible, to interpret, compare efficiently and gather insights in it. In our work we try to present this data in a whole different way. Therefore we have focused ourselves on some parts and not the entire available data.
+The National Basketball Association (NBA) is the most famous and perhaps the
+best professional basketball league in the world. Like in every other sports
+branch, a lot of data and statistics about players, teams, games and seasons
+are available, mainly in large tables. Despite these tables contains a lot of
+information, it is very hard if not impossible, to interpret, compare
+efficiently and gather insights in it. In our work we try to present this data
+in a whole different way. Therefore we have focused ourselves on some parts and
+not the entire available data.
 
 This paper describes the visualization of NBA data made by the ``The Tufters''
 team for the course ``Information Visualization''. In section~\ref{sec:goal} we
 describe the goal of the visualization and the target audience. In
 section~\ref{sec:data} we describe the data used, including its origins,
 advantages and limitations. In section~\ref{sec:literature} we give an overview
-of related literature and web resources, including related visualizations.  This
-includes both visualizations of NBA or other sports data, as well as
+of related literature and web resources, including related visualizations.
+This includes both visualizations of NBA or other sports data, as well as
 visualizations tackling an isue encountered during the development of our
 visualization. In section~\ref{sec:visualization} we describe the visualization
 itself. We give an overview of the different stages of development of the
@@ -177,22 +184,22 @@ section~\ref{sec:conclusion}. Appendix~\ref{sec:terminology} contains
 definitions for common basketball terms used in this paper.
 
 \section{Goal and Target Audience}\label{sec:goal} 
-The visualization's goal can be best summarized by the following sentence: ``Why
-did a certain NBA-team win the Championship?'' The visualization focuses on exposing relations between team
-performance and their player roster over several years. It allows users to find
-explanations for major improvements and declines in team performance.  The
-visualization allows exploration of NBA data by lay persons.  More specifically,
-the visualization does not focus on premade explanations for phenomenons
-visible in the NBA data. By providing easy and intuitive access to the data, the
-visualization allows users to draw their own conclusions. The visualization's
-target audience are lay persons. Specifically, fans of NBA are the core of our
-target audience. This means the visualization assumes most common basketball
-terms are known to the audience and does not provide basic terminology
-explanations. 
-< We also give basic insights in why a statistic changes (arrow views)
-we try to help them explore patters and trigger them for questions
-Do we create awareness?
->
+The visualization's goal can be best summarized by the following sentence:
+``Why did a certain NBA-team win the Championship?'' The visualization focuses
+on exposing relations between team performance and their player roster over
+several years. It allows users to find explanations for major improvements and
+declines in team performance.  The visualization allows exploration of NBA data
+by lay persons.  More specifically, the visualization does not focus on premade
+explanations for phenomenons visible in the NBA data. By providing easy and
+intuitive access to the data, the visualization allows users to draw their own
+conclusions. The visualization's target audience are lay persons. Specifically,
+fans of NBA are the core of our target audience. This means the visualization
+assumes most common basketball terms are known to the audience and does not
+provide basic terminology explanations.
+
+< We also give basic insights in why a
+statistic changes (arrow views) we try to help them explore patters and trigger
+them for questions Do we create awareness?  >
 
 \section{Data}\label{sec:data}
 The data visualized is a subset of the data available on basketball statistics
@@ -232,12 +239,26 @@ rfr to picture in 1st ppt sl 60>
 
 \section{Related Work}\label{sec:literature}
 
-On the IEEE Visualization Conference in 2013, the first workshop on sports data visualization was held \cite{ieeevis}. There is shown that the area of sport produces large amounts of data, which can be used for building visualizations and making analyses of the data. In the past visualizations of sports existed already, but there were not a lot of visualizations, and they were simple in the sense that they just represented the data without trying to give insights or to approach the data on a different way. There are some, but limited, sports-specific visualizations, like the basketball shot chart. This is a visualization frequentely seen when looking for visualizations about the NBA. Some shot chart vizualisations try to be different than others, but the general design and idea stays roughly the same. 
+On the IEEE Visualization Conference in 2013, the first workshop on sports data
+visualization was held \cite{ieeevis}. There is shown that the area of sport
+produces large amounts of data, which can be used for building visualizations
+and making analyses of the data. In the past visualizations of sports existed
+already, but there were not a lot of visualizations, and they were simple in
+the sense that they just represented the data without trying to give insights
+or to approach the data on a different way. There are some, but limited,
+sports-specific visualizations, like the basketball shot chart. This is a
+visualization frequentely seen when looking for visualizations about the NBA.
+Some shot chart vizualisations try to be different than others, but the general
+design and idea stays roughly the same. 
 % 2 goeie papers die hierin verwerkt kunnen worden
 %http://www.sloansportsconference.com/wp-content/uploads/2012/02/Goldsberry_Sloan_Submission.pdf
 %http://vis.berkeley.edu/courses/cs294-10-sp10/wiki/images/archive/a/a2/20100511091342!Stephen_Chu_-_Information_Visualization_in_the_NBA_-_The_Shot_Chart_16.pdf
 
-With our visualization we try to make it easier to interpret a collection of data about the NBA, and try to let users find patterns and insights in the data. A same kind of incentive was the start for \cite{cox2006sportsvis} who created a visualization to help people discover meaning in statistics generated during sporting events in the case of baseball.
+With our visualization we try to make it easier to interpret a collection of
+data about the NBA, and try to let users find patterns and insights in the
+data. A same kind of incentive was the start for \cite{cox2006sportsvis} who
+created a visualization to help people discover meaning in statistics generated
+during sporting events in the case of baseball.
 
 
 
@@ -300,15 +321,15 @@ The visualization consists of three parts:
   \caption{The team view.}~\label{fig:teamview}
 \end{figure}
 
-<Explain that this complies with the infovis seeking mantra: Overview, zoom&filter, details on demand
+<Explain that this complies with the infovis seeking mantra: Overview, zoom\&filter, details on demand
 play-off view = overview
 statistics view= details on demand
 Talk about th organization of the 3 views + the choice for a tiled approach
 - Each page is a 'tile' that we force with fixed scrolling
 - Use of the keyboard is possible (space bar to scroll + arrows, arrows for timeline)
 - This papers are usefulle to refer to
-http://courses.ischool.berkeley.edu/i247/f05/readings/Baldonado_MultipleViews_AVI00.pdf
-http://www.interactiondesign.us/courses/2011_AD690/PDFs/Shneiderman_1996.pdf
+http://courses.ischool.berkeley.edu/i247/f05/readings/Baldonado\_MultipleViews\_AVI00.pdf
+http://www.interactiondesign.us/courses/2011\_AD690/PDFs/Shneiderman\_1996.pdf
 http://www2.parc.com/istl/groups/uir/publications/items/UIR-1986-02-Mackinlay-TOG-Automating.pdf
 >
 
@@ -333,14 +354,68 @@ This view informs the user of the roster and end positions in the NBA play-offs 
 The play-off view is shown in Figure~\ref{fig:playoffviewwithcontext}.
 
 \subsubsection{Context section}
-The context section contains a legend that explains the stroke colors used in the bubble section. The stroke is gold, silver or bronze if the team ended respectively first, second or third in the regular competition. Teams that didn't end in a podium place during the regular competition have a red or blue stroke color indicating the team's region, respectively the western or eastern conference. The context section also contains a link to another page (``About'') where the user can get an explanation of the visualization with its different views, can get some background information about the NBA and the terminolgy used, and can check the source of our used data. If the user hovers over or selects a team in the bubble section, the context section shows more information about that team, as shown in Figure~\ref{fig:playoffviewteamselected}. This includes the Simple Rating System score (SRS), the end position in the play-offs and the end position in the regular competition.
+The context section contains a legend that explains the stroke colors used in
+the bubble section. The stroke is gold, silver or bronze if the team ended
+respectively first, second or third in the regular competition. Teams that
+didn't end in a podium place during the regular competition have a red or blue
+stroke color indicating the team's region, respectively the western or eastern
+conference. The context section also contains a link to another page
+(``About'') where the user can get an explanation of the visualization with its
+different views, can get some background information about the NBA and the
+terminolgy used, and can check the source of our used data. If the user hovers
+over or selects a team in the bubble section, the context section shows more
+information about that team, as shown in
+Figure~\ref{fig:playoffviewteamselected}. This includes the Simple Rating
+System score (SRS), the end position in the play-offs and the end position in
+the regular competition.
 
 \subsubsection{Bubble section}
-This section presents the roster and end positions of the play-offs for a selected season. Every team is respresented by a circle with the logo of the team inside it. Our initial desing filled the circle with the logo of the team and colored the circle red or blue depending on the region where the team competed. The shade of colour was darker if their final ranking was higher in their region. According to the Ranking of Perceptual Tasks~\cite{perceptualranking} this is a good property for ordered values like the regular competition ranking. But the combination of the logo's of the teams with the colors made it to heavy and less easy to compare the end ranking of different teams. As an alternative we tried the same view without the logo's, but this is inconvenient because you don't know which team is represented by which circle. Therefore we've chosen to only use the logo's of the teams as we thought this is more user friendly and the extra information of the ranking doesn't outweight. The size of the circle represents the SRS score using an own interpretation of perceptual scaling because the (Flannery) Appearance Compensation is not usable with a domain of both negative and positive values. An exponential function with exponent 1.5 was used. This way the proportion between the area of a bigger and the area of a smaller circle will be greater than the proportion of values the areas represent. The stroke of the circle illustrates the team's region or medal won during the regional competition as explained in the context section. The curved lines between teams represent that those teams have encountered each other in the playoffs. Each row represents an end position in the play-offs. The higher a team is, the further it has come. From the top to the bottom the rows represent the winner of the final (place 1), loser of the final (place 2), losers of the semi-finals (place 3), losers of the quarter-finals (place 4), losers of the 1/8-finales (place 5). The last row represents the teams that did not make it to the play-offs (place 6).  A connection is always made between a team that is in a higher row and a team that is in a lower row. The highest team of the two teams has won the confrontation, and therefor went at least one round further in the play-offs. The two up most teams are the winners of the play-offs in their own conference and played the final. 
-A more popular visualization of a play-off is the team double elimination bracket.
-Although this is a more common representation , and there are some nice desings like in this NBA 2012 play-offs visualisation~\cite{tournamentladder} where a sunburst visualisation is used, we wanted to create a more compact version by eliminating the recurring representation of a team. We considered enclosed circles, as used in this visualisation of the wimbledon tournament roster~\cite{enclosedcircles}.
-Although the enclosed circles is a compact representation as well, we have continued 
-with our own design as we believe this view is more original and innovative. Furthermore we are convinced that our view gives a good illustration of the end positions. It's generally assumed that the team that is on top of the ``ladder'' is the winning team. We didn't encouter a similar view when searching for alternatives to visualize a play-off or championship. A new visualization has the advantage that it will trigger users as well.
+This section presents the roster and end positions of the play-offs for a
+selected season. Every team is respresented by a circle with the logo of the
+team inside it. Our initial desing filled the circle with the logo of the team
+and colored the circle red or blue depending on the region where the team
+competed. The shade of colour was darker if their final ranking was higher in
+their region. According to the Ranking of Perceptual
+Tasks~\cite{perceptualranking} this is a good property for ordered values like
+the regular competition ranking. But the combination of the logo's of the teams
+with the colors made it to heavy and less easy to compare the end ranking of
+different teams. As an alternative we tried the same view without the logo's,
+but this is inconvenient because you don't know which team is represented by
+which circle. Therefore we've chosen to only use the logo's of the teams as we
+thought this is more user friendly and the extra information of the ranking
+doesn't outweight. The size of the circle represents the SRS score using an own
+interpretation of perceptual scaling because the (Flannery) Appearance
+Compensation is not usable with a domain of both negative and positive values.
+An exponential function with exponent 1.5 was used. This way the proportion
+between the area of a bigger and the area of a smaller circle will be greater
+than the proportion of values the areas represent. The stroke of the circle
+illustrates the team's region or medal won during the regional competition as
+explained in the context section. The curved lines between teams represent that
+those teams have encountered each other in the playoffs. Each row represents an
+end position in the play-offs. The higher a team is, the further it has come.
+From the top to the bottom the rows represent the winner of the final (place
+1), loser of the final (place 2), losers of the semi-finals (place 3), losers
+of the quarter-finals (place 4), losers of the 1/8-finales (place 5). The last
+row represents the teams that did not make it to the play-offs (place 6).  A
+connection is always made between a team that is in a higher row and a team
+that is in a lower row. The highest team of the two teams has won the
+confrontation, and therefor went at least one round further in the play-offs.
+The two up most teams are the winners of the play-offs in their own conference
+and played the final. 
+A more popular visualization of a play-off is the team double elimination
+bracket.  Although this is a more common representation , and there are some
+nice desings like in this NBA 2012 play-offs
+visualisation~\cite{tournamentladder} where a sunburst visualisation is used,
+we wanted to create a more compact version by eliminating the recurring
+representation of a team. We considered enclosed circles, as used in this
+visualisation of the wimbledon tournament roster~\cite{enclosedcircles}.
+Although the enclosed circles is a compact representation as well, we have
+continued with our own design as we believe this view is more original and
+innovative. Furthermore we are convinced that our view gives a good
+illustration of the end positions. It's generally assumed that the team that is
+on top of the ``ladder'' is the winning team. We didn't encouter a similar view
+when searching for alternatives to visualize a play-off or championship. A new
+visualization has the advantage that it will trigger users as well.
 
 
 \begin{figure}
@@ -391,14 +466,22 @@ Pre attentive characteristics
 - size of circles
 - hue to highligt selections or indicate increase decline arrows next view
 
-We considered a map view to just show the teams and there regular competition ranking. But this was a view that has no additional value in comparison with the play-off view except for the geographical position, which has no importance for our visualisation. Furthermore we've found a visualisation of the NBA with a map view~\cite{mapviewvisualization} similar to our idea, so we decided to not implement this map view. 
+We considered a map view to just show the teams and there regular competition
+ranking. But this was a view that has no additional value in comparison with
+the play-off view except for the geographical position, which has no importance
+for our visualisation. Furthermore we've found a visualisation of the NBA with
+a map view~\cite{mapviewvisualization} similar to our idea, so we decided to
+not implement this map view. 
 
 This visualization helped us discover data quality issues => cut off year 1984
 >
 
 
 \subsection{The statistics view}
-The statistics view gives a user a clear overview of how a statistic has been influenced in the selected season compared to the season before. The statistics view is showed in Figure~\ref{fig:statisticsview}. The view consists of 3 coordinated parts:
+The statistics view gives a user a clear overview of how a statistic has been
+influenced in the selected season compared to the season before. The statistics
+view is showed in Figure~\ref{fig:statisticsview}. The view consists of 3
+coordinated parts:
 \begin{itemize}
     \item Context section: the top part informs the user of the context of the selected team
     \item Arrow section: this section illustrates why a statistic changed compared to the previous season
@@ -406,12 +489,24 @@ The statistics view gives a user a clear overview of how a statistic has been in
 \end{itemize}
 
 \subsubsection{Context section}
-The context section informs the user at all times of the current selection of a team  
-that have been made in the play-off view. The statistics view will always be based on a specific team and season that have been selected or that are initated. This should be clear based on the textual information in the top left. Next to that, in the top right a small play-off view is shown. It indicates the team selected and how well it performed in  the play-offs during that season, as explained in the play-off view section. When changing teams and/or season, this view gets updated as well as the textual information. <Explain that the context supports the short term memory of human beings rfr. Monkey Illusion>
+The context section informs the user at all times of the current selection of a
+team  that have been made in the play-off view. The statistics view will always
+be based on a specific team and season that have been selected or that are
+initated. This should be clear based on the textual information in the top
+left. Next to that, in the top right a small play-off view is shown. It
+indicates the team selected and how well it performed in  the play-offs during
+that season, as explained in the play-off view section. When changing teams
+and/or season, this view gets updated as well as the textual information.
+<Explain that the context supports the short term memory of human beings rfr.
+Monkey Illusion>
 
 
 \subsubsection{Arrow section of selected statistic}
-This section illustrates a change for a chosen statistic for the selected team compared with the season before. This should give a visitor more insight into why a statistic changed over time. The selected team is represented by a circle in the same way as explained in the play-off view. The change for a statistic is represented by three arrows:
+This section illustrates a change for a chosen statistic for the selected team
+compared with the season before. This should give a visitor more insight into
+why a statistic changed over time. The selected team is represented by a circle
+in the same way as explained in the play-off view. The change for a statistic
+is represented by three arrows:
 \begin{itemize}
     \item Arrow on the left pointing towards the circle: indicating the influence of players who joined the team (team member current season, not previous season)
     \item Arrow on the right of the circle: indicating how the team inherent changed (team member this season and previous season)
@@ -422,7 +517,7 @@ The shirts next to the arrows are the shirts of players that had the biggest
 contribution to that arrow. Note that these shirts don't change in size. The box on 
 the right enables the user to change between statistics. Next to that it informs the user of which statistic has been chosen. When the user hits the circle in the middle representing the teams, he is guided to the team view. This view will be explained in more detail in the next section.
 <filtering: 
-- time & team
+- time \& team
 - based on exploration (small multiples)
 - dynamically: changes impact multiple parts>
 
@@ -431,7 +526,7 @@ Below the arrow section small multiples are shown of multiple statistics over ti
 The line charts enables a user to identify peaks or drops that possibly influenced the 
 outcome of a team is this season, following seasons or previous seasons. A user interacts with the visualization by shifting the bar indicating the current year displayed. By doing this the view gets updated and the user can see the impact on the team in the context section and why the statistic changes in the arrow section. An alternative to scroll through time is to use the timeline at the bottom of the page.
 <this vis helps us comparre statistics over time and relations between them
-eg. srs score & play-off ranking>
+eg. srs score \& play-off ranking>
 
 \subsection{The team view}
 This view as well as the statistics view should give the user the ability to search
@@ -458,7 +553,7 @@ As with most projects, the result is never 'finished', meaning that there are al
     At the moment the arrows change at the blink of an eye, making it difficult for us humans with a short term memory to make the comparison.
     \item To further support our short term memory we could also 'save' the previous state. Eg. in the field view we could visualize ghost shirts to indicate which players left the team or position and highlight players that joined the team. 
     This would help the user see how the team changes over time.
-    \item At the moment no attention has been payed to the process & provenance of the exploration. A user thus needs to  memorize his action to be able to share or reproduce his actions. This could be improved by adding URL parameters. This
+    \item At the moment no attention has been payed to the process \& provenance of the exploration. A user thus needs to  memorize his action to be able to share or reproduce his actions. This could be improved by adding URL parameters. This
     way a user at least can share or save a state of an analysis. One step further is to provide a play-feature. The visitor could them share his exploration and replay it. A simple implemention would ask the visitor for a start date and an end date and
     would then 'play' the changes of a particular team and characteristic over time.
     \item We could support users further in exploring for patterns by focussing more on comparisons. We could integrate a view where a visitor is able to compare two teams in the same year, or in two different years.

@@ -40,25 +40,53 @@
       \verb http://www.basketball-reference.com/
       \endverb
     \endentry
-    \entry{d3}{online}{}
-      \name{author}{1}{}{%
-        {{hash=3a56f801778dd81bf67b8f9cdccacb12}{%
-           family={Bostock},
-           family_i={B\bibinitperiod},
-           given={Mike},
-           given_i={M\bibinitperiod}}}%
+    \entry{cox2006sportsvis}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=3dd70f043c638a4779a6e6019d6b78bd}{%
+           family={Cox},
+           family_i={C\bibinitperiod},
+           given={Andy},
+           given_i={A\bibinitperiod}}}%
+        {{hash=fafd31a5032b31a42bb33c9f1bc02ed7}{%
+           family={Stasko},
+           family_i={S\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
       }
-      \strng{namehash}{3a56f801778dd81bf67b8f9cdccacb12}
-      \strng{fullhash}{3a56f801778dd81bf67b8f9cdccacb12}
-      \field{sortinit}{d}
-      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \list{organization}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{140c5f09c7ea43799fd93023774d1406}
+      \strng{fullhash}{140c5f09c7ea43799fd93023774d1406}
+      \field{sortinit}{c}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{04}
-      \field{title}{D3 - Data Driven Documents}
+      \field{booktitle}{Compendium of Symposium on Information Visualization}
+      \field{title}{Sportsvis: Discovering meaning in sports statistics through information visualization}
+      \field{year}{2006}
+      \field{pages}{114\bibrangedash 115}
+      \range{pages}{2}
+    \endentry
+    \entry{enclosedcircles}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a2ece04c5cf7a24463eabdd36bb9a8c0}{%
+           family={Cook},
+           family_i={C\bibinitperiod},
+           given={Peter},
+           given_i={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a2ece04c5cf7a24463eabdd36bb9a8c0}
+      \strng{fullhash}{a2ece04c5cf7a24463eabdd36bb9a8c0}
+      \field{sortinit}{e}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{Wimbledon 2013 Player bubbles}
       \field{year}{2016}
       \verb{url}
-      \verb https://d3js.org/
+      \verb http://wimbledon.prcweb.co.uk/playerbubbles.html
       \endverb
     \endentry
     \entry{html5}{online}{}
@@ -82,6 +110,25 @@
       \verb https://en.wikipedia.org/wiki/HTML5/
       \endverb
     \endentry
+    \entry{ieeevis}{online}{}
+      \name{author}{1}{}{%
+        {{hash=472abfae8142fdb6f39d081303e8af85}{%
+           family={IEEE},
+           family_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{fullhash}{472abfae8142fdb6f39d081303e8af85}
+      \field{sortinit}{i}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{What's the score? The 1st Workshop on Sports Data Visualization}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://workshop.sportvis.com/
+      \endverb
+    \endentry
     \entry{jquery}{online}{}
       \name{author}{1}{}{%
         {{hash=6a2d7208853daffcb96fb5a7382b0c7b}{%
@@ -99,6 +146,27 @@
       \field{year}{2016}
       \verb{url}
       \verb https://jquery.com/
+      \endverb
+    \endentry
+    \entry{mapviewvisualization}{online}{}
+      \name{author}{1}{}{%
+        {{hash=cceee4a92e87b3e45cb2d2d8b706fe43}{%
+           family={Chiu},
+           family_i={C\bibinitperiod},
+           given={Lemon},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{cceee4a92e87b3e45cb2d2d8b706fe43}
+      \strng{fullhash}{cceee4a92e87b3e45cb2d2d8b706fe43}
+      \field{sortinit}{m}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{NBA-Visualization}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://lemonchiu.github.io/NBA-Visualization/
       \endverb
     \endentry
     \entry{per}{online}{}
@@ -122,6 +190,31 @@
       \verb https://en.wikipedia.org/wiki/Player_efficiency_rating/
       \endverb
     \endentry
+    \entry{perceptualranking}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9290a6af65bf969ceda189b25b08491b}{%
+           family={Mackinlay},
+           family_i={M\bibinitperiod},
+           given={Jock},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{9290a6af65bf969ceda189b25b08491b}
+      \strng{fullhash}{9290a6af65bf969ceda189b25b08491b}
+      \field{sortinit}{p}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acm Transactions On Graphics (Tog)}
+      \field{number}{2}
+      \field{title}{Automating the design of graphical presentations of relational information}
+      \field{volume}{5}
+      \field{year}{1986}
+      \field{pages}{110\bibrangedash 141}
+      \range{pages}{32}
+    \endentry
     \entry{peterbeshai}{online}{}
       \name{author}{1}{}{%
         {{hash=f65844da1e49a648b6314c9f74e9b71e}{%
@@ -143,7 +236,27 @@
       \verb http://peterbeshai.com/buckets/app/
       \endverb
     \endentry
+    \entry{tournamentladder}{online}{}
+      \name{author}{1}{}{%
+        {{hash=24c4267ef6b24059b3feda4bfa3d86ff}{%
+           family={@playoffsbracket},
+           family_i={@\bibinitperiod}}}%
+      }
+      \strng{namehash}{24c4267ef6b24059b3feda4bfa3d86ff}
+      \strng{fullhash}{24c4267ef6b24059b3feda4bfa3d86ff}
+      \field{sortinit}{t}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{NBA Playoffs Bracket}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://www.nbaplayoffsbracket.com/2016/index.php
+      \endverb
+    \endentry
   \endsortlist
+  \missing{d3.js}
 \endrefsection
 \endinput
 
