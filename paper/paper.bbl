@@ -19,6 +19,42 @@
 
 \refsection{0}
   \sortlist[entry]{debug/global}
+    \entry{adaptivitree}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=19be0c49434a1e7186b9a7c09e23f38a}{%
+           family={Tan},
+           family_i={T\bibinitperiod},
+           given={Desney},
+           given_i={D\bibinitperiod}}}%
+        {{hash=096157d37c530ca3c25e3d7ef273b9a2}{%
+           family={Smith},
+           family_i={S\bibinitperiod},
+           given={Greg},
+           given_i={G\bibinitperiod}}}%
+        {{hash=676dc38f9d5c05da09549d1d5e56f703}{%
+           family={Lee},
+           family_i={L\bibinitperiod},
+           given={Bongshin},
+           given_i={B\bibinitperiod}}}%
+        {{hash=59d6e497257721b9aec5969f51d82309}{%
+           family={Robertson},
+           family_i={R\bibinitperiod},
+           given={George\bibnamedelima G.},
+           given_i={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ffb31a492591d1c3bbe7b871adb4c39}
+      \strng{fullhash}{77219a5308c8cbace4d6574a66196fdb}
+      \field{sortinit}{a}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE InfoVis 2007}
+      \field{title}{AdaptiviTree: Adaptive Tree Visualization for Tournament-Style Brackets}
+      \field{year}{2007}
+      \verb{url}
+      \verb http://research.microsoft.com/apps/pubs/default.aspx?id=64282
+      \endverb
+    \endentry
     \entry{aesthetics}{article}{}
       \name{author}{2}{}{%
         {{hash=2399436fa66d5d82fdde17bd1723d014}{%
@@ -115,33 +151,26 @@
       \verb http://www.basketball-reference.com/
       \endverb
     \endentry
-    \entry{cox2006sportsvis}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=3dd70f043c638a4779a6e6019d6b78bd}{%
-           family={Cox},
-           family_i={C\bibinitperiod},
-           given={Andy},
-           given_i={A\bibinitperiod}}}%
-        {{hash=fafd31a5032b31a42bb33c9f1bc02ed7}{%
-           family={Stasko},
-           family_i={S\bibinitperiod},
-           given={John},
-           given_i={J\bibinitperiod}}}%
+    \entry{d3}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3a56f801778dd81bf67b8f9cdccacb12}{%
+           family={Bostock},
+           family_i={B\bibinitperiod},
+           given={Mike},
+           given_i={M\bibinitperiod}}}%
       }
-      \list{organization}{1}{%
-        {Citeseer}%
-      }
-      \strng{namehash}{140c5f09c7ea43799fd93023774d1406}
-      \strng{fullhash}{140c5f09c7ea43799fd93023774d1406}
-      \field{sortinit}{c}
-      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \strng{namehash}{3a56f801778dd81bf67b8f9cdccacb12}
+      \strng{fullhash}{3a56f801778dd81bf67b8f9cdccacb12}
+      \field{sortinit}{d}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Compendium of Symposium on Information Visualization}
-      \field{title}{Sportsvis: Discovering meaning in sports statistics through information visualization}
-      \field{year}{2006}
-      \field{pages}{114\bibrangedash 115}
-      \range{pages}{2}
+      \field{month}{04}
+      \field{title}{D3 - Data Driven Documents}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://d3js.org/
+      \endverb
     \endentry
     \entry{enclosedcircles}{online}{}
       \name{author}{1}{}{%
@@ -228,6 +257,53 @@
       \field{year}{2015}
       \verb{url}
       \verb http://www.mckinsey.com/industries/media-and-entertainment/our-insights/for-daily-fantasy-sports-operators-the-curse-of-too-much-skill
+      \endverb
+    \endentry
+    \entry{fivethirtyeight}{online}{}
+      \name{author}{2}{}{%
+        {{hash=44fb171377c9ca059835bf2bd9db0eb7}{%
+           family={Fisher-Baum},
+           family_i={F\bibinithyphendelim B\bibinitperiod},
+           given={Reuben},
+           given_i={R\bibinitperiod}}}%
+        {{hash=6a14a9b6dd57352a91da398f00bb6c01}{%
+           family={Silver},
+           family_i={S\bibinitperiod},
+           given={Nate},
+           given_i={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{05fc86fe970585945b638c3526b5db19}
+      \strng{fullhash}{05fc86fe970585945b638c3526b5db19}
+      \field{sortinit}{f}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{21}
+      \field{month}{05}
+      \field{title}{The Complete History Of The NBA}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://projects.fivethirtyeight.com/complete-history-of-the-nba/
+      \endverb
+    \endentry
+    \entry{goldsberry}{article}{}
+      \name{author}{1}{}{%
+        {{hash=cbec0e106e33f32809b1ae45b17e2224}{%
+           family={Goldsberry},
+           family_i={G\bibinitperiod},
+           given={Kirk},
+           given_i={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbec0e106e33f32809b1ae45b17e2224}
+      \strng{fullhash}{cbec0e106e33f32809b1ae45b17e2224}
+      \field{sortinit}{g}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CourtVision: New Visual and Spatial Analytics for the NBA}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://www.sloansportsconference.com/wp-content/uploads/2012/02/Goldsberry_Sloan_Submission.pdf
       \endverb
     \endentry
     \entry{html5}{online}{}
@@ -518,6 +594,82 @@
       \verb http://www.pro-football-reference.com/blog/?p=37
       \endverb
     \endentry
+    \entry{starplots}{article}{}
+      \name{author}{4}{}{%
+        {{hash=bdca3246f30a062f9eb955cc3c842741}{%
+           family={Pagano},
+           family_i={P\bibinitperiod},
+           given={Bruno},
+           given_i={B\bibinitperiod}}}%
+        {{hash=181cf29c7daff4f0da8056ef4bd76b5d}{%
+           family={Guedes},
+           family_i={G\bibinitperiod},
+           given={Landro},
+           given_i={L\bibinitperiod}}}%
+        {{hash=dc51e01d8881b1f39488e740f7ec5b9c}{%
+           family={Freitas},
+           family_i={F\bibinitperiod},
+           given={Carla},
+           given_i={C\bibinitperiod}}}%
+        {{hash=583b0af591fc4bb4b8e338d88caec842}{%
+           family={Nedel},
+           family_i={N\bibinitperiod},
+           given={Luciana},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{af4b8d0106b5f279cf6aec04cfdb8c0c}
+      \strng{fullhash}{00b2b281164c340aa2a67d11a7ccfca9}
+      \field{sortinit}{s}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NBAVis: Visualizing National Basketball Association Information}
+      \field{year}{2014}
+      \verb{url}
+      \verb http://inf.ufrgs.br/~lsguedes/skooth/Publications_&_Works_files/nbavis_final.pdf
+      \endverb
+    \endentry
+    \entry{stephenchu}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7ea1bbe0563e6461bc1dce705e55095b}{%
+           family={Chu},
+           family_i={C\bibinitperiod},
+           given={Stephen},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ea1bbe0563e6461bc1dce705e55095b}
+      \strng{fullhash}{7ea1bbe0563e6461bc1dce705e55095b}
+      \field{sortinit}{s}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Information Visualization in the NBA: The Shot Chart}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://vis.berkeley.edu/courses/cs294-10-sp10/wiki/images/archive/a/a2/20100511091342!Stephen_Chu_-_Information_Visualization_in_the_NBA_-_The_Shot_Chart_16.pdf
+      \endverb
+    \endentry
+    \entry{sunburst}{online}{}
+      \name{author}{1}{}{%
+        {{hash=98e1e8ad3bee3af856b6dfe0b71b9342}{%
+           family={Peraza},
+           family_i={P\bibinitperiod},
+           given={Deroy},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{98e1e8ad3bee3af856b6dfe0b71b9342}
+      \strng{fullhash}{98e1e8ad3bee3af856b6dfe0b71b9342}
+      \field{sortinit}{s}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{The history of sports championships, visualized}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://hyperakt.com/labs/champs-ring/
+      \endverb
+    \endentry
     \entry{tournamentladder}{online}{}
       \name{author}{1}{}{%
         {{hash=24c4267ef6b24059b3feda4bfa3d86ff}{%
@@ -565,7 +717,6 @@
       \endverb
     \endentry
   \endsortlist
-  \missing{d3.js}
 \endrefsection
 \endinput
 

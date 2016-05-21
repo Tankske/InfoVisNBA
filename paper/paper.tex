@@ -227,54 +227,64 @@ available data can be seen on figure~\ref{fig:data}.
   \label{fig:data}
 \end{figure}
 
-\todo{Rework realted work}
 \section{Related Work}\label{sec:literature}
+Recently, there has been an increase in the interest in visualizations of sports
+data. This is best exemplified by theworkshop on sports data visualization at
+the IEEE Visualization Conference in 2013\cite{ieeevis}. 
 
-On the IEEE Visualization Conference in 2013, the first workshop on sports data
-visualization was held \cite{ieeevis}. There is shown that the area of sport
-produces large amounts of data, which can be used for building visualizations
-and making analyses of the data. In the past visualizations of sports existed
-already, but there were not a lot of visualizations, and they were simple in
-the sense that they just represented the data without trying to give insights
-or to approach the data on a different way. There are some, but limited,
-sports-specific visualizations, like the basketball shot chart. This is a
-visualization frequentely seen when looking for visualizations about the NBA.
-Some shot chart vizualisations try to be different than others, but the general
-design and idea stays roughly the same. 
-% 2 goeie papers die hierin verwerkt kunnen worden
-%http://www.sloansportsconference.com/wp-content/uploads/2012/02/Goldsberry_Sloan_Submission.pdf
-%http://vis.berkeley.edu/courses/cs294-10-sp10/wiki/images/archive/a/a2/20100511091342!Stephen_Chu_-_Information_Visualization_in_the_NBA_-_The_Shot_Chart_16.pdf
+There are a number of traditional basketball visualizations. One of the most
+popular ones is the shot chart. This visualizes the shots of a player or team
+around the hoop. It provides insight into the shooting ability of a
+player\cite{goldsberry,stephenchu}.
 
-With our visualization we try to make it easier to interpret a collection of
-data about the NBA, and try to let users find patterns and insights in the
-data. A same kind of incentive was the start for \cite{cox2006sportsvis} who
-created a visualization to help people discover meaning in statistics generated
-during sporting events in the case of baseball.
+This view features heavily in Peter Beshai's Buckets\cite{peterbeshai}. This is
+an extensive visualization of NBA player data. It provides not only the player's
+shot chart for various years, but his shooting signature and several line graphs
+as well. It is strongly focused on individual player's shooting abilities. 
 
+Visualizations focusing on basketball teams and their performance are
+significantly more difficult to find. For the playoffs, there is the traditional
+playoffs bracket~\cite{tournamentladder}. This bracket structure has the
+advantage of being well known and as such, not requiring much explanation. It is
+flawed however. It duplicates much information by displaying teams multiple
+times. 
 
-(From bubble view)
-A more traditional visualization of a play-off is the team double elimination
-bracket.  Although this is a more common representation , and there are some
-nice desings like in this NBA 2012 play-offs
-visualisation~\cite{tournamentladder} where a sunburst visualisation is used,
-we wanted to create a more compact version by eliminating the recurring
-representation of a team. We considered enclosed circles, as used in this
-visualisation of the wimbledon tournament roster~\cite{enclosedcircles}.
-Although the enclosed circles is a compact representation as well, we have
-continued with our own design as we believe this view is more original and
-innovative. Furthermore we are convinced that our view gives a good
-illustration of the end positions. It's generally assumed that the team that is
-on top of the ``ladder'' is the winning team. We didn't encouter a similar view
-when searching for alternatives to visualize a play-off or championship. A new
-visualization has the advantage that it will trigger users as well.
+An interesting alternative is the sunburst tournament
+visualization\cite{sunburst}. As the name suggests, this visualizes the
+tournament as a sunburst, with the winning team taking the part of the circle
+closer to the center. This does not eliminate the problem of the recurring teams
+however.
 
+For the wimbledon tennis tournament, an enclosed circles visualization was
+created~\cite{enclosedcircles}. This visualization eliminates the repeating
+occurrences of the same team. However, it wastes a lot of space. 
 
-(From field view)
-One good alternative was the shooting signature.\cite{peterbeshai} However,
-creating such a visualization is again a project on itself and due to time
-constraints we left it aside. Other possibilities such as a heatmap or spider
-web didn't fulfill our need to give the visitor a clear overview of how a player
-performed compared to its peergroup.
+England's Permier League results were visualized by Ami Sedghi for the
+Guardian\ref{premierleague}. This visualization shows the team's rankings as
+line graphs and allows highlighting of individual teams.
+
+Tan et al. created an adaption of the traditional tournament bracket to better
+support moden interaction\cite{adaptivitree}. The tool, AdaptiviTree, changes
+the brackets shape and adds colored lines to show available information as the
+user pciks his own bracket.
+
+An alternative to the traditional bracket structure can be found in the
+visualization of the race to the white house in 2012 made for the New York Times
+by Mike Bostock and Shan Carter\cite{whitehousepath}. They use a tree-like
+structure where each split represents a state being one by one candidate or the
+other. The interactivity is very important here as it allows users to highlight
+one possible path out of many.
+
+The entire history of the NBA and the best teams were analyzed by
+fivethirtyeight~\cite{fivethirtyeight}. They calculated an elo score for all
+teams an visualized them on line graphs. 
+
+Pagno et al. provide a number of different visualizations\cite{starplots}. The
+most interesting one is the starplot. This plot several statistics for a team on
+an axis pointing radially outward from a common center. These points are then
+connected. It allows the user to get basic information about a team or player at
+a glance. Because of this speed of conveying information, it is also a prevalent
+visualization in sports games.
 
 
 %Related work/References
@@ -591,15 +601,15 @@ the visualization:
 \end{itemize}
 
 \subsection{Technology}
-To create the visualization, the d3 javascript framework~\cite{d3.js} was used
-in combination with html5~\cite{html5} and jquery~\cite{jquery}.  Note that D3
-is based on HTML, CSS, Javascript and SVG. This allows easy access to the visualization as
-most modern browsers are capable of handling these webstandards.  The choice not
-to use the d3 framework for the entire visualization was made to ease the layout
-configuration of the visualization. Instead, html was used to do the global
-layout of the visualization. We opted to structure the site with multiple divs
-as containers. To each container we allocate a svg with a specific
-visualization.
+To create the visualization, the d3 javascript framework~\cite{d3} was used in
+combination with html5~\cite{html5} and jquery~\cite{jquery}.  Note that D3 is
+based on HTML, CSS, Javascript and SVG. This allows easy access to the
+visualization as most modern browsers are capable of handling these
+webstandards.  The choice not to use the d3 framework for the entire
+visualization was made to ease the layout configuration of the visualization.
+Instead, html was used to do the global layout of the visualization. We opted to
+structure the site with multiple divs as containers. To each container we
+allocate a svg with a specific visualization.
 
 \todo{sketch of how the page is structured here}
 When working with d3.js we encountered some obstacles:

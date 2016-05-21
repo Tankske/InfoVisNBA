@@ -2031,23 +2031,29 @@
     <bcf:citekey order="3">basketball-reference</bcf:citekey>
     <bcf:citekey order="4">per</bcf:citekey>
     <bcf:citekey order="5">ieeevis</bcf:citekey>
-    <bcf:citekey order="6">cox2006sportsvis</bcf:citekey>
-    <bcf:citekey order="7">tournamentladder</bcf:citekey>
-    <bcf:citekey order="8">enclosedcircles</bcf:citekey>
-    <bcf:citekey order="9">peterbeshai</bcf:citekey>
-    <bcf:citekey order="10">mantra</bcf:citekey>
-    <bcf:citekey order="10">multipleviews</bcf:citekey>
-    <bcf:citekey order="10">automatingdesign</bcf:citekey>
-    <bcf:citekey order="11">aesthetics</bcf:citekey>
-    <bcf:citekey order="12">perceptualranking</bcf:citekey>
-    <bcf:citekey order="13">whitehousepath</bcf:citekey>
-    <bcf:citekey order="14">mapviewvisualization</bcf:citekey>
-    <bcf:citekey order="15">d3.js</bcf:citekey>
-    <bcf:citekey order="16">html5</bcf:citekey>
-    <bcf:citekey order="17">jquery</bcf:citekey>
-    <bcf:citekey order="18">per</bcf:citekey>
-    <bcf:citekey order="19">srs</bcf:citekey>
-    <bcf:citekey order="20">playoffs</bcf:citekey>
+    <bcf:citekey order="6">goldsberry</bcf:citekey>
+    <bcf:citekey order="6">stephenchu</bcf:citekey>
+    <bcf:citekey order="7">peterbeshai</bcf:citekey>
+    <bcf:citekey order="8">tournamentladder</bcf:citekey>
+    <bcf:citekey order="9">sunburst</bcf:citekey>
+    <bcf:citekey order="10">enclosedcircles</bcf:citekey>
+    <bcf:citekey order="11">adaptivitree</bcf:citekey>
+    <bcf:citekey order="12">whitehousepath</bcf:citekey>
+    <bcf:citekey order="13">fivethirtyeight</bcf:citekey>
+    <bcf:citekey order="14">starplots</bcf:citekey>
+    <bcf:citekey order="15">mantra</bcf:citekey>
+    <bcf:citekey order="15">multipleviews</bcf:citekey>
+    <bcf:citekey order="15">automatingdesign</bcf:citekey>
+    <bcf:citekey order="16">aesthetics</bcf:citekey>
+    <bcf:citekey order="17">perceptualranking</bcf:citekey>
+    <bcf:citekey order="18">whitehousepath</bcf:citekey>
+    <bcf:citekey order="19">mapviewvisualization</bcf:citekey>
+    <bcf:citekey order="20">d3</bcf:citekey>
+    <bcf:citekey order="21">html5</bcf:citekey>
+    <bcf:citekey order="22">jquery</bcf:citekey>
+    <bcf:citekey order="23">per</bcf:citekey>
+    <bcf:citekey order="24">srs</bcf:citekey>
+    <bcf:citekey order="25">playoffs</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="debug/global" type="entry" sortscheme="debug" sortnamekeyscheme="global">
   <bcf:sorting>
