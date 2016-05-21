@@ -19,6 +19,81 @@
 
 \refsection{0}
   \sortlist[entry]{debug/global}
+    \entry{aesthetics}{article}{}
+      \name{author}{2}{}{%
+        {{hash=2399436fa66d5d82fdde17bd1723d014}{%
+           family={Vande\bibnamedelima Moere},
+           family_i={V\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Andrew},
+           given_i={A\bibinitperiod}}}%
+        {{hash=92f92eb1deecc712405d392c03627361}{%
+           family={Purchase},
+           family_i={P\bibinitperiod},
+           given={Helen},
+           given_i={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Palgrave Macmillan}%
+      }
+      \strng{namehash}{971ebf262a4d0b1700c445c0b5204579}
+      \strng{fullhash}{971ebf262a4d0b1700c445c0b5204579}
+      \field{sortinit}{a}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1473-8716}
+      \field{journaltitle}{Information Visualization}
+      \field{month}{10}
+      \field{number}{4}
+      \field{title}{On the Role of Design in Information Visualization}
+      \field{volume}{10}
+      \field{year}{2011}
+      \field{pages}{356\bibrangedash 371}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1177/1473871611415996
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1177/1473871611415996
+      \endverb
+      \keyw{aesthetics,case studies,design,design studies,visualization}
+    \endentry
+    \entry{automatingdesign}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9290a6af65bf969ceda189b25b08491b}{%
+           family={Mackinlay},
+           family_i={M\bibinitperiod},
+           given={Jock},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{9290a6af65bf969ceda189b25b08491b}
+      \strng{fullhash}{9290a6af65bf969ceda189b25b08491b}
+      \field{sortinit}{a}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{04}
+      \field{number}{2}
+      \field{title}{Automating the Design of Graphical Presentations of Relational Information}
+      \field{volume}{5}
+      \field{year}{1986}
+      \field{pages}{110\bibrangedash 141}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.1145/22949.22950
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/22949.22950
+      \endverb
+    \endentry
     \entry{basketball-reference}{online}{}
       \name{author}{1}{}{%
         {{hash=59b7488813036726bc6c702727bd4a19}{%
@@ -89,6 +164,72 @@
       \verb http://wimbledon.prcweb.co.uk/playerbubbles.html
       \endverb
     \endentry
+    \entry{fantasy}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=a566eb54f460c0300019801770963828}{%
+           family={Dzodom},
+           family_i={D\bibinitperiod},
+           given={Gabriel\bibnamedelima S.},
+           given_i={G\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=5f7a7cafec420f7ed716db46282642cd}{%
+           family={Shipman},
+           family_i={S\bibinitperiod},
+           given={Frank\bibnamedelima M.},
+           given_i={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Bloomington, Indiana, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{9d5a0f1845d8c8affc707b44efbaa5c7}
+      \strng{fullhash}{9d5a0f1845d8c8affc707b44efbaa5c7}
+      \field{sortinit}{f}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2014 ACM Conference on Web Science}
+      \field{isbn}{978-1-4503-2622-3}
+      \field{series}{WebSci '14}
+      \field{title}{Data-driven Web Entertainment: The Data Collection and Analysis Practices of Fantasy Sports Players}
+      \field{year}{2014}
+      \field{pages}{293\bibrangedash 294}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1145/2615569.2615649
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/2615569.2615649
+      \endverb
+      \keyw{fantasy sports,gaming practices}
+    \endentry
+    \entry{fantasyskill}{online}{}
+      \name{author}{2}{}{%
+        {{hash=5d504bcf882b32512870be10a72cf087}{%
+           family={Miller},
+           family_i={M\bibinitperiod},
+           given={Ed},
+           given_i={E\bibinitperiod}}}%
+        {{hash=944afdea0c7ea8382878a667993de589}{%
+           family={Singer},
+           family_i={S\bibinitperiod},
+           given={Daniel},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c564877284682ba0af05aa930ea2457}
+      \strng{fullhash}{1c564877284682ba0af05aa930ea2457}
+      \field{sortinit}{f}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{title}{For daily fantasy-sports operators, the curse of too much skill}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.mckinsey.com/industries/media-and-entertainment/our-insights/for-daily-fantasy-sports-operators-the-curse-of-too-much-skill
+      \endverb
+    \endentry
     \entry{html5}{online}{}
       \name{author}{1}{}{%
         {{hash=e13ef65947daff3633e95f29e73de7b0}{%
@@ -148,6 +289,38 @@
       \verb https://jquery.com/
       \endverb
     \endentry
+    \entry{mantra}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=39afccc0f55ae7821df79ffd677c90b0}{%
+           family={Shneiderman},
+           family_i={S\bibinitperiod},
+           given={Ben},
+           given_i={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington, DC, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{39afccc0f55ae7821df79ffd677c90b0}
+      \strng{fullhash}{39afccc0f55ae7821df79ffd677c90b0}
+      \field{sortinit}{m}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 1996 IEEE Symposium on Visual Languages}
+      \field{isbn}{0-8186-7508-X}
+      \field{series}{VL '96}
+      \field{title}{The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations}
+      \field{year}{1996}
+      \field{pages}{336\bibrangedash}
+      \range{pages}{-1}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=832277.834354
+      \endverb
+      \keyw{visualization,information visualization,graphical user interfaces}
+    \endentry
     \entry{mapviewvisualization}{online}{}
       \name{author}{1}{}{%
         {{hash=cceee4a92e87b3e45cb2d2d8b706fe43}{%
@@ -167,6 +340,72 @@
       \field{year}{2016}
       \verb{url}
       \verb http://lemonchiu.github.io/NBA-Visualization/
+      \endverb
+    \endentry
+    \entry{multipleviews}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=bd270d5c72bebeaccfe8e55d25f8f137}{%
+           family={Wang\bibnamedelima Baldonado},
+           family_i={W\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Michelle\bibnamedelima Q.},
+           given_i={M\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+        {{hash=8050df85e11c857642d4ea3ed0303c9c}{%
+           family={Woodruff},
+           family_i={W\bibinitperiod},
+           given={Allison},
+           given_i={A\bibinitperiod}}}%
+        {{hash=77ded5a60a092c570d08b2bb16d3a27a}{%
+           family={Kuchinsky},
+           family_i={K\bibinitperiod},
+           given={Allan},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Palermo, Italy}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{41871bfd0f9ef6597e7e3a46f937b4b5}
+      \strng{fullhash}{41871bfd0f9ef6597e7e3a46f937b4b5}
+      \field{sortinit}{m}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Working Conference on Advanced Visual Interfaces}
+      \field{isbn}{1-58113-252-2}
+      \field{series}{AVI '00}
+      \field{title}{Guidelines for Using Multiple Views in Information Visualization}
+      \field{year}{2000}
+      \field{pages}{110\bibrangedash 119}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/345513.345271
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/345513.345271
+      \endverb
+      \keyw{design guidelines,information visualization,multiple views,usability heuristics,user interfaces}
+    \endentry
+    \entry{nbawiki}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e13ef65947daff3633e95f29e73de7b0}{%
+           family={Community},
+           family_i={C\bibinitperiod},
+           given={Wikipedia},
+           given_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e13ef65947daff3633e95f29e73de7b0}
+      \strng{fullhash}{e13ef65947daff3633e95f29e73de7b0}
+      \field{sortinit}{n}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{04}
+      \field{title}{Wikipedia - National Basketball Association}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/National_Basketball_Association
       \endverb
     \endentry
     \entry{per}{online}{}
@@ -236,6 +475,49 @@
       \verb http://peterbeshai.com/buckets/app/
       \endverb
     \endentry
+    \entry{playoffs}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e13ef65947daff3633e95f29e73de7b0}{%
+           family={Community},
+           family_i={C\bibinitperiod},
+           given={Wikipedia},
+           given_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e13ef65947daff3633e95f29e73de7b0}
+      \strng{fullhash}{e13ef65947daff3633e95f29e73de7b0}
+      \field{sortinit}{p}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{Wikipedia - NBA playoffs}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/NBA_playoffs
+      \endverb
+    \endentry
+    \entry{srs}{online}{}
+      \name{author}{1}{}{%
+        {{hash=78a0fcf5559e96a9eed76620440e5128}{%
+           family={Drinen},
+           family_i={D\bibinitperiod},
+           given={Doug},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{78a0fcf5559e96a9eed76620440e5128}
+      \strng{fullhash}{78a0fcf5559e96a9eed76620440e5128}
+      \field{sortinit}{s}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{08}
+      \field{month}{05}
+      \field{title}{A very simple ranking system}
+      \field{year}{2006}
+      \verb{url}
+      \verb http://www.pro-football-reference.com/blog/?p=37
+      \endverb
+    \endentry
     \entry{tournamentladder}{online}{}
       \name{author}{1}{}{%
         {{hash=24c4267ef6b24059b3feda4bfa3d86ff}{%
@@ -253,6 +535,33 @@
       \field{year}{2016}
       \verb{url}
       \verb http://www.nbaplayoffsbracket.com/2016/index.php
+      \endverb
+    \endentry
+    \entry{whitehousepath}{online}{}
+      \name{author}{2}{}{%
+        {{hash=3a56f801778dd81bf67b8f9cdccacb12}{%
+           family={Bostock},
+           family_i={B\bibinitperiod},
+           given={Mike},
+           given_i={M\bibinitperiod}}}%
+        {{hash=21e186e707ee8b7df883fdc389699ca1}{%
+           family={Carter},
+           family_i={C\bibinitperiod},
+           given={Shan},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{afe14dc26baf46a7d973470c8a7b2817}
+      \strng{fullhash}{afe14dc26baf46a7d973470c8a7b2817}
+      \field{sortinit}{w}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{02}
+      \field{month}{11}
+      \field{title}{512 Paths to the White House}
+      \field{year}{2012}
+      \verb{url}
+      \verb http://www.nytimes.com/interactive/2012/11/02/us/politics/paths-to-the-white-house.html
       \endverb
     \endentry
   \endsortlist

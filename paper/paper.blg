@@ -1,17 +1,17 @@
 [0] Config.pm:340> INFO - This is Biber 2.4
 [0] Config.pm:343> INFO - Logfile is 'paper.blg'
-[72] biber:287> INFO - === Thu May 19, 2016, 12:08:12
-[175] Biber.pm:348> INFO - Reading 'paper.bcf'
-[321] Biber.pm:742> INFO - Found 12 citekeys in bib section 0
-[326] Biber.pm:3151> INFO - Processing section 0
-[359] Biber.pm:3308> INFO - Looking for bibtex format file 'paper.bib' for section 0
-[374] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
-[384] bibtex.pm:974> INFO - Found BibTeX data source 'paper.bib'
-[479] Utils.pm:147> WARN - I didn't find a database entry for 'd3.js' (section 0)
-[581] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[581] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[581] Biber.pm:3028> INFO - Sorting list 'debug/global' of type 'entry' with scheme 'debug' and locale 'en-US'
-[581] Biber.pm:3032> INFO - No sort tailoring available for locale 'en-US'
-[594] bbl.pm:519> INFO - Writing 'paper.bbl' with encoding 'ascii'
-[649] bbl.pm:615> INFO - Output to paper.bbl
-[649] Biber.pm:109> INFO - WARNINGS: 1
+[46] biber:287> INFO - === Sat May 21, 2016, 14:38:24
+[137] Biber.pm:348> INFO - Reading 'paper.bcf'
+[285] Biber.pm:742> INFO - Found 22 citekeys in bib section 0
+[293] Biber.pm:3151> INFO - Processing section 0
+[329] Biber.pm:3308> INFO - Looking for bibtex format file 'paper.bib' for section 0
+[363] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
+[385] bibtex.pm:974> INFO - Found BibTeX data source 'paper.bib'
+[608] Utils.pm:147> WARN - I didn't find a database entry for 'd3.js' (section 0)
+[803] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[803] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[804] Biber.pm:3028> INFO - Sorting list 'debug/global' of type 'entry' with scheme 'debug' and locale 'en-US'
+[804] Biber.pm:3032> INFO - No sort tailoring available for locale 'en-US'
+[832] bbl.pm:519> INFO - Writing 'paper.bbl' with encoding 'ascii'
+[961] bbl.pm:615> INFO - Output to paper.bbl
+[961] Biber.pm:109> INFO - WARNINGS: 1
