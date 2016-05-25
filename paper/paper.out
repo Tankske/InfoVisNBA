@@ -1,26 +1,26 @@
 \BOOKMARK [1][-]{section.6}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.9}{Goal and Target Audience}{}% 2
-\BOOKMARK [1][-]{section.11}{Data}{}% 3
-\BOOKMARK [1][-]{section.15}{Related Work}{}% 4
-\BOOKMARK [1][-]{section.18}{Visualization}{}% 5
-\BOOKMARK [2][-]{subsection.24}{The play-off view}{section.18}% 6
-\BOOKMARK [3][-]{subsubsection.26}{Context section}{subsection.24}% 7
-\BOOKMARK [3][-]{subsubsection.28}{Bubble section}{subsection.24}% 8
-\BOOKMARK [3][-]{subsubsection.33}{Previous designs}{subsection.24}% 9
-\BOOKMARK [2][-]{subsection.37}{The statistics view}{section.18}% 10
-\BOOKMARK [3][-]{subsubsection.39}{Context section}{subsection.37}% 11
-\BOOKMARK [3][-]{subsubsection.41}{Arrow section}{subsection.37}% 12
-\BOOKMARK [3][-]{subsubsection.44}{Selected statistics section}{subsection.37}% 13
-\BOOKMARK [3][-]{subsubsection.46}{Previous designs}{subsection.37}% 14
-\BOOKMARK [2][-]{subsection.48}{The team view}{section.18}% 15
-\BOOKMARK [3][-]{subsubsection.50}{Field section}{subsection.48}% 16
-\BOOKMARK [3][-]{subsubsection.52}{Previous designs}{subsection.48}% 17
-\BOOKMARK [2][-]{subsection.55}{Improving the result}{section.18}% 18
-\BOOKMARK [1][-]{section.58}{Future work}{}% 19
-\BOOKMARK [2][-]{subsection.60}{Technology}{section.58}% 20
-\BOOKMARK [1][-]{section.63}{Lessons learned}{}% 21
-\BOOKMARK [2][-]{subsection.65}{Story telling}{section.63}% 22
-\BOOKMARK [2][-]{subsection.67}{Each component should be informative}{section.63}% 23
-\BOOKMARK [2][-]{subsection.69}{Custom visualizations}{section.63}% 24
-\BOOKMARK [1][-]{section.71}{Conclusion}{}% 25
-\BOOKMARK [1][-]{appendix.76}{Terminology}{}% 26
+\BOOKMARK [1][-]{section.8}{Goal and Target Audience}{}% 2
+\BOOKMARK [1][-]{section.10}{Data}{}% 3
+\BOOKMARK [1][-]{section.14}{Related Work}{}% 4
+\BOOKMARK [1][-]{section.16}{Visualization}{}% 5
+\BOOKMARK [2][-]{subsection.20}{The play-off view}{section.16}% 6
+\BOOKMARK [3][-]{subsubsection.22}{Context section}{subsection.20}% 7
+\BOOKMARK [3][-]{subsubsection.24}{Bubble section}{subsection.20}% 8
+\BOOKMARK [3][-]{subsubsection.29}{Previous designs}{subsection.20}% 9
+\BOOKMARK [2][-]{subsection.34}{The statistics view}{section.16}% 10
+\BOOKMARK [3][-]{subsubsection.36}{Context section}{subsection.34}% 11
+\BOOKMARK [3][-]{subsubsection.38}{Arrow section}{subsection.34}% 12
+\BOOKMARK [3][-]{subsubsection.41}{Selected statistics section}{subsection.34}% 13
+\BOOKMARK [3][-]{subsubsection.43}{Previous designs}{subsection.34}% 14
+\BOOKMARK [2][-]{subsection.46}{The team view}{section.16}% 15
+\BOOKMARK [3][-]{subsubsection.48}{Field section}{subsection.46}% 16
+\BOOKMARK [3][-]{subsubsection.50}{Previous designs}{subsection.46}% 17
+\BOOKMARK [2][-]{subsection.53}{Improving the result}{section.16}% 18
+\BOOKMARK [2][-]{subsection.56}{Technology}{section.16}% 19
+\BOOKMARK [1][-]{section.59}{Lessons learned}{}% 20
+\BOOKMARK [2][-]{subsection.61}{Story telling}{section.59}% 21
+\BOOKMARK [2][-]{subsection.63}{Each component should be informative}{section.59}% 22
+\BOOKMARK [2][-]{subsection.65}{Custom visualizations}{section.59}% 23
+\BOOKMARK [1][-]{section.67}{Future work}{}% 24
+\BOOKMARK [1][-]{section.69}{Conclusion}{}% 25
+\BOOKMARK [1][-]{appendix.74}{Terminology}{}% 26

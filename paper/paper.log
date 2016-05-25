@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.6)  24 MAY 2016 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.6)  26 MAY 2016 01:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -549,6 +549,14 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
+(c:/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count122
+)
 (c:/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2016/03/03 v3.3 programmable bibliographies (PK/JW/AB)
 
@@ -558,11 +566,11 @@ B)
 
 (c:/texlive/2015/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count122
+\etb@tempcnta=\count123
 )
 (c:/texlive/2015/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count123
+\lrq@indent=\count124
 
 (c:/texlive/2015/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -570,44 +578,44 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (c:/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count124
-\c@listtotal=\count125
-\c@listcount=\count126
-\c@liststart=\count127
-\c@liststop=\count128
-\c@citecount=\count129
-\c@citetotal=\count130
-\c@multicitecount=\count131
-\c@multicitetotal=\count132
-\c@instcount=\count133
-\c@maxnames=\count134
-\c@minnames=\count135
-\c@maxitems=\count136
-\c@minitems=\count137
-\c@citecounter=\count138
-\c@savedcitecounter=\count139
-\c@uniquelist=\count140
-\c@uniquename=\count141
-\c@refsection=\count142
-\c@refsegment=\count143
-\c@maxextratitle=\count144
-\c@maxextratitleyear=\count145
-\c@maxextrayear=\count146
-\c@maxextraalpha=\count147
-\c@abbrvpenalty=\count148
-\c@highnamepenalty=\count149
-\c@lownamepenalty=\count150
-\c@maxparens=\count151
-\c@parenlevel=\count152
-\blx@tempcnta=\count153
-\blx@tempcntb=\count154
-\blx@tempcntc=\count155
-\blx@maxsection=\count156
-\blx@maxsegment@0=\count157
-\blx@notetype=\count158
-\blx@parenlevel@text=\count159
-\blx@parenlevel@foot=\count160
-\blx@sectionciteorder@0=\count161
+\c@tabx@nest=\count125
+\c@listtotal=\count126
+\c@listcount=\count127
+\c@liststart=\count128
+\c@liststop=\count129
+\c@citecount=\count130
+\c@citetotal=\count131
+\c@multicitecount=\count132
+\c@multicitetotal=\count133
+\c@instcount=\count134
+\c@maxnames=\count135
+\c@minnames=\count136
+\c@maxitems=\count137
+\c@minitems=\count138
+\c@citecounter=\count139
+\c@savedcitecounter=\count140
+\c@uniquelist=\count141
+\c@uniquename=\count142
+\c@refsection=\count143
+\c@refsegment=\count144
+\c@maxextratitle=\count145
+\c@maxextratitleyear=\count146
+\c@maxextrayear=\count147
+\c@maxextraalpha=\count148
+\c@abbrvpenalty=\count149
+\c@highnamepenalty=\count150
+\c@lownamepenalty=\count151
+\c@maxparens=\count152
+\c@parenlevel=\count153
+\blx@tempcnta=\count154
+\blx@tempcntb=\count155
+\blx@tempcntc=\count156
+\blx@maxsection=\count157
+\blx@maxsegment@0=\count158
+\blx@notetype=\count159
+\blx@parenlevel@text=\count160
+\blx@parenlevel@foot=\count161
+\blx@sectionciteorder@0=\count162
 \labelnumberwidth=\skip47
 \labelalphawidth=\skip48
 \biblabelsep=\skip49
@@ -618,9 +626,9 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \bibhang=\skip54
 \blx@bcfin=\read1
 \blx@bcfout=\write4
-\c@mincomprange=\count162
-\c@maxcomprange=\count163
-\c@mincompwidth=\count164
+\c@mincomprange=\count163
+\c@maxcomprange=\count164
+\c@mincompwidth=\count165
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -629,72 +637,72 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'draft.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count165
-\c@savedafterword=\count166
-\c@annotator=\count167
-\c@savedannotator=\count168
-\c@author=\count169
-\c@savedauthor=\count170
-\c@bookauthor=\count171
-\c@savedbookauthor=\count172
-\c@commentator=\count173
-\c@savedcommentator=\count174
-\c@editor=\count175
-\c@savededitor=\count176
-\c@editora=\count177
-\c@savededitora=\count178
-\c@editorb=\count179
-\c@savededitorb=\count180
-\c@editorc=\count181
-\c@savededitorc=\count182
-\c@foreword=\count183
-\c@savedforeword=\count184
-\c@holder=\count185
-\c@savedholder=\count186
-\c@introduction=\count187
-\c@savedintroduction=\count188
-\c@namea=\count189
-\c@savednamea=\count190
-\c@nameb=\count191
-\c@savednameb=\count192
-\c@namec=\count193
-\c@savednamec=\count194
-\c@translator=\count195
-\c@savedtranslator=\count196
-\c@shortauthor=\count197
-\c@savedshortauthor=\count198
-\c@shorteditor=\count199
-\c@savedshorteditor=\count266
-\c@labelname=\count267
-\c@savedlabelname=\count268
-\c@institution=\count269
-\c@savedinstitution=\count270
-\c@lista=\count271
-\c@savedlista=\count272
-\c@listb=\count273
-\c@savedlistb=\count274
-\c@listc=\count275
-\c@savedlistc=\count276
-\c@listd=\count277
-\c@savedlistd=\count278
-\c@liste=\count279
-\c@savedliste=\count280
-\c@listf=\count281
-\c@savedlistf=\count282
-\c@location=\count283
-\c@savedlocation=\count284
-\c@organization=\count285
-\c@savedorganization=\count286
-\c@origlocation=\count287
-\c@savedoriglocation=\count288
-\c@origpublisher=\count289
-\c@savedorigpublisher=\count290
-\c@publisher=\count291
-\c@savedpublisher=\count292
-\c@language=\count293
-\c@savedlanguage=\count294
-\c@pageref=\count295
-\c@savedpageref=\count296
+\c@afterword=\count166
+\c@savedafterword=\count167
+\c@annotator=\count168
+\c@savedannotator=\count169
+\c@author=\count170
+\c@savedauthor=\count171
+\c@bookauthor=\count172
+\c@savedbookauthor=\count173
+\c@commentator=\count174
+\c@savedcommentator=\count175
+\c@editor=\count176
+\c@savededitor=\count177
+\c@editora=\count178
+\c@savededitora=\count179
+\c@editorb=\count180
+\c@savededitorb=\count181
+\c@editorc=\count182
+\c@savededitorc=\count183
+\c@foreword=\count184
+\c@savedforeword=\count185
+\c@holder=\count186
+\c@savedholder=\count187
+\c@introduction=\count188
+\c@savedintroduction=\count189
+\c@namea=\count190
+\c@savednamea=\count191
+\c@nameb=\count192
+\c@savednameb=\count193
+\c@namec=\count194
+\c@savednamec=\count195
+\c@translator=\count196
+\c@savedtranslator=\count197
+\c@shortauthor=\count198
+\c@savedshortauthor=\count199
+\c@shorteditor=\count266
+\c@savedshorteditor=\count267
+\c@labelname=\count268
+\c@savedlabelname=\count269
+\c@institution=\count270
+\c@savedinstitution=\count271
+\c@lista=\count272
+\c@savedlista=\count273
+\c@listb=\count274
+\c@savedlistb=\count275
+\c@listc=\count276
+\c@savedlistc=\count277
+\c@listd=\count278
+\c@savedlistd=\count279
+\c@liste=\count280
+\c@savedliste=\count281
+\c@listf=\count282
+\c@savedlistf=\count283
+\c@location=\count284
+\c@savedlocation=\count285
+\c@organization=\count286
+\c@savedorganization=\count287
+\c@origlocation=\count288
+\c@savedoriglocation=\count289
+\c@origpublisher=\count290
+\c@savedorigpublisher=\count291
+\c@publisher=\count292
+\c@savedpublisher=\count293
+\c@language=\count294
+\c@savedlanguage=\count295
+\c@pageref=\count296
+\c@savedpageref=\count297
 \shorthandwidth=\skip55
 \shortjournalwidth=\skip56
 \shortserieswidth=\skip57
@@ -712,13 +720,13 @@ Package biblatex Info: ... file 'biblatex_.def' found.
 
 (c:/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex_.def
 File: biblatex_.def 
-\c@textcitecount=\count297
-\c@textcitetotal=\count298
-\c@textcitemaxnames=\count299
-\c@biburlnumpenalty=\count300
-\c@biburlucpenalty=\count301
-\c@biburllcpenalty=\count302
-\c@smartand=\count303
+\c@textcitecount=\count298
+\c@textcitetotal=\count299
+\c@textcitemaxnames=\count300
+\c@biburlnumpenalty=\count301
+\c@biburlucpenalty=\count302
+\c@biburllcpenalty=\count303
+\c@smartand=\count304
 
 
 Package biblatex Warning: Redefining '\citeyear'.
@@ -733,8 +741,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (c:/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2016/03/03 v3.3 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count304
-\c@bbx:relatedtotal=\count305
+\c@bbx:relatedcount=\count305
+\c@bbx:relatedtotal=\count306
 ))
 Package biblatex Info: Trying to load citation style 'draft'...
 Package biblatex Info: ... file 'draft.cbx' found.
@@ -757,11 +765,11 @@ File: biblatex.cfg
 (c:/texlive/2015/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
 \MT@toks=\toks36
-\MT@count=\count306
+\MT@count=\count307
 LaTeX Info: Redefining \textls on input line 766.
 \MT@outer@kern=\dimen141
 LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
-\MT@listname@count=\count307
+\MT@listname@count=\count308
 
 (c:/texlive/2015/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
@@ -786,7 +794,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks37
 \XKV@tempa@toks=\toks38
 )
-\XKV@depth=\count308
+\XKV@depth=\count309
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
 (c:/texlive/2015/texmf-dist/tex/latex/todonotes/todonotes.sty
@@ -853,10 +861,10 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \pgf@yc=\dimen151
 \w@pgf@writea=\write5
 \r@pgf@reada=\read2
-\c@pgf@counta=\count309
-\c@pgf@countb=\count310
-\c@pgf@countc=\count311
-\c@pgf@countd=\count312
+\c@pgf@counta=\count310
+\c@pgf@countb=\count311
+\c@pgf@countc=\count312
+\c@pgf@countd=\count313
 \t@pgf@toka=\toks43
 \t@pgf@tokb=\toks44
 \t@pgf@tokc=\toks45
@@ -873,8 +881,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count313
-\pgfsyssoftpath@bigbuffer@items=\count314
+\pgfsyssoftpath@smallbuffer@items=\count314
+\pgfsyssoftpath@bigbuffer@items=\count315
 )
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -886,7 +894,7 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen152
-\pgfmath@count=\count315
+\pgfmath@count=\count316
 \pgfmath@box=\box30
 \pgfmath@toks=\toks46
 \pgfmath@stack@operand=\toks47
@@ -910,7 +918,7 @@ x)
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithm
 etics.code.tex)))
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count316
+\c@pgfmathroundto@lastzeros=\count317
 ))
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
@@ -946,7 +954,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box31
 \pgf@hbox=\box32
 \pgf@layerbox@main=\box33
-\pgf@picture@serial@count=\count317
+\pgf@picture@serial@count=\count318
 )
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
 .tex
@@ -977,7 +985,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen176
-\pgf@sys@shading@range@num=\count318
+\pgf@sys@shading@range@num=\count319
 )
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -1032,7 +1040,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
 de.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count319
+\pgf@plot@mark@count=\count320
 \pgfplotmarksize=\dimen181
 )
 \tikz@lastx=\dimen182
@@ -1045,18 +1053,18 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box37
 \tikz@tempbox=\box38
 \tikz@tempbox@bg=\box39
-\tikztreelevel=\count320
-\tikznumberofchildren=\count321
-\tikznumberofcurrentchild=\count322
-\tikz@fig@count=\count323
+\tikztreelevel=\count321
+\tikznumberofchildren=\count322
+\tikznumberofcurrentchild=\count323
+\tikz@fig@count=\count324
 
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count324
-\pgfmatrixcurrentcolumn=\count325
-\pgf@matrix@numberofcolumns=\count326
+\pgfmatrixcurrentrow=\count325
+\pgfmatrixcurrentcolumn=\count326
+\pgf@matrix@numberofcolumns=\count327
 )
-\tikz@expandcount=\count327
+\tikz@expandcount=\count328
 
 (c:/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarytopaths.code.tex
@@ -1067,103 +1075,103 @@ brarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 ) (c:/texlive/2015/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count328
-\calc@Bcount=\count329
+\calc@Acount=\count329
+\calc@Bcount=\count330
 \calc@Adimen=\dimen188
 \calc@Bdimen=\dimen189
 \calc@Askip=\skip62
 \calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count330
+\calc@Ccount=\count331
 \calc@Cskip=\skip64
 )
-\c@@todonotes@numberoftodonotes=\count331
+\c@@todonotes@numberoftodonotes=\count332
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 110.
+(hyperref)                removing `\\' on input line 111.
 
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 110
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 111
 .
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 110.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 111.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 110.
-Package hyperref Info: Option `breaklinks' set `true' on input line 110.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 110.
+Package hyperref Info: Option `colorlinks' set `true' on input line 111.
+Package hyperref Info: Option `breaklinks' set `true' on input line 111.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 111.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (c:/texlive/2015/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2016/03/03 v3.3 biblatex localization (PK/JW/AB)
 )
-\@quotelevel=\count332
-\@quotereset=\count333
+\@quotelevel=\count333
+\@quotereset=\count334
  (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 118.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 118
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 119.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 119
 .
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 118
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 119
 .
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 118
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 119
 .
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 119.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 118.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 119.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (c:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
+\scratchcounter=\count335
 \scratchdimen=\dimen190
 \scratchbox=\box40
-\nofMPsegments=\count335
-\nofMParguments=\count336
+\nofMPsegments=\count336
+\nofMParguments=\count337
 \everyMPshowfont=\toks51
-\MPscratchCnt=\count337
+\MPscratchCnt=\count338
 \MPscratchDim=\dimen191
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
 \everyMPtoPDFconversion=\toks52
 ) (c:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1181,19 +1189,10 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring ON on input line 118.
-
-(c:/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
-
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
-)
-\c@section@level=\count340
-)
-LaTeX Info: Redefining \ref on input line 118.
-LaTeX Info: Redefining \pageref on input line 118.
-LaTeX Info: Redefining \nameref on input line 118.
+Package hyperref Info: Link coloring ON on input line 119.
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
 
 (./paper.out) (./paper.out)
 \@outlinefile=\write6
@@ -1208,9 +1207,9 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'paper.bbl' found.
  (./paper.bbl)
-Package biblatex Info: Reference section=0 on input line 118.
-Package biblatex Info: Reference segment=0 on input line 118.
-LaTeX Info: Redefining \microtypecontext on input line 118.
+Package biblatex Info: Reference section=0 on input line 119.
+Package biblatex Info: Reference segment=0 on input line 119.
+LaTeX Info: Redefining \microtypecontext on input line 119.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1225,8 +1224,8 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 14
+0.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
@@ -1235,132 +1234,104 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 14
+0.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 14
+0.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 13
-9.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 14
+0.
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 139.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 140.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 139.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 140.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 139.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 140.
 
 (c:/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 139.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 140.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 139.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 140.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 139.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 140.
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 140.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 141.
+ine 142.
 
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 141
+tyle. Remove all occurences before final document submission. on input line 142
 .
 
 
-Overfull \hbox (4.85394pt too wide) in paragraph at lines 141--141
+Overfull \hbox (4.85394pt too wide) in paragraph at lines 142--142
 [][][][]\T1/ptm/m/n/10 (-20) Abstracts 
  []
 
 
-Overfull \hbox (4.85394pt too wide) in paragraph at lines 141--141
+Overfull \hbox (4.85394pt too wide) in paragraph at lines 142--142
 [][][][]\T1/ptm/m/n/10 (-20) Abstracts 
  []
 
 
-Overfull \hbox (4.85394pt too wide) in paragraph at lines 141--141
+Overfull \hbox (4.85394pt too wide) in paragraph at lines 142--142
 [][][][]\T1/ptm/m/n/10 (-20) Abstracts 
  []
 
 
-Overfull \hbox (4.85394pt too wide) in paragraph at lines 141--141
+Overfull \hbox (4.85394pt too wide) in paragraph at lines 142--142
 [][][][]\T1/ptm/m/n/10 (-20) Abstracts 
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 160.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 161.
 
-LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 167
-.
+Underfull \vbox (badness 7344) has occurred while \output is active []
 
-
-Overfull \hbox (4.64572pt too wide) in paragraph at lines 167--167
-[][][][]\T1/ptm/m/n/10 (-20) reference 
- []
-
-
-Overfull \hbox (4.64572pt too wide) in paragraph at lines 167--167
-[][][][]\T1/ptm/m/n/10 (-20) reference 
- []
-
-
-Overfull \hbox (4.64572pt too wide) in paragraph at lines 167--167
-[][][][]\T1/ptm/m/n/10 (-20) reference 
- []
-
-
-Overfull \hbox (4.64572pt too wide) in paragraph at lines 167--167
-[][][][]\T1/ptm/m/n/10 (-20) reference 
- []
 
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 214
+tyle. Remove all occurences before final document submission. on input line 208
 .
 
-<figures/data.png, id=124, 596.82974pt x 185.493pt>
-File: figures/data.png Graphic file (type png)
- <use figures/data.png>
-Package pdftex.def Info: figures/data.png used on input line 217.
-(pdftex.def)             Requested size: 243.98238pt x 75.82901pt.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 218.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1370,198 +1341,189 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Non-PDF special ignored!
 
 ]
-Underfull \hbox (badness 5607) in paragraph at lines 232--236
+<figures/data.png, id=145, 538.26094pt x 353.06906pt>
+File: figures/data.png Graphic file (type png)
+ <use figures/data.png>
+Package pdftex.def Info: figures/data.png used on input line 212.
+(pdftex.def)             Requested size: 243.98238pt x 160.03789pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 213.
+
+
+LaTeX Warning: Citation 'vorped' on page 2 undefined on input line 223.
+
+
+Underfull \hbox (badness 5607) in paragraph at lines 226--230
 []\T1/ptm/m/n/10 (+20) This view fea-tures heav-ily in Pe-ter Be-shai's Buck-
  []
 
 
-LaTeX Warning: Reference `premierleague' on page 2 undefined on input line 255.
+LaTeX Warning: Citation 'premierleague' on page 2 undefined on input line 249.
 
 
-
-LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 271
-.
+LaTeX Warning: Citation 'eloraring' on page 2 undefined on input line 265.
 
 
-Overfull \hbox (13.77634pt too wide) in paragraph at lines 271--271
-[][][][]\T1/ptm/m/n/10 (-20) explanation 
- []
+LaTeX Warning: Citation 'nbaempires' on page 2 undefined on input line 268.
 
 
-Overfull \hbox (13.77634pt too wide) in paragraph at lines 271--271
-[][][][]\T1/ptm/m/n/10 (-20) explanation 
- []
-
-
-Overfull \hbox (13.77634pt too wide) in paragraph at lines 271--271
-[][][][]\T1/ptm/m/n/10 (-20) explanation 
- []
-
-
-Overfull \hbox (13.77634pt too wide) in paragraph at lines 271--271
-[][][][]\T1/ptm/m/n/10 (-20) explanation 
- []
-
-
-Underfull \hbox (badness 1033) in paragraph at lines 274--280
+Underfull \hbox (badness 1033) in paragraph at lines 276--282
 []\T1/ptm/m/n/10 (+20) Pagno et al. pro-vide a num-ber of dif-fer-ent vi-su-al-
 iza-
  []
 
-<figures/playoffviewwithcontext.png, id=159, 752.0597pt x 698.61pt>
+[2 <./figures/data.png>]
+<figures/playoffviewwithcontext.png, id=188, 752.0597pt x 698.61pt>
 File: figures/playoffviewwithcontext.png Graphic file (type png)
 
 <use figures/playoffviewwithcontext.png>
 Package pdftex.def Info: figures/playoffviewwithcontext.png used on input line 
-321.
+348.
 (pdftex.def)             Requested size: 243.98238pt x 226.64047pt.
 
-<figures/playoffviewteamselected.png, id=161, 752.0597pt x 697.8572pt>
+<figures/playoffviewteamselected.png, id=189, 752.0597pt x 697.8572pt>
 File: figures/playoffviewteamselected.png Graphic file (type png)
 
 <use figures/playoffviewteamselected.png>
 Package pdftex.def Info: figures/playoffviewteamselected.png used on input line
- 327.
+ 354.
 (pdftex.def)             Requested size: 243.98238pt x 226.39626pt.
 
-<figures/statisticsview.png, id=162, 752.0597pt x 697.10437pt>
-File: figures/statisticsview.png Graphic file (type png)
-
-<use figures/statisticsview.png>
-Package pdftex.def Info: figures/statisticsview.png used on input line 333.
-(pdftex.def)             Requested size: 243.98238pt x 226.15202pt.
-
-<figures/teamview.png, id=163, 752.0597pt x 697.8572pt>
-File: figures/teamview.png Graphic file (type png)
-
-<use figures/teamview.png>
-Package pdftex.def Info: figures/teamview.png used on input line 339.
-(pdftex.def)             Requested size: 243.98238pt x 226.39626pt.
- [2 <./figures/data.png> <./figures/playoffviewwithcontext.png>]
 
 LaTeX Warning: Reference `fig:playoffviewwithcontext' on page 3 undefined on in
-put line 372.
+put line 361.
 
 
 LaTeX Warning: Reference `fig:playoffviewteamselected' on page 3 undefined on i
-nput line 392.
+nput line 381.
 
-[3 <./figures/playoffviewteamselected.png> <./figures/statisticsview.png> <./fi
-gures/teamview.png>]
+[3 <./figures/playoffviewwithcontext.png> <./figures/playoffviewteamselected.pn
+g>]
 
 LaTeX Warning: Reference `fig:playoffviewteamselected' on page 4 undefined on i
-nput line 418.
+nput line 407.
 
-<figures/presidentcandidatesvisualization.png, id=207, 803.0pt x 490.83376pt>
+<figures/presidentcandidatesvisualization.png, id=205, 803.0pt x 490.83376pt>
 File: figures/presidentcandidatesvisualization.png Graphic file (type png)
 
 <use figures/presidentcandidatesvisualization.png>
 Package pdftex.def Info: figures/presidentcandidatesvisualization.png used on i
-nput line 425.
+nput line 414.
 (pdftex.def)             Requested size: 243.98238pt x 149.13112pt.
 
-<figures/playoffviewfirstdesign.png, id=208, 485.56406pt x 383.18156pt>
+<figures/playoffviewfirstdesign.png, id=206, 485.56406pt x 383.18156pt>
 File: figures/playoffviewfirstdesign.png Graphic file (type png)
 
 <use figures/playoffviewfirstdesign.png>
 Package pdftex.def Info: figures/playoffviewfirstdesign.png used on input line 
-431.
+420.
 (pdftex.def)             Requested size: 243.98238pt x 192.53749pt.
 
-Overfull \hbox (2.0pt too wide) in paragraph at lines 437--439
+Overfull \hbox (2.0pt too wide) in paragraph at lines 426--428
  [] 
  []
 
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 464
+tyle. Remove all occurences before final document submission. on input line 453
 .
 
 
-Overfull \hbox (1.95084pt too wide) in paragraph at lines 464--464
+Overfull \hbox (1.95084pt too wide) in paragraph at lines 453--453
 [][][][]\T1/ptm/m/n/10 (-20) meaning 
  []
 
 
-Overfull \hbox (1.95084pt too wide) in paragraph at lines 464--464
+Overfull \hbox (1.95084pt too wide) in paragraph at lines 453--453
 [][][][]\T1/ptm/m/n/10 (-20) meaning 
  []
 
 
-Overfull \hbox (1.95084pt too wide) in paragraph at lines 464--464
+Overfull \hbox (1.95084pt too wide) in paragraph at lines 453--453
 [][][][]\T1/ptm/m/n/10 (-20) meaning 
  []
 
 
-Overfull \hbox (1.95084pt too wide) in paragraph at lines 464--464
+Overfull \hbox (1.95084pt too wide) in paragraph at lines 453--453
 [][][][]\T1/ptm/m/n/10 (-20) meaning 
  []
 
-[4 <./figures/presidentcandidatesvisualization.png> <./figures/playoffviewfirst
-design.png>]
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 474
+tyle. Remove all occurences before final document submission. on input line 463
 .
 
 
-Overfull \hbox (6.98001pt too wide) in paragraph at lines 474--474
+Overfull \hbox (6.98001pt too wide) in paragraph at lines 463--463
 [][][][]\T1/ptm/m/n/10 (-20) Hierarchy 
  []
 
 
-Overfull \hbox (12.83849pt too wide) in paragraph at lines 474--474
+Overfull \hbox (12.83849pt too wide) in paragraph at lines 463--463
 \T1/ptm/m/n/10 (-20) zoom/more 
  []
 
 
-Overfull \hbox (6.98001pt too wide) in paragraph at lines 474--474
+Overfull \hbox (6.98001pt too wide) in paragraph at lines 463--463
 [][][][]\T1/ptm/m/n/10 (-20) Hierarchy 
  []
 
 
-Overfull \hbox (12.83849pt too wide) in paragraph at lines 474--474
+Overfull \hbox (12.83849pt too wide) in paragraph at lines 463--463
 \T1/ptm/m/n/10 (-20) zoom/more 
  []
 
 
-Overfull \hbox (6.98001pt too wide) in paragraph at lines 474--474
+Overfull \hbox (6.98001pt too wide) in paragraph at lines 463--463
 [][][][]\T1/ptm/m/n/10 (-20) Hierarchy 
  []
 
 
-Overfull \hbox (12.83849pt too wide) in paragraph at lines 474--474
+Overfull \hbox (12.83849pt too wide) in paragraph at lines 463--463
 \T1/ptm/m/n/10 (-20) zoom/more 
  []
 
 
-Overfull \hbox (6.98001pt too wide) in paragraph at lines 474--474
+Overfull \hbox (6.98001pt too wide) in paragraph at lines 463--463
 [][][][]\T1/ptm/m/n/10 (-20) Hierarchy 
  []
 
 
-Overfull \hbox (12.83849pt too wide) in paragraph at lines 474--474
+Overfull \hbox (12.83849pt too wide) in paragraph at lines 463--463
 \T1/ptm/m/n/10 (-20) zoom/more 
  []
 
 
-LaTeX Warning: Marginpar on page 5 moved.
+LaTeX Warning: Marginpar on page 4 moved.
 
+<figures/statisticsview.png, id=211, 752.0597pt x 697.10437pt>
+File: figures/statisticsview.png Graphic file (type png)
+
+<use figures/statisticsview.png>
+Package pdftex.def Info: figures/statisticsview.png used on input line 474.
+(pdftex.def)             Requested size: 243.98238pt x 226.15202pt.
+ [4 <./figures/presidentcandidatesvisualization.png> <./figures/playoffviewfirs
+tdesign.png>]
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 526
+tyle. Remove all occurences before final document submission. on input line 521
 .
 
-[5]
+<figures/teamview.png, id=230, 752.0597pt x 697.8572pt>
+File: figures/teamview.png Graphic file (type png)
+
+<use figures/teamview.png>
+Package pdftex.def Info: figures/teamview.png used on input line 557.
+(pdftex.def)             Requested size: 243.98238pt x 226.39626pt.
+ [5 <./figures/statisticsview.png> <./figures/teamview.png>]
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 598
+tyle. Remove all occurences before final document submission. on input line 600
 .
 
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 601
+tyle. Remove all occurences before final document submission. on input line 603
 .
 
 
@@ -1569,11 +1531,11 @@ LaTeX Warning: Marginpar on page 6 moved.
 
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 644
+tyle. Remove all occurences before final document submission. on input line 616
 .
 
 [6]
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 735.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 759.
 
  (c:/texlive/2015/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
@@ -1583,122 +1545,174 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 759.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 759.
 
-Underfull \hbox (badness 10000) in paragraph at lines 736--736
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 760--760
 []\T1/ptm/m/n/10 (+20) Lemon Chiu. \T1/ptm/m/it/10 (+20) NBA-Visualization\T1/p
 tm/m/n/10 (+20) .
  []
 
 
-Underfull \hbox (badness 6542) in paragraph at lines 736--736
+Underfull \hbox (badness 6542) in paragraph at lines 760--760
 []\T1/ptm/m/n/10 (+20) Michelle Q. Wang Bal-don-ado, Al-li-son
  []
 
-[7]
 
 LaTeX Warning: The marginpar command is not allowed in the `acmconf' document s
-tyle. Remove all occurences before final document submission. on input line 736
+tyle. Remove all occurences before final document submission. on input line 760
 .
 
 
-Overfull \hbox (11.73099pt too wide) in paragraph at lines 736--736
+Overfull \hbox (11.73099pt too wide) in paragraph at lines 760--760
 [][][][]\T1/ptm/m/n/10 (-20) References 
  []
 
 
-Overfull \hbox (20.97826pt too wide) in paragraph at lines 736--736
+Overfull \hbox (20.97826pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) styleSIGCHI- 
  []
 
 
-Overfull \hbox (9.52225pt too wide) in paragraph at lines 736--736
+Overfull \hbox (9.52225pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) Reference- 
  []
 
 
-Overfull \hbox (11.73099pt too wide) in paragraph at lines 736--736
+Overfull \hbox (11.73099pt too wide) in paragraph at lines 760--760
 [][][][]\T1/ptm/m/n/10 (-20) References 
  []
 
 
-Overfull \hbox (20.97826pt too wide) in paragraph at lines 736--736
+Overfull \hbox (20.97826pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) styleSIGCHI- 
  []
 
 
-Overfull \hbox (9.52225pt too wide) in paragraph at lines 736--736
+Overfull \hbox (9.52225pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) Reference- 
  []
 
 
-Overfull \hbox (11.73099pt too wide) in paragraph at lines 736--736
+Overfull \hbox (11.73099pt too wide) in paragraph at lines 760--760
 [][][][]\T1/ptm/m/n/10 (-20) References 
  []
 
 
-Overfull \hbox (20.97826pt too wide) in paragraph at lines 736--736
+Overfull \hbox (20.97826pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) styleSIGCHI- 
  []
 
 
-Overfull \hbox (9.52225pt too wide) in paragraph at lines 736--736
+Overfull \hbox (9.52225pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) Reference- 
  []
 
 
-Overfull \hbox (11.73099pt too wide) in paragraph at lines 736--736
+Overfull \hbox (11.73099pt too wide) in paragraph at lines 760--760
 [][][][]\T1/ptm/m/n/10 (-20) References 
  []
 
 
-Overfull \hbox (20.97826pt too wide) in paragraph at lines 736--736
+Overfull \hbox (20.97826pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) styleSIGCHI- 
  []
 
 
-Overfull \hbox (9.52225pt too wide) in paragraph at lines 736--736
+Overfull \hbox (9.52225pt too wide) in paragraph at lines 760--760
 \T1/ptm/m/n/10 (-20) Reference- 
  []
+
+
+Overfull \vbox (1.56114pt too high) has occurred while \output is active []
+
 
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 759.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 759.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 783.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 783.
  (./paper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 759.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 759.
-Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 4E5A2734E73C123828ED16B6FDF4B693;1633.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 783.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 783.
 
+
+Package rerunfilecheck Warning: File `paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `paper.out':
+(rerunfilecheck)             Before: 2B74D5B6652F4EA067433112F126EB6C;1633
+(rerunfilecheck)             After:  0A2FE5131828588A3A82951096148801;1633.
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                paper
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'paper.run.xml'.
 \openout1 = `paper.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 759.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 783.
  ) 
 Here is how much of TeX's memory you used:
- 25404 strings out of 493027
- 461657 string characters out of 6137685
- 900331 words of memory out of 5000000
- 28139 multiletter control sequences out of 15000+600000
+ 25402 strings out of 493027
+ 461500 string characters out of 6137685
+ 917918 words of memory out of 5000000
+ 28129 multiletter control sequences out of 15000+600000
  83228 words of font info for 247 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,10n,76p,913b,1131s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fo
-nts/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw
-/helvetic/uhvb8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvro
-8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive
-/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2015/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (8 pages, 5682588 bytes).
+pdfTeX warning (dest): name{figure.20} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.19} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.44} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.42} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.39} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.37} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.35} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.31} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.26} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.22} has been referenced but does not exi
+st, replaced by a fixed one
+
+{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/font
+s/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/h
+elvetic/uhvb8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvro8a
+.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2
+015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2015/texmf-dist/fon
+ts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (8 pages, 5685983 bytes).
 PDF statistics:
- 407 PDF objects out of 1000 (max. 8388607)
- 373 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 384 compressed objects within 4 object streams
+ 130 named destinations out of 1000 (max. 500000)
  26880 words of extra memory for PDF output out of 29859 (max. 10000000)
 

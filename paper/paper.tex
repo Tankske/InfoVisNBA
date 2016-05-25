@@ -36,6 +36,7 @@
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{textcomp}
+\usepackage{nameref}
 
 \usepackage[backend=biber, style=draft]{biblatex}
 %\usepackage{custom}
@@ -164,20 +165,15 @@ available, gathering useful insights from this data can be surprisingly
 challenging. In our work we try to present this data in an innovative but still
 intuitive way, allowing the user to draw meaningful conclusions.
 
-\todo{reference to sections should use the name and not a number because the numbers are not shown, so they are not usable}
-In section~\ref{sec:goal} we describe the goal of the visualization and the
-target audience. In section~\ref{sec:data} we describe the data used, including
-its origins, advantages and limitations. In section~\ref{sec:literature} we give
-an overview of related literature and web resources, including related
-visualizations.  This includes both visualizations of NBA or other sports data,
+In the \nameref{sec:goal} section we describe the goal of the visualization and the
+target audience. In the \nameref{sec:data} section, we describe the data used, including its origins, advantages and limitations. The \nameref{sec:literature} section gives an overview of related literature and web resources, including related
+visualizations. This includes both visualizations of NBA or other sports data,
 as well as visualizations tackling an issue encountered during the development of
-our visualization. In section~\ref{sec:visualization} we describe the
-visualization itself. We give an overview of the different stages of development
+our visualization. In the \nameref{sec:visualization} section, the visualization itself is described. We give an overview of the different stages of development
 of the visualization, as well as the major design decisions.
-Section~\ref{sec:discussion} discusses potential improvements of the final
-visualization and lessons learned from the project. We conclude in
-section~\ref{sec:conclusion}. Appendix~\ref{sec:terminology} contains
-definitions for common basketball terms used in this paper.
+The \nameref{sec:lessonslearned} section describes some interesting lessons we have learned from the project and in the \nameref{sec:futurework} section we discuss potential  improvements of the final visualization. We conclude in the  
+\nameref{sec:conclusion} section. Appendix~\ref{sec:terminology} contains definitions 
+for common basketball terms used in this paper.
 
 \section{Goal and Target Audience}\label{sec:goal} 
 The visualization's goal can be best summarized by the following sentence:
@@ -209,9 +205,8 @@ Python scripts. The data was then combined in a preprocessing step. In this
 step, each team's playoff rankings were calculated based on the matches played
 during the playoffs, and the rest of the data was combined into json format. The
 final preprocessing step combined all data into one json file. A model of the
-available data can be seen on figure~\ref{fig:data}.
+available data can be seen on figure~\ref{fig:data} \todo{is die afbeelding nog wel juist? Is die nuttig?}.
 
-\todo{Figure is still in dutch}
 \begin{figure}
 \centering
   \includegraphics[width=1.0\columnwidth]{figures/data}
@@ -225,8 +220,7 @@ data. This is best exemplified by the workshop on sports data visualization at
 the IEEE Visualization Conference in 2013\cite{ieeevis}. 
 
 There are a number of traditional basketball visualizations. One of the most
-popular ones is the shot chart. This visualizes the shots of a player or team
-around the hoop. It provides insight into the shooting ability of a
+popular ones is the shot chart. This visualizes the shots made by a player or team. Different methods can be used, going from a scatterplot to hexagonal charts where the shots are grouped into hexagonal regions, to a heatmap. This is often done for the the area in and around the three-point line, but it can als be done for the whole attack side of the field, as seen in the Vorped visualisation\cite{vorped}. Because shots of the own side only happen rarely, it's not shown in shot charts. Shot chart provides insight into the shooting ability of a
 player\cite{goldsberry,stephenchu}.
 
 This view features heavily in Peter Beshai's Buckets\cite{peterbeshai}. This is
@@ -252,7 +246,7 @@ created~\cite{enclosedcircles}. This visualization eliminates the repeating
 occurrences of the same team. However, it wastes a lot of space. 
 
 England's Permier League results were visualized by Ami Sedghi for the
-Guardian\ref{premierleague}. This visualization shows the team's rankings as
+Guardian\cite{premierleague}. This visualization shows the team's rankings as
 line graphs and allows highlighting of individual teams.
 
 Tan et al. created an adaption of the traditional tournament bracket to better
@@ -268,8 +262,16 @@ other. The interactivity is very important here as it allows users to highlight
 one possible path out of many.
 
 The entire history of the NBA and the best teams were analyzed by
-fivethirtyeight~\cite{fivethirtyeight}. They calculated an ELO-score \todo{explanation of the elo score?} for all
-teams an visualized them on line graphs. 
+fivethirtyeight~\cite{fivethirtyeight}. They calculated an ELO-score\cite{eloraring} 
+for all teams an visualized them on line graphs. 
+
+In the article written by Johannes Becker\cite{nbaempires}, the Simple Rating System 
+score (SRS score) is used to compare teams over the last 40 seasons in the NBA. The 
+SRS score is represented by a color hue. For comparing quantative values, this is 
+not the most ideal characteristic to use as explained by John Mackinglay\cite{automatingdesign}. Nevertheless, some interesting findings are found and presented. By giving a green stroke to the rectangle of the champion of a season, 
+it's easy to see which teams have won the NBA championship frequently. This way 
+they have divided the last 40 seasons in three eras being the Los Angeles Lakers 
+versus the Boston Celtics era, the Michael Jordan era and the Tim Duncan era. 
 
 Pagno et al. provide a number of different visualizations\cite{starplots}. The
 most interesting one is the starplot. This plot several statistics for a team on
@@ -316,31 +318,6 @@ The visualization consists of three parts:
         specific field position
 \end{itemize}
 
-\begin{figure}
-\centering
-  \includegraphics[width=1.0\columnwidth]{figures/playoffviewwithcontext}
-  \caption{The play-off view without a team selected.}~\label{fig:playoffviewnoteam}
-\end{figure}
-
-\begin{figure}
-\centering
-  \includegraphics[width=1.0\columnwidth]{figures/playoffviewteamselected}
-  \caption{The play-off view with a team selected.}~\label{fig:playoffviewteam}
-\end{figure}
-
-\begin{figure}
-\centering
-  \includegraphics[width=1.0\columnwidth]{figures/statisticsview}
-  \caption{The statistics view.}~\label{fig:statisticsview}
-\end{figure}
-
-\begin{figure}
-\centering
-  \includegraphics[width=1.0\columnwidth]{figures/teamview}
-  \caption{The team view.}
-  \label{fig:teamview}
-\end{figure}
-
 The technique used, follows the standards of information visualization. It provides
 an overview, allows zooming and filtering and provides details on
 demand\cite{mantra,multipleviews,automatingdesign}. The play-off view provides
@@ -366,6 +343,18 @@ was made to use a thematic background. This was done to improve the
 attractiveness of the visualisation on the one hand and the users' memory of 
 it on the other hand\cite{aesthetics}. 
 
+\begin{figure}
+\centering
+  \includegraphics[width=1.0\columnwidth]{figures/playoffviewwithcontext}
+  \caption{The play-off view without a team selected.}~\label{fig:playoffviewnoteam}
+\end{figure}
+
+\begin{figure}
+\centering
+  \includegraphics[width=1.0\columnwidth]{figures/playoffviewteamselected}
+  \caption{The play-off view with a team selected.}~\label{fig:playoffviewteam}
+\end{figure}
+
 \subsection{The play-off view}
 This view informs the user of the roster and end positions in the NBA play-offs
 for a selected season, in general or for a selected team. The play-off view is 
@@ -390,8 +379,8 @@ background information about the NBA and the terminolgy used, and can check the
 source of the data used in the visualization. If the user hovers over or selects 
 a team in the bubble section, the context section shows more information about that 
 team, as shown in Figure~\ref{fig:playoffviewteamselected}. The information shown 
-includes the Simple Rating System score (SRS), the end position in the play-offs 
-and the end position in the regular competition.
+includes the SRS score, the end position in the play-offs and the end position in 
+the regular competition.
 
 \subsubsection{Bubble section}
 This section presents the roster and end positions of the play-offs for a
@@ -443,7 +432,7 @@ in the context part.
 \subsubsection{Previous designs}
 Our initial design used the team circles' lightness to indicate their final
 ranking in their region. The hue was used to show the league they were part of.
-According to the Ranking of Perceptual Tasks~\cite{perceptualranking} this is a
+According to the Ranking of Perceptual Tasks~\cite{automatingdesign} this is a
 good property for ordered values like the regular competition ranking. But the
 combination of the logo's of the teams with the colors resulted in an overload
 of information and made it more difficult to compare the end ranking of
@@ -479,6 +468,12 @@ value compared to the play-off view except for the geographical position, which
 has no importance for our visualisation. Furthermore we've found a visualisation
 of the NBA with a map view~\cite{mapviewvisualization} similar to our idea, so
 we decided to not implement this map view. 
+
+\begin{figure}
+\centering
+  \includegraphics[width=1.0\columnwidth]{figures/statisticsview}
+  \caption{The statistics view.}~\label{fig:statisticsview}
+\end{figure}
 
 \subsection{The statistics view}
 The statistics view gives a user a clear overview of how a statistic has been
@@ -557,6 +552,13 @@ The design of the arrows did not change. The incoming and outgoing
 arrows are maybe more intuitevly than the arrow for the stayed players, but we did 
 not find any alternatives we could use.
 
+\begin{figure}
+\centering
+  \includegraphics[width=1.0\columnwidth]{figures/teamview}
+  \caption{The team view.}
+  \label{fig:teamview}
+\end{figure}
+
 \subsection{The team view}
 The team view gives a user a detailed view on the strength of the team on the 
 different field positions. The team view is showed in Figure~\ref{fig:teamview}. 
@@ -601,7 +603,88 @@ here}
 write here.}
 Talk about how we improved the data-ink ration in the end..
 
-\section{Future work}
+\subsection{Technology}
+To create the visualization, the d3 javascript framework~\cite{d3} was used in
+combination with html5~\cite{html5} and jquery~\cite{jquery}. Note that D3 is
+based on HTML, CSS, Javascript and SVG. This allows easy access to the
+visualization as most modern browsers are capable of handling these
+webstandards. The choice not to use the d3 framework for the entire
+visualization was made to ease the layout configuration of the visualization.
+Instead, html was used to do the global layout of the visualization. We opted to
+structure the site with multiple divs as containers. To each container we
+allocate a svg with a specific visualization.
+\todo{sketch of how the page is structured here}
+
+When working with d3.js we encountered one main obstacle:
+\begin{itemize}
+        \item A synchrounous call need to be combined with synchronous calls.
+            More specific, when a visitor uses the timeline to scroll through
+            time, the whiping of previous visualizations was not synced with the
+            creation of the visualisation. This resulted in whiping sections
+            when a visualization was not created yet. Hence the view resulted in
+            multiple figures overlapping.
+\end{itemize}
+
+
+\section{Lessons learned}\label{sec:lessonslearned}
+We've learned a couple of things during the creation of this visualization:
+\begin{itemize}
+    \item Find a story to tell with your visualization
+    \item Each separate component should be a sufficient informative visualization on itself
+    \item Creating a custom visualization costs time and opportunities
+\end{itemize}
+In what follows we will discuss our experience in more detail.
+
+\subsection{Story telling}
+At the beginning of this project we were able to design the 3 separate views
+quite quickly. Our main concern was, when integrating these views as a whole, would 
+we be able to see the relations and consequences we thought we would see and if 
+we could draw the conclusions we hoped for. The relation we thought would be visible 
+was that the total PER value of a team would influence the end positions in the NBA championship, both the league rank as the play-off rank. We expected that teams 
+that had a big increase in total PER value, due to a good transferpolicy in a 
+season, would benefit in one of the following seasons. It was not possible to draw this conclusion and according to us the reason for this is that a whole NBA team contains an average of 15 players. Some players may play a lot more than others and 
+are therefore much more important to the team. This observation is why we could not draw our hoped conclusion, but at the same time we found it so interesting and we wondered if we could find an example to support this observation. The story is about 
+the Chicago Bulls, the team of Michael Jordan who is seen as the greatest basketball 
+player of all time. In 1984, Jordan arrives at the Chicago Bulls and in his first season he is already the top player of his team, as seen by the size of his jersey for the PER statistic. In the season 1990-1991 and the two following seasons, the 
+Chicago Bulls win the NBA championship. The ``three-peat'' as it is called was done 
+with almost the same core team. Next to Michael Jordan, there were around five 
+players that were part of the team and were roughly the best on their position in 
+the team, for example Scottie Pippen. We can see that in the seasons before this 
+``three-peat'' this team was formed and already played with each other. After that 
+last season form those three consecutive wins, Michael Jordan retires and the team 
+is not able anymore to achieve the same. In the middle of the season 1994-1995, Michael Jordan came out of retirement. What follows is a similar story to the previous one. In the season 1995-1996 and the two following seasons, the Chicago 
+Bulls again achieve to win the NBA chamionship three times in a row, again with a  team consisting of around five core players. Once again is Michael Jordan the star 
+player of the team, but also Scottie Pippen is still one of the best players of the team. So to become the champion, it seems like a team needs to have a default team 
+with around five core players and one or two star players.
+
+%Our main problem was to integrate these views as a whole. When we
+%created drafts of two views being the play-off view and the statitics view, we
+%suddenly noted patterns. The Golden State Warriors became NBA champion a couple
+%of years after a great uplift in SRS score. This was because of new players
+%joining the team in 2009. In the years following, the team kept on attracting
+%talented players and increased the inherent team score to become NBA champion in
+%2015. With the team view, one can even notice that the team gets stronger in
+%center team positions during this period. Users are able to explore the data for
+%patters. On top of that, we provide the insight on how the changes were impacted
+%by changes in teamplayers.
+
+\subsection{Each component should be informative}
+In order to have a good visualization as a whole, each component should be a
+clear and informative visualization on itself. During the project, we started noticing that most components in a visualization lack references and hence are not informative enough. Eg. each small multiple of a statisctic in the statistics view on itself gives sufficient information to stand on itselfs. The bar in the small multiple indicates the score in the selected season and enables the user to evaluate that score over time. Have there been better scores, or worse scores. Is this score
+part of an upward movement during years? This should be weighed against the
+duplication of data and use of screen space. Coordinated views alleviate this
+need significantly as well, as each component is strongly supported by other
+components.
+
+\subsection{Custom visualizations}
+Before exploring what is out there in the d3.js world, we made our own sketches.
+This is how we came up with the 3 custom views that make up our visualization.
+When comparing our design with alternatives we could not find something that
+satisfied our needs. Nonetheless, they gave us inspiration to finetune our
+designs. Although we are satisfied with our result and we are convinced it was
+the right choice to reach our goal, it had some draw backs. If we would have not started with our custom view, we would have had more freedom in exploring multiple different visualizations and we would be able to evaluate different options with trial and error. Instead much of the time developing was spent on the technical details for these custom visualizations. This was especially true for the bubble component of the play-off view. No out of the box solution for this could be found so everything from the determination of the positions of the bubbles to how to connect them had to be developed by us.
+
+\section{Future work}\label{sec:futurework}
 As with most projects, the result is never 'finished', meaning that there are
 always extensions and iprovements possible but due to timing or resource constraints they haven't all been implemented. We suggest a number of features that might improve the visualization:
 \begin{itemize}
@@ -629,68 +712,9 @@ always extensions and iprovements possible but due to timing or resource constra
     \item We could support users further in looking for patterns by focussing
         more on comparisons. We could integrate a view where a visitor is able
         to compare two teams in the same year, or in two different years.
+    \item We could focus more on the core team, i.e. five or six players who seems 
+        to be the most important for the results of a team.
 \end{itemize}
-
-\subsection{Technology}
-To create the visualization, the d3 javascript framework~\cite{d3} was used in
-combination with html5~\cite{html5} and jquery~\cite{jquery}. Note that D3 is
-based on HTML, CSS, Javascript and SVG. This allows easy access to the
-visualization as most modern browsers are capable of handling these
-webstandards. The choice not to use the d3 framework for the entire
-visualization was made to ease the layout configuration of the visualization.
-Instead, html was used to do the global layout of the visualization. We opted to
-structure the site with multiple divs as containers. To each container we
-allocate a svg with a specific visualization.
-\todo{sketch of how the page is structured here}
-
-When working with d3.js we encountered one main obstacle:
-\begin{itemize}
-        \item A synchrounous call need to be combined with synchronous calls.
-            More specific, when a visitor uses the timeline to scroll through
-            time, the whiping of previous visualizations was not synced with the
-            creation of the visualisation. This resulted in whiping sections
-            when a visualization was not created yet. Hence the view resulted in
-            multiple figures overlapping.
-\end{itemize}
-
-
-\section{Lessons learned}\label{sec:discussion}
-We've learned a couple of things during the creation of this visualization:
-\begin{itemize}
-    \item Find a story to tell with your visualization
-    \item Each separate component should be a sufficient informative visualization on itself
-    \item Creating a custom visualization costs time and opportunities
-\end{itemize}
-In what follows we will discuss our experience in more detail.
-
-\subsection{Story telling}
-At the beginning of this project we were able to design the 3 separate views
-quite quickly. Our main problem was to integrate these views as a whole. When we
-created drafts of two views being the play-off view and the statitics view, we
-suddenly noted patterns. The Golden State Warriors became NBA champion a couple
-of years after a great uplift in SRS score. This was because of new players
-joining the team in 2009. In the years following, the team kept on attracting
-talented players and increased the inherent team score to become NBA champion in
-2015. With the team view, one can even notice that the team gets stronger in
-center team positions during this period. Users are able to explore the data for
-patters. On top of that, we provide the insight on how the changes were impacted
-by changes in teamplayers.
-
-\subsection{Each component should be informative}
-In order to have a good visualization as a whole, each component should be a
-clear and informative visualization on itself. During the project, we started noticing that most components in a visualization lack references and hence are not informative enough. Eg. each small multiple of a statisctic in the statistics view on itself gives sufficient information to stand on itselfs. The bar in the small multiple indicates the score in the selected season and enables the user to evaluate that score over time. Have there been better scores, or worse scores. Is this score
-part of an upward movement during years? This should be weighed against the
-duplication of data and use of screen space. Coordinated views alleviate this
-need significantly as well, as each component is strongly supported by other
-components.
-
-\subsection{Custom visualizations}
-Before exploring what is out there in the d3.js world, we made our own sketches.
-This is how we came up with the 3 custom views that make up our visualization.
-When comparing our design with alternatives we could not find something that
-satisfied our needs. Nonetheless, they gave us inspiration to finetune our
-designs. Although we are satisfied with our result and we are convinced it was
-the right choice to reach our goal, it had some draw backs. If we would have not started with our custom view, we would have had more freedom in exploring multiple different visualizations and we would be able to evaluate different options with trial and error. Instead much of the time developing was spent on the technical details for these custom visualizations. This was especially true for the bubble component of the play-off view. No out of the box solution for this could be found so everything from the determination of the positions of the bubbles to how to connect them had to be developed by us.
 
 \section{Conclusion}\label{sec:conclusion}
 We believe the visualization we have created can be of tremendous value for fans
