@@ -121,7 +121,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortscheme</bcf:key>
-      <bcf:value>debug</bcf:value>
+      <bcf:value>none</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
@@ -310,6 +310,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">maxnames</bcf:option>
     <bcf:option datatype="integer">minnames</bcf:option>
@@ -679,7 +680,7 @@
   <bcf:sorting>
     <bcf:presort>mm</bcf:presort>
     <bcf:sort order="1">
-      <bcf:sortitem order="1">entrykey</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sorting>
   <!-- DATA MODEL -->
@@ -2042,7 +2043,7 @@
     <bcf:citekey order="13">adaptivitree</bcf:citekey>
     <bcf:citekey order="14">whitehousepath</bcf:citekey>
     <bcf:citekey order="15">fivethirtyeight</bcf:citekey>
-    <bcf:citekey order="16">eloraring</bcf:citekey>
+    <bcf:citekey order="16">elorating</bcf:citekey>
     <bcf:citekey order="17">nbaempires</bcf:citekey>
     <bcf:citekey order="18">automatingdesign</bcf:citekey>
     <bcf:citekey order="19">starplots</bcf:citekey>
@@ -2060,10 +2061,10 @@
     <bcf:citekey order="29">srs</bcf:citekey>
     <bcf:citekey order="30">playoffs</bcf:citekey>
   </bcf:section>
-  <bcf:sortlist section="0" name="debug/global" type="entry" sortscheme="debug" sortnamekeyscheme="global">
+  <bcf:sortlist section="0" name="none/global" type="entry" sortscheme="none" sortnamekeyscheme="global">
   <bcf:sorting>
     <bcf:sort order="1">
-      <bcf:sortitem order="1">entrykey</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sorting>
   </bcf:sortlist>

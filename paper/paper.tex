@@ -38,7 +38,7 @@
 \usepackage{textcomp}
 \usepackage{nameref}
 
-\usepackage[backend=biber, style=draft]{biblatex}
+\usepackage[backend=biber, style=numeric, firstinits=true, url=false, sorting=none]{biblatex}
 %\usepackage{custom}
 
 \addbibresource{paper.bib}
@@ -262,7 +262,7 @@ other. The interactivity is very important here as it allows users to highlight
 one possible path out of many.
 
 The entire history of the NBA and the best teams were analyzed by
-fivethirtyeight~\cite{fivethirtyeight}. They calculated an ELO-score\cite{eloraring} 
+fivethirtyeight~\cite{fivethirtyeight}. They calculated an ELO-score\cite{elorating} 
 for all teams an visualized them on line graphs. 
 
 In the article written by Johannes Becker\cite{nbaempires}, the Simple Rating System 
@@ -757,6 +757,7 @@ an integrated fashion has much value.
 %\bibliographystyle{SIGCHI-Reference-Format}
 
 \printbibliography
+
 \todo{References should be in alphabetical order and represented by numbers in the text. Style should be set to style{SIGCHI-Reference-Format}, this moment it is set to the style draft}
 
 \appendix
