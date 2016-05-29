@@ -1,4 +1,4 @@
-\documentclass[chi_draft]{sigchi}
+\documentclass[]{sigchi}
 % Use this command to override the default ACM copyright statement
 % (e.g. for preprints).  Consult the conference website for the
 % camera-ready copyright statement.
@@ -139,7 +139,6 @@
 \maketitle
 
 \begin{abstract}
-\todo{Abstracts should be about 150 words}
     Visualization of sports data is very common in recent years as access to
     data has increased. The abundance of data and audience allows for new and
     innovative presentations. In this paper we describe an interactive
@@ -205,7 +204,7 @@ Python scripts. The data was then combined in a preprocessing step. In this
 step, each team's playoff rankings were calculated based on the matches played
 during the playoffs, and the rest of the data was combined into json format. The
 final preprocessing step combined all data into one json file. A model of the
-available data can be seen on figure~\ref{fig:data} \todo{is die afbeelding nog wel juist? Is die nuttig?}.
+available data can be seen on figure~\ref{fig:data}.
 
 \begin{figure}
 \centering
@@ -449,18 +448,18 @@ visualization in a totally different context\cite{whitehousepath} as explained i
 the section \ref{sec:literature}. With the idea of this visualization in mind, our 
 visualization gives a cleaner view of the competitors for a specific team compared 
 to our original sketch. Hence we decided to adapt our visualization. We added an 
-intermediate step between two teams to more clearly indicate how teams competed to 
-become the NBA champion. \todo{meaning of last sentence is not clear}
+intermediate connection point between two teams to more clearly indicate how teams competed to 
+become the NBA champion.
 
-\todo{Hierarchy = sorting = facilitate trends of winners
-position have a meaning in the play-off view
-when selecting circle => zoom/more detail
-Bubble principle of 
-- Symmetry (whole = play-off)
-- conectedness arc = games played
-Pre attentive characteristics
-- size of circles
-- hue to highligt selections or indicate increase decline arrows next view}
+%\todo{Hierarchy = sorting = facilitate trends of winners
+%position have a meaning in the play-off view
+%when selecting circle => zoom/more detail
+%Bubble principle of 
+%- Symmetry (whole = play-off)
+%- conectedness arc = games played
+%Pre attentive characteristics
+%- size of circles
+%- hue to highligt selections or indicate increase decline arrows next view}
 
 We initially also considered a map view to show the teams and their regular
 competition ranking on a map of the USA. However, this view had no additional
@@ -518,7 +517,6 @@ represented by three arrows:
     \item Arrow on the left pointing away from the circle: indicating the
         influence of players who left the team 
 \end{itemize}
-\todo{add statistics view image here}
 The value of the change in statistic is shown next to the arrow. The number of 
 players responsible for the change is shown between brackets. Their are shown 
 jerseys next to the arrows as well. These are the jerseys of the two players that 
@@ -590,18 +588,24 @@ the influence is over time.
 
 \subsubsection{Previous designs}
 Initially we designed this view more elaborate. When the user would click on a
-jersey, specific player information would be shown together with a number of player
-statistics in the form of small multiples. A bell curve should have informed
-how a player scores compared to his team, other players in the league on his
-position or all other players in the league. We considered other charts for the
-small multiples as well. A box plot or bullet was less clear for us to indicate
-where a player stands compared to the group he was compared with. This part of the 
-visualization was not our main focus. Because of the lesser importnace and because of time and resource constraints, it has not been fully developed. \todo{sketch of small multiples
-here}
+jersey, specific player information would be shown together with a number of
+player statistics in the form of small multiples. A bell curve should have
+informed how a player scores compared to his team, other players in the league
+on his position or all other players in the league. We considered other charts
+for the small multiples as well. A box plot or bullet was less clear for us to
+indicate where a player stands compared to the group he was compared with. This
+part of the visualization was not our main focus. Because of the lesser
+importance and because of time and resource constraints, it has not been fully
+developed. A sketch including the small multiples view on the bottom right is
+shown on Figure~\ref{fig:smallmultsketch}.
 
-\subsection{Improving the result}\todo{Is this necessary? I don't know what to
-write here.}
-Talk about how we improved the data-ink ration in the end..
+\begin{figure}
+\centering
+  \includegraphics[width=1.0\columnwidth]{figures/smallmultsketch}
+  \caption{A sketch of a previous design including the small multiples on the
+  bottom right.}
+  \label{fig:smallmultsktech}
+\end{figure}
 
 \subsection{Technology}
 To create the visualization, the d3 javascript framework~\cite{d3} was used in
@@ -613,7 +617,7 @@ visualization was made to ease the layout configuration of the visualization.
 Instead, html was used to do the global layout of the visualization. We opted to
 structure the site with multiple divs as containers. To each container we
 allocate a svg with a specific visualization.
-\todo{sketch of how the page is structured here}
+%\todo{sketch of how the page is structured here}
 
 When working with d3.js we encountered one main obstacle:
 \begin{itemize}
@@ -757,8 +761,6 @@ an integrated fashion has much value.
 %\bibliographystyle{SIGCHI-Reference-Format}
 
 \printbibliography
-
-\todo{References should be in alphabetical order and represented by numbers in the text. Style should be set to style{SIGCHI-Reference-Format}, this moment it is set to the style draft}
 
 \appendix
 \section{Terminology}\label{sec:terminology}
