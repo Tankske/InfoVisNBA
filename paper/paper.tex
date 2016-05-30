@@ -139,14 +139,13 @@
 \maketitle
 
 \begin{abstract}
-    Visualization of sports data is very common in recent years as access to
-    data has increased. The abundance of data and audience allows for new and
-    innovative presentations. In this paper we describe an interactive
+    Visualization of sports data is very common in recent years as access to this
+    kind of data has increased. The abundance of data and audience allows for 
+    new and innovative presentations. In this paper we describe an interactive
     visualization of the NBA competition over the last 30 years. With three
     different views, we allow the user to explore data about NBA seasons
     including standings, team statistics, transfers and player statistics. The
-    d3.js framework was used to develop this visualization. The result can be 
-    consulted on tankske.github.io/InfoVisNBA/.
+    d3.js framework was used to develop this visualization.
 \end{abstract}
 
 %TODO keywords
@@ -157,32 +156,32 @@
 
 \section{Introduction}
 
-The National Basketball Association (NBA) is the most famous professional
-basketball league in the world\cite{nbawiki}. As in every other sports
-branch, a lot of data and statistics about players, teams, games and seasons
+The National Basketball Association (NBA)~\cite{nbawiki} is the most famous professional
+basketball league in the world. As in every other sports
+branch these days, a lot of data and statistics about players, teams, games and seasons
 are available, mainly in large tables. Despite the large amount of data
 available, gathering useful insights from this data can be surprisingly
-challenging. In our work we try to present this data in an innovative but still
-intuitive way, allowing the user to draw meaningful conclusions.
+challenging. In our visualization we try to present this data in an innovative but still
+intuitive way, allowing the user to overcome this challenge and to draw meaningful conclusions.
 
-In the \nameref{sec:goal} section we describe the goal of the visualization and the
-target audience. In the \nameref{sec:data} section, we describe the data used, including its origins, advantages and limitations. The \nameref{sec:literature} section gives an overview of related literature and web resources, including related
+In this paper we elaborate on the creation and operation of the visualization.
+The section \nameref{sec:goal} describes the goal of the visualization and the
+target audience. In the section \nameref{sec:data}, the data used, including its origins, advantages and limitations are described. The section \nameref{sec:literature} gives an overview of related literature and web resources, including related
 visualizations. This includes both visualizations of NBA or other sports data,
 as well as visualizations tackling an issue encountered during the development of
-our visualization. In the \nameref{sec:visualization} section, the visualization itself is described. We give an overview of the different stages of development
+our visualization. In the section \nameref{sec:visualization}, the visualization itself is described. We give an overview of the different stages of development
 of the visualization, as well as the major design decisions.
-The \nameref{sec:lessonslearned} section describes some interesting lessons we have learned from the project and in the \nameref{sec:futurework} section we discuss potential  improvements of the final visualization. We reflect on our work in the  
-\nameref{sec:conclusion} section. Appendix~\ref{sec:terminology} contains definitions 
-for common basketball terms used in this paper.
+The section \nameref{sec:lessonslearned} describes some interesting lessons we have learned from the project and in the section \nameref{sec:futurework} we discuss potential  improvements of the final visualization. We reflect on our work in the section \nameref{sec:conclusion}. Appendix~\ref{sec:terminology} contains definitions for common basketball terms used in this paper. The visualization can 
+be consulted on tankske.github.io/InfoVisNBA/.
 
 \section{Goal and Target Audience}\label{sec:goal} 
 The visualization's goal is to answer the following question:
 ``Why did a certain team win the NBA Championship?'' The visualization focuses
-on exposing relations between team performance and their player roster over
-several years. It allows users to find explanations for major improvements and
+on exposing relations between team performance and their player selection over
+several seasons. It allows users to find explanations for major improvements and
 declines in team performance.  The visualization allows exploration of NBA data
 by lay persons.  More specifically, the visualization does not focus on premade
-explanations for phenomenons visible in the NBA data. By providing easy and
+explanations for phenomena visible in the NBA data. By providing easy and
 intuitive access to the data, the visualization allows users to draw their own
 conclusions. Specifically,
 basketball fans are the core of our target audience. It can be of particular
@@ -191,21 +190,21 @@ paramount to a player's success~\cite{fantasy,fantasyskill}.
 
 \section{Data}\label{sec:data}
 The data visualized is a subset of the data available on basketball statistics
-site basketball-reference\cite{basketball-reference}. It is a wide range of data including common basketball performance statistics, such as field goals, percentage of shots scored, shooting distance, minutes played per season, number of personal fouls made, salaries and much more . All of this data is available as time-series. These statistics are available for each player individually for each season. Aggregated data for entire teams and for entire seasons is also available. Additionally, individual game statistics are available, including playoff games. In our visualization we only use data from 1984 onwards. This is done because of rule changes in the NBA which changed the number of teams competing and the
+site basketball-reference~\cite{basketball-reference}. It is a wide range of data including common basketball performance statistics, such as field goals, percentage of shots scored, shooting distance, minutes played per season, number of personal fouls made, salaries and much more. All of this data is available as time-series. These statistics are available for each player individually for each season. Aggregated data for entire teams and for entire seasons is also available. Additionally, individual game statistics are available, including playoff games. In our visualization we only use data from 1984 onwards. This is done because of rule changes in the NBA, which changed the number of teams competing and the
 competition's structure. To simplify implementation of our visualization, only
 data after the last major rule change was used.  The data we use includes league
 standings and playoff rankings for each team, team overall statistics, the
-team's roster and individual player statistics for each year, including the
-PER~(Player Efficiency Rating)\cite{per}. 
+team's roster and individual player statistics for each year, including the 
+Player Efficiency Rating (PER)~\cite{per}. 
 
 The data was gathered by scraping the basketball-reference site using the
 provided download capabilities. Most of the data was downloaded in csv format,
-while some tables had to be manually scraped. This process was automated using
+while some tables had to be scraped manually. This process was automated using
 Python scripts. The data was then combined in a preprocessing step. In this
-step, each team's playoff rankings were calculated based on the matches played
-during the playoffs, and the rest of the data was combined into json format. The
+step, each team's play-off rankings were calculated based on the matches played
+during the play-offs, and the rest of the data was combined into json format. The
 final preprocessing step combined all data into one json file. A model of the
-available data can be seen on figure~\ref{fig:data}.
+available data can be seen in Figure~\ref{fig:data}.
 
 \begin{figure}
 \centering
@@ -217,63 +216,58 @@ available data can be seen on figure~\ref{fig:data}.
 \section{Related Work}\label{sec:literature}
 Recently, there has been an increase in the interest in visualizations of sports
 data. This is best exemplified by the workshop on sports data visualization at
-the IEEE Visualization Conference in 2013\cite{ieeevis}. 
+the IEEE Visualization Conference in 2013~\cite{ieeevis}. 
 
-There are a number of traditional basketball visualizations. One of the most
-popular ones is the shot chart. This visualizes the shots made by a player or team. Different methods can be used, going from a scatterplot to hexagonal charts where the shots are grouped into hexagonal regions, to a heatmap. This is often done for the area in and around the three-point line, but it can als be done for the whole attack side of the field, as seen in the Vorped visualisation\cite{vorped}. Because shots of the own side only happen rarely, it's not shown in shot charts. Shot chart provides insight into the shooting ability of a
-player\cite{goldsberry,stephenchu}.
+There are a number of traditional basketball visualizations, with the shot chart 
+being one of the most popular. A shot chart  visualizes the shots made by a player or team. Different methods can be used, going from a scatterplot to hexagonal charts where the shots are grouped into hexagonal regions, to a heatmap. This is often done for the area in and around the three-point line, but it can also be done for the whole attack side of the field, as seen in the visualization of Vorped~\cite{vorped}. Because shots of the own side only happen rarely, it's usually not shown in shot charts. Shot chart provides insight into the shooting ability of a
+player~\cite{goldsberry,stephenchu}.
 
-This view features heavily in Peter Beshai's Buckets\cite{peterbeshai}. This is
+This view features heavily in Peter Beshai's Buckets~\cite{peterbeshai}. This is
 an extensive visualization of NBA player data. It provides not only the player's
 shot chart for various years, but his shooting signature and several line graphs
 as well. It is strongly focused on individual player's shooting abilities. 
 
 Visualizations focusing on basketball teams and their performance are
-significantly more difficult to find. For the playoffs, there is the traditional
-playoffs bracket~\cite{tournamentladder}. This bracket structure has the
+less common to find. For the play-offs, there is the traditional tournament bracket structure~\cite{tournamentladder}. This bracket structure has the
 advantage of being well known and as such, does not require much explanation. 
 However, it duplicates much information by displaying teams repeatedly. 
 
 An interesting alternative is the sunburst tournament
-visualization\cite{sunburst}. As the name suggests, this visualizes the
+visualization~\cite{sunburst}. As the name suggests, this visualizes the
 tournament as a sunburst, with the winning team taking the part of the circle
-closer to the center. This does however not eliminate the problem of the recurring teams.
+closer to the center. This kind of visualization has the same drawback as the traditional bracket structure has.
 
-For the wimbledon tennis tournament, an enclosed circles visualization was
-created~\cite{enclosedcircles}. This visualization eliminates the repeating
-occurrences of the same team. However, it uses a lot of space. 
+Peter Cook created the Player Bubbles visualization~\cite{enclosedcircles}, where the tennis tournament Wimbledon is visualized as enclosed circles. A player is represented by a bubble that encloses all the bubbles of players he has won of. This eliminates the need of repeating the same player twice, but on the other hand it uses a lot of space and it makes it hard to understand the structure of the tournament.
 
-England's Permier League results were visualized by Ami Sedghi for the
-Guardian\cite{premierleague}. This visualization shows the team's rankings as
+In the Guardian, the England's Premier League results were visualized by Ami 
+Sedghi~\cite{premierleague}. This visualization shows the team's rankings as
 line graphs and allows highlighting of individual teams.
 
-Tan et al. created an adaption of the traditional tournament bracket to better
-support modern interaction\cite{adaptivitree}. The tool, AdaptiviTree, changes
+Tan et al. created an adaptation of the traditional tournament bracket to better
+support modern interaction~\cite{adaptivitree}. The tool, AdaptiviTree, changes
 the brackets shape and adds colored lines to show available information as the
 user picks his own bracket.
 
-The play-off view in our visualization is an alternative to the traditional bracket structure inspired by the
-visualization of the race to the white house made in 2012 for the New York Times
-by Mike Bostock and Shan Carter\cite{whitehousepath}. They use a tree-like
+An alternative to the traditional bracket structure can be found in the
+visualization of the race to the white house in 2012 made for the New York Times
+by Mike Bostock and Shan Carter~\cite{whitehousepath}. They use a tree-like
 structure where each split represents a state being one by one candidate or the
 other. The interactivity is very important here as it allows users to highlight
-one possible path out of many.
+one possible path out of many. The play-off view in our visualization is inspired on this visualization as explained in the section \nameref{sec:visualization}.
 
 The entire history of the NBA and the best teams were analyzed by
-fivethirtyeight~\cite{fivethirtyeight}. They calculated an ELO-score\cite{elorating} 
+fivethirtyeight~\cite{fivethirtyeight}. They calculated an ELO-score~\cite{elorating} 
 for all teams and visualized them on line graphs. 
 
-In the article written by Johannes Becker\cite{nbaempires}, the Simple Rating System 
+In the article written by Johannes Becker~\cite{nbaempires}, the Simple Rating System 
 score (SRS score) is used to compare teams over the last 40 seasons in the NBA. The 
 SRS score is represented by a color hue. For comparing quantative values, this is 
-not the most ideal characteristic to use as explained by John Mackinglay\cite{automatingdesign}. Nevertheless, some interesting findings are found and presented. By giving a green stroke to the rectangle of the champion of a season, 
+not the most ideal characteristic to use as explained by Jock Mackinglay~\cite{automatingdesign}. Nevertheless, some interesting insights are found and presented. By giving a green stroke to the rectangle of the champion of a season, 
 it's easy to see which teams have won the NBA championship frequently. This way 
 they have divided the last 40 seasons in three eras being the Los Angeles Lakers 
 versus the Boston Celtics era, the Michael Jordan era and the Tim Duncan era. 
 
-Pagno et al. provide a number of different visualizations\cite{starplots}. The
-most interesting one being the starplot. This plot several statistics for a team on
-an axis pointing radially outward from a common center. These points are then
+Pagno et al. provide a number of different visualizations~\cite{starplots}, with the starplot being one of the most interesting. It plots several statistics for a team on an axis pointing radially outward from a common center. These points are then
 connected. It allows the user to get basic information about a team or player at
 a glance. Because of this speed of conveying information, it is also a prevalent
 visualization in sports games.
@@ -318,29 +312,25 @@ The visualization consists of three parts:
 
 The technique used, follows the standards of information visualization. It provides
 an overview, allows zooming and filtering and provides details on
-demand\cite{mantra,multipleviews,automatingdesign}. The play-off view provides
+demand~\cite{mantra,multipleviews}. The play-off view provides
 the full overview which allows filtering by team. The statistics view provides
-the ability to zoom into one specific team. There some details are provided
+the ability to zoom in on one specific team. There some details are provided
 instantly, while others can be procured by hovering over certain elements.
 
 All three views are discussed in more detail below. The three views are
 available to the user on a single webpage, where they are organized in a 
-vertical layout with fixed scrolling. Navigation with the keyboard is 
-supported as well. The user start on the play-off view and is able to 
-navigate to the statistics and team views by scrolling down or clicking 
-on teams. A different season can be selected with the left and right
+vertical layout with fixed scrolling. The user start on the play-off view. Navigation with the keyboard for switching between the three different views is 
+supported as well, with standard browser navigation by pressing the space bar or
+the up-and-down arrows. A different season can be selected with the left and right
 arrows or by clicking on the timeline. The timeline is a fixed part of the
-visualization. It is visible in the three different views. Navigation 
-with the keyboard for switching between the three different views is 
-supported as well with standard browser navigation by pressing the space bar or
-the up-and-down arrows.
+visualization. It is visible in the three different views. 
 
 We did not opt for the traditional minimalistic approach used in information 
 visualizations. The data-ink design principles were kept in mind, but we also 
 focused on aesthetics instead of maximizing the data-ink ratio. So the choice 
 was made to use a thematic background. This was done to improve the 
-attractiveness of the visualisation on the one hand and the users' memory of 
-it on the other hand\cite{aesthetics}. 
+attractiveness of the visualization on the one hand and the users' memory of 
+it on the other hand~\cite{aesthetics}. 
 
 \begin{figure}
 \centering
@@ -357,7 +347,7 @@ it on the other hand\cite{aesthetics}.
 \subsection{The play-off view}
 This view informs the user of the roster and end positions in the NBA play-offs
 for a selected season, in general or for a selected team. The play-off view is 
-shown in figure~\ref{fig:playoffviewwithcontext}.The view consists of
+shown in Figure~\ref{fig:playoffviewnoteam}. The view consists of
 two parts: 
 \begin{itemize}
     \item Context section: the top part informs the user about the selected team
@@ -372,42 +362,30 @@ borders are gold, silver or bronze if the team ended respectively first, second
 or third in the regular competition. Teams that didn't end on a podium place
 during the regular competition have a red or blue stroke color indicating the
 team's region, respectively the western or eastern conference. The context
-section also contains a link to the ``About'' page where the user can get an
-explanation of the visualization with its different views, can get some
-background information about the NBA and the terminolgy used, and can check the
-source of the data used in the visualization. If the user hovers over or selects 
-a team in the bubble section, the context section shows more information about that 
-team, as shown in Figure~\ref{fig:playoffviewteamselected}. The information shown 
-includes the SRS score, the end position in the play-offs and the end position in 
-the regular competition.
+section also contains a link to the ``About'' page where the user can get an explanation of the visualization with its different views, some background information about the NBA and the terminology used, and the link to the source of the data used in the visualization. If the user hovers over or selects a team in the bubble section, the context section shows more information about that team, as shown in Figure~\ref{fig:playoffviewteam}. The information shown includes the SRS score, the end position in the play-offs and the end position in the regular competition.
+
 
 \subsubsection{Bubble section}
 This section presents the roster and end positions of the play-offs for a
-selected season. Every team is respresented by a circle with the logo of the
-team inside it. The size of the circle represents the SRS score using an own
+selected season. Every team is represented by a circle with the team's logo inside it. The size of the circle represents the SRS score using an own
 interpretation of perceptual scaling because the (Flannery) Appearance
 Compensation is not usable with a domain of both negative and positive values.
 An exponential function with exponent 1.5 was used. This way the proportion
-between the area of a bigger and the area of a smaller circle will be greater
+between the area of a bigger and a smaller circle will be greater
 than the proportion of values the areas represent to improve human perception.
 
 The curved lines between teams represent the fact that those teams have 
-encountered each other in the playoffs. Each row represents an end position 
-in the play-offs. The higher a team is, the further it has come.  From the 
-top to the bottom the rows represent the winner of the final (rank 1), loser 
+encountered each other in the play-offs. Each row represents an end position 
+in the play-offs. The higher a team stands, the further it has come.  From the 
+top to the bottom, the rows represent the winner of the final (rank 1), loser 
 of the final (rank 2), losers of the semi-finals (rank 3), losers of the 
-quarter-finals (rank 4), losers of the eighth finals (rank 5). The last row 
-represents the teams that did not make it to the play-offs (rank 6). 
+quarter-finals (rank 4), losers of the first round in the play-offs (rank 5). The last row represents the teams that did not make it to the play-offs (rank 6). 
 
 This simple presentation intuitively puts the winning teams higher than the
 losing teams. The winner and loser of a certain game can be easily derived from 
 their relative vertical position. It is also clear that for a team to be on a 
 higher level, the team needs to have played and won a series of matches against 
-one other team at every level below them~\ref{fig:playoffviewteamselected}. 
-This view is further reinforced by highlighting a team and its matches and 
-opponents when hovering over it. To emphasize the matches won and lost, the colors green
-and red where used. Additional team information is also shown in the context part
-when hoovering over a team.
+one other team at every level below them, which can be seen in Figure~\ref{fig:playoffviewnoteam}. This view is further reinforced by highlighting a team, its matches and opponents when hovering over it. To emphasize the matches won and lost, the colors green and red where used. Additional team information is also shown in the context part when hovering over a team.
 
 %\begin{figure}
 %\centering
@@ -431,23 +409,12 @@ when hoovering over a team.
 
 \subsubsection{Previous designs}
 Our initial design used the team circles' lightness to indicate their final
-ranking in their region. The hue was used to show the league they were part of.
-According to the Ranking of Perceptual Tasks~\cite{automatingdesign} this is a
-good property for ordered values like the regular competition ranking. But the
-combination of the logo's of the teams with the colors resulted in an overload
-of information and made it more difficult to compare the end ranking of
-different teams. 
+ranking in their region. The hue was red or blue indicating the teams' region.
+According to the Ranking of Perceptual Tasks by Jock Mackinlay~\cite{automatingdesign} this is a good property for ordered values like the end positions in the regular competition ranking. But the combination of the teams' logo's with the different hues and ligthnesses resulted in an overload of information and made it more difficult to compare different teams based on their end ranking. Our initial design is shown in Figure~\ref{fig:firstdesignplayoffview}
 
-As an alternative we tried the same view without the logo's. This turned out to be 
-inconvenient for the user as one could not instantly see which team is represented 
-by which circle. Therefore we've chosen to only use the teams' logos.
+As an alternative we tried the same view without the logo's, , as shown in Figure~\ref{fig:playoffviewfirstimplemantation}. This turned out to be inconvenient for the user as one could not instantly see which team is represented by which circle. Recognizing the different teams is a fundamental part of our visualization, while the comparison of end ranking of different teams would not have great importance. Therefore we've chosen to only use the teams' logos.
 
-Our initial play-off view was too dense because teams that played against each other were connected directly. When
-searching for alternatives to reflect on our choice we discovered a similar
-visualization in a totally different context\cite{whitehousepath} as explained in 
-the section \ref{sec:literature}. With the idea of this visualization in mind, our 
-visualization gives a cleaner view of the competitors for a specific team compared 
-to our original sketch. Hence we decided to adapt our visualization.
+Our initial play-off view was too dense because teams that played against each other were connected directly. This can also be seen in Figure~\ref{fig:playoffviewfirstimplemantation}. When searching for alternatives to reflect on our choice we discovered a similar visualization by Mike Bostock and Shan Carter~\cite{whitehousepath} in a totally different context as explained in the section \nameref{sec:literature}. With the idea of this visualization in mind, our visualization gives a cleaner view of the competitors for a specific team compared to our original sketch. Hence we decided to adapt our visualization.
 
 %\todo{Hierarchy = sorting = facilitate trends of winners
 %position have a meaning in the play-off view
@@ -461,9 +428,7 @@ to our original sketch. Hence we decided to adapt our visualization.
 
 We initially also considered a map view to show the teams and their regular
 competition ranking on a map of the USA. However, the geographical position gave
-no additional information that would contribute to meaningful insights. Furthermore we've found a visualisation
-of the NBA with a map view~\cite{mapviewvisualization} similar to our idea, so
-we decided to not implement this map view. 
+no additional information that would contribute to meaningful insights. Furthermore we've found a visualization of the NBA with a map view made by Leeman Chiu~\cite{mapviewvisualization} similar to our idea, so we decided to not implement this map view. 
 
 \begin{figure}
 \centering
@@ -486,65 +451,53 @@ coordinated parts:
 \end{itemize}
 
 \subsubsection{Context section}
-The context section is partly identical to that of the play-offs view. The
-team's information is also displayed in the top left. In the top right, the
+The context section is partly identical to that of the play-off's view. The
+team's information is again displayed in the top left. In the top right, the
 bubble section of the play-offs view is displayed in a reduced, minimalistic
 form. This view is repeated to create a sense of continuity between the
-different views and provide context of the current position in the
+different views and to provide context of the current position in the
 visualization. The team shown in the statistics view is highlighted on this
-smaller bubble section as well. Replicating this section alleviates
-short-term memory limitations. It prevents the need to scroll back and forth between
-the different views constantly. 
+smaller bubble section the same way as in the large play-off view.. Furthermore, replicating this section alleviates short-term memory limitations. It prevents the need to scroll back and forth between the different views constantly. 
 
 \subsubsection{Arrow section}
-This section illustrates a change for a chosen statistic for the selected team in 
-the selected season compared to the previous season. This gives a user more 
+This section illustrates how transfers change a chosen statistic for the selected team in the selected season compared to the previous season. This gives a user more 
 insight into why a statistic changed over time and how this change has affected 
-team performance. The selected team is represented by a circle in the same way as 
-explained in the play-off view. To give the user a better interpretation of the SRS 
-value of the circle, three other reference circles are drawn. These are 
-transparant with a lightgrey border. They show the maximum, average and minimum SRS 
-value of the NBA teams in the selected season. The change for the chosen statistic is 
-represented by three arrows:
+team performance. The selected team is represented by a circle in the same way as in the play-off view. To give the user a better interpretation of the SRS value of the team, three other reference circles are drawn. These are transparent with a lightgrey border and show the maximum, average and minimum SRS value of the NBA teams in the selected season. The change for the chosen statistic is represented by three arrows:
 \begin{itemize}
     \item Arrow on the left pointing towards the circle: indicating the
-        influence of players who joined the team.
+        influence of players who joined the team
     \item Arrow on the right of the circle: indicating how the team internally
         changed, e.g. by training its players
     \item Arrow on the left pointing away from the circle: indicating the
         influence of players who left the team 
 \end{itemize}
-The value of the change in statistic is shown next to the arrow. As well as the number of 
-players responsible for the change between brackets. Their are max. two
+The value of the change in statistic is shown next to the arrow, as well as the number of 
+players responsible for the change, which is shown between brackets. There are maximum two
 jerseys next to the arrows as well. These are the jerseys of the players that 
-had the biggest contribution to the influence represented by that arrow.  
-On the left, there is a possibility to chose a statistic. The possibilities 
-are the PER value, the age, the effective field goal percentage, the offensive rating 
-and the defensive rating. Below this menu, player information is shown when a user hovers
-over a player's jersey. 
+had the biggest contribution to the change represented by their corresponding arrow.  
+On the left, there is the possibility to choose a statistic. The different possibilities are the PER value, the age, the effective field goal percentage, the offensive rating and the defensive rating. Below this menu, player information is shown when a user hovers over a player's jersey. 
 
 \subsubsection{Selected statistics section}
 Below the arrow section, multiple line and area charts show how the selected 
 team has performed over the years. The different statistics shown are the 
-total PER of the whole team, the league rank, the playoff rank, the average age 
+total PER of the whole team, the league rank, the play-off rank, the average age 
 of the team, the audience, the SRS-value of the team, the offensive rating and 
 the defensive rating of the team. A user interacts with the visualization by 
 shifting the bar indicating the current year displayed or the timeline. By 
 doing this the view gets updated and the user can see the impact on the team 
 in the context section and why the statistic changes in the arrow section. 
-These charts enable the user to identify peaks or drops in a certain statistic. 
+These charts enable the user to identify peaks or drops in a certain team statistic. 
 By interacting with the visualization, previous seasons can be inspected to try 
-and find explanations. The user could als look at the following seasons to see how a team 
+and find explanations. The user could also look at the following seasons to see how a team 
 performed related to the evolution of a statistic. This view provides 
 a lot of additional information to users by allowing them to see correlations 
 between statistics and phenomena quickly and easily.
 
 \subsubsection{Previous designs}
 This view has not changed much compared to the initial design. The only difference 
-was the position of the arrow and jerseys for the players who stayed, which were 
-originally in the team circle, and so the logo was not showed. 
+is the position of the arrow and jerseys for the players who stayed, which was originally located in the team circle, and so the team's logo was not shown. 
 The design of the arrows did not change. The incoming and outgoing 
-arrows are maybe more intuitevly than the arrow for the stayed players, but we did 
+arrows are maybe more intuitively than the arrow for the stayed players, but we did 
 not find any alternatives we could use.
 
 \begin{figure}
@@ -559,11 +512,10 @@ The team view gives a user a detailed view on the strength of the team at the
 different field positions. The team view is shown in Figure~\ref{fig:teamview}. 
 The view consists of 3 coordinated parts:
 \begin{itemize}
-    \item Context sect
-    ion: the top part informs the user of the context of the
+    \item Context section: the top part informs the user of the context of the
         selected team
-    \item Field section: this section illustrates why a statistic has changed
-        compared to the previous season
+    \item Field section: this section illustrates the strength of the whole team on
+        the different field positions
     \item Selected statistics section: team statistics and how they evolve over
         time
 \end{itemize}
@@ -571,10 +523,10 @@ The context section and the selected statistics section are fixed parts in the
 statistics and team view, and are therefore not explained again for this view.
 
 \subsubsection{Field section}
-This view shows each player of the team at its field positions. Players are
+This view shows each player of the team at its field position. Players are
 represented by their jerseys. Jerseys aligned next to each other share the same
-position, which is indicated as well with a rectangle. The size of a jersey illustrates a
-players performance according to the chosen statistic. The possible statistics 
+position, which is indicated with a rectangle. The size of a jersey illustrates a
+player's performance according to the chosen statistic. The possible statistics 
 are shown on the left and are the same as those in the arrow section of the 
 statistics view. As well as the statistics view, this view should give the user 
 the ability to search for explanations why a team is performing better or worse 
@@ -582,7 +534,7 @@ over seasons. On the other hand, a user can see what impact a change in team
 characteristics has on its overall performance. This view should give a user 
 insight on how strong or weak a particular team is for a specific field position. 
 A user can then scroll through time to see how field positions evolve and what 
-the influence is over time.
+the influence of this field changes are over time.
 
 \subsubsection{Previous designs}
 Initially we designed this view more elaborate. When the user would click on a
@@ -595,7 +547,7 @@ indicate where a player stands compared to the group he was compared with. This
 part of the visualization was not our main focus. Because of the lesser
 importance and because of time and resource constraints, it has not been
 developed. A sketch including the small multiples view on the bottom right is
-shown on Figure~\ref{fig:smallmultsketch}.
+shown in Figure~\ref{fig:smallmultsktech}.
 
 \begin{figure}
 \centering
@@ -614,15 +566,15 @@ webstandards. The choice not to use the d3 framework for the entire
 visualization was made to ease the layout configuration of the visualization.
 Instead, html was used to do the global layout of the visualization. We opted to
 structure the site with multiple divs as containers. To each container we
-allocate a svg with a specific visualization.
+allocate an svg with a specific visualization.
 %\todo{sketch of how the page is structured here}
 
 When working with d3.js we encountered one main obstacle:
 \begin{itemize}
-        \item Asynchrounous calls had to be combined with synchronous calls.
+        \item Asynchronous calls had to be combined with synchronous calls.
             More specific, when a visitor uses the timeline to scroll through
-            time, the whiping of previous visualizations was not synced with the
-            creation of the visualisation. This resulted in whiping sections
+            time, the wiping of previous visualizations was not synced with the
+            creation of the new visualization. This resulted in wiping sections
             when a visualization was not created yet. Hence the view resulted in
             multiple figures overlapping.
 \end{itemize}
@@ -643,20 +595,8 @@ quite quickly. Our main concern was to integrate these views as a whole and to b
 able to let a user see relations between the teams' performance and their statistics to draw
 conclusions of his/her own. The relation we thought would be visible 
 was that the total PER value of a team would influence the end positions in the NBA championship, both the league rank as the play-off rank. We expected that teams 
-that had a big increase in total PER value, due to a good transfer policy during 
-season, would benefit from it in one of the following seasons. We were not able to conclude this from the data as some players may play a lot more than others and are therefore having a big influence on the team. Howeverm this led us to a story about 
-the Chicago Bulls The team of Michael Jordan who is seen as the greatest basketball 
-player of all time. In 1984, Jordan arrives at the Chicago Bulls and in his first season he is already the top player of his team, as seen by the size of his jersey for the PER statistic. In the season 1990-1991 and the two following seasons, the 
-Chicago Bulls win the NBA championship. The ``three-peat'' as it is called was done 
-with almost the same core team. Next to Michael Jordan, there were around five 
-players that were part of the team and were roughly the best on their position in 
-the team, for example Scottie Pippen. We can see that in the seasons before this 
-``three-peat'' this team was formed and already played with each other. After that 
-last season form those three consecutive wins, Michael Jordan retires and the team 
-is not able anymore to achieve the same. In the middle of the season 1994-1995, Michael Jordan came out of retirement. What follows is a similar story to the previous one. In the season 1995-1996 and the two following seasons, the Chicago 
-Bulls again achieve to win the NBA chamionship three times in a row, again with a  team consisting of around five core players. Once again is Michael Jordan the star 
-player of the team, but also Scottie Pippen is still one of the best players of the team. So to become the champion, it seems like a team needs to have a default team with around five core players and one or two star players.
-By having this story it was easier for us to evaluate our design We could focus more on relevant parts of the visualization and cut less relevant parts from the project eg the details player information.
+that had a big increase in total PER value, due to a good transfer policy during a season, would benefit from it in one of the following seasons. We were not able to conclude this from the data as some players may play a lot more than others and are therefore of much bigger importance for the team. This interesting observation led us to a story about the Chicago Bulls, the team of Michael Jordan, who is considered to be the greatest basketball player of all time. In 1984, Jordan arrives at the Chicago Bulls and in his first season he is already the top player of his team, as seen by the size of his jersey for the PER statistic. In the season 1990-1991 and the two following seasons, the Chicago Bulls win the NBA championship. The ``three-peat'' as it is called, was done with almost the same core team. Next to Michael Jordan, there were around five players that were part of the team and were roughly the best on their position in the team, for example Scottie Pippen. We can see that in the seasons before this ``three-peat'' this team was formed and already played with each other. After that last season from those three consecutive wins, Michael Jordan retires and the team failed in winning the NBA championship again. In the middle of the season 1994-1995, Michael Jordan came out of retirement. What follows is a similar story to the previous one. In the season 1995-1996 and the two following seasons, the Chicago Bulls again achieve to win the NBA championship three times in a row, again with a  team consisting of around five core players. Once again is Michael Jordan the star player of the team, but also Scottie Pippen is still one of the best players of the team. So it seems that to become the champion, a team needs to have a default team with around five core players from which one or two are star players.
+By having this story it was easier for us to evaluate our design. We could focus more on important parts of the visualization and cut less relevant parts from the project, e.g. the detailed player information.
 
 %Our main problem was to integrate these views as a whole. When we
 %created drafts of two views being the play-off view and the statitics view, we
@@ -671,64 +611,64 @@ By having this story it was easier for us to evaluate our design We could focus 
 
 \subsection{Each component should be informative}
 In order to have a good visualization as a whole, each component should be a
-clear and informative visualization on itself. During the project, we started noticing that most components in a visualization lack references and hence are not informative enough. Eg. each small multiple of a statisctic in the statistics view on itself gives sufficient information to stand on itselfs. The bar in the small multiple indicates the score in the selected season and enables the user to evaluate that score over time. Have there been better scores, or worse scores? Is this score
-part of an upward movement during years? This should be weighed against the
-duplication of data and use of screen space. Coordinated views alleviate this
-need significantly, as each component is strongly supported by other
-components.
+clear and informative visualization on itself. During the project, we started noticing that most components in a visualization lack references and hence are not informative enough, e.g. each small multiple of a statistic in the statistics view gives sufficient information to stand on itself. The bar in the small multiple indicates the score in the selected season and enables the user to evaluate that score over time. Have there been better scores, or worse scores? Is this score
+part of an upward movement during years? This should be weighted against the
+duplication of data and the use of screen space. Coordinated views alleviate this
+need significantly, as each component is strongly supported by other components.
 
 \subsection{Custom visualizations}
 Before exploring what is out there in the d3.js world, we made our own sketches.
-This is how we came up with the 3 custom views that make up our visualization.
+This is how we came up with the three custom views that make up our visualization.
 When comparing our design with alternatives we could not find something that
-satisfied our needs. Nonetheless, they gave us inspiration to finetune our
-designs. Although we are satisfied with our result and we are convinced it was
-the right choice to reach our goal, it had some draw backs. If we did not started with our custom view, we would have had more freedom in exploring multiple different visualizations and we would be able to evaluate different options with trial and error. Instead much of the time developing was spent on the technical details for these custom visualizations. This was especially true for the bubble component of the play-off view. No out of the box solution for this could be found so everything from the determination of the positions of the bubbles to how to connect them had to be developed by us.
+satisfied our needs. Nonetheless, they gave us inspiration to fine-tune our
+design. Although we are satisfied with our result and we are convinced it was
+the right choice to reach our goal, it had some drawbacks. If we did not started with our custom view, we would have had more freedom in exploring multiple different visualizations and we would be able to evaluate different options with trial and error. Instead much of the developing time was spent on the technical details for these custom visualizations. This was especially true for the bubble component of the play-off view. No out of the box solution for this could be found so everything from the determination of the positions of the bubbles to how to connect them we had to develop ourselves.
 
 \section{Future work}\label{sec:futurework}
-As with most projects, the result is never 'finished', meaning that there are
-always extensions and improvements possible but due to timing or resource constraints they haven't all been implemented. We suggest a number of features that might improve the visualization:
+As with most projects, the result is never `finished', meaning that there are
+always extensions and improvements possible. We suggest a number of features that might improve the visualization:
 \begin{itemize}
     \item Smooth/animated transitions between states could improve the user experience.
-        For example when changing year, a transformation of the arrow in the
-        statistics view would help the user see a difference between years.  At
-        the moment the arrows change at the blink of an eye, making it difficult
-        for us humans with a short term memory to make the comparison. This
-        would also have been very useful in the transitions between different
+        For example when changing seasons, an animated transition of the arrow in 
+        the statistics view would help the user see the difference between the 
+        seasons. At the moment the arrows change at the blink of an eye, making it  
+        difficult for us, humans with a short term memory, to make the comparison. 
+        This would also have been very useful in the transitions between different 
         years on the bubble view.
-    \item To further support our short term memory we could also 'save' the
-        previous state. Eg. in the field view we could visualize ghost jerseys
+    \item To further support our short term memory we could also `save' the
+        previous state. E.g. in the field view we could visualize ghost jerseys
         to indicate which players left the team or position and highlight
         players that joined the team.  This would help the user see how the team
         changes over time.
     \item At the moment no attention has been payed to the process, provenance
-        and history of the user's exploration session. A user thus needs to
+        and history of the user's exploration session. A user needs to
         memorize his action to be able to share or reproduce his actions. This
-        could be improved by adding URL parameters. This way a user at least can
+        could be improved by adding URL parameters. This way a user can
         share or save a state of an analysis. One step further is to provide a
-        play-feature. The visitor could them share his exploration and replay
-        it. A simple implemention would ask the visitor for a start date and an
-        end date and would then 'play' the changes of a particular team and
-        characteristic over time.
-    \item We could support users further in looking for patterns by focussing
+        play-feature. Then the visitor could share his exploration and replay
+        it. A simple implementation would ask the visitor for a start date and an
+        end date and would then `play' the changes of the selected team and 
+        characteristic.
+    \item We could support users further in looking for patterns by focusing
         more on comparisons. We could integrate a view where a visitor is able
-        to compare two teams in the same year, or in two different years by duplicating current views next to each other.
+        to compare two teams in the same year or in two different years, for example   
+        by duplicating current views next to each other.
     \item We could focus more on the core team, i.e. five or six players who seems 
         to be the most important for the results of a team.
-    \item As mentioned before, we could elaborate individual player information and visualize their statistics relevant to their field position.
+    \item As mentioned before, we could elaborate more on individual player 
+        information and visualize their statistics relevant to their field position.
 
 \end{itemize}
 
 \section{Conclusion}\label{sec:conclusion}
-We believe the visualization can be of tremendous value for fans
+We believe the visualization can be of tremendous value for fans of the NBA 
 and fantasy basketball players. Personally we have gained several insights into
 the performance of basketball teams by using the visualization and we believe
 others could learn even more. 
 The most interesting conclusion we were able to make concerns the importance of
 individual players in a basketball team. We were able to find strong
-correlations between having two to four very strong players and the team's
-performance. It seems having one star player is not enough. On the other hand,
-having more than 5 good players no longer has much influence either. 
+correlations between having two to five very strong players and the team's
+performance. It seems that just having one star player is not enough. On the other hand, having more than 5 good players no longer has much influence either. 
 
 While the visualization has a lot of potential for improvement, we think the
 innovative play-offs representation combined with detailed team information in
@@ -764,23 +704,22 @@ an integrated fashion enables users to gain insights into why certain teams won 
 \appendix
 \section{Terminology}\label{sec:terminology}
 
-\paragraph{NBA} National Basketball Association - The largest, most well-known
-basketball of the USA.
-
 \paragraph{PER} Player Efficiency Rating - An all-in-one basketball rating,
-boiling down all of a player's contributions into one number\cite{per}.
+boiling down all of a player's contributions into one number~\cite{per}.
 
 \paragraph{SRS} Simple Rating System - a rating that takes into account average
 point differential and strength of schedule. The rating is denominated in points
-above/below average, where zero is average\cite{srs}. 
+above/below average, where zero is average~\cite{srs}. 
 
-\paragraph{Playoffs} The National Basketball Association (NBA) playoffs are a
+\paragraph{Play-offs} The National Basketball Association (NBA) play-offs are a
 best-of-seven elimination tournament among 16 teams in the Eastern Conference
-and Western Conference (called divisions, pre-1970), ultimately deciding the
-winner of the NBA Finals\cite{playoffs}.
+and Western Conference, ultimately deciding the winner of the NBA Finals~\cite{playoffs}.
 
 \paragraph{Jersey} The shirt worn by basketball players.
 
+\paragraph{Three-point line} The line that separates the two-point area and the three-point area.
+
+%\todo{PER value, the age, the effective field goal percentage, the offensive rating and the defensive rating}
 
 \end{document}
 
