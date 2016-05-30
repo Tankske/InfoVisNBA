@@ -1,8 +1,10 @@
+
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.6)  30 MAY 2016 20:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./paper.tex
+
 (./paper.tex
 LaTeX2e <2016/03/31>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
@@ -1306,13 +1308,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 <figures/data.png, id=121, 538.26094pt x 353.06906pt>
 File: figures/data.png Graphic file (type png)
  <use figures/data.png>
-Package pdftex.def Info: figures/data.png used on input line 211.
+Package pdftex.def Info: figures/data.png used on input line 212.
 (pdftex.def)             Requested size: 243.98238pt x 160.03789pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 212.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 213.
 
 [1{c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
 
 Non-PDF special ignored!
 
@@ -1340,6 +1341,7 @@ File: figures/playoffviewfirstdesign.png Graphic file (type png)
 <use figures/playoffviewfirstdesign.png>
 Package pdftex.def Info: figures/playoffviewfirstdesign.png used on input line 
 398.
+
 (pdftex.def)             Requested size: 243.98238pt x 192.53749pt.
 
 <figures/playoffviewfirstimplemantation.png, id=209, 409.53pt x 301.72725pt>
@@ -1348,9 +1350,11 @@ File: figures/playoffviewfirstimplemantation.png Graphic file (type png)
 <use figures/playoffviewfirstimplemantation.png>
 Package pdftex.def Info: figures/playoffviewfirstimplemantation.png used on inp
 ut line 405.
+
 (pdftex.def)             Requested size: 219.58264pt x 161.78389pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 415.
+
 
 
 LaTeX Warning: Reference `fig:playoffviewfirstimplemantation' on page 4 undefin
@@ -1371,6 +1375,7 @@ ation.png> <./figures/statisticsview.png>]
 <figures/teamview.png, id=229, 752.0597pt x 697.8572pt>
 File: figures/teamview.png Graphic file (type png)
 
+
 <use figures/teamview.png>
 Package pdftex.def Info: figures/teamview.png used on input line 505.
 (pdftex.def)             Requested size: 243.98238pt x 226.39626pt.
@@ -1379,10 +1384,17 @@ Package pdftex.def Info: figures/teamview.png used on input line 505.
 File: figures/smallmultsketch.jpg Graphic file (type jpg)
 
 <use figures/smallmultsketch.jpg>
+
 Package pdftex.def Info: figures/smallmultsketch.jpg used on input line 554.
+
 (pdftex.def)             Requested size: 243.98238pt x 182.96828pt.
+
+Underfull \vbox (badness 1648) has occurred while \output is active []
+
  [6 <./figures/smallmultsketch.jpg>]
+
 LaTeX Font Info:    Try loading font information for T1+txtt on input line 702.
+
 
 
 (c:/texlive/2015/texmf-dist/tex/latex/txfonts/t1txtt.fd
@@ -1393,13 +1405,16 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 702.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 702.
 
 
+
 Package balance Warning: You have called \balance in second column
 (balance)                Columns might not be balanced.
+
 
 [7]
 Overfull \vbox (19.56667pt too high) has occurred while \output is active []
@@ -1411,6 +1426,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 724.
  (./paper.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 724.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 724.
+
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: E1E1A1408614BB35D7763B8F641B9A31;1562.
 
@@ -1419,6 +1435,7 @@ LaTeX Warning: There were undefined references.
 
 Package logreq Info: Writing requests to 'paper.run.xml'.
 \openout1 = `paper.run.xml'.
+
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 724.
  ) 
@@ -1438,6 +1455,7 @@ nts/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw
 /2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2015/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
 Output written on paper.pdf (8 pages, 7104067 bytes).
+
 PDF statistics:
  390 PDF objects out of 1000 (max. 8388607)
  355 compressed objects within 4 object streams
