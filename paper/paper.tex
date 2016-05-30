@@ -403,16 +403,17 @@ one other team at every level below them, which can be seen in Figure~\ref{fig:p
 \centering
 %  \missingfigure{}
   \includegraphics[width=0.9\columnwidth]{figures/playoffviewfirstimplemantation}
-  \caption{First implementation of the play-off view.}~\label{fig:firstimplementationplayoffview}
+  \caption{First implementation of the play-off view.}~	
+  \label{fig:playoffviewfirstimplemantation}
 \end{figure}
 
 
 \subsubsection{Previous designs}
 Our initial design used the team circles' lightness to indicate their final
 ranking in their region. The hue was red or blue indicating the teams' region.
-According to the Ranking of Perceptual Tasks by Jock Mackinlay~\cite{automatingdesign} this is a good property for ordered values like the end positions in the regular competition ranking. But the combination of the teams' logo's with the different hues and ligthnesses resulted in an overload of information and made it more difficult to compare different teams based on their end ranking. Our initial design is shown in Figure~\ref{fig:firstdesignplayoffview}
+According to the Ranking of Perceptual Tasks by Jock Mackinlay~\cite{automatingdesign} this is a good property for ordered values like the end positions in the regular competition ranking. But the combination of the teams' logo's with the different hues and ligthnesses resulted in an overload of information and made it more difficult to compare different teams based on their end ranking. Our initial design is shown in Figure~\ref{fig:firstdesignplayoffview}.
 
-As an alternative we tried the same view without the logo's, , as shown in Figure~\ref{fig:playoffviewfirstimplemantation}. This turned out to be inconvenient for the user as one could not instantly see which team is represented by which circle. Recognizing the different teams is a fundamental part of our visualization, while the comparison of end ranking of different teams would not have great importance. Therefore we've chosen to only use the teams' logos.
+As an alternative we tried the same view without the logo's, as shown in Figure~\ref{fig:playoffviewfirstimplemantation}. This turned out to be inconvenient for the user as one could not instantly see which team is represented by which circle. Recognizing the different teams is a fundamental part of our visualization, while the comparison of end ranking of different teams would not have great importance. Therefore we've chosen to only use the teams' logos.
 
 Our initial play-off view was too dense because teams that played against each other were connected directly. This can also be seen in Figure~\ref{fig:playoffviewfirstimplemantation}. When searching for alternatives to reflect on our choice we discovered a similar visualization by Mike Bostock and Shan Carter~\cite{whitehousepath} in a totally different context as explained in the section \nameref{sec:literature}. With the idea of this visualization in mind, our visualization gives a cleaner view of the competitors for a specific team compared to our original sketch. Hence we decided to adapt our visualization.
 
