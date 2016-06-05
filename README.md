@@ -1,7 +1,7 @@
-
 # InfoVisNBA
+----------
 
-An interactive visualization of the NBA competition over the last 30 years.
+An interactive visualization of the NBA.
 
 ----------
 
